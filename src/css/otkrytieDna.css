@@ -1,0 +1,15 @@
+.otkrytieDna .block__title {
+	display: flex;
+	justify-content: space-between;
+}
+.otkrytieDna .block__item {width: 164px;}
+.otkrytieDna toggle label span {
+	position: absolute;
+  top: 1px;
+  left: 20px;
+  transition: all 0.3s 0.1s;
+  font-weight: 400;
+}
+.otkrytieDna .toggle label {
+	width: 119px;
+}

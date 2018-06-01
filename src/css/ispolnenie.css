@@ -1,0 +1,22 @@
+.ispolnenie .block__title {
+	display: flex;
+	justify-content: space-between;
+}
+.ispolnenie .block__item {width: 243px;}
+.ispolnenie .block__item {width: 243px;}
+.ispolnenie .toggle {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+}
+/* .ispolnenie toggle label span {
+	position: absolute;
+  top: 1px;
+  left: 20px;
+  transition: all 0.3s 0.1s;
+  font-weight: 400;
+}
+.ispolnenie .toggle label {
+	width: 119px;
+} */

@@ -1,0 +1,19 @@
+.footer {
+	background-color: burlywood;
+	padding: 15px 25px;
+	text-align: right;
+}
+.footer button {
+	background: linear-gradient(#138dd4,#007ac2);
+	border: none;
+	padding: 7px 34px 8px;
+	color: #fff;
+	border-radius: 4px;
+	font-weight: 700;
+	margin: 0 0 0 10px;
+	cursor: pointer;
+	border: 2px solid #eceef0;
+}
+.footer button:hover {
+	background: linear-gradient(#007ac2,#138dd4);
+}

@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #c9d1d5;
+  background: #f5f6f8;
+}
+.header__item {
+  background-color: aquamarine;
+  margin: 0 15px;
+  padding: 15px 20px;
+}
+.header__item.active {
+  color: red;
+  font-weight: 700;
+}
