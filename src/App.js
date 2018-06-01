@@ -24,7 +24,7 @@ import Form2 from './components/Form2';
 const Context = React.createContext()
 
 let initialState = {
-  currentStep: 1,
+  currentStep: 2,
   vacNasos: {
     name: 'Вакуумный насос',
     selected: '',
@@ -71,8 +71,7 @@ let initialState = {
   ispolnenie: {
     name: 'Исполнение',
     selected: '',
-    value: '',
-    checked: false
+    checked: true
   },
   kreplenieOgnetushitelia: {
     name: 'Крепление огнетушителя',
