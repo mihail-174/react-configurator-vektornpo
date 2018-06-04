@@ -28,9 +28,8 @@ export default class Ispolnenie extends Component {
   render() {
     const { context } = this.props.context;
 
-    let value = parseInt(context.state.ispolnenie.value, 0);
     const list = arr.fields.map((field, key) =>
-      <div key={key} className={value === key ? 'block__item active': 'block__item'}>
+      <div key={key} className={context.state.ispolnenie.checked ? 'block__item active': 'block__item'}>
         <input className="block__input" id="ispolnenieCheck" onChange={this.changeCheckbox} defaultChecked={context.state.ispolnenie.checked} type='checkbox' />
         <div className="toggle">
           <label htmlFor="ispolnenieCheck">
@@ -44,7 +43,7 @@ export default class Ispolnenie extends Component {
       </div>
     );
     return (
-      <div className={context.state.ispolnenie.checked ? 'block block_col ispolnenie': 'block block_col block_disabled ispolnenie'}>
+      <div className={context.state.ispolnenie.checked ? 'block block_col ispolnenie': 'block block_col block_off ispolnenie'}>
         <div className="block__title">{context.state.ispolnenie.name}</div>
         <div className="block__list">
           {list}

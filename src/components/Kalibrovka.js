@@ -28,9 +28,8 @@ export default class Kalibrovka extends Component {
   render() {
     const { context } = this.props.context;
 
-    let value = parseInt(context.state.kalibrovka.value, 0);
     const list = arr.fields.map((field, key) =>
-      <div key={key} className={value === key ? 'block__item active': 'block__item'}>
+      <div key={key} className={context.state.kalibrovka.checked ? 'block__item active': 'block__item'}>
         <input className="block__input" id="kalibrovkaCheck" onChange={this.changeCheckbox} defaultChecked={context.state.kalibrovka.checked} type='checkbox' />
         <div className="toggle">
           <label htmlFor="kalibrovkaCheck">
@@ -44,7 +43,7 @@ export default class Kalibrovka extends Component {
       </div>
     );
     return (
-      <div className={context.state.kalibrovka.checked ? 'block block_col kalibrovka': 'block block_col block_disabled kalibrovka'}>
+      <div className={context.state.kalibrovka.checked ? 'block block_col kalibrovka': 'block block_col block_off kalibrovka'}>
         <div className="block__list">
           {list}
         </div>

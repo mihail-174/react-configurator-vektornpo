@@ -11,7 +11,7 @@
 	display: flex;
 }
 .block__input {
-  /* display: none; */
+  display: none;
 	position: absolute;
 	margin: 0;
 	padding: 0;
@@ -28,9 +28,14 @@
   display: flex;
   transition: all 0.3s;
 }
+
 .block_disabled .block__list * {cursor: default;}
+.block_off .block__item,
 .block_disabled .block__item {background: #fcfcfc;}
-.block_disabled .block__name, .block_disabled .block__subname {color: #c9c9c9;}
+.block_off .block__name,
+.block_disabled .block__name,
+.block_off .block__subname,
+.block_disabled .block__subname {color: #c9c9c9;}
 
 .block:not(.block_disabled) .block__item.active,
 .block:not(.block_disabled) .block__item:hover {border-color: #378fe2;}

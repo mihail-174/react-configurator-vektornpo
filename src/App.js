@@ -24,7 +24,7 @@ import Form2 from './components/Form2';
 const Context = React.createContext()
 
 let initialState = {
-  currentStep: 3,
+  currentStep: 1,
   vacNasos: {
     name: 'Вакуумный насос',
     selected: '',
@@ -110,54 +110,8 @@ let initialState = {
 
 
   zimniiPaket: {
-    name: 'Зимний пакет',
-    checked: false,
-    // fields: {
-    //   avtonomnOtopitel: {
-    //     name: 'Автономн. отопитель',
-    //     checked: true
-    //   },
-    //   filtrSEPAR2000: {
-    //     name: 'Фильтр SEPAR2000',
-    //     checked: true
-    //   },
-    //   sumkaADR: {
-    //     name: 'Сумка - ADR',
-    //     checked: false
-    //   },
-    //   uteplenieKabinyMotornogoOtseka: {
-    //     name: 'Утепление кабины и моторного отсека',
-    //     checked: false
-    //   },
-    //   uteplenieAkkumuliatornogoOtseka: {
-    //     name: 'Утепление аккумуляторного отсека',
-    //     checked: false
-    //   },
-      // item0: {
-      //   name: 'Автономн. отопитель',
-      //   checked: true
-      // },
-      // item1: {
-      //   name: 'Фильтр SEPAR2000',
-      //   checked: true
-      // },
-      // item2: {
-      //   name: 'Сумка - ADR',
-      //   checked: false
-      // },
-      // item3: {
-      //   name: 'Утепление кабины и моторного отсека',
-      //   checked: false
-      // },
-      // item4: {
-      //   name: 'Утепление аккумуляторного отсека',
-      //   checked: false
-      // }
-    // }
+    name: 'Зимний пакет'
   },
-
-
-
   avtonomnOtopitel: {
     name: 'Автономн. отопитель',
     checked: true

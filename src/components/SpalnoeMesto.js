@@ -28,9 +28,8 @@ export default class SpalnoeMesto extends Component {
   render() {
     const { context } = this.props.context;
 
-    let value = parseInt(context.state.spalnoeMesto.value, 0);
     const list = arr.fields.map((field, key) =>
-      <div key={key} className={value === key ? 'block__item active': 'block__item'}>
+      <div key={key} className={context.state.spalnoeMesto.checked ? 'block__item active': 'block__item'}>
         <input className="block__input" id="spalnoeMestoCheck" onChange={this.changeCheckbox} defaultChecked={context.state.spalnoeMesto.checked} type='checkbox' />
         <div className="toggle">
           <label htmlFor="spalnoeMestoCheck">
@@ -44,7 +43,7 @@ export default class SpalnoeMesto extends Component {
       </div>
     );
     return (
-      <div className={context.state.spalnoeMesto.checked ? 'block block_col spalnoeMesto': 'block block_col block_disabled spalnoeMesto'}>
+      <div className={context.state.spalnoeMesto.checked ? 'block block_col spalnoeMesto': 'block block_col block_off spalnoeMesto'}>
         <div className="block__list">
           {list}
         </div>

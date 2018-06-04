@@ -72,16 +72,16 @@ export default class ZimniiPaket extends Component {
       //     item = 'avtonomnOtopitel';
       //     break;
       // }
-      console.log( item );
+      // console.log( item );
 
 
   }
   render() {
     const { context } = this.props.context;
-    const list = arr.fields.map((field, key) =>
 
-      <div key={key} className={context.state.zimniiPaket.checked ? 'block__item': 'block__item block_disabled'} data-machine_name={field.machine_name}>
-        <input className="block__input" id={"zimniiPaketCheck-" + key} value={key} onChange={this.changeCheckbox} defaultChecked={context.state.zimniiPaket.checked} type='checkbox' />
+    const list = arr.fields.map((field, key) =>
+      <div key={key} className={context.state[field.machine_name].checked ? 'block__item active ' + field.machine_name : 'block__item block_disabled ' + field.machine_name} data-machine_name={field.machine_name}>
+        <input className="block__input" id={"zimniiPaketCheck-" + key} value={key} onChange={this.changeCheckbox} defaultChecked={context.state[field.machine_name].checked} type='checkbox' />
         <div className="toggle">
           <label htmlFor={"zimniiPaketCheck-" + key}>
             <div><span></span></div>
@@ -95,7 +95,8 @@ export default class ZimniiPaket extends Component {
     );
 
     return (
-      <div className='block block_col zimniiPaket'>
+      <div className='block block_row zimniiPaket'>
+        <div className="block__title">{context.state.zimniiPaket.name}</div>
         <div className="block__list">
           {list}
         </div>

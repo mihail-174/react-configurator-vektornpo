@@ -1,5 +1,5 @@
 .toggle {}
-/* .toggle .checkbox {display: none;} */
+.toggle .checkbox {display: none;}
 .toggle label {cursor: pointer;}
 .toggle label span {
 	position: absolute;
