@@ -12,6 +12,8 @@ import Step1 from './step/Step1';
 import Step2 from './step/Step2';
 import Step3 from './step/Step3';
 
+import ShooseAvto from './components/ShooseAvto';
+
 import Welcome from './components/Welcome';
 import List1 from './components/List1';
 import List2 from './components/List2';
@@ -25,8 +27,9 @@ const Context = React.createContext()
 
 let initialState = {
   currentStep: 1,
+  selectedAvto: 0,
   vacNasos: {
-    name: 'Вакуумный насос',
+    name: '',
     selected: '',
     value: ''
   },
@@ -196,7 +199,9 @@ export default class App extends Component {
          <List4 />
        </div>
 
+
       <div className="App">
+        <Context.Consumer>{context => ( <ShooseAvto context={context} /> )}</Context.Consumer>
         <Context.Consumer>{context => ( <Header context={context} /> )}</Context.Consumer>
 
         <div className="main">

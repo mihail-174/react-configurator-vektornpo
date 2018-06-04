@@ -60,13 +60,13 @@ export default class ZimniiPaket extends Component {
       }
     });
   }
-  componentDidMount() {
+  // componentDidMount() {
 
-    const { context } = this.props.context;
-      let item= ''
-      if ( context.state.avtonomnOtopitel.checked ) {
-        item = 'avtonomnOtopitel';
-      }
+    // const { context } = this.props.context;
+    //   let item= ''
+    //   if ( context.state.avtonomnOtopitel.checked ) {
+    //     item = 'avtonomnOtopitel';
+    //   }
       // switch ( context.state.avtonomnOtopitel.checked ) {
       //   case 'avtonomnOtopitel':
       //     item = 'avtonomnOtopitel';
@@ -75,7 +75,7 @@ export default class ZimniiPaket extends Component {
       // console.log( item );
 
 
-  }
+  // }
   render() {
     const { context } = this.props.context;
 

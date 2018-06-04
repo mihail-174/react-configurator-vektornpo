@@ -2,43 +2,32 @@ import React, { Component } from 'react';
 import '../css/vacNasos.css';
 
 const arr = {
+  name: 'Вакуумный насос',
   'fields': [
     {
       "name": "KO-505A",
-      "subname": "коммунальный тип 310 куб./час",
-      'popup': 'Коммунальный тип: Дешевый и неприхотливый в обслуживании, легкодоступный в регионах. Наличие запчастей. Относительно невысокая надежность. Не безопасен при работе с ЛВЖ.'
+      "subname": "коммунальный тип 310 куб./час"
     },
     {
       "name": "BP-8/3",
-      "subname": "взрывозащищенный компрессор 480 куб./час",
-      'popup': 'Более надежный чем КО-505А и более производительный. Более дорогой и дороже в обслуживании. Относительно безопасен при работе с ЛВЖ.'
+      "subname": "взрывозащищенный компрессор 480 куб./час"
     },
     {
       "name": "BK-6М2",
-      "subname": "взрывозащищенный компрессор 240 куб./час",
-      'popup': 'Взрывозащищенный компрессор. Менее производительный. Очень безопасный с ЛВЖ. Дорогой, дорогие запчасти и обслуживание. Низкая доступность в регионах.'
+      "subname": "взрывозащищенный компрессор 240 куб./час"
     },
     {
       "name": "PNR.122",
-      "subname": "взрывозащищенный компрессор 730 куб./час",
-      'popup': 'Взрывозащищенный компрессор. Самый производительный и надежный. Практически не требует техобслуживания на весь срок эксплуатации. Закрытая система смазки. Абсолютно безопасен с ЛВЖ.'
+      "subname": "взрывозащищенный компрессор 730 куб./час"
     }
   ]
 };
 
 export default class VacNasos extends Component {
 
-  // updateParentState(data) {
-  //   this.props.updateParentState(data);
-  // }
-  //
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-  //   this.state = {
-  //     // checked: false,
-  //     // selected:''
-  //   };
   }
 
   handleChange(event) {
@@ -53,38 +42,19 @@ export default class VacNasos extends Component {
         value: value
       }
     });
-    // console.log( arr );
-    // this.setState({ checked: event.target.checked });
-    // this.setState({ selected: event.target.parentNode.querySelector('label').innerText });
-    // this.props.setAppState({ resultat: event.target.parentNode.querySelector('label').innerText });
-    // this.setState({ resultat: event.target.parentNode.querySelector('label').innerText });
-    // let selectedItemName = event.target.parentNode.querySelector('label').innerText;
-    // methods.setAppState(type, event.target.parentNode.querySelector('label').innerText )
-
-    // console.log( event.target.getAttribute('value') );
-    // console.log( this.updateParentState({resultat: 'testtest'}) );
-    // this.updateParentState({this.state.resultat: 'test'});
-    // this.setState({ resultat: "бугага" });
-    // this.setState({ resultat: event.target.parentNode.querySelector('label').innerText });
-    // console.log( event.target.parentNode.querySelector('label').innerText );
   }
-
+  componentDidMount() {
+    const { context } = this.props.context;
+    context.methods.setAppState({
+      vacNasos: {
+        ...context.state.vacNasos,
+        name: arr.name
+      }
+    });
+  }
   render() {
-    // let selectedItem = event.target.getAttribute('value');
-    // const { context } = this.props.context;
-    // const { context } = this.props.context;
-    // const { methods } = this.props.context
-    // console.log( context.methods );
-    // const resultat2 = this.props.appState;
-    // const resultat2 = this.props.appState.resultat;
-    // console.log( resultat2 );
     const { context } = this.props.context;
     let value = parseInt(context.state.vacNasos.value, 0);
-    // console.log( context.state.vacNasosItem );
-
-    // context.methods.setAppState( {
-    //   vacNasosArr: arr
-    // } );
 
     const list = arr.fields.map((field, key) =>
       <div key={key} className={value === key ? 'block__item active': 'block__item'}>
@@ -98,7 +68,7 @@ export default class VacNasos extends Component {
 
     return (
       <div className="block block_row vacNasos">
-        <div className="block__title">{arr.name}</div>
+        <div className="block__title">{context.state.vacNasos.name}</div>
         <div className="block__list">{list}</div>
       </div>
     );
