@@ -10,13 +10,14 @@
 	right: 0;
 	z-index: 1;
 }
-/* .ispolnenie toggle label span {
-	position: absolute;
-  top: 1px;
-  left: 20px;
-  transition: all 0.3s 0.1s;
-  font-weight: 400;
+.ispolnenie #ispolnenieCheck:checked + .toggle label::before {
+  left: calc(100% - 16px);
 }
-.ispolnenie .toggle label {
-	width: 119px;
-} */
+.ispolnenie.block:not(.block_disabled) #ispolnenieCheck:checked + .toggle label {
+  background: rgb(0, 132, 209) none repeat scroll 0% 0%;
+  border-color: rgb(75, 145, 186);
+  color: #edecec;
+}
+.ispolnenie.block:not(.block_disabled) #ispolnenieCheck:checked + .toggle label span {
+  left: 12px;
+}

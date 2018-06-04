@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import '../css/ispolnenie.css';
+import '../css/kalibrovka.css';
 
 const arr = {
   'fields': [
     {
-      "name": "Огнеопасное",
-      "subname": "доработки установки и шасси под перевозку ЛВЖ"
+      "name": "Калибровка",
+      "subname": "цистерны с выдачей соответствующих документов"
     }
   ]
 };
 
-export default class Ispolnenie extends Component {
+export default class Kalibrovka extends Component {
 
   constructor(props) {
     super(props);
@@ -19,33 +19,32 @@ export default class Ispolnenie extends Component {
   changeCheckbox(event) {
     const { context } = this.props.context;
     context.methods.setAppState({
-      ispolnenie: {
-        ...context.state.ispolnenie,
-        checked: !context.state.ispolnenie.checked
+      kalibrovka: {
+        ...context.state.kalibrovka,
+        checked: !context.state.kalibrovka.checked
       }
     });
   }
   render() {
     const { context } = this.props.context;
 
-    let value = parseInt(context.state.ispolnenie.value, 0);
+    let value = parseInt(context.state.kalibrovka.value, 0);
     const list = arr.fields.map((field, key) =>
       <div key={key} className={value === key ? 'block__item active': 'block__item'}>
-        <input className="block__input" id="ispolnenieCheck" onChange={this.changeCheckbox} defaultChecked={context.state.ispolnenie.checked} type='checkbox' />
+        <input className="block__input" id="kalibrovkaCheck" onChange={this.changeCheckbox} defaultChecked={context.state.kalibrovka.checked} type='checkbox' />
         <div className="toggle">
-          <label htmlFor="ispolnenieCheck">
+          <label htmlFor="kalibrovkaCheck">
             <div><span></span></div>
           </label>
         </div>
-        <label htmlFor="ispolnenieCheck">
+        <label htmlFor="kalibrovkaCheck">
           <div className="block__name">{field.name}</div>
           <div className="block__subname">{field.subname}</div>
         </label>
       </div>
     );
     return (
-      <div className={context.state.ispolnenie.checked ? 'block block_col ispolnenie': 'block block_col block_disabled ispolnenie'}>
-        <div className="block__title">{context.state.ispolnenie.name}</div>
+      <div className={context.state.kalibrovka.checked ? 'block block_col kalibrovka': 'block block_col block_disabled kalibrovka'}>
         <div className="block__list">
           {list}
         </div>

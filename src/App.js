@@ -24,7 +24,7 @@ import Form2 from './components/Form2';
 const Context = React.createContext()
 
 let initialState = {
-  currentStep: 2,
+  currentStep: 3,
   vacNasos: {
     name: 'Вакуумный насос',
     selected: '',
@@ -70,13 +70,113 @@ let initialState = {
   },
   ispolnenie: {
     name: 'Исполнение',
-    selected: '',
     checked: true
   },
   kreplenieOgnetushitelia: {
     name: 'Крепление огнетушителя',
     selected: '',
     value: ''
+  },
+  kalibrovka: {
+    name: 'Калибровка',
+    checked: false
+  },
+  dvigatel: {
+    name: 'Двигатель',
+    selected: '',
+    value: ''
+  },
+  spalnoeMesto: {
+    name: 'Спальное место',
+    checked: false
+  },
+  zapasnoeKoleso: {
+    name: 'Запасное колесо',
+    selected: '',
+    value: ''
+  },
+  instrumentIashchiki: {
+    name: 'Инстр. ящики',
+    selected: '',
+    value: '',
+    checked: true
+  },
+  protivopodkatnyBrus: {
+    name: 'Противоподк. брус',
+    selected: '',
+    value: ''
+  },
+
+
+
+  zimniiPaket: {
+    name: 'Зимний пакет',
+    checked: false,
+    // fields: {
+    //   avtonomnOtopitel: {
+    //     name: 'Автономн. отопитель',
+    //     checked: true
+    //   },
+    //   filtrSEPAR2000: {
+    //     name: 'Фильтр SEPAR2000',
+    //     checked: true
+    //   },
+    //   sumkaADR: {
+    //     name: 'Сумка - ADR',
+    //     checked: false
+    //   },
+    //   uteplenieKabinyMotornogoOtseka: {
+    //     name: 'Утепление кабины и моторного отсека',
+    //     checked: false
+    //   },
+    //   uteplenieAkkumuliatornogoOtseka: {
+    //     name: 'Утепление аккумуляторного отсека',
+    //     checked: false
+    //   },
+      // item0: {
+      //   name: 'Автономн. отопитель',
+      //   checked: true
+      // },
+      // item1: {
+      //   name: 'Фильтр SEPAR2000',
+      //   checked: true
+      // },
+      // item2: {
+      //   name: 'Сумка - ADR',
+      //   checked: false
+      // },
+      // item3: {
+      //   name: 'Утепление кабины и моторного отсека',
+      //   checked: false
+      // },
+      // item4: {
+      //   name: 'Утепление аккумуляторного отсека',
+      //   checked: false
+      // }
+    // }
+  },
+
+
+
+  avtonomnOtopitel: {
+    name: 'Автономн. отопитель',
+    checked: true
+  },
+  filtrSEPAR2000: {
+    name: 'Фильтр SEPAR2000',
+    checked: true
+  },
+  sumkaADR: {
+    name: 'Сумка - ADR',
+    checked: false
+  },
+  uteplenieKabinyMotornogoOtseka: {
+    name: 'Утепление кабины и моторного отсека',
+    checked: false
+  },
+  uteplenieAkkumuliatornogoOtseka: {
+    name: 'Утепление аккумуляторного отсека',
+    checked: false
   }
 }
 

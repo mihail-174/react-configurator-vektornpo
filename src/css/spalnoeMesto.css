@@ -1,0 +1,22 @@
+.spalnoeMesto .block__title {
+	display: flex;
+	justify-content: space-between;
+}
+.spalnoeMesto .block__item {width: 225px;}
+.spalnoeMesto .toggle {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+}
+.spalnoeMesto #spalnoeMestoCheck:checked + .toggle label::before {
+  left: calc(100% - 16px);
+}
+.spalnoeMesto.block:not(.block_disabled) #spalnoeMestoCheck:checked + .toggle label {
+  background: rgb(0, 132, 209) none repeat scroll 0% 0%;
+  border-color: rgb(75, 145, 186);
+  color: #edecec;
+}
+.spalnoeMesto.block:not(.block_disabled) #spalnoeMestoCheck:checked + .toggle label span {
+  left: 12px;
+}
