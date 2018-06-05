@@ -3,7 +3,7 @@
   justify-content: center;
   padding: 10px;
 }
-.item {
+.ShooseAvto__item {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,7 @@
   cursor: pointer;
   transition: all 0.3s;
 }
-.item.active,
-.item:hover {
+.ShooseAvto__item.active,
+.ShooseAvto__item:hover {
   background-color: rgba(255,0,0,0.1);
 }

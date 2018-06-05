@@ -10,6 +10,10 @@ const avto = {
     {
       name: 'МВ',
       image: 'https://vektornpo.ru/sites/all/themes/vektor/images/config-icon-mb.png'
+    },
+    {
+      name: 'АЦН',
+      image: 'https://vektornpo.ru/sites/all/themes/vektor/images/config-icon-acn.png'
     }
   ]
 }
@@ -22,8 +26,10 @@ export default class ShooseAvto extends Component {
   shoose(e) {
     // console.log( e.currentTarget.getAttribute('data-val') );
     const {context} = this.props;
+    let value = e.currentTarget.getAttribute('data-val');
     context.methods.setAppState({
-      selectedAvto: e.currentTarget.getAttribute('data-val')
+      selectedAvto: avto.fields[value].name,
+      selectedAvtoNum: value
     })
   }
   // componentDidMount() {
@@ -36,10 +42,10 @@ export default class ShooseAvto extends Component {
   // }
   render() {
     const { context } = this.props;
-    let value = parseInt(context.state.selectedAvto, 0);
+    let value = parseInt(context.state.selectedAvtoNum, 0);
 
     const list = avto.fields.map( (field, key) =>
-      <div key={key} data-val={key} className={value === key ? 'item active' : 'item'} onClick={this.shoose}>
+      <div key={key} data-val={key} className={value === key ? 'ShooseAvto__item active' : 'ShooseAvto__item'} onClick={this.shoose}>
         <div className='image'><img src={field.image} alt={field.name}/></div>
         <div className='name'>{field.name}</div>
       </div>

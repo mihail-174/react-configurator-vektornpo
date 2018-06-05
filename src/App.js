@@ -27,7 +27,16 @@ const Context = React.createContext()
 
 let initialState = {
   currentStep: 1,
-  selectedAvto: 0,
+  selectedAvto: 'АКН',
+  // selectedAvto: 'МВ',
+  selectedAvtoNum: 0,
+
+  vacuum_pump_name: '',
+  vacuum_pump_selected: '',
+  vacuum_pump_value: '',
+
+  aaa: '',
+
   vacNasos: {
     name: '',
     selected: '',
