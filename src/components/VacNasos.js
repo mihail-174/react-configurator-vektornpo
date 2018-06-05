@@ -9,24 +9,30 @@ const arr = {
     {
       name: "KO-505A",
       subname: "коммунальный тип 310 куб./час",
-      aaa: 'АКН',
-      for_avto: ['АКН', 'МВ'],
-      for_avto2: [
-        {name: 'АКН'},
-        {name: 'МВ'},
-        {name: 'АЦН'}
-      ]
+      for_avto: 'АКН',
     },
-    // {
-    //   name: "BP-8/3",
-    //   subname: "взрывозащищенный компрессор 480 куб./час",
-    //   aaa: 'АКН',
-    //   for_avto: ['АКН', 'МВ'],
-    //   for_avto2: [
-    //     {item1: 'АКН'},
-    //     {item2: 'МВ'}
-    //   ]
-    // },
+    {
+      name: "KO-505A",
+      subname: "коммунальный тип 310 куб./час",
+      for_avto: 'МВ'
+    },
+    {
+      name: "BP-8/3",
+      subname: "взрывозащищенный компрессор 480 куб./час",
+      for_avto: 'МВ'
+    },
+  ],
+  // akn: [
+  //   {name: "KO-505A", subname: "коммунальный тип 310 куб./час"},
+  //   {name: "BP-8/3", subname: "взрывозащищенный компрессор 480 куб./час",}
+  // ],
+  // mb: [
+  //   {name: "BK-6М2", subname: "взрывозащищенный компрессор 240 куб./час"},
+  //   {name: "PNR.122", subname: "взрывозащищенный компрессор 730 куб./час"}
+  // ]
+
+
+
     // {
     //   name: "BK-6М2",
     //   subname: "взрывозащищенный компрессор 240 куб./час",
@@ -46,13 +52,15 @@ const arr = {
     //     {item2: 'МВ'}
     //   ]
     // }
-  ]
 };
 
 export default class VacNasos extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      status: ''
+    }
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -89,67 +97,17 @@ export default class VacNasos extends Component {
     // })
     // console.log( NewList )
 
+
   }
+  componentDidUpdate() {}
   render() {
-    const { context } = this.props;
-    // console.log( context.context.state );
-    // let value = parseInt(context.state.vacNasos.value, 0);
-
-    // <Context.Consumer>{context => ( <Item context={context} name={field.name} subname={field.subname} value={key} machine_name={arr.machine_name} /> )}</Context.Consumer>
-
-    // {context.state.selectedAvto === 'АКН' &&
-    // }
-
-
-
-
-
-
-
-    // const aaa=[];
-    // console.log( i + ' ' + field )
-    // const for_avto = this.props.for_avto.map((field, i) =>
-    //   field
-    // );
-    // console.log( for_avto )
-    // console.log( 'index: ' + this.props.value )
-    // for_avto.forEach(function(item, i){
-    //   if ( context.state.selectedAvto === item ) {
-    //     aaa.push(i);
-    //     console.log( 'itemNAME: ' + item )
-    //     console.log( 'itemINDEX: ' + i )
-    //   }
-    // })
-    // console.log( 'aaa: ' + aaa )
-
-
-
-
-
-
-
+    const { context } = this.props.context;
 
     const NewList = arr.fields.map((field, key) =>
       <div>
-        <Item for_avto2={field.for_avto2} name={arr.name} selected={field.name} subname={field.subname} value={key} key={key} machine_name={arr.machine_name} context={context} />
+        <Item for_avto={field.for_avto} name={arr.name} selected={field.name} subname={field.subname} value={key} key={key} machine_name={arr.machine_name} context={context} />
       </div>
     );
-    // {field.for_avto}
-
-    // const aaa=[];
-    // NewList.forEach(function(item, i){
-    //   // console.log( item.props.for_avto );
-    //   // console.log( i )
-    //   console.log( i + ' ' + item.props.for_avto )
-    //   if ( context.context.state.selectedAvto === item.props.for_avto[i] ) {
-    //     // aaa.push(i);
-    //     // console.log( aaa )
-    //   }
-    // });
-    // console.log( 'aaa: ' + aaa )
-
-
-
 
     return (
       <div className={"b b_row " + arr.machine_name}>

@@ -36,6 +36,7 @@ let initialState = {
   vacuum_pump_value: '',
 
   aaa: '',
+  status: 0,
 
   vacNasos: {
     name: '',
