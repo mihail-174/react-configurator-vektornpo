@@ -29,7 +29,13 @@ export default class ShooseAvto extends Component {
     let value = e.currentTarget.getAttribute('data-val');
     context.methods.setAppState({
       selectedAvto: avto.fields[value].name,
-      selectedAvtoNum: value
+      selectedAvtoNum: value,
+      settings: {}
+      // settings: {
+      //   ...context.state.settings,
+      //   vacuum_pump_selected: '',
+      //   vacuum_pump_value: ''
+      // }
     })
   }
   // componentDidMount() {

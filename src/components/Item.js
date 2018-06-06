@@ -15,22 +15,31 @@ export default class Item extends Component {
       item.classList.remove('active');
     })
     e.target.parentNode.classList.add('active');
+    // context.methods.setAppState({
+    //   [this.props.machine_name+'_selected']: this.props.selected,
+    //   [this.props.machine_name+'_value']: this.props.value
+    // });
     context.methods.setAppState({
-      [this.props.machine_name+'_selected']: this.props.selected,
-      [this.props.machine_name+'_value']: this.props.value
+      settings: {
+        ...context.state.settings,
+        [this.props.machine_name+'_title']: this.props.title,
+        [this.props.machine_name+'_selected']: this.props.selected,
+        [this.props.machine_name+'_value']: this.props.value
+      }
     });
-    // // let selected = e.target.parentNode.querySelector('.block__name').innerText;
-    // // console.log( e.target.parentNode.parentNode.querySelectorAll('.b__item') );
-    // // // let descr = e.target.getAttribute('value');
-    // console.log( this.props.machine_name );
-    // const value = e.target.getAttribute('value');
   }
   componentDidMount() {
     const { context } = this.props;
+    // context.methods.setAppState({
+    //   [this.props.machine_name+'_name']: this.props.name
+    // });
     context.methods.setAppState({
-      [this.props.machine_name+'_name']: this.props.name
+      settings: {
+        ...context.state.settings,
+        [this.props.machine_name+'_title']: this.props.title
+      }
     });
-    //
+
     // const aaa=[];
     // const for_avto2 = this.props.for_avto2.map((field, i) =>
     //   aaa.push(field.name)
@@ -47,7 +56,7 @@ export default class Item extends Component {
     //   }
     // })
   }
-  // componentWillReceiveProps (previousProps, previousState) {
+  // shouldComponentUpdate (previousProps, previousState) {
   //   const { context } = this.props.context;
   //   const aaa=[];
   //   const for_avto2 = this.props.for_avto2.map((field, i) =>
@@ -74,6 +83,17 @@ export default class Item extends Component {
   render() {
     const { context } = this.props;
 
+    return (
+      <div>
+        <div key={this.props.value} className='b__item'>
+          <input id={this.props.machine_name + "-" + this.props.value} onChange={this.handleChange} className="b__input"  type='radio' name='radio' value={this.props.value} />
+          <label className="b__label" htmlFor={this.props.machine_name + "-" + this.props.value}>
+            <div className="b__name">{this.props.name}</div>
+          </label>
+        </div>
+      </div>
+    )
+
     // return (
     //   <div>
     //     {this.props.type}
@@ -87,28 +107,28 @@ export default class Item extends Component {
     //   </div>
     // )
 
-    return (
-      <div>
-        {context.state.selectedAvto === 'АКН' && this.props.for_avto === 'АКН' &&
-          <div key={this.props.value} className={context.state.vacuum_pump_value === this.props.value ? 'b__item active':'b__item'}>
-            <input id={this.props.machine_name + "-" + this.props.value} onChange={this.handleChange} className="b__input"  type='radio' name='radio' value={this.props.value} checked={context.state.vacuum_pump_value === this.props.value ? true: false} />
-            <label className="b__label" htmlFor={this.props.machine_name + "-" + this.props.value}>
-              <div className="b__name">{this.props.name}</div>
-              <div className="b__subname">{this.props.subname}</div>
-            </label>
-          </div>
-        }
-        {context.state.selectedAvto === 'МВ' && this.props.for_avto === 'МВ' &&
-          <div key={this.props.value} className={context.state.vacuum_pump_value === this.props.value ? 'b__item active':'b__item'}>
-            <input id={this.props.machine_name + "-" + this.props.value} onChange={this.handleChange} className="b__input"  type='radio' name='radio' value={this.props.value} checked={context.state.vacuum_pump_value === this.props.value ? true: false} />
-            <label className="b__label" htmlFor={this.props.machine_name + "-" + this.props.value}>
-              <div className="b__name">{this.props.name}</div>
-              <div className="b__subname">{this.props.subname}</div>
-            </label>
-          </div>
-        }
-      </div>
-    )
+    // return (
+    //   <div>
+    //     {context.state.selectedAvto === 'АКН' && this.props.for_avto === 'АКН' &&
+    //       <div key={this.props.value} className={context.state.vacuum_pump_value === this.props.value ? 'b__item active':'b__item'}>
+    //         <input id={this.props.machine_name + "-" + this.props.value} onChange={this.handleChange} className="b__input"  type='radio' name='radio' value={this.props.value} checked={context.state.vacuum_pump_value === this.props.value ? true: false} />
+    //         <label className="b__label" htmlFor={this.props.machine_name + "-" + this.props.value}>
+    //           <div className="b__name">{this.props.name}</div>
+    //           <div className="b__subname">{this.props.subname}</div>
+    //         </label>
+    //       </div>
+    //     }
+    //     {context.state.selectedAvto === 'МВ' && this.props.for_avto === 'МВ' &&
+    //       <div key={this.props.value} className={context.state.vacuum_pump_value === this.props.value ? 'b__item active':'b__item'}>
+    //         <input id={this.props.machine_name + "-" + this.props.value} onChange={this.handleChange} className="b__input"  type='radio' name='radio' value={this.props.value} checked={context.state.vacuum_pump_value === this.props.value ? true: false} />
+    //         <label className="b__label" htmlFor={this.props.machine_name + "-" + this.props.value}>
+    //           <div className="b__name">{this.props.name}</div>
+    //           <div className="b__subname">{this.props.subname}</div>
+    //         </label>
+    //       </div>
+    //     }
+    //   </div>
+    // )
 
   }
 }

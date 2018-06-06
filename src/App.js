@@ -12,147 +12,44 @@ import Step1 from './step/Step1';
 import Step2 from './step/Step2';
 import Step3 from './step/Step3';
 
-import ShooseAvto from './components/ShooseAvto';
+import ShooseAvto from './components2/ShooseAvto';
 
 import Welcome from './components/Welcome';
-import List1 from './components/List1';
-import List2 from './components/List2';
-import Comments from './components/Comments';
-import List4 from './components/List4';
-import List3 from './components/List3';
-import Form from './components/Form';
-import Form2 from './components/Form2';
 
 const Context = React.createContext()
 
+
+// fields__ + selectedAvto + currentStep + idтачки
+
 let initialState = {
   currentStep: 1,
-  selectedAvto: 'АКН',
-  // selectedAvto: 'МВ',
-  selectedAvtoNum: 0,
+  currentAvto: 0,
+  // selectedAvto: 'АКН',
 
-  vacuum_pump_name: '',
-  vacuum_pump_selected: '',
-  vacuum_pump_value: '',
-
-  aaa: '',
-  status: 0,
-
-  vacNasos: {
-    name: '',
-    selected: '',
-    value: ''
-  },
-  privodNasosa: {
-    name: 'Привод насоса',
-    selected: '',
-    value: ''
-  },
-  otkrytieDna: {
-    name: 'Открытие дна',
-    selected: '',
-    value: '',
-    checked: true
-  },
-  dopGorlovina: {
-    name: 'Доп. горловина',
-    selected: '',
-    value: ''
-  },
-  kreplenieСisterny: {
-    name: 'Крепление цистерны',
-    selected: '',
-    value: ''
-  },
-  ploshchadkaObsluzhivaniia: {
-    name: 'Площадка обслуживания',
-    selected: '',
-    value: ''
-  },
-  osveshchenie: {
-    name: 'Освещение',
-    selected: '',
-    value: '',
-    checked: false
-  },
-  podogrevOtVs: {
-    name: 'Подогрев от ВС',
-    selected: '',
-    value: '',
-    checked: false
-  },
-  ispolnenie: {
-    name: 'Исполнение',
-    checked: true
-  },
-  kreplenieOgnetushitelia: {
-    name: 'Крепление огнетушителя',
-    selected: '',
-    value: ''
-  },
-  kalibrovka: {
-    name: 'Калибровка',
-    checked: false
-  },
-  dvigatel: {
-    name: 'Двигатель',
-    selected: '',
-    value: ''
-  },
-  spalnoeMesto: {
-    name: 'Спальное место',
-    checked: false
-  },
-  zapasnoeKoleso: {
-    name: 'Запасное колесо',
-    selected: '',
-    value: ''
-  },
-  instrumentIashchiki: {
-    name: 'Инстр. ящики',
-    selected: '',
-    value: '',
-    checked: true
-  },
-  protivopodkatnyBrus: {
-    name: 'Противоподк. брус',
-    selected: '',
-    value: ''
-  },
+  machine_names: [
+    { id: 1, name: 'АКН', image: 'https://vektornpo.ru/sites/all/themes/vektor/images/config-icon.png' },
+    { id: 2, name: 'MB', image: 'https://vektornpo.ru/sites/all/themes/vektor/images/config-icon-mb.png' },
+    { id: 3, name: 'АЦН', image: 'https://vektornpo.ru/sites/all/themes/vektor/images/config-icon-acn.png' },
+  ],
+  // steps__1: 3,
+  // fields: [
+  //   { id: 1, name: 'Вакуумный насос', type: 'radios' },
+  //   { id: 2, name: 'Привод насоса', type: 'radios' },
+  //   { id: 3, name: 'Открытие дна', type: 'radios' },
+  //   { id: 4, name: 'Доп. горловина', type: 'radios' },
+  //   { id: 5, name: 'Крепление цистерны', type: 'radios' },
+  // ],
+  // fields__1__1__1: { name: 'KO-505A', descr: 'коммунальный тип 310 куб./час' }
 
 
-
-  zimniiPaket: {
-    name: 'Зимний пакет'
-  },
-  avtonomnOtopitel: {
-    name: 'Автономн. отопитель',
-    checked: true
-  },
-  filtrSEPAR2000: {
-    name: 'Фильтр SEPAR2000',
-    checked: true
-  },
-  sumkaADR: {
-    name: 'Сумка - ADR',
-    checked: false
-  },
-  uteplenieKabinyMotornogoOtseka: {
-    name: 'Утепление кабины и моторного отсека',
-    checked: false
-  },
-  uteplenieAkkumuliatornogoOtseka: {
-    name: 'Утепление аккумуляторного отсека',
-    checked: false
-  }
 }
 
 export default class App extends Component {
 
   constructor(props) {
     super(props);
-    // this.state = initialState;
-    this.state = {}
+    this.state = initialState;
+    // this.state = {}
     this.setStep = this.setStep.bind(this);
     this.setAppState = this.setAppState.bind(this);
   }
@@ -165,9 +62,7 @@ export default class App extends Component {
     this.setState({ currentStep: step});
   }
   render() {
-    const numbers = ['элемент 1', 'элемент 2', 'элемент 3', 'элемент 4', 'элемент 5'];
-    // console.log( 'ТЕКУЩИЙ ШАГ ' + this.state.currentStep );
-
+    // const { context } = this.props;
 
     let step;
     if(this.state.currentStep === 1) {
@@ -191,43 +86,30 @@ export default class App extends Component {
          }
        }}>
 
-       <header className="App-header">
+       <header>
          <img src={logo} className="App-logo" alt="logo" />
          <Welcome name="Уася" />
        </header>
-       <div className="none">
-         <List1 numbers={numbers} />
-         <hr/>
-         <List2 />
-         <hr/>
-         <Comments />
-         <hr/>
-         <Form2 />
-         <hr/>
-         <Form />
-         <List3 />
-         <List4 />
-       </div>
 
+       <main>
 
-      <div className="App">
-        <Context.Consumer>{context => ( <ShooseAvto context={context} /> )}</Context.Consumer>
-        <Context.Consumer>{context => ( <Header context={context} /> )}</Context.Consumer>
+          <div className="App">
+            <Context.Consumer>{context => ( <ShooseAvto context={context} /> )}</Context.Consumer>
+            <Context.Consumer>{context => ( <Header context={context} /> )}</Context.Consumer>
+            <div className="main">
+              {step}
+            </div>
+            <Footer appState={this.state} setStep={this.setStep} />
+          </div>
 
-        <div className="main">
-          {step}
-        </div>
+          <div className="result">
+            <h2>Результат:</h2>
+            <pre>
+              {JSON.stringify(this.state, "", 4)}
+            </pre>
+          </div>
 
-        <Footer appState={this.state} setStep={this.setStep} />
-
-      </div>
-
-      <div className="result">
-        <h2>Результат:</h2>
-        <pre>
-          {JSON.stringify(this.state, "", 4)}
-        </pre>
-      </div>
+       </main>
 
       {this.props.children}
       </Context.Provider>
