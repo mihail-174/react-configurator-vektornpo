@@ -23,18 +23,11 @@ main {
   margin: 15px;
   border-radius: 5px;
 }
-
-.main {
-  background-color: antiquewhite;
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 25px 18px 0;
 }
-.main__content {
-  padding: 25px;
-}
-.main__content_zero {
-  justify-content: center;
-}
-
-
 .result {
 	padding: 0 5px;
   text-align: left;

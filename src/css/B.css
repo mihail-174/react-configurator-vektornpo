@@ -1,5 +1,7 @@
 .b {
   margin-bottom: 25px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 .b__title {
 	font-weight: 700;

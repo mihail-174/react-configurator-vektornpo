@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Header from '../components2/Header';
 import Footer from '../components2/Footer';
 
+import Item from '../components2/Item';
+
 // import Dvigatel from '../components/Dvigatel.js';
 // import SpalnoeMesto from '../components/SpalnoeMesto.js';
 // import ZapasnoeKoleso from '../components/ZapasnoeKoleso.js';
@@ -9,23 +11,26 @@ import Footer from '../components2/Footer';
 // import ProtivopodkatnyBrus from '../components/ProtivopodkatnyBrus.js';
 // import ZimniiPaket from '../components/ZimniiPaket.js';
 
-const Context = React.createContext()
+// const Context = React.createContext()
 
 export default class Step3 extends Component {
   render() {
     const { context } = this.props;
+    const list = context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep].map((field, key) =>
+      <div key={key} className={'b ' + field.system}>
+        <div className='b__title'>{field.name}</div>
+        <Item type={field.type} systemName={field.system} options={context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id]} context={context} />
+      </div>
+    );
 
     return (
-      <Context.Provider value={{context}}>
-      <div className='step step_three'>
+      <div className='step step_one'>
         <Header context={context} />
         <div className='content'>
-          STEP3
+          {list}
         </div>
         <Footer context={context} />
       </div>
-      {this.props.children}
-      </Context.Provider>
     );
 
   }
