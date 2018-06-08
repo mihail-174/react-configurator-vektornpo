@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Header from '../components2/Header';
+import Footer from '../components2/Footer';
+
 // import PloshchadkaObsluzhivaniia from '../components/PloshchadkaObsluzhivaniia.js';
 // import Osveshchenie from '../components/Osveshchenie.js';
 // import PodogrevOtVs from '../components/PodogrevOtVs.js';
@@ -13,17 +16,12 @@ export default class Step2 extends Component {
     const { context } = this.props;
     return (
       <Context.Provider value={{context}}>
-      <div className='main__content main__content_two'>
-
-      {()=> ({/*
-        <Context.Consumer>{context => ( <PloshchadkaObsluzhivaniia context={context} /> )}</Context.Consumer>
-        <Context.Consumer>{context => ( <Osveshchenie context={context} /> )}</Context.Consumer>
-        <Context.Consumer>{context => ( <PodogrevOtVs context={context} /> )}</Context.Consumer>
-        <Context.Consumer>{context => ( <Ispolnenie context={context} /> )}</Context.Consumer>
-        <Context.Consumer>{context => ( <KreplenieOgnetushitelia context={context} /> )}</Context.Consumer>
-        <Context.Consumer>{context => ( <Kalibrovka context={context} /> )}</Context.Consumer>
-      */})}
-
+      <div className='step step_two'>
+        <Header context={context} />
+        <div className='content'>
+          STEP2
+        </div>
+        <Footer context={context} />
       </div>
       {this.props.children}
       </Context.Provider>

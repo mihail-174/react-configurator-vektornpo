@@ -2,8 +2,22 @@
 	background-color: burlywood;
 	padding: 15px 25px;
 	text-align: right;
+	display: flex;
+	justify-content: space-between;
 }
-.footer button {
+.footer__first {
+	cursor: pointer;
+	background: none;
+	border: none;
+	font-weight: 700;
+	text-decoration: underline;
+	font-style: italic;
+}
+.footer__first:hover {
+	text-decoration: none;
+}
+.footer__prev,
+.footer__next {
 	background: linear-gradient(#138dd4,#007ac2);
 	border: none;
 	padding: 7px 34px 8px;
@@ -14,6 +28,7 @@
 	cursor: pointer;
 	border: 2px solid #eceef0;
 }
-.footer button:hover {
+.footer__prev:hover,
+.footer__next:hover {
 	background: linear-gradient(#007ac2,#138dd4);
 }

@@ -6,5 +6,5 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: url(../error-connection-failure.svg) calc(50% - 600px) 100px no-repeat, url(../error-connection-failure.svg) calc(50% + 600px) 100px no-repeat;
+  /* background: url(../error-connection-failure.svg) calc(50% - 600px) 100px no-repeat, url(../error-connection-failure.svg) calc(50% + 600px) 100px no-repeat; */
 }

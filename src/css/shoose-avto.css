@@ -9,6 +9,7 @@
   padding: 5px;
   cursor: pointer;
   transition: all 0.3s;
+  border-radius: 10px;
 }
 .shoose-avto .item.active,
 .shoose-avto .item:hover {
@@ -16,6 +17,7 @@
 }
 .shoose-avto h3 {
   text-align: center;
+  margin-top: 0;
 }
 .shoose-avto .list {
   display: flex;

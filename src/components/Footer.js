@@ -11,7 +11,7 @@ export default class Footer extends Component {
     let prev = <button type='button' onClick={this.props.setStep} data-step={prevStep}>Назад</button>;
     let next = <button type='button' onClick={this.props.setStep} data-step={nextStep}>Далее</button>;
 
-    if ( step === 1 ) {
+    if ( step === 0 ) {
       prev = null;
     }
     if ( step >= 3 ) {

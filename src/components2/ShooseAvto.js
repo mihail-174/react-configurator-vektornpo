@@ -14,14 +14,15 @@ export default class ShooseAvto extends Component {
     e.currentTarget.classList.add('active');
     const id = e.currentTarget.getAttribute('data-id');
     context.methods.setAppState({
+      currentStep: 1,
       currentAvto: parseInt(id, 0)
     })
   }
   // componentDidMount() {}
   render() {
     const {context} = this.props;
-    const list = context.state.machine_names.map((elem) =>
-      <div className='item' data-id={elem.id} onClick={this.shoose}>
+    const list = context.state.machine_names.map((elem, key) =>
+      <div key={key.toString()} className='item' data-id={elem.id} onClick={this.shoose}>
         <div className='image'><img src={elem.image} alt=''/></div>
         <div className='name'>{elem.name}</div>
       </div>
