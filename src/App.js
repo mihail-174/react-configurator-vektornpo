@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import './css/App.css';
 import './css/block.css';
-import './css/toggle.css';
 
 import Step0 from './step/Step0';
 import Step1 from './step/Step1';
@@ -83,7 +82,7 @@ let initialState = {
     { name: 'Шкиво-ременной' },
     { name: 'Карданный' }
   ],
-  
+
   fields__1__1__3: [
     { name: 'Механическое', subname: 'отделяемое дно, крепится на болты к бочке.' },
     { name: 'Сливной люк', subname: 'на дне бочки диаметром до 500 мм.' }
