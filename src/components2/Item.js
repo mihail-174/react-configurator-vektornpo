@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import '../css/B.css';
-import Checkbox from '../components2/Checkbox';
 
 export default class Item extends Component {
   render() {
-    const { context } = this.props;
     // console.log( this.props.options );
     // console.log( this.props.type );
     let list='';

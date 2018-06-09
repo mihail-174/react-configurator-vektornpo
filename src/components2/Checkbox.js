@@ -1,13 +1,29 @@
 import React, { Component } from 'react';
 
 export default class Checkbox extends Component {
+  constructor() {
+    super();
+    this.change = this.change.bind(this);
+  }
+  change(e) {
+    const { context } = this.props;
+    const objectjson = ['fields__' + context.state.currentAvto + '__' + context.state.currentStep + '__' + this.props.id + '__options'];
+    context.methods.setAppState({
+      [objectjson]: {
+        ...context.state[objectjson],
+        checkbox: !context.state[objectjson].checkbox
+      }
+    })
+  }
   render() {
     const { context } = this.props;
-    // console.log( this.props.type );
-
+    const objectjson = ['fields__' + context.state.currentAvto + '__' + context.state.currentStep + '__' + this.props.id + '__options'];
     return (
-      <div className='b__list'>
-        usss
+      <div>
+        <input checked={this.props.options.checkbox} id={this.props.systemName + "-checkbox"} type='checkbox' name={this.props.systemName} value='' />
+        <label onClick={this.change} htmlFor={this.props.systemName + "-checkbox"}>
+          <span>{context.state[objectjson].checkbox ? context.state[objectjson].names[1].name : context.state[objectjson].names[0].name}</span>
+        </label>
       </div>
     )
 

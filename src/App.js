@@ -17,8 +17,8 @@ const Context = React.createContext()
 // АВТО__ШАГ__ОПЦИЯ
 
 let initialState = {
-  currentStep: 0,
-  currentAvto: 0,
+  currentStep: 1,
+  currentAvto: 1,
   // selectedAvto: 'АКН',
 
   machine_names: [
@@ -30,7 +30,19 @@ let initialState = {
   fields__1__1: [
     { id: 1, name: 'Вакуумный насос', system: 'vacuum_pump', type: 'radio' },
     { id: 2, name: 'Привод насоса', system: 'pump_drive', type: 'radio' },
-    { id: 3, name: 'Открытие дна', system: 'opening_bottom', type: 'radio' },
+    {
+      id: 3,
+      name: 'Открытие дна',
+      system: 'opening_bottom',
+      // options: {
+      //   checkbox: true,
+      //   names: [
+      //     { name: 'открытие дна' },
+      //     { name: 'глухая цистерна' }
+      //   ]
+      // },
+      type: 'radio'
+    },
     { id: 4, name: 'Доп. горловина', system: 'additional_neck', type: 'radio' },
     { id: 5, name: 'Крепление цистерны', system: 'mount_tank', type: 'radio' }
   ],
@@ -51,6 +63,7 @@ let initialState = {
     { id: 17, name: 'Зимний пакет', system: 'winter_package', type: 'checkbox' }
   ],
 
+
   fields__2__1: [],
   fields__2__2: [],
   fields__2__3: [],
@@ -70,10 +83,19 @@ let initialState = {
     { name: 'Шкиво-ременной' },
     { name: 'Карданный' }
   ],
+  
   fields__1__1__3: [
     { name: 'Механическое', subname: 'отделяемое дно, крепится на болты к бочке.' },
     { name: 'Сливной люк', subname: 'на дне бочки диаметром до 500 мм.' }
   ],
+  fields__1__1__3__options: {
+    checkbox: true,
+    names: [
+      { name: 'открытие дна' },
+      { name: 'глухая цистерна' }
+    ]
+  },
+
   fields__1__1__4: [
     { name: 'Нужна' },
     { name: 'Не нужна' }
@@ -130,30 +152,6 @@ let initialState = {
     { name: 'Утепление кабины и моторного отсека' },
     { name: 'Утепление аккумуляторного отсека' }
   ],
-
-
-  fields__2__1__1: [
-    { name: 'KO-505A', subname: 'коммунальный тип 310 куб./час' },
-    { name: 'BP-8/3', subname: 'взрывозащищенный компрессор 480 куб./час' },
-    { name: 'PNR.122', subname: 'взрывозащищенный компрессор 730 куб./час' }
-  ],
-  fields__2__1__2: [
-    { name: 'Шкиво-ременной' },
-    { name: 'Карданный' }
-  ],
-  fields__2__1__3: [
-    { name: 'Механическое', subname: 'отделяемое дно, крепится на болты к бочке.' },
-    { name: 'Сливной люк', subname: 'на дне бочки диаметром до 500 мм.' }
-  ],
-  fields__2__1__4: [
-    { name: 'Нужна' },
-    { name: 'Не нужна' }
-  ],
-  fields__2__1__5: [
-    { name: 'Поясное' },
-    { name: 'Статические опоры' }
-  ]
-
 
 }
 

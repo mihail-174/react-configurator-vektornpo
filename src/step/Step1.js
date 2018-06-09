@@ -3,6 +3,7 @@ import Header from '../components2/Header';
 import Footer from '../components2/Footer';
 
 import Item from '../components2/Item';
+import Checkbox from '../components2/Checkbox';
 
 // import VacNasos from '../components/VacNasos';
 // import PrivodNasosa from '../components/PrivodNasosa';
@@ -12,14 +13,26 @@ import Item from '../components2/Item';
 
 // const Context = React.createContext()
 
+function isEmpty(obj) {
+  for (var key in obj) {
+    return false;
+  }
+  return true;
+}
+
+// {field.options.checkbox && <Checkbox checkbox={field.checkbox} systemName={field.system} context={context} />}
+// {!isEmpty(field.options) && <Checkbox options={field.options} systemName={field.system} context={context} />}
+// <Checkbox systemName={field.system} options={context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id + '__options']} context={context} />
 export default class Step1 extends Component {
 
   render() {
+
     const { context } = this.props;
 
     const list = context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep].map((field, key) =>
       <div key={key} className={'b ' + field.system}>
         <div className='b__title'>{field.name}</div>
+        {!isEmpty(context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id + '__options']) && <Checkbox systemName={field.system} id={field.id} options={context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id + '__options']} context={context} /> }
         <Item type={field.type} systemName={field.system} options={context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id]} context={context} />
       </div>
     );
