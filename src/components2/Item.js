@@ -3,8 +3,17 @@ import '../css/B.css';
 
 export default class Item extends Component {
   render() {
-    // console.log( this.props.options );
-    // console.log( this.props.type );
+
+    function isEmpty(obj) {
+      for (var key in obj) {
+        return false;
+      }
+      return true;
+    }
+
+    const {context} = this.props;
+    // const field_options = ['fields__' + context.state.currentAvto + '__' + context.state.currentStep + '__' + this.props.id + '__options'];
+    // console.log( !isEmpty(field_options) );
     let list='';
 
     if ( this.props.options !== undefined ) {
@@ -17,6 +26,7 @@ export default class Item extends Component {
               <div className='b__subname'>{field.subname}</div>
             </label>
           </div>
+
         )
       });
 

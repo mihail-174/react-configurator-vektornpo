@@ -16,7 +16,7 @@ const Context = React.createContext()
 // АВТО__ШАГ__ОПЦИЯ
 
 let initialState = {
-  currentStep: 1,
+  currentStep: 2,
   currentAvto: 1,
   // selectedAvto: 'АКН',
 
@@ -29,19 +29,7 @@ let initialState = {
   fields__1__1: [
     { id: 1, name: 'Вакуумный насос', system: 'vacuum_pump', type: 'radio' },
     { id: 2, name: 'Привод насоса', system: 'pump_drive', type: 'radio' },
-    {
-      id: 3,
-      name: 'Открытие дна',
-      system: 'opening_bottom',
-      // options: {
-      //   checkbox: true,
-      //   names: [
-      //     { name: 'открытие дна' },
-      //     { name: 'глухая цистерна' }
-      //   ]
-      // },
-      type: 'radio'
-    },
+    { id: 3, name: 'Открытие дна', system: 'opening_bottom', type: 'radio' },
     { id: 4, name: 'Доп. горловина', system: 'additional_neck', type: 'radio' },
     { id: 5, name: 'Крепление цистерны', system: 'mount_tank', type: 'radio' }
   ],
@@ -94,7 +82,6 @@ let initialState = {
       { name: 'глухая цистерна' }
     ]
   },
-
   fields__1__1__4: [
     { name: 'Нужна' },
     { name: 'Не нужна' }
@@ -111,10 +98,16 @@ let initialState = {
     { name: '2 зоны' },
     { name: '4 зоны' }
   ],
+  fields__1__2__7__options: {
+    checkbox: false
+  },
   fields__1__2__8: [
     { name: 'Внутри цистерны' },
     { name: 'Сбоку цистерны' }
   ],
+  fields__1__2__8__options: {
+    checkbox: true
+  },
   fields__1__2__9: [
     { name: 'Огнеопасное', subname: 'доработки установки и шасси под перевозку ЛВЖ' }
   ],
