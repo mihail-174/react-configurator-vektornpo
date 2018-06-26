@@ -98,16 +98,16 @@ let initialState = {
     { name: '2 зоны' },
     { name: '4 зоны' }
   ],
-  fields__1__2__7__options: {
-    checkbox: false
-  },
+    fields__1__2__7__options: {
+      checkbox: false,
+    },
   fields__1__2__8: [
     { name: 'Внутри цистерны' },
     { name: 'Сбоку цистерны' }
   ],
-  fields__1__2__8__options: {
-    checkbox: true
-  },
+    fields__1__2__8__options: {
+      checkbox: true
+    },
   fields__1__2__9: [
     { name: 'Огнеопасное', subname: 'доработки установки и шасси под перевозку ЛВЖ' }
   ],
