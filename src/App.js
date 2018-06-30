@@ -10,13 +10,12 @@ import Step3 from './step/Step3';
 
 const Context = React.createContext()
 
-
 // fields__ + selectedAvto + currentStep + idтачки
 
 // АВТО__ШАГ__ОПЦИЯ
 
 let initialState = {
-  currentStep: 2,
+  currentStep: 1,
   currentAvto: 1,
   // selectedAvto: 'АКН',
 
@@ -47,7 +46,7 @@ let initialState = {
     { id: 14, name: 'Запасное колесо', system: 'spare_wheel', type: 'radio' },
     { id: 15, name: 'Инстр. ящики', system: 'tool_box', type: 'radio' },
     { id: 16, name: 'Противоподк. брус', system: 'anti_roll_bar', type: 'radio' },
-    { id: 17, name: 'Зимний пакет', system: 'winter_package', type: 'checkbox' }
+    { id: 17, name: 'Зимний пакет', system: 'winter_package', type: 'checkboxmulti' }
   ],
 
 
@@ -66,6 +65,66 @@ let initialState = {
     { name: 'BK-6М2', subname: 'взрывозащищенный компрессор 240 куб./час' },
     { name: 'PNR.122', subname: 'взрывозащищенный компрессор 730 куб./час' }
   ],
+
+  // selected: {
+  // },
+  auto__1__1__val: '',
+  auto__1__1__name: '',
+  auto__1__2__val: '',
+  auto__1__2__name: '',
+  auto__1__3__val: '',
+  auto__1__3__name: '',
+  auto__1__4__val: '',
+  auto__1__4__name: '',
+  auto__1__5__val: '',
+  auto__1__5__name: '',
+  auto__1__6__val: '',
+  auto__1__6__name: '',
+  auto__1__7__val: '',
+  auto__1__7__name: '',
+  auto__1__8__val: '',
+  auto__1__8__name: '',
+  auto__1__9__checked: '',
+  auto__1__10__val: '',
+  auto__1__10__name: '',
+  auto__1__11__checked: '',
+  auto__1__12__val: '',
+  auto__1__12__name: '',
+  auto__1__13__checked: '',
+  auto__1__14__val: '',
+  auto__1__14__name: '',
+  auto__1__15__val: '',
+  auto__1__15__name: '',
+  auto__1__16__val: '',
+  auto__1__16__name: '',
+  auto__1__17__0__checked: '',
+  auto__1__17__1__checked: '',
+  auto__1__17__2__checked: '',
+  auto__1__17__3__checked: '',
+  auto__1__17__4__checked: '',
+
+  // auto__1__17__list: {},
+
+
+  // fields__1__1__1__selected: '',
+  // fields__1__1__2__selected: '',
+  // fields__1__1__3__selected: '',
+  // fields__1__1__4__selected: '',
+  // fields__1__1__5__selected: '',
+  // fields__1__2__6__selected: '',
+  // fields__1__2__7__selected: '',
+  // fields__1__2__8__selected: '',
+  // fields__1__2__9__selected: '',
+  // fields__1__2__10__selected: '',
+  // fields__1__2__11__selected: '',
+  // fields__1__3__12__selected: '',
+  // fields__1__3__13__selected: '',
+  // fields__1__3__14__selected: '',
+  // fields__1__3__15__selected: '',
+  // fields__1__3__16__selected: '',
+  // fields__1__3__17__selected: '',
+
+
   fields__1__1__2: [
     { name: 'Шкиво-ременной' },
     { name: 'Карданный' }
@@ -138,11 +197,11 @@ let initialState = {
     { name: 'Регулируемый (2 положения)' }
   ],
   fields__1__3__17: [
-    { name: 'Автономн. отопитель' },
-    { name: 'Фильтр SEPAR2000' },
-    { name: 'Сумка - ADR' },
-    { name: 'Утепление кабины и моторного отсека' },
-    { name: 'Утепление аккумуляторного отсека' }
+    { id: 1, name: 'Автономн. отопитель' },
+    { id: 2, name: 'Фильтр SEPAR2000' },
+    { id: 3, name: 'Сумка - ADR' },
+    { id: 4, name: 'Утепление кабины и моторного отсека' },
+    { id: 5, name: 'Утепление аккумуляторного отсека' }
   ],
 
 }
