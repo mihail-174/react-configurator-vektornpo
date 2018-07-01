@@ -28,7 +28,7 @@ let initialState = {
   fields__1__1: [
     { id: 1, name: 'Вакуумный насос', system: 'vacuum_pump', type: 'radio' },
     { id: 2, name: 'Привод насоса', system: 'pump_drive', type: 'radio' },
-    { id: 3, name: 'Открытие дна', system: 'opening_bottom', type: 'radio' },
+    { id: 3, name: 'Открытие дна', system: 'opening_bottom', type: 'radio', switchCheck: true, switchCheckName1: 'открытие дна', switchCheckName2: 'глухая цистерна'},
     { id: 4, name: 'Доп. горловина', system: 'additional_neck', type: 'radio' },
     { id: 5, name: 'Крепление цистерны', system: 'mount_tank', type: 'radio' }
   ],
@@ -58,20 +58,14 @@ let initialState = {
   fields__3__2: [],
   fields__3__3: [],
 
-
-  fields__1__1__1: [
-    { name: 'KO-505A', subname: 'коммунальный тип 310 куб./час' },
-    { name: 'BP-8/3', subname: 'взрывозащищенный компрессор 480 куб./час' },
-    { name: 'BK-6М2', subname: 'взрывозащищенный компрессор 240 куб./час' },
-    { name: 'PNR.122', subname: 'взрывозащищенный компрессор 730 куб./час' }
-  ],
-
   // selected: {
   // },
   auto__1__1__val: '',
   auto__1__1__name: '',
   auto__1__2__val: '',
   auto__1__2__name: '',
+  auto__1__3__checked: '',
+  auto__1__3__checkedName: '',
   auto__1__3__val: '',
   auto__1__3__name: '',
   auto__1__4__val: '',
@@ -103,28 +97,12 @@ let initialState = {
   auto__1__17__3__checked: '',
   auto__1__17__4__checked: '',
 
-  // auto__1__17__list: {},
-
-
-  // fields__1__1__1__selected: '',
-  // fields__1__1__2__selected: '',
-  // fields__1__1__3__selected: '',
-  // fields__1__1__4__selected: '',
-  // fields__1__1__5__selected: '',
-  // fields__1__2__6__selected: '',
-  // fields__1__2__7__selected: '',
-  // fields__1__2__8__selected: '',
-  // fields__1__2__9__selected: '',
-  // fields__1__2__10__selected: '',
-  // fields__1__2__11__selected: '',
-  // fields__1__3__12__selected: '',
-  // fields__1__3__13__selected: '',
-  // fields__1__3__14__selected: '',
-  // fields__1__3__15__selected: '',
-  // fields__1__3__16__selected: '',
-  // fields__1__3__17__selected: '',
-
-
+  fields__1__1__1: [
+    { name: 'KO-505A', subname: 'коммунальный тип 310 куб./час' },
+    { name: 'BP-8/3', subname: 'взрывозащищенный компрессор 480 куб./час' },
+    { name: 'BK-6М2', subname: 'взрывозащищенный компрессор 240 куб./час' },
+    { name: 'PNR.122', subname: 'взрывозащищенный компрессор 730 куб./час' }
+  ],
   fields__1__1__2: [
     { name: 'Шкиво-ременной' },
     { name: 'Карданный' }
@@ -134,13 +112,13 @@ let initialState = {
     { name: 'Механическое', subname: 'отделяемое дно, крепится на болты к бочке.' },
     { name: 'Сливной люк', subname: 'на дне бочки диаметром до 500 мм.' }
   ],
-  fields__1__1__3__options: {
-    checkbox: true,
-    names: [
-      { name: 'открытие дна' },
-      { name: 'глухая цистерна' }
-    ]
-  },
+  // fields__1__1__3__options: {
+  //   checkbox: true,
+  //   names: [
+  //     { name: 'открытие дна' },
+  //     { name: 'глухая цистерна' }
+  //   ]
+  // },
   fields__1__1__4: [
     { name: 'Нужна' },
     { name: 'Не нужна' }

@@ -3,7 +3,7 @@ import Header from '../components2/Header';
 import Footer from '../components2/Footer';
 
 import ItemRadio from '../components2/ItemRadio';
-import Checkbox from '../components2/Checkbox';
+import SwitchWithName from '../components2/SwitchWithName';
 
 // import VacNasos from '../components/VacNasos';
 // import PrivodNasosa from '../components/PrivodNasosa';
@@ -28,11 +28,14 @@ export default class Step1 extends Component {
   render() {
 
     const { context } = this.props;
+    // {!isEmpty(context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id + '__options']) && <Checkbox systemName={field.system} id={field.id} options={context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id + '__options']} context={context} /> }
+    // {!isEmpty(context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id + '__options']) &&  }
+    // <SwitchWithName switchCheck={field.switchCheck} systemName={field.system} id={field.id} options={context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id + '__options']} context={context} />
 
     const list = context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep].map((field, key) =>
       <div key={key} className={'b ' + field.system} data-id={field.id}>
         <div className='b__title'>{field.name}</div>
-        {!isEmpty(context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id + '__options']) && <Checkbox systemName={field.system} id={field.id} options={context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id + '__options']} context={context} /> }
+        {field.switchCheck && <SwitchWithName switchCheck={field.switchCheck} switchCheckName1={field.switchCheckName1} switchCheckName2={field.switchCheckName2} systemName={field.system} id={field.id} context={context} />}
         <ItemRadio type={field.type} id={field.id} systemName={field.system} options={context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id]} context={context} />
       </div>
     );
