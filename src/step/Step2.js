@@ -4,7 +4,7 @@ import Footer from '../components2/Footer';
 
 import ItemRadio from '../components2/ItemRadio';
 import ItemCheckbox from '../components2/ItemCheckbox';
-import Checkbox2 from '../components2/Checkbox2';
+// import Checkbox2 from '../components2/Checkbox2';
 
 // import PloshchadkaObsluzhivaniia from '../components/PloshchadkaObsluzhivaniia.js';
 // import Osveshchenie from '../components/Osveshchenie.js';
@@ -15,12 +15,12 @@ import Checkbox2 from '../components2/Checkbox2';
 
 // const Context = React.createContext()
 
-function isEmpty(obj) {
-  for (var key in obj) {
-    return false;
-  }
-  return true;
-}
+// function isEmpty(obj) {
+//   for (var key in obj) {
+//     return false;
+//   }
+//   return true;
+// }
 
 export default class Step2 extends Component {
 
