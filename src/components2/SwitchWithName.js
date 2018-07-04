@@ -59,15 +59,20 @@ export default class SwitchWithName extends Component {
   //     })
   //   // }
 
-  // componentWillUnmount() {}
+  componentWillMount() {
+  // componentWillUpdate() {
+  // componentWillUnmount() {
   // shouldComponentUpdate() {
   // componentDidUpdate() {
   // componentDidCatch() {
-  //   const { context } = this.props;
-  //   const checked = 'auto__' + context.state.currentAvto + '__' + this.props.id + '__checked';
+    const { context } = this.props;
+    const checked = 'auto__' + context.state.currentAvto + '__' + this.props.id + '__checked';
+    // console.log( this.props.switchCheck );
+    context.methods.setAppState({
+      [checked]: this.props.switchCheck
+    })
   //   console.log( context.state[checked] );
-  //   console.log( this.props.switchCheck );
-  // }
+  }
 
   render() {
     // checked={this.props.options.checkbox}
@@ -79,24 +84,28 @@ export default class SwitchWithName extends Component {
     // checked={context.state[checked]}
     const checked = 'auto__' + context.state.currentAvto + '__' + this.props.id + '__checked';
 
-    let aaa = false;
+    // let aaa = false;
 
     // console.log( context.state[checked] + ' === ' + this.props.switchCheck );
-    switch (context.state[checked]) {
-      case '':
-        console.log( 'пусто' );
-        aaa = this.props.switchCheck;
-        break;
-      case true:
-        console.log( 'да' );
-        aaa = true;
-        break;
-      case false:
-        console.log( 'нет' );
-        aaa = false;
-        break;
-      default:
-    }
+    // switch (context.state[checked]) {
+    //   case '':
+    //     console.log( 'пусто' );
+    //     aaa = this.props.switchCheck;
+    //     break;
+    //   case true:
+    //     console.log( 'да' );
+    //     aaa = true;
+    //     break;
+    //   case false:
+    //     console.log( 'нет' );
+    //     aaa = false;
+    //     break;
+    //   default:
+    // }
+
+    // console.log( this.refs );
+
+
     // if ( context.state[checked]=='' ) {
     //   console.log( 1 );
     // } else {
@@ -109,12 +118,12 @@ export default class SwitchWithName extends Component {
     //   aaa = this.props.switchCheck;
     // }
     // console.log( aaa );
-
+    // onChange={this.change}
     return (
       <div className='toggle'>
-        <input className='toggle__input' defaultChecked={this.props.switchCheck} onChange={this.change} id={this.props.systemName + "-checkbox"} type='checkbox' name={this.props.systemName} value='' />
+        <input className='toggle__input' defaultChecked={this.props.switchCheck} id={this.props.systemName + "-checkbox"} type='checkbox' name={this.props.systemName} value='' />
         <label className='toggle__label' onClick={this.change} htmlFor={this.props.systemName + "-checkbox"}>
-          {this.props.switchCheck || context.state[checked] ? this.props.switchCheckName1 : this.props.switchCheckName2}
+          {this.props.switchCheck ? this.props.switchCheckName1 : this.props.switchCheckName2}
         </label>
       </div>
     )

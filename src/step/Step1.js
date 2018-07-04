@@ -13,12 +13,12 @@ import SwitchWithName from '../components2/SwitchWithName';
 
 // const Context = React.createContext()
 
-// function isEmpty(obj) {
-//   for (var key in obj) {
-//     return false;
-//   }
-//   return true;
-// }
+function isEmpty(obj) {
+  for (var key in obj) {
+    return false;
+  }
+  return true;
+}
 
 // {field.options.checkbox && <Checkbox checkbox={field.checkbox} systemName={field.system} context={context} />}
 // {!isEmpty(field.options) && <Checkbox options={field.options} systemName={field.system} context={context} />}
@@ -33,10 +33,13 @@ export default class Step1 extends Component {
     // <SwitchWithName switchCheck={field.switchCheck} systemName={field.system} id={field.id} options={context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id + '__options']} context={context} />
     // {field.switchCheck && <SwitchWithName switchCheck={field.switchCheck} switchCheckName1={field.switchCheckName1} switchCheckName2={field.switchCheckName2} systemName={field.system} id={field.id} context={context} />}
 
+    // console.log( isEmpty( context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep][2].switchCheck ) );
+
     const list = context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep].map((field, key) =>
       <div key={key} className={'b ' + field.system} data-id={field.id}>
         <div className='b__title'>{field.name}</div>
-        <SwitchWithName switchCheck={field.switchCheck} switchCheckName1={field.switchCheckName1} switchCheckName2={field.switchCheckName2} systemName={field.system} id={field.id} context={context} />
+        {field.switchCheck === true && <SwitchWithName switchCheck={field.switchCheck} switchCheckName1={field.switchCheckName1} switchCheckName2={field.switchCheckName2} systemName={field.system} id={field.id} context={context} />}
+        {field.switchCheck === false && <SwitchWithName switchCheck={field.switchCheck} switchCheckName1={field.switchCheckName1} switchCheckName2={field.switchCheckName2} systemName={field.system} id={field.id} context={context} />}
         <ItemRadio type={field.type} id={field.id} systemName={field.system} options={context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id]} context={context} />
       </div>
     );
