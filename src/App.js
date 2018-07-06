@@ -15,7 +15,7 @@ const Context = React.createContext()
 // АВТО__ШАГ__ОПЦИЯ
 
 let initialState = {
-  currentStep: 1,
+  currentStep: 2,
   currentAvto: 1,
   // selectedAvto: 'АКН',
 
@@ -34,9 +34,9 @@ let initialState = {
   ],
   fields__1__2: [
     { id: 6, name: 'Площадка обслуживания', system: 'service_platform', type: 'radio' },
-    { id: 7, name: 'Освещение', system: 'lighting', type: 'radio' },
-    { id: 8, name: 'Подогрев от ВС', system: 'heating_from_sun', type: 'radio' },
-    { id: 9, name: 'Исполнение', system: 'execution', type: 'checkbox' },
+    { id: 7, name: 'Освещение', system: 'lighting', type: 'radio', switchCheck: true },
+    { id: 8, name: 'Подогрев от ВС', system: 'heating_from_sun', type: 'radio', switchCheck: false },
+    { id: 9, name: 'Исполнение', system: 'execution', type: 'checkbox', checked: true },
     { id: 10, name: 'Крепление огнетушителя', system: 'fire_extinguisher_mounting', type: 'radio' },
     { id: 11, name: 'Калибровка', system: 'calibration', type: 'checkbox' }
   ],
@@ -74,8 +74,10 @@ let initialState = {
   auto__1__5__name: '',
   auto__1__6__val: '',
   auto__1__6__name: '',
+  auto__1__7__checked: '',
   auto__1__7__val: '',
   auto__1__7__name: '',
+  auto__1__8__checked: '',
   auto__1__8__val: '',
   auto__1__8__name: '',
   auto__1__9__checked: '',
