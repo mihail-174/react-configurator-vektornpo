@@ -15,7 +15,7 @@ const Context = React.createContext()
 // АВТО__ШАГ__ОПЦИЯ
 
 let initialState = {
-  currentStep: 2,
+  currentStep: 1,
   currentAvto: 1,
   // selectedAvto: 'АКН',
 
@@ -38,7 +38,7 @@ let initialState = {
     { id: 8, name: 'Подогрев от ВС', system: 'heating_from_sun', type: 'radio', switchCheck: false },
     { id: 9, name: 'Исполнение', system: 'execution', type: 'checkbox', checked: true },
     { id: 10, name: 'Крепление огнетушителя', system: 'fire_extinguisher_mounting', type: 'radio' },
-    { id: 11, name: 'Калибровка', system: 'calibration', type: 'checkbox' }
+    { id: 11, name: 'Калибровка', system: 'calibration', type: 'checkbox', checked: false }
   ],
   fields__1__3: [
     { id: 12, name: 'Двигатель', system: 'engine', type: 'radio' },

@@ -18,7 +18,7 @@ export default class Step2 extends Component {
         {field.switchCheck === true && <SwitchWithoutName switchCheck={field.switchCheck} systemName={field.system} id={field.id} context={context} />}
         {field.switchCheck === false && <SwitchWithoutName switchCheck={field.switchCheck} systemName={field.system} id={field.id} context={context} />}
         {field.type === 'radio' && <ItemRadio id={field.id} systemName={field.system} options={context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id]} context={context} />}
-        {field.type === 'checkbox' && <ItemCheckbox id={field.id} systemName={field.system} options={context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id]} context={context} />}
+        {field.type === 'checkbox' && <ItemCheckbox checked={field.checked} id={field.id} systemName={field.system} options={context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id]} context={context} />}
       </div>
     );
 

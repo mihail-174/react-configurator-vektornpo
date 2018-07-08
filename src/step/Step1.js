@@ -13,12 +13,12 @@ import SwitchWithName from '../components2/SwitchWithName';
 
 // const Context = React.createContext()
 
-function isEmpty(obj) {
-  for (var key in obj) {
-    return false;
-  }
-  return true;
-}
+// function isEmpty(obj) {
+//   for (var key in obj) {
+//     return false;
+//   }
+//   return true;
+// }
 
 // {field.options.checkbox && <Checkbox checkbox={field.checkbox} systemName={field.system} context={context} />}
 // {!isEmpty(field.options) && <Checkbox options={field.options} systemName={field.system} context={context} />}
