@@ -24,7 +24,12 @@ let initialState = {
     { id: 2, name: 'MB', image: 'https://vektornpo.ru/sites/all/themes/vektor/images/config-icon-mb.png' },
     { id: 3, name: 'АЦН', image: 'https://vektornpo.ru/sites/all/themes/vektor/images/config-icon-acn.png' }
   ],
-  // steps__1: 3,
+  steps: [
+    { id: 1, name: 'Цистерна и оборудование'},
+    { id: 2, name: 'Комплектация установки'},
+    { id: 3, name: 'Комплектация шасси'},
+    { id: 4, name: ''},
+  ],
   fields__1__1: [
     { id: 1, name: 'Вакуумный насос', system: 'vacuum_pump', type: 'radio' },
     { id: 2, name: 'Привод насоса', system: 'pump_drive', type: 'radio' },
