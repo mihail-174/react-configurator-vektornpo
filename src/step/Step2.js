@@ -6,6 +6,13 @@ import ItemRadio from '../components2/ItemRadio';
 import ItemCheckbox from '../components2/ItemCheckbox';
 import SwitchWithoutName from '../components2/SwitchWithoutName';
 
+// function isEmpty(obj) {
+//   for (var key in obj) {
+//     return false;
+//   }
+//   return true;
+// }
+
 export default class Step2 extends Component {
 
   render() {
@@ -17,7 +24,7 @@ export default class Step2 extends Component {
         <div className='b__title'>{field.name}</div>
         {field.switchCheck === true && <SwitchWithoutName switchCheck={field.switchCheck} systemName={field.system} id={field.id} context={context} />}
         {field.switchCheck === false && <SwitchWithoutName switchCheck={field.switchCheck} systemName={field.system} id={field.id} context={context} />}
-        {field.type === 'radio' && <ItemRadio id={field.id} systemName={field.system} options={context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id]} context={context} />}
+        {field.type === 'radio' && <ItemRadio switchCheck={field.switchCheck} id={field.id} systemName={field.system} options={context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id]} context={context} />}
         {field.type === 'checkbox' && <ItemCheckbox checked={field.checked} id={field.id} systemName={field.system} options={context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id]} context={context} />}
       </div>
     );

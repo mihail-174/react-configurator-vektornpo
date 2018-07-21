@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../css/checkbox.css';
 
 export default class SwitchWithName extends Component {
   constructor() {
@@ -64,5 +63,3 @@ export default class SwitchWithName extends Component {
 
   }
 }
-
-// {this.props.switchCheck ? this.props.switchCheckName1 : this.props.switchCheckName2}

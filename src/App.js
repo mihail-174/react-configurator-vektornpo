@@ -7,6 +7,7 @@ import Step0 from './step/Step0';
 import Step1 from './step/Step1';
 import Step2 from './step/Step2';
 import Step3 from './step/Step3';
+import Step4 from './step/Step4';
 
 const Context = React.createContext()
 
@@ -15,7 +16,7 @@ const Context = React.createContext()
 // АВТО__ШАГ__ОПЦИЯ
 
 let initialState = {
-  currentStep: 1,
+  currentStep: 2,
   currentAvto: 1,
   // selectedAvto: 'АКН',
 
@@ -24,7 +25,17 @@ let initialState = {
     { id: 2, name: 'MB', image: 'https://vektornpo.ru/sites/all/themes/vektor/images/config-icon-mb.png' },
     { id: 3, name: 'АЦН', image: 'https://vektornpo.ru/sites/all/themes/vektor/images/config-icon-acn.png' }
   ],
-  // steps__1: 3,
+  steps: [
+    { id: 1, name: 'Цистерна и оборудование' },
+    { id: 2, name: 'Комплектация установки' },
+    { id: 3, name: 'Комплектация шасси' },
+    { id: 4, name: 'Готово' }
+  ],
+  // buttons: [
+  //   { id: 1, name: 'Назад', systemName: 'prev' },
+  //   { id: 2, name: 'Далее', systemName: 'next' },
+  //   { id: 3, name: 'Получить коммерческое предложение', systemName: 'finish' }
+  // ],
   fields__1__1: [
     { id: 1, name: 'Вакуумный насос', system: 'vacuum_pump', type: 'radio' },
     { id: 2, name: 'Привод насоса', system: 'pump_drive', type: 'radio' },
@@ -242,6 +253,9 @@ export default class App extends Component {
             }
             {this.state.currentStep === 3 &&
               <Context.Consumer>{context => ( <Step3 context={context}/> )}</Context.Consumer>
+            }
+            {this.state.currentStep === 4 &&
+              <Context.Consumer>{context => ( <Step4 context={context}/> )}</Context.Consumer>
             }
           </div>
 

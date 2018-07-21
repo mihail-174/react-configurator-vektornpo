@@ -27,7 +27,8 @@ main {
 .content {
   display: flex;
   flex-wrap: wrap;
-  padding: 25px 18px 0;
+  padding: 25px 18px;
+  height: 455px;
 }
 .result {
 	padding: 0 5px;

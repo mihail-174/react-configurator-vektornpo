@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../css/B.css';
 
 export default class ItemCheckbox extends Component {
   constructor() {

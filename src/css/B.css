@@ -49,7 +49,16 @@
 .b__item.active .b__name, .b__item:hover .b__name,
 .b__item.active .b__subname, .b__item:hover .b__subname {color: #378fe2;}
 
-
+.b__item.disabled {}
+.b__item.disabled .b__name {
+  color: #c9c9c9;
+}
+.b__item.disabled .b__subname {
+  color: #c9c9c9;
+}
+.b__label {
+  cursor: default;
+}
 
 .b_row {}
 .b_row .b__item {margin-right: 5px;}
