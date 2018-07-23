@@ -5,7 +5,7 @@ import Footer from '../components2/Footer';
 import ItemRadio from '../components2/ItemRadio';
 import SwitchWithName from '../components2/SwitchWithName';
 
-import '../css/b.css';
+import '../css/B.css';
 import '../css/checkbox.css';
 
 export default class Step1 extends Component {
