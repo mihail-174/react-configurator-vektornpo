@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import '../css/header.css';
 
 export default class Header extends Component {
-  constructor(props) {
-    super(props);
-    // this.setStep = this.setStep.bind(this);
-  }
-  setStep(step) {
-    const { context } = this.props;
-    context.methods.setAppState( { currentStep: step } );
-  }
+  // constructor(props) {
+  //   super(props);
+  //   // this.setStep = this.setStep.bind(this);
+  // }
+  // setStep(step) {
+  //   const { context } = this.props;
+  //   context.methods.setAppState( { currentStep: step } );
+  // }
   render() {
     const { context } = this.props;
     const list = context.state.steps.map((field, key) =>
