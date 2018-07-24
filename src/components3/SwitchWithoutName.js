@@ -5,63 +5,38 @@ export default class SwitchWithName extends Component {
   //   super();
   //   this.change = this.change.bind(this);
   // }
-  // change(e) {
-  //   const { context } = this.props;
-  //   let itemChecked = 'auto__' + context.state.currentAvto + '__' + this.props.id + '__checked';
-  //   let valChecked = this.props.switchCheck;
-  //   switch (context.state[itemChecked]) {
-  //     case '':
-  //       // console.log( 'в стейте: пусто' );
-  //       valChecked = !this.props.switchCheck;
-  //       break;
-  //     case true:
-  //     // console.log( 'в стейте: да true' );
-  //       valChecked = false;
-  //       break;
-  //     case false:
-  //       // console.log( 'в стейте: нет false' );
-  //       valChecked = true;
-  //       break;
-  //     default:
-  //   }
-  //   context.methods.setAppState({
-  //     [itemChecked]: valChecked
-  //   })
-  // }
+  change(idBlock) {
+    const { context } = this.props,
+          currentAvto = context.state.currentAvto,
+          currentStep = context.state.currentStep,
+          switch_check = 'fields__' + currentAvto + '__' + currentStep + '__' + idBlock + '__switch_check';
 
+    console.log( idBlock );
+
+    // context.methods.setAppState({
+    //   [switch_check]: !switch_check
+    // })
+  }
+
+
+  handlerClick(e) {
+      //Не забудь сбиндить, или привязать контекст стрелочно, иначе потеряешь контекст
+      console.log(e.target);
+  }
 
   render() {
-    const { context } = this.props;
-    const currentAvto = context.state.currentAvto;
-    const currentStep = context.state.currentStep;
-    const idBlock = parseInt(this.props.idBlock, 0);
-    // const systemName = this.props.systemName;
-          // fields__x__x__x__options = context.state['fields__' + currentAvto + '__' + currentStep + '__' + idBlock + '__options'];
-          // switch_check = context.state['fields__' + currentAvto + '__' + currentStep + '__' + idBlock + '__options'];
-    let bbb = context.state['fields__' + currentAvto + '__' + currentStep + '__' + idBlock + '__options3'][0].aaa;
-
-    console.log( bbb );
-    // console.log( context.state['fields__'+ currentAvto +'__'+ currentStep +'__2__options2'].aaa );
-    // console.log( context.state['fields__'+ currentAvto +'__'+ currentStep +'__'+ idBlock +'__options2'].aaa );
-    // context.state['fields__'+ currentAvto +'__'+ currentStep + '__' + idBlock +'__options2'].aaa
-
-
-    const list = Object.keys(bbb).map((field, key) => {
-      return (
-        <div key={key}>
-          {field.aaa}
-        </div>
-        )
-      }
-    );
+    const { context } = this.props,
+          currentAvto = context.state.currentAvto,
+          currentStep = context.state.currentStep,
+          idBlock = this.props.idBlock,
+          systemName = this.props.systemName,
+          switch_check = context.state['fields__' + currentAvto + '__' + currentStep + '__' + idBlock + '__switch_check'];
 
     return (
       <div className='toggle'>
-        {list}
+        <input className='toggle__input' defaultChecked={switch_check?true:false} id={systemName + "-checkbox"} type='checkbox' name={systemName} value='' />
+        <label className='toggle__label' onClick={()=>this.change(idBlock)} htmlFor={systemName + "-checkbox"}></label>
       </div>
     )
   }
 }
-
-// <input className='toggle__input'  id={systemName + "-checkbox"} type='checkbox' name={systemName} value='' />
-// <label className='toggle__label' htmlFor={systemName + "-checkbox"}></label>
