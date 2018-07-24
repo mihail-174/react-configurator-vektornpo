@@ -15,7 +15,7 @@ export default class Step1 extends Component {
     const fields__x__x = context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep];
 
     const list = fields__x__x.map((field, key) =>
-      <div key={key} className={'b ' + field.system}>
+      <div key={key} className={'b ' + field.systemName}>
         <div className='b__title'>{field.name}</div>
         <SwitchWithoutName context={context} systemName={field.systemName} idBlock={field.id} />
         <ItemRadio context={context} systemName={field.systemName} idBlock={field.id} />
