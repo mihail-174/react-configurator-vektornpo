@@ -22,55 +22,67 @@ let initialState = {
   ],
   steps: [
     { id: 1, name: 'Цистерна и оборудование' },
-    // { id: 2, name: 'Комплектация установки' },
+    { id: 2, name: 'Комплектация установки' },
     // { id: 3, name: 'Комплектация шасси' },
     // { id: 4, name: 'Готово' }
   ],
   fields__1__1: [
-    { id: 1, name: 'Вакуумный насос', system: 'vacuum_pump', type: 'radio' },
-    { id: 2, name: 'Открытие дна', system: 'opening_bottom', type: 'radio' },
-    { id: 3, name: 'Освещение', system: 'lighting', type: 'radio' },
-    { id: 4, name: 'Подогрев от ВС', system: 'heating_from_sun', type: 'radio' }
+    { id: 1, name: 'Вакуумный насос', systemName: 'vacuum_pump', type: 'radio' },
+    { id: 2, name: 'Открытие дна', systemName: 'opening_bottom', type: 'radio' },
+    { id: 3, name: 'Освещение', systemName: 'lighting', type: 'radio' },
+    { id: 4, name: 'Подогрев от ВС', systemName: 'heating_from_sun', type: 'radio' }
   ],
   fields__1__1__1: [
-    { name: 'KO-505A', subname: 'коммунальный тип 310 куб./час' },
-    { name: 'BP-8/3', subname: 'взрывозащищенный компрессор 480 куб./час' },
-    { name: 'BK-6М2', subname: 'взрывозащищенный компрессор 240 куб./час' },
-    { name: 'PNR.122', subname: 'взрывозащищенный компрессор 730 куб./час' }
+    { name: 'KO-505A', subName: 'коммунальный тип 310 куб./час' },
+    { name: 'BP-8/3', subName: 'взрывозащищенный компрессор 480 куб./час' },
+    { name: 'BK-6М2', subName: 'взрывозащищенный компрессор 240 куб./час' },
+    { name: 'PNR.122', subName: 'взрывозащищенный компрессор 730 куб./час' }
   ],
   fields__1__1__2: [
-    { name: 'Механическое', subname: 'отделяемое дно, крепится на болты к бочке.' },
-    { name: 'Сливной люк', subname: 'на дне бочки диаметром до 500 мм.' }
+    { name: 'Механическое', subName: 'отделяемое дно, крепится на болты к бочке.' },
+    { name: 'Сливной люк', subName: 'на дне бочки диаметром до 500 мм.' }
   ],
-  // fields__1__1__2__options: [
-  //   {switch_check: true},
-  //   {switch_name_on: 'открытие дна'},
-  //   {switch_name_off: 'глухая цистерна'}
-  // ],
-  fields__1__1__2__options: {
-    switch_check: true,
-    switch_name_on: 'открытие дна',
-    switch_name_off: 'глухая цистерна'
-  },
+  fields__1__1__2__options2: { aaa: 'раз2' },
+  fields__1__1__2__options3: [
+    {
+      switch_check: true,
+      switch_name_on: 'открытие дна',
+      switch_name_off: 'глухая цистерна',
+      aaa: 'раз'
+    }
+  ],
   fields__1__1__3: [
     { name: '2 зоны' },
     { name: '4 зоны' }
   ],
-  fields__1__1__3__options: {
-    switch_check: false,
-  },
+  fields__1__1__3__options2: { aaa: 'два2' },
+  fields__1__1__3__options3: [
+    {
+      aaa: 'два'
+    }
+  ],
   fields__1__1__4: [
     { name: 'Внутри цистерны' },
     { name: 'Сбоку цистерны' }
   ],
-  fields__1__1__4__options: {
-    switch_check: true
-  },
+  fields__1__1__4__options2: { aaa: 'три2' },
+  // fields__1__1__4__options: {
+  //   switch_check: true,
+  //   aaa: 'три'
+  // },
+  fields__1__1__4__options3: [
+    {
+      aaa: 'три'
+    }
+  ],
 
   fields__1__2: [],
   fields__1__3: [],
 
-  auto__1__1__val: '',
+  val__1: null,
+  val__2: null,
+  val__3: null,
+  val__4: null,
 
 
 
