@@ -11,9 +11,15 @@
 .b__list {
 	display: flex;
 }
+.b__hd {
+	display: flex;
+	align-items: center;
+}
 .b__input {
   /* display: none; */
 	position: absolute;
+  right: 0;
+  bottom: 0;
 	margin: 0;
 	padding: 0;
 }
@@ -60,6 +66,7 @@
   cursor: default;
 }
 
+/*
 .b_row {}
 .b_row .b__item {margin-right: 5px;}
 .b_row .b__item:last-of-type {margin-right: 0;}
@@ -72,3 +79,4 @@
 }
 .b_col .b__item {margin-bottom: 10px;}
 .b_col .b__item:last-of-type {margin-bottom: 0;}
+*/

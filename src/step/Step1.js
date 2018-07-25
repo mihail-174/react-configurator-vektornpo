@@ -3,35 +3,40 @@ import Header from '../components2/Header';
 import Footer from '../components2/Footer';
 
 import ItemRadio from '../components3/ItemRadio';
-import SwitchWithoutName from '../components3/SwitchWithoutName';
+import Switch from '../components3/Switch';
 
 import '../css/B.css';
 import '../css/checkbox.css';
 
+function keyExists(key, search) {
+    if (!search || (search.constructor !== Array && search.constructor !== Object)) {
+        return false;
+    }
+    for (var i = 0; i < search.length; i++) {
+        if (search[i] === key) {
+            return true;
+        }
+    }
+    return key in search;
+}
+
 export default class Step1 extends Component {
 
   render() {
-    const { context } = this.props;
-    const fields__x__x = context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep];
+    const { context } = this.props,
+      currentAvto = context.state.currentAvto,
+      currentStep = context.state.currentStep,
+      fields__x__x = context.state['fields__' + currentAvto + '__' + currentStep];
 
     const list = fields__x__x.map((field, key) =>
       <div key={key} className={'b ' + field.systemName}>
-        <div className='b__title'>{field.name}</div>
-        <SwitchWithoutName context={context} systemName={field.systemName} idBlock={field.id} />
+        <div className='b__hd'>
+          <div className='b__title'>{field.name}</div>
+          {keyExists('switch_check', context.state["fields__" + currentAvto + "__" + currentStep + "__" + parseInt(key+1,0) + "__options"]) && <Switch context={context} systemName={field.systemName} idBlock={field.id} />}
+        </div>
         <ItemRadio context={context} systemName={field.systemName} idBlock={field.id} />
       </div>
     );
-
-
-
-    // const list = context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep].map((field, key) =>
-    //   <div key={key} className={'b ' + field.system} data-id={field.id}>
-    //     <div className='b__title'>{field.name}</div>
-    //     {field.switchCheck === true && <SwitchWithName switchCheck={field.switchCheck} switchCheckName1={field.switchCheckName1} switchCheckName2={field.switchCheckName2} systemName={field.system} id={field.id} context={context} />}
-    //     {field.switchCheck === false && <SwitchWithName switchCheck={field.switchCheck} switchCheckName1={field.switchCheckName1} switchCheckName2={field.switchCheckName2} systemName={field.system} id={field.id} context={context} />}
-    //     <ItemRadio type={field.type} id={field.id} systemName={field.system} options={context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id]} context={context} />
-    //   </div>
-    // );
 
     return (
       <div className='step step_one'>
