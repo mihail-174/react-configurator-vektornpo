@@ -5,8 +5,9 @@ import Footer from '../components2/Footer';
 import ItemRadio from '../components3/ItemRadio';
 import Switch from '../components3/Switch';
 
-import '../css/B.css';
 import '../css/checkbox.css';
+
+import '../scss/B.scss';
 
 function keyExists(key, search) {
     if (!search || (search.constructor !== Array && search.constructor !== Object)) {
