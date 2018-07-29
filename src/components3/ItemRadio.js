@@ -64,9 +64,6 @@ export default class ItemRadio extends Component {
               :
               'b__item b__item_' + key
         }>
-
-        { selectedVal===key ? '1' : '0' }
-
           <input className="b__input" id={systemName + "-" + key} checked={selectedVal===key ? true : false} onChange={()=>this.change(key)} disabled={keyExists('switch_check', fields__x__x__x__options)&&newSwitchCheck===false?true:false} type='radio' name={systemName} value={key} />
           <label className="b__label" onClick={()=>this.change(key)} htmlFor={systemName + "-" + key}>
             <div className='b__name'>{field.name}</div>
