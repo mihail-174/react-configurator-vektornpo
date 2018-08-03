@@ -53,16 +53,26 @@ export default class ItemRadio extends Component {
       newSwitchCheck = fields__x__x__x__options.switch_check;
     }
 
+
+
+    // {
+    //   newSwitchCheck ?
+    //     'b__item b__item_' + key
+    //     :
+    //     keyExists('switch_check', fields__x__x__x__options) ?
+    //       'b__item b__item_' + key + ' disabled'
+    //       :
+    //       'b__item b__item_' + key
+    // }
+
     const list = fields__x__x__x.map((field, key) => {
       return (
         <div key={key} className={
-          newSwitchCheck ?
-            'b__item active b__item_' + key
-            :
-            keyExists('switch_check', fields__x__x__x__options) ?
-              'b__item b__item_' + key + ' disabled'
-              :
-              'b__item b__item_' + key
+          selectedVal===key
+          ?
+          'b__item b__item_' + key + ' active'
+          :
+          'b__item b__item_' + key
         }>
           <input className="b__input" id={systemName + "-" + key} checked={selectedVal===key ? true : false} onChange={()=>this.change(key)} disabled={keyExists('switch_check', fields__x__x__x__options)&&newSwitchCheck===false?true:false} type='radio' name={systemName} value={key} />
           <label className="b__label" onClick={()=>this.change(key)} htmlFor={systemName + "-" + key}>

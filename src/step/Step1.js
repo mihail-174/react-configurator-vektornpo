@@ -25,9 +25,10 @@ export default class Step1 extends Component {
 
   render() {
     const { context } = this.props,
-      currentAvto = context.state.currentAvto,
-      currentStep = context.state.currentStep,
-      fields__x__x = context.state['fields__' + currentAvto + '__' + currentStep];
+      state = context.state,
+      currentAvto = state.currentAvto,
+      currentStep = state.currentStep,
+      fields__x__x = state['fields__' + currentAvto + '__' + currentStep];
 
     const list = fields__x__x.map((field, key) =>
       <div key={key} className={'b ' + field.systemName}>
@@ -35,7 +36,19 @@ export default class Step1 extends Component {
           <div className='b__title'>{field.name}</div>
           {keyExists('switch_check', context.state["fields__" + currentAvto + "__" + currentStep + "__" + parseInt(key+1,0) + "__options"]) && <Switch context={context} systemName={field.systemName} idBlock={field.id} />}
         </div>
-        <ItemRadio context={context} systemName={field.systemName} idBlock={field.id} />
+        <div className={
+          keyExists('switch_check', context.state["fields__" + currentAvto + "__" + currentStep + "__" + field.id + "__options"])
+          ?
+            context.state["fields__" + currentAvto + "__" + currentStep + "__" + field.id + "__options"].switch_check
+            ?
+            'b__cont'
+            :
+            'b__cont disabled'
+          :
+          'b__cont'
+        }>
+          <ItemRadio context={context} systemName={field.systemName} idBlock={field.id} />
+        </div>
       </div>
     );
 

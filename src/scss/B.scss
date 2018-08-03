@@ -33,8 +33,16 @@
 .b__label {
   display: block;
   padding: 10px;
-  cursor: pointer;
   width: 100%;
+  cursor: pointer;
+  &:hover {
+    border-color: #378fe2;
+    cursor: pointer;
+    .b__name,
+    .b__subname {
+      color: #378fe2;
+    }
+  }
 }
 .b__name {
 	font-weight: 700;
@@ -49,52 +57,21 @@
   transition: all 0.3s;
 }
 
+.active {
+  border-color: #378fe2;
+  .b__name,
+  .b__subname {color: #378fe2;}
+}
 
-.b__item:not(.disabled) {
-  .b__label {
-    &:hover {
-      border-color: #378fe2;
-      cursor: pointer;
-      .b__name,
-      .b__subname {
-        color: #378fe2;
-      }
-    }
+.disabled {
+  .b__name,
+  .b__subname {color: #c9c9c9;}
+  .b__label {cursor: default;}
+  .b__item:hover {
+    .b__name,
+    .b__subname {color: #c9c9c9;}
   }
 }
-.b__item.active {border-color: #378fe2;}
-
-/*
-.b__item.active,
-.b__item:hover {border-color: #378fe2;}
-
-.b__item.active .b__name,
-.b__item:hover .b__name,
-.b__item.active .b__subname,
-.b__item:hover .b__subname {color: #378fe2;}
-*/
-
-
-.b__item.disabled {}
-.b__item.disabled .b__name {
-  color: #c9c9c9;
-}
-.b__item.disabled .b__subname {
-  color: #c9c9c9;
-}
-.b__label {
-  cursor: default;
-}
-
-
-// .disabled {
-//   &:hover {
-//     border-color: transparent;
-//   }
-// }
-
-
-
 
 /*
 .b_row {}
