@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../css/shoose-avto.css';
+import '../scss/shoose-avto.scss';
 
 export default class ShooseAvto extends Component {
   constructor(props) {

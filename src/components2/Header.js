@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../css/header.css';
+import '../scss/header.scss';
 
 export default class Header extends Component {
   // constructor(props) {

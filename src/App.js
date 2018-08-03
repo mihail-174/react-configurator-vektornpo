@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './css/App.css';
+import './scss/App.scss';
 
 import Step0 from './step/Step0';
 import Step1 from './step/Step1';
@@ -16,15 +16,18 @@ let initialState = {
   currentAvto: 1,
 
   machine_names: [
-    { id: 1, name: 'АКН', image: 'https://vektornpo.ru/sites/all/themes/vektor/images/config-icon.png' },
-    { id: 2, name: 'MB', image: 'https://vektornpo.ru/sites/all/themes/vektor/images/config-icon-mb.png' },
-    { id: 3, name: 'АЦН', image: 'https://vektornpo.ru/sites/all/themes/vektor/images/config-icon-acn.png' }
+    // { id: 1, name: 'АКН', image: 'https://vektornpo.ru/sites/all/themes/vektor/images/config-icon.png' },
+    // { id: 2, name: 'MB', image: 'https://vektornpo.ru/sites/all/themes/vektor/images/config-icon-mb.png' },
+    // { id: 3, name: 'АЦН', image: 'https://vektornpo.ru/sites/all/themes/vektor/images/config-icon-acn.png' }
+    { id: 1, name: 'АКН', image: 'https://vektornpo.ru/sites/all/themes/vektor/images/mod1on.jpg' },
+    { id: 2, name: 'MB', image: 'https://vektornpo.ru/sites/all/themes/vektor/images/mod2on.jpg' },
+    { id: 3, name: 'АЦН', image: 'https://vektornpo.ru/sites/all/themes/vektor/images/mod3on.jpg' }
   ],
   steps: [
     { id: 1, name: 'Цистерна и оборудование' },
     { id: 2, name: 'Комплектация установки' },
-    // { id: 3, name: 'Комплектация шасси' },
-    // { id: 4, name: 'Готово' }
+    { id: 3, name: 'Комплектация шасси' },
+    { id: 4, name: 'Готово' }
   ],
   fields__1__1: [
     { id: 1, name: 'Вакуумный насос', systemName: 'vacuum_pump', type: 'radio' },

@@ -3,6 +3,18 @@
   margin-left: 15px;
   margin-right: 15px;
 }
+.b__input {
+  display: none;
+	position: absolute;
+  right: 0;
+  bottom: 0;
+	margin: 0;
+	padding: 0;
+}
+.b__hd {
+	display: flex;
+	align-items: center;
+}
 .b__title {
 	font-weight: 700;
 	font-size: 13px;
@@ -10,18 +22,6 @@
 }
 .b__list {
 	display: flex;
-}
-.b__hd {
-	display: flex;
-	align-items: center;
-}
-.b__input {
-  /* display: none; */
-	position: absolute;
-  right: 0;
-  bottom: 0;
-	margin: 0;
-	padding: 0;
 }
 .b__item {
 	border: 1px solid #e3e3e3;
