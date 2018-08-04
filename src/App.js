@@ -16,12 +16,9 @@ let initialState = {
   currentAvto: 1,
 
   machine_names: [
-    // { id: 1, name: 'АКН', image: 'https://vektornpo.ru/sites/all/themes/vektor/images/config-icon.png' },
-    // { id: 2, name: 'MB', image: 'https://vektornpo.ru/sites/all/themes/vektor/images/config-icon-mb.png' },
-    // { id: 3, name: 'АЦН', image: 'https://vektornpo.ru/sites/all/themes/vektor/images/config-icon-acn.png' }
-    { id: 1, name: 'АКН', image: 'https://vektornpo.ru/sites/all/themes/vektor/images/mod1on.jpg' },
-    { id: 2, name: 'MB', image: 'https://vektornpo.ru/sites/all/themes/vektor/images/mod2on.jpg' },
-    { id: 3, name: 'АЦН', image: 'https://vektornpo.ru/sites/all/themes/vektor/images/mod3on.jpg' }
+    { id: 1, name: 'АКН', image: 'akn.jpg', ico: 'akn.png' },
+    { id: 2, name: 'MB', image: 'mb.jpg', ico: 'mb.png' },
+    { id: 3, name: 'АЦН', image: 'acn.jpg', ico: 'acn.png' }
   ],
   steps: [
     { id: 1, name: 'Цистерна и оборудование' },
@@ -42,25 +39,21 @@ let initialState = {
     { name: 'PNR.122', subName: 'взрывозащищенный компрессор 730 куб./час' }
   ],
   fields__1__1__2: [
-    { name: 'Механическое', subName: 'отделяемое дно, крепится на болты к бочке.' },
-    { name: 'Сливной люк', subName: 'на дне бочки диаметром до 500 мм.' }
+    { name: 'Механическое', subName: 'отделяемое дно, крепится на болты к бочке.', ico: true, url: '05.png' },
+    { name: 'Сливной люк', subName: 'на дне бочки диаметром до 500 мм.', ico: true, url: '04.png' }
   ],
   fields__1__1__2__options: {
     switch_check: true,
     switch_name_on: 'открытие дна',
     switch_name_off: 'глухая цистерна'
   },
-  // fields__1__1__2__switch_check: true,
-  // fields__1__1__2__switch_name_on: 'открытие дна',
-  // fields__1__1__2__switch_name_off: 'глухая цистерна',
   fields__1__1__3: [
-    { name: '2 зоны' },
-    { name: '4 зоны' }
+    { name: '2 зоны', ico: true, url: '14.png' },
+    { name: '4 зоны', ico: true, url: '15.png' }
   ],
   fields__1__1__3__options: {
     switch_check: false
   },
-  // fields__1__1__3__switch_check: false,
   fields__1__1__4: [
     { name: 'Внутри цистерны' },
     { name: 'Сбоку цистерны' }
@@ -68,7 +61,6 @@ let initialState = {
   fields__1__1__4__options: {
     switch_check: true
   },
-  // fields__1__1__4__switch_check: true,
 
   fields__1__2: [],
   fields__1__3: [],

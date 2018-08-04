@@ -20,7 +20,9 @@ export default class Header extends Component {
     return (
       <div className="header">
         <div className='header__title'>
-          <div className='header__ico'><img src={context.state.machine_names[context.state.currentAvto-1].image} alt=''/></div>
+          <div className='header__ico'>
+          <img src={require('../img/avto-ico/' + context.state.machine_names[context.state.currentAvto-1].ico)} alt=''/>
+          </div>
           <div className='header__name'>{context.state.machine_names[context.state.currentAvto-1].name}</div>
         </div>
         {list}

@@ -23,7 +23,9 @@ export default class ShooseAvto extends Component {
     const {context} = this.props;
     const list = context.state.machine_names.map((elem, key) =>
       <div key={key.toString()} className='item' data-id={elem.id} onClick={this.shoose}>
-        <div className='image'><img src={elem.image} alt=''/></div>
+        <div className='image'>
+          <img src={require('../img/avto-img/' + elem.image)} alt=''/>
+        </div>
         <div className='name'>{elem.name}</div>
       </div>
     );

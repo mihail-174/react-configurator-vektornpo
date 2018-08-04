@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import '../scss/toggle.scss';
+
 export default class SwitchWithName extends Component {
   constructor() {
     super();

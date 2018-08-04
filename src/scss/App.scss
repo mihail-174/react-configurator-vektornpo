@@ -26,6 +26,9 @@
   padding: 30px 18px;
   background-color: antiquewhite;
   height: 428px;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 .result {
 	padding: 0 5px;

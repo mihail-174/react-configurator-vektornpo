@@ -3,9 +3,7 @@ import Header from '../components2/Header';
 import Footer from '../components2/Footer';
 
 import ItemRadio from '../components3/ItemRadio';
-import Switch from '../components3/Switch';
-
-import '../css/checkbox.css';
+import Toggle from '../components3/Toggle';
 
 import '../scss/B.scss';
 
@@ -34,7 +32,7 @@ export default class Step1 extends Component {
       <div key={key} className={'b ' + field.systemName}>
         <div className='b__hd'>
           <div className='b__title'>{field.name}</div>
-          {keyExists('switch_check', context.state["fields__" + currentAvto + "__" + currentStep + "__" + parseInt(key+1,0) + "__options"]) && <Switch context={context} systemName={field.systemName} idBlock={field.id} />}
+          {keyExists('switch_check', context.state["fields__" + currentAvto + "__" + currentStep + "__" + parseInt(key+1,0) + "__options"]) && <Toggle context={context} systemName={field.systemName} idBlock={field.id} />}
         </div>
         <div className={
           keyExists('switch_check', context.state["fields__" + currentAvto + "__" + currentStep + "__" + field.id + "__options"])
