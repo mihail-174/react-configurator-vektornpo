@@ -67,14 +67,16 @@ export default class ItemRadio extends Component {
 
             {field.ico && <div className='b__image'><img src={require('../img/step-ico/' + field.url)} alt='' /></div>}
 
-            <div className='b__name'>{field.name}</div>
-            <div className='b__subname'>{field.subName}</div>
+            <div className='b__text'>
+              <div className='b__name'>{field.name}</div>
+              {field.subName && <div className='b__subname'>{field.subName}</div> }
+            </div>
+
           </label>
         </div>
         )
       }
     );
-    // {field.image && <div className='b__image'></div>}
     return (
       <div className='b__list'>
         {list}
