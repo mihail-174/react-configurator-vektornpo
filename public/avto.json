@@ -1,0 +1,5 @@
+[
+    { "id": 1, "name": "АКН", "systemName": "akn", "image": "akn.jpg", "ico": "akn.png" },
+    { "id": 2, "name": "MB", "systemName": "mv", "image": "mb.jpg", "ico": "mb.png" },
+    { "id": 3, "name": "АЦН", "systemName": "acn", "image": "acn.jpg", "ico": "acn.png" }
+]

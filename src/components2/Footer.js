@@ -5,7 +5,7 @@ export default class Footer extends Component {
   constructor() {
     super();
     this.setStep = this.setStep.bind(this);
-    // this.setStep2 = this.setStep2.bind(this);
+    this.startAgain = this.startAgain.bind(this);
   }
   setStep(e) {
     e.preventDefault();
@@ -13,6 +13,14 @@ export default class Footer extends Component {
     const step = e.target.getAttribute('data-step');
     context.methods.setAppState({
       currentStep: parseInt(step, 0)
+    })
+  }
+  startAgain(e) {
+    e.preventDefault();
+    const {context} = this.props;
+    context.methods.setAppState({
+      currentStep: 0,
+      machine_names: []
     })
   }
   // setStep2(step) {
@@ -42,7 +50,7 @@ export default class Footer extends Component {
     const prevStep = step - 1;
     const nextStep = step + 1;
 
-    let first = <button type='button' className='footer__first' onClick={this.setStep} data-step={0}>Начать с начала</button>;
+    let first = <button type='button' className='footer__first' onClick={this.startAgain} data-step={0}>Начать с начала</button>;
 
     let prev = <button type='button' className='footer__prev' onClick={this.setStep} data-step={prevStep}>Назад</button>;
 

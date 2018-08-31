@@ -1,0 +1,9 @@
+{
+    "fields__1__1": [
+        { "id": 1, "name": "Вакуумный насос", "systemName": "vacuum-pump", "type": "radio" },
+        { "id": 2, "name": "Привод насоса", "systemName": "pump-drive", "type": "radio" },
+        { "id": 3, "name": "Открытие дна", "systemName": "opening-bottom", "type": "radio" },
+        { "id": 4, "name": "Доп. горловина", "systemName": "extras-neck", "type": "radio" },
+        { "id": 5, "name": "Крепление цистерны", "systemName": "securing-tank", "type": "radio" }
+    ]
+}

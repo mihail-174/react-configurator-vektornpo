@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import '../scss/shoose-avto.scss';
 
 export default class ShooseAvto extends Component {
-  constructor(props) {
-    super(props);
-    this.shoose = this.shoose.bind(this);
-  }
+    constructor(props) {
+        super(props);
+        this.shoose = this.shoose.bind(this);
+    }
   shoose(e) {
     const {context} = this.props;
     e.currentTarget.parentNode.querySelectorAll('.item').forEach(function(elem) {
@@ -17,12 +17,11 @@ export default class ShooseAvto extends Component {
       currentStep: 1,
       currentAvto: parseInt(id, 0)
     })
-  }
-  // componentDidMount() {}
+ }
   render() {
     const {context} = this.props;
     const list = context.state.machine_names.map((elem, key) =>
-      <div key={key.toString()} className='item' data-id={elem.id} onClick={this.shoose}>
+      <div key={key.toString()} className='item' data-id={elem.id} data-system-name={elem.systemName} onClick={this.shoose}>
         <div className='image'>
           <img src={require('../img/avto-img/' + elem.image)} alt=''/>
         </div>

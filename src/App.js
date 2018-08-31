@@ -12,21 +12,16 @@ const Context = React.createContext()
 // АВТО__ШАГ__ОПЦИЯ
 
 let initialState = {
-  currentStep: 2,
+  currentStep: 0,
   currentAvto: 1,
-
-  machine_names: [
-    { id: 1, name: 'АКН', image: 'akn.jpg', ico: 'akn.png' },
-    { id: 2, name: 'MB', image: 'mb.jpg', ico: 'mb.png' },
-    { id: 3, name: 'АЦН', image: 'acn.jpg', ico: 'acn.png' }
-  ],
   steps: [
-    { id: 1, name: 'Цистерна и оборудование' },
-    { id: 2, name: 'Комплектация установки' },
-    { id: 3, name: 'Комплектация шасси' },
-    { id: 4, name: 'Готово' }
+      { id: 1, name: 'Цистерна и оборудование' },
+      { id: 2, name: 'Комплектация установки' },
+      { id: 3, name: 'Комплектация шасси' },
+      { id: 4, name: 'Готово' }
   ],
-
+  machine_names: [],
+  data: [],
 
 
 
