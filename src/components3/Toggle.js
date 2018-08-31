@@ -12,7 +12,7 @@ export default class SwitchWithName extends Component {
     const { context } = this.props,
           currentAvto = context.state.currentAvto,
           currentStep = context.state.currentStep,
-          selectedVal = 'val__' + idBlock,
+          selectedVal = 'valBlock__' + idBlock,
           fields__x__x__x__options = "fields__" + currentAvto + "__" + currentStep + "__" + idBlock + "__options";
     // console.log( this.props );
     context.methods.setAppState({

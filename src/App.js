@@ -12,7 +12,7 @@ const Context = React.createContext()
 // АВТО__ШАГ__ОПЦИЯ
 
 let initialState = {
-  currentStep: 1,
+  currentStep: 2,
   currentAvto: 1,
 
   machine_names: [
@@ -31,11 +31,11 @@ let initialState = {
 
 
   fields__1__1: [
-    { id: 1, name: 'Вакуумный насос', systemName: 'vacuum-pump', type: 'radio', val: null },
-    { id: 2, name: 'Привод насоса', systemName: 'pump-drive', type: 'radio', val: null },
-    { id: 3, name: 'Открытие дна', systemName: 'opening-bottom', type: 'radio', val: null },
-    { id: 4, name: 'Доп. горловина', systemName: 'extras-neck', type: 'radio', val: null },
-    { id: 5, name: 'Крепление цистерны', systemName: 'securing-tank', type: 'radio', val: null }
+    { id: 1, name: 'Вакуумный насос', systemName: 'vacuum-pump', type: 'radio' },
+    { id: 2, name: 'Привод насоса', systemName: 'pump-drive', type: 'radio' },
+    { id: 3, name: 'Открытие дна', systemName: 'opening-bottom', type: 'radio' },
+    { id: 4, name: 'Доп. горловина', systemName: 'extras-neck', type: 'radio' },
+    { id: 5, name: 'Крепление цистерны', systemName: 'securing-tank', type: 'radio' }
   ],
   fields__1__1__1: [
     {
@@ -268,17 +268,17 @@ let initialState = {
 
   fields__1__3: [],
 
-  val__1: null,
-  val__2: null,
-  val__3: null,
-  val__4: null,
-  val__5: null,
-  val__6: null,
-  val__7: null,
-  val__8: null,
-  // val__9: null,
-  val__10: null,
-  // val__11: null,
+  valBlock__1: null,
+  valBlock__2: null,
+  valBlock__3: null,
+  valBlock__4: null,
+  valBlock__5: null,
+  valBlock__6: null,
+  valBlock__7: null,
+  valBlock__8: null,
+  // valBlock__9: null,
+  valBlock__10: null,
+  // valBlock__11: null,
 
 
 
@@ -350,7 +350,7 @@ export default class App extends Component {
       return (
         <div key={key} className=''>
             {field.name}: &nbsp;
-            { this.state['val__'+field.id] !==null ? this.state['fields__1__1__'+field.id][this.state['val__'+field.id]].name : '—' }
+            { this.state['valBlock__'+field.id] !==null ? this.state['fields__1__1__'+field.id][this.state['valBlock__'+field.id]].name : '—' }
         </div>
         )
       }
@@ -363,9 +363,9 @@ export default class App extends Component {
             {
                 field.type==='radio'
                 ?
-                    this.state['val__'+field.id] !==null
+                    this.state['valBlock__'+field.id] !==null
                     ?
-                    this.state['fields__1__2__'+field.id][this.state['val__'+field.id]].name
+                    this.state['fields__1__2__'+field.id][this.state['valBlock__'+field.id]].name
                     :
                     '—'
                 :
