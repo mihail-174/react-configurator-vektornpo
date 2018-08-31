@@ -25,10 +25,25 @@ export default class ItemRadio extends Component {
           idBlock = this.props.idBlock,
           systemName = this.props.systemName,
           selectedVal = 'val__' + idBlock,
+          fields__x__x = 'fields__' + currentAvto + '__' + currentStep,
           fields__x__x__x__options = state["fields__" + currentAvto + "__" + currentStep + "__" + idBlock + "__options"];
     context.methods.setAppState({
       [selectedVal]: (keyExists('switch_check', fields__x__x__x__options)===true && fields__x__x__x__options.switch_check) || keyExists('switch_check', fields__x__x__x__options)===false ? val : null,
+      // ['fields__1__1']: [
+      //     ...state['fields__1__1'],
+      //     {
+      //         ...state['fields__1__1'][0],
+      //         'val': val
+      //     },
+      //     // {
+      //     //     ...state['fields__1__1'][0],
+      //     //     'val': val
+      //     // }
+      // ]
     });
+
+
+    console.log( idBlock );
 
     if ( (keyExists('switch_check', fields__x__x__x__options)===true && fields__x__x__x__options.switch_check) || keyExists('switch_check', fields__x__x__x__options)===false ) {
       document.querySelectorAll('.' + systemName + ' .b__item').forEach(function(item, i) {

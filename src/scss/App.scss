@@ -37,7 +37,7 @@
   line-height: 1.4;
   overflow-y: scroll;
   height: 586px;
-  width: 600px;
+  width: 450px;
   background-color: #fbfbfb;
   border: 1px solid #dedede;
   margin: 15px 15px 15px 0;
@@ -45,7 +45,23 @@
     margin: 0;
   }
 }
-
+.resultSelected {
+    h2 {
+        margin: 0 0 10px;
+    }
+    h5 {
+        margin: 0 0 5px;
+    }
+    pre {
+        padding: 0 5px;
+        text-align: left;
+        font-size: 12px;
+        line-height: 1.4;
+        background-color: #fbfbfb;
+        border: 1px solid #dedede;
+        margin: 0 0 10px;
+    }
+}
 
 
 

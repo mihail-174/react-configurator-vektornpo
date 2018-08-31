@@ -12,7 +12,7 @@ const Context = React.createContext()
 // АВТО__ШАГ__ОПЦИЯ
 
 let initialState = {
-  currentStep: 2,
+  currentStep: 1,
   currentAvto: 1,
 
   machine_names: [
@@ -31,11 +31,11 @@ let initialState = {
 
 
   fields__1__1: [
-    {id: 1, name: 'Вакуумный насос', systemName: 'vacuum-pump', type: 'radio'},
-    {id: 2, name: 'Привод насоса', systemName: 'pump-drive', type: 'radio'},
-    {id: 3, name: 'Открытие дна', systemName: 'opening-bottom', type: 'radio'},
-    {id: 4, name: 'Доп. горловина', systemName: 'extras-neck', type: 'radio'},
-    {id: 5, name: 'Крепление цистерны', systemName: 'securing-tank', type: 'radio'}
+    { id: 1, name: 'Вакуумный насос', systemName: 'vacuum-pump', type: 'radio', val: null },
+    { id: 2, name: 'Привод насоса', systemName: 'pump-drive', type: 'radio', val: null },
+    { id: 3, name: 'Открытие дна', systemName: 'opening-bottom', type: 'radio', val: null },
+    { id: 4, name: 'Доп. горловина', systemName: 'extras-neck', type: 'radio', val: null },
+    { id: 5, name: 'Крепление цистерны', systemName: 'securing-tank', type: 'radio', val: null }
   ],
   fields__1__1__1: [
     {
@@ -231,7 +231,8 @@ let initialState = {
       subName: 'доработки установки и шасси под перевозку ЛВЖ',
       ico: true,
       url: '20.png',
-      tooltip: ''
+      tooltip: '',
+      val: false
     }
   ],
   fields__1__2__10: [
@@ -248,7 +249,8 @@ let initialState = {
       subName: 'цистерны с выдачей соответствующих документов',
       ico: true,
       url: '19.png',
-      tooltip: ''
+      tooltip: '',
+      val: true
     }
   ],
 
@@ -274,9 +276,9 @@ let initialState = {
   val__6: null,
   val__7: null,
   val__8: null,
-  val__9: null,
+  // val__9: null,
   val__10: null,
-  val__11: null,
+  // val__11: null,
 
 
 
@@ -344,6 +346,39 @@ export default class App extends Component {
     //   step = <Context.Consumer>{context => ( <Step3 context={context}/> )}</Context.Consumer>;
     // }
 
+    const listResultStep1 = this.state.fields__1__1.map((field, key) => {
+      return (
+        <div key={key} className=''>
+            {field.name}: &nbsp;
+            { this.state['val__'+field.id] !==null ? this.state['fields__1__1__'+field.id][this.state['val__'+field.id]].name : '—' }
+        </div>
+        )
+      }
+    );
+
+    const listResultStep2 = this.state.fields__1__2.map((field, key) => {
+      return (
+        <div key={key} className=''>
+            {field.name}: &nbsp;
+            {
+                field.type==='radio'
+                ?
+                    this.state['val__'+field.id] !==null
+                    ?
+                    this.state['fields__1__2__'+field.id][this.state['val__'+field.id]].name
+                    :
+                    '—'
+                :
+                    this.state['fields__1__2__'+field.id][0].val
+                    ?
+                    'да'
+                    :
+                    'нет'
+            }
+        </div>
+        )
+      }
+    );
     return (
        <Context.Provider value={{
          state: this.state,
@@ -378,6 +413,19 @@ export default class App extends Component {
               {JSON.stringify(this.state, "", 4)}
             </pre>
           </div>
+
+          <div className="resultSelected">
+              <h2>Итоговые данные:</h2>
+              <h5>Шаг 1:</h5>
+              <pre>
+                  { listResultStep1 }
+              </pre>
+              <h5>Шаг 2:</h5>
+              <pre>
+                  { listResultStep2 }
+              </pre>
+          </div>
+
 
         </div>
       {this.props.children}

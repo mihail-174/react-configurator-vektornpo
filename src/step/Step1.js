@@ -31,7 +31,7 @@ export default class Step1 extends Component {
     const list = fields__x__x.map((field, key) =>
       <div key={key} className={'b ' + field.systemName}>
         <div className='b__hd'>
-          <div className='b__title'>{field.name}</div>
+          <div className='b__title'>{field.id} — {field.name}</div>
           {keyExists('switch_check', context.state["fields__" + currentAvto + "__" + currentStep + "__" + parseInt(key+1,0) + "__options"]) && <Toggle context={context} systemName={field.systemName} idBlock={field.id} />}
         </div>
         <div className={

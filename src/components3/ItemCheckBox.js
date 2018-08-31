@@ -18,16 +18,25 @@ export default class ItemCheckBox extends Component {
     this.change = this.change.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
-  handleInputChange(event) {
+  handleInputChange(e) {
     const { context } = this.props,
           state = context.state,
+          currentAvto = state.currentAvto,
+          currentStep = state.currentStep,
           idBlock = this.props.idBlock,
-          selectedVal = 'val__' + idBlock;
+          selectedVal = 'val__' + idBlock,
+          fields__x__x__x = 'fields__' + currentAvto + '__' + currentStep + '__' + idBlock;
 
-    console.log( event.target.parentNode.querySelector('input').checked );
-
+    // console.log( event.target.parentNode.querySelector('input').checked );
+    // console.log( e.currentTarget.parentNode.children[0].checked );
     context.methods.setAppState({
-      [selectedVal]: event.target.parentNode.querySelector('input').checked
+        [fields__x__x__x]: [
+            {
+                ...state[fields__x__x__x][0],
+                'val': !e.currentTarget.parentNode.children[0].checked
+            }
+        ]
+        // [selectedVal]: e.currentTarget.parentNode.children[0].checked,
     });
   }
   change(val) {
@@ -70,24 +79,32 @@ export default class ItemCheckBox extends Component {
           selectedVal = state['val__' + idBlock],
           fields__x__x__x = state['fields__' + currentAvto + '__' + currentStep + '__' + idBlock],
           fields__x__x__x__options = state["fields__" + currentAvto + "__" + currentStep + "__" + idBlock + "__options"];
-
-    let newSwitchCheck;
-    if ( fields__x__x__x__options ) {
-      newSwitchCheck = fields__x__x__x__options.switch_check;
-    }
+    // console.log( fields__x__x__x__options );
+    // let newSwitchCheck;
+    // if ( fields__x__x__x__options ) {
+    //   newSwitchCheck = fields__x__x__x__options.switch_check;
+    // }
 
     const list = fields__x__x__x.map((field, key) => {
       return (
-        <div key={key} className=''>
+        <div key={key} className={
+          fields__x__x__x[0].val
+          ?
+          'b__item b__item_' + key + ' active'
+          :
+          'b__item b__item_' + key
+        }>
+            <input id={systemName + "-" + key} defaultChecked={fields__x__x__x[0].val} type='checkbox' name={systemName} value={key} />
 
-          <input id={systemName + "-" + key} checked={selectedVal} type='checkbox' name={systemName} value={key} />
+            <label className="b__label" onClick={this.handleInputChange} htmlFor={systemName + "-" + key}>
 
-          <label onClick={this.handleInputChange} htmlFor={systemName + "-" + key}>
+                {field.ico && <div className='b__image'><img src={require('../img/step-ico/' + field.url)} alt='' /></div>}
+                <div className='b__text'>
+                  <div className='b__name'>{field.name}</div>
+                  {field.subName && <div className='b__subname'>{field.subName}</div> }
+                </div>
 
-          {field.name}
-
-          </label>
-
+            </label>
         </div>
         )
       }
@@ -95,7 +112,7 @@ export default class ItemCheckBox extends Component {
 
     return (
       <div className='b__list'>
-        {list}
+          {list}
       </div>
     )
 
@@ -104,3 +121,16 @@ export default class ItemCheckBox extends Component {
 
 
 // defaultChecked={selectedVal===null && selectedVal===key?true:false}
+
+
+  // <input id={systemName + "-" + key} defaultChecked={selectedVal} type='checkbox' name={systemName} value={key} />
+  //
+  // <label className="b__label" onClick={this.handleInputChange} htmlFor={systemName + "-" + key}>
+  //
+  //     {field.ico && <div className='b__image'><img src={require('../img/step-ico/' + field.url)} alt='' /></div>}
+  //     <div className='b__text'>
+  //       <div className='b__name'>{field.name}</div>
+  //       {field.subName && <div className='b__subname'>{field.subName}</div> }
+  //     </div>
+  //
+  // </label>
