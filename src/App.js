@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import './scss/App.scss';
 
 import Step0 from './step/Step0';
-import Step1 from './step/Step1';
-import Step2 from './step/Step2';
-import Step3 from './step/Step3';
-import Step4 from './step/Step4';
+import Contents from './components3/Contents';
 
 const Context = React.createContext()
 
@@ -386,19 +383,10 @@ export default class App extends Component {
 
           <div className="steps">
             {this.state.currentStep === 0 &&
-              <Context.Consumer>{context => ( <Step0 context={context}/> )}</Context.Consumer>
+                <Context.Consumer>{context => ( <Step0 context={context}/> )}</Context.Consumer>
             }
-            {this.state.currentStep === 1 &&
-              <Context.Consumer>{context => ( <Step1 context={context}/> )}</Context.Consumer>
-            }
-            {this.state.currentStep === 2 &&
-              <Context.Consumer>{context => ( <Step2 context={context}/> )}</Context.Consumer>
-            }
-            {this.state.currentStep === 3 &&
-              <Context.Consumer>{context => ( <Step3 context={context}/> )}</Context.Consumer>
-            }
-            {this.state.currentStep === 4 &&
-              <Context.Consumer>{context => ( <Step4 context={context}/> )}</Context.Consumer>
+            {this.state.currentStep > 0 &&
+                <Context.Consumer>{context => ( <Contents context={context}/> )}</Context.Consumer>
             }
           </div>
 
