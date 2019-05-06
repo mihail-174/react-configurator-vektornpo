@@ -21,17 +21,17 @@ export default class ShooseAvto extends Component {
   render() {
     const {context} = this.props;
     const list = context.state.machine_names.map((elem, key) =>
-      <div key={key.toString()} className='item' data-id={elem.id} data-system-name={elem.systemName} onClick={this.shoose}>
-        <div className='image'>
-          <img src={require('../img/avto-img/' + elem.image)} alt=''/>
+      <div key={key.toString()} className='st1__item' data-id={elem.id} data-system-name={elem.systemName} onClick={this.shoose}>
+        <div className='st1__image'>
+          <img className='st1__img' src={require('../img/avto-img/' + elem.image)} alt=''/>
         </div>
-        <div className='name'>{elem.name}</div>
+        <div className='st1__name'>{elem.name}</div>
       </div>
     );
     return (
-      <div className='shoose-avto'>
-        <h3>Выберите тип:</h3>
-        <div className='list'>{list}</div>
+      <div className='st1'>
+        <h3 className='st1__title'>Выберите тип:</h3>
+        <div className='st1__list'>{list}</div>
       </div>
     );
   }

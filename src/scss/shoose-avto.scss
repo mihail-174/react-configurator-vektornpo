@@ -1,31 +1,36 @@
-.shoose-avto {
-  padding: 10px;
-  h3 {
+.st1 {
+    padding: 10px;
+}
+.st1__title {
     text-align: center;
     margin-top: 0;
-  }
-  .list {
+}
+.st1__list {
     display: flex;
     justify-content: center;
-    align-items: center;
-  }
-  .item {
+}
+.st1__item {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 15px;
     padding: 5px;
     transition: all 0.3s;
-    border-radius: 10px;
     cursor: pointer;
     width: 200px;
-    img {
-      max-width: 100%;
-      height: auto;
-    }
     &.active,
     &:hover {
-      background-color: rgba(255,0,0,0.1);
+        background-color: rgba(255,0,0,0.1);
     }
-  }
+}
+.st1__image {
+    margin-bottom: 10px;
+}
+.st1__img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+.st1__name {
+    text-align: center;
 }

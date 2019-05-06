@@ -41,7 +41,7 @@ export default class Step0 extends Component {
                     this.setState({
                         isLoaded: true
                     });
-                }, 1000);
+                }, 500);
             },
             (error) => {
                 this.setState({
