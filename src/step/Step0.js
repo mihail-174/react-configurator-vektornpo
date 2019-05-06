@@ -30,13 +30,13 @@ export default class Step0 extends Component {
 
     componentDidMount() {
         const {context} = this.props;
-        fetch(`${process.env.PUBLIC_URL}/avto.json`)
+        fetch(`${process.env.PUBLIC_URL}/listCar.json`)
         .then(res => res.json())
         .then(
             (result) => {
                 setTimeout(() => {
                     context.methods.setAppState({
-                        machine_names: result
+                        listCar: result
                     })
                     this.setState({
                         isLoaded: true

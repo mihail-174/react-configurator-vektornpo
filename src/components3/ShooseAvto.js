@@ -20,7 +20,7 @@ export default class ShooseAvto extends Component {
  }
   render() {
     const {context} = this.props;
-    const list = context.state.machine_names.map((elem, key) =>
+    const list = context.state.listCar.map((elem, key) =>
       <div key={key.toString()} className='st1__item' data-id={elem.id} data-system-name={elem.systemName} onClick={this.shoose}>
         <div className='st1__image'>
           <img className='st1__img' src={require('../img/avto-img/' + elem.image)} alt=''/>

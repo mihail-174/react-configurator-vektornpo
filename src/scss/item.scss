@@ -1,0 +1,341 @@
+.item {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+}
+.item__input {
+	position: absolute;
+  right: 0;
+  bottom: 0;
+	margin: 0;
+	padding: 0;
+}
+.item__input[type='radio'] {
+  display: none;
+}
+.item__hd {
+	display: flex;
+	align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.item__title {
+	font-weight: 700;
+	font-size: 13px;
+}
+.item__cont {
+	flex-grow: 1;
+  display: flex;
+}
+.item__list {
+	display: flex;
+  flex-grow: 1;
+}
+.item__item {
+	border: 1px solid #e3e3e3;
+	border-radius: 5px;
+  background-color: #ffffff;
+  display: flex;
+  flex-grow: 1;
+  transition: all 0.3s;
+}
+.item__label {
+  // display: block;
+  // padding: 10px;
+  // width: 100%;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  &:hover {
+    border-color: #378fe2;
+    cursor: pointer;
+    .item__image {
+      filter: grayscale(0);
+    }
+    .item__name,
+    .item__subname {
+      color: #378fe2;
+    }
+  }
+}
+.item__image {
+  filter: grayscale(100%);
+  transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// .item__text {
+// 	flex-grow: 1;
+// 	display: flex;
+// 	align-items: center;
+// }
+.item__name {
+	font-weight: 700;
+	font-size: 13px;
+  color: #616161;
+  transition: all 0.3s;
+}
+.item__subname {
+	font-weight: 400;
+	font-size: 13px;
+	color: #616161;
+  transition: all 0.3s;
+}
+
+.active {
+  border-color: #378fe2;
+  .item__image {
+    filter: grayscale(0);
+    border-color: #378fe2 !important;
+  }
+  .item__name,
+  .item__subname {color: #378fe2;}
+}
+
+.disabled {
+  .item__image {
+    filter: grayscale(100%) opacity(30%);
+  }
+  .item__name,
+  .item__subname {color: #c9c9c9;}
+  .item__label {cursor: default;}
+  .item__item:hover {
+    .item__image {
+      filter: grayscale(100%) opacity(30%);
+    }
+    .item__name,
+    .item__subname {color: #c9c9c9;}
+  }
+}
+
+/*
+.item_row {}
+.item_row .item__item {margin-right: 5px;}
+.item_row .item__item:last-of-type {margin-right: 0;}
+
+
+
+.item_col {}
+.item_col .item__list {
+  flex-direction: column;
+}
+.item_col .item__item {margin-bottom: 10px;}
+.item_col .item__item:last-of-type {margin-bottom: 0;}
+*/
+
+.vacuum-pump {
+  width: 598px;
+  margin-right: 15px;
+  .item__item {
+    text-align: center;
+    flex: 1 0 146px;
+    margin-right: 5px;
+    &:last-child {margin-right: 0;}
+  }
+  .item__label {
+    display: flex;
+  }
+  .item__text {
+    padding: 10px;
+  }
+}
+
+.pump-drive {
+  width: 168px;
+  .item__list {
+    flex-direction: column;
+  }
+  .item__item {
+    margin-bottom: 5px;
+    &:last-child {margin-bottom: 0;}
+  }
+  .item__label {
+    display: flex;
+    align-items: center;
+  }
+  .item__text {
+    padding: 0 10px;
+  }
+}
+
+.opening-bottom {
+  width: 347px;
+  margin-right: 15px;
+  .item__item {
+    flex: 1 0 145px;
+    margin-right: 5px;
+    &:last-child {margin-right: 0;}
+  }
+  .item__label {}
+  .item__image {
+    border-bottom: 1px solid #e3e3e3;
+    height: 75px;
+  }
+  .item__text {
+    padding: 10px;
+  }
+}
+
+
+.extras-neck {
+  width: 202px;
+  margin-right: 15px;
+  .item__list {
+    flex-direction: column;
+  }
+  .item__item {
+    margin-bottom: 5px;
+    &:last-child {margin-bottom: 0;}
+  }
+  .item__label {
+    display: flex;
+    align-items: center;
+  }
+  .item__image {
+    border-right: 1px solid #e3e3e3;
+    width: 107px;
+    height: 100%;
+    margin-right: 10px;
+    flex: 0 0 auto;
+  }
+}
+
+
+.securing-tank {
+  width: 202px;
+  .item__list {
+    flex-direction: column;
+  }
+  .item__item {
+    margin-bottom: 5px;
+    &:last-child {margin-bottom: 0;}
+  }
+  .item__label {
+    display: flex;
+    align-items: center;
+  }
+  .item__image {
+    border-right: 1px solid #e3e3e3;
+    margin-right: 10px;
+    width: 96px;
+    height: 100%;
+    flex: 0 0 auto;
+  }
+}
+
+.service-area {
+  width: 358px;
+  margin-right: 15px;
+  .item__label {
+    display: flex;
+    flex-direction: column;
+  }
+  .item__item {
+    flex: 1 0 145px;
+    margin-right: 5px;
+    &:last-child {margin-right: 0;}
+  }
+  .item__image {
+    border-bottom: 1px solid #e3e3e3;
+    height: 90px;
+  }
+  .item__text {
+  	flex-grow: 1;
+  	display: flex;
+  	align-items: center;
+  	padding: 10px;
+  }
+}
+
+
+.lighting {
+  width: 172px;
+  margin-right: 15px;
+  .item__list {
+    flex-direction: column;
+  }
+  .item__item {
+    margin-bottom: 5px;
+    flex: 1;
+    &:last-child {margin-bottom: 0;}
+  }
+  .item__label {
+    display: flex;
+    align-items: center;
+  }
+  .item__image {
+  	border-right: 1px solid #f5f5f5;
+    margin-right: 10px;
+    width: 96px;
+    height: 100%;
+  }
+}
+
+.heating-from-sun {
+  width: 172px;
+  .item__list {
+    flex-direction: column;
+  }
+  .item__label {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+  }
+  .item__item {
+    margin-bottom: 5px;
+    flex: 1;
+    &:last-child {margin-bottom: 0;}
+  }
+}
+
+.fire-extinguisher-mounting {
+	width: 217px;
+	margin-right: 15px;
+  .item__list {
+  	display: flex;
+  	flex-direction: column;
+  }
+  .item__item {
+    margin-bottom: 5px;
+    flex: 1;
+    &:last-child {margin-bottom: 0;}
+  }
+  .item__text {
+    padding: 10px;
+  }
+}
+
+.execution {
+  width: 243px;
+  margin-right: 15px;
+  .item__label {
+    display: flex;
+    align-items: center;
+  }
+  .item__image {
+  	border-right: 1px solid #f5f5f5;
+    width: 92px;
+    height: 100%;
+  }
+  .item__text {
+    padding: 0 10px;
+  }
+}
+
+.calibration {
+  width: 243px;
+  margin-right: 15px;
+  .item__label {
+    display: flex;
+    align-items: center;
+  }
+  .item__image {
+  	border-right: 1px solid #f5f5f5;
+    width: 92px;
+    height: 100%;
+  }
+  .item__text {
+    padding: 0 10px;
+  }
+}

@@ -10,15 +10,17 @@ const Context = React.createContext()
 
 let initialState = {
   currentStep: 0,
-  currentAvto: 1,
+  currentAvto: 0,
   steps: [
       { id: 1, name: 'Цистерна и оборудование' },
       { id: 2, name: 'Комплектация установки' },
       { id: 3, name: 'Комплектация шасси' },
       { id: 4, name: 'Готово' }
   ],
+  listCar: [],
   machine_names: [],
   data: [],
+  car: [],
 
 
 
