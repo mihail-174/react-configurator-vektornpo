@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 import Header from '../components3/Header';
 import Footer from '../components2/Footer';
-import Loading from '../components3/Loading.js';
+// import Loading from '../components3/Loading.js';
 
 import ItemRadio from '../components3/ItemRadio';
-import Toggle from '../components3/Toggle';
+// import Toggle from '../components3/Toggle';
 
 import '../scss/item.scss';
 
-function keyExists(key, search) {
-    if (!search || (search.constructor !== Array && search.constructor !== Object)) {
-        return false;
-    }
-    for (var i = 0; i < search.length; i++) {
-        if (search[i] === key) {
-            return true;
-        }
-    }
-    return key in search;
-}
+// function keyExists(key, search) {
+//     if (!search || (search.constructor !== Array && search.constructor !== Object)) {
+//         return false;
+//     }
+//     for (var i = 0; i < search.length; i++) {
+//         if (search[i] === key) {
+//             return true;
+//         }
+//     }
+//     return key in search;
+// }
 
 export default class Step1 extends Component {
 
@@ -41,15 +41,18 @@ export default class Step1 extends Component {
             (result) => {
                 setTimeout(() => {
                     context.methods.setAppState({
-                        car: result
+                        car: result,
+                        ajaxLoaded: true
                     })
-                    this.setState({
-                        isLoaded: true
-                    });
+                    // console.log( result );
+                    // this.setState({
+                    //     isLoaded: true
+                    // });
                 }, 500);
 
             },
             (error) => {
+                console.log( error );
                 this.setState({
                     isLoaded: true,
                     error
@@ -61,20 +64,12 @@ export default class Step1 extends Component {
   render() {
     const { context } = this.props;
     const state = context.state;
-    const { error, isLoaded } = this.state;
-      // currentAvto = state.currentAvto,
-      // currentStep = state.currentStep,
-      // fields__x__x = state['fields__' + currentAvto + '__' + currentStep];
+    const { isLoaded } = this.state;
 
-      // const list = state.car.list_1_1.map( (field, key) => {
-      //     <div>{field.name}</div>
-      // });
-
-
-
-
-
-    // const list = fields__x__x.map((field, key) =>
+    // let currentAvto = state.currentAvto;
+    // let currentStep = state.currentStep;
+    // let fields__x__x = state['fields__' + currentAvto + '__' + currentStep];
+    // const listOLD = state.fields__1__1.map((field, key) =>
     //   <div key={key} className={'b ' + field.systemName}>
     //     <div className='b__hd'>
     //       <div className='b__title'>{field.id} — {field.name}</div>
@@ -100,30 +95,34 @@ export default class Step1 extends Component {
         return (
             <div className='step step_one'>
                 <Header context={context} />
+                <div className='content'>
 
                 {
-                    !isLoaded
-                    ?
-                    <Loading />
-                    :
-                    <div className='content'>
+                    // !isLoaded
+                    // ?
+                    // <Loading />
+                    // :
+                        <div className='content__inner'>
                         {
-                            state.car.list_1_1.map( (field, key) =>
+                            state.car.step_1.map( (field, key) =>
                                 <div key={key} className={'item ' + field.systemName}>
                                     <div className='item__hd'>
                                         <div className='item__title'>#{field.id}, {field.name}</div>
                                     </div>
+                                    <div className='item__cont'>
+                                        <ItemRadio context={context} itemGroupName={field.systemName} itemGroupId={field.id} />
+                                    </div>
                                 </div>
                             )
                         }
-                    </div>
+                        </div>
                 }
 
+                </div>
                 <Footer context={context} />
             </div>
         );
     // }
-
 
   }
 

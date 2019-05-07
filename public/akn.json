@@ -1,34 +1,109 @@
 {
-    "list_1_1": [
+    "step_1": [
         {
             "id": 0,
             "name": "Вакуумный насос",
             "systemName": "vacuum-pump",
-            "type": "radio"
+            "type": "radio",
+            "checked": null
         },
         {
             "id": 1,
             "name": "Привод насоса",
             "systemName": "pump-drive",
-            "type": "radio"
+            "type": "radio",
+            "checked": null
         },
         {
             "id": 2,
             "name": "Открытие дна",
             "systemName": "opening-bottom",
-            "type": "radio"
+            "type": "radio",
+            "checked": null
         },
         {
             "id": 3,
             "name": "Доп. горловина",
             "systemName": "extras-neck",
-            "type": "radio"
+            "type": "radio",
+            "checked": null
         },
         {
             "id": 4,
             "name": "Крепление цистерны",
             "systemName": "securing-tank",
-            "type": "radio"
+            "type": "radio",
+            "checked": null
+        }
+    ],
+
+    "step_1_field_0": [
+        {
+            "name": "KO-505A",
+            "subName": "коммунальный тип 310 куб./час"
+        },
+        {
+            "name": "BP-8/3",
+            "subName": "взрывозащищенный компрессор 480 куб./час"
+        },
+        {
+            "name": "BK-6М2",
+            "subName": "взрывозащищенный компрессор 240 куб./час"
+        },
+        {
+            "name": "PNR.122",
+            "subName": "взрывозащищенный компрессор 730 куб./час"
+        }
+    ],
+
+    "step_1_field_1": [
+        {
+            "name": "Шкиво-ременной"
+        },
+        {
+            "name": "Карданный"
+        }
+    ],
+
+    "step_1_field_2": [
+        {
+            "name": "Механическое",
+            "subName": "отделяемое дно, крепится на болты к бочке.",
+            "ico": true,
+            "url": "05.png"
+        },
+        {
+            "name": "Сливной люк",
+            "subName": "на дне бочки диаметром до 500 мм.",
+            "ico": true,
+            "url": "04.png"
+        }
+    ],
+
+    "step_1_field_3": [
+        {
+            "name": "Нужна",
+            "ico": true,
+            "url": "01.png"
+        },
+        {
+            "name": "Не нужна",
+            "ico": true,
+            "url": "02.png"
+        }
+    ],
+
+    "step_1_field_4": [
+        {
+            "name": "Поясное",
+            "ico": true,
+            "url": "03.png"
+        },
+        {
+            "name": "Статические опоры",
+            "ico": true,
+            "url": "06.png"
         }
     ]
+
 }

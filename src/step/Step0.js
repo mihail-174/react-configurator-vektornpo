@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ShooseAvto from '../components3/ShooseAvto';
-import Loading from '../components3/Loading.js';
+// import Loading from '../components3/Loading.js';
 
 export default class Step0 extends Component {
     constructor(props) {
@@ -14,17 +14,19 @@ export default class Step0 extends Component {
         const { context } = this.props;
         const { error, isLoaded } = this.state;
 
-        if (error) {
-            return <div>Error: {error.message}</div>;
-        } else if (!isLoaded) {
-            return <Loading />;
-        } else {
+        // if (error) {
+        //     return <div>Error: {error.message}</div>
+        // } else if (!isLoaded) {
+        //     return <Loading />
+        // } else {
             return (
-                <div className='step step_main'>
-                    <ShooseAvto context={context} />
+                <div className='steps__inner'>
+                    <div className='step step_main'>
+                        <ShooseAvto context={context} />
+                    </div>
                 </div>
-            );
-        }
+            )
+        // }
 
     }
 
@@ -36,18 +38,24 @@ export default class Step0 extends Component {
             (result) => {
                 setTimeout(() => {
                     context.methods.setAppState({
-                        listCar: result
+                        listCar: result,
+                        ajaxStatus: 'ok'
+                        // ajaxLoaded: true
                     })
-                    this.setState({
-                        isLoaded: true
-                    });
+                    // this.setState({
+                    // });
                 }, 500);
             },
             (error) => {
-                this.setState({
-                    isLoaded: true,
-                    error
-                });
+                console.log( error );
+                context.methods.setAppState({
+                    ajaxStatus: 'error'
+                    // ajaxLoaded: false
+                })
+                // this.setState({
+                //     isLoaded: false,
+                //     error
+                // });
             }
         )
     }

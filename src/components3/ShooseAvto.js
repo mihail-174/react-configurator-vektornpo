@@ -30,7 +30,6 @@ export default class ShooseAvto extends Component {
     );
     return (
       <div className='st1'>
-        <h3 className='st1__title'>Выберите тип:</h3>
         <div className='st1__list'>{list}</div>
       </div>
     );

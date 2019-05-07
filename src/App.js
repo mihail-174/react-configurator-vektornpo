@@ -3,24 +3,44 @@ import './scss/App.scss';
 
 import Step0 from './step/Step0';
 import Contents from './components3/Contents';
+import Loading from './components3/Loading.js';
 
 const Context = React.createContext()
 
 // АВТО__ШАГ__ОПЦИЯ
 
 let initialState = {
-  currentStep: 0,
-  currentAvto: 0,
-  steps: [
-      { id: 1, name: 'Цистерна и оборудование' },
-      { id: 2, name: 'Комплектация установки' },
-      { id: 3, name: 'Комплектация шасси' },
-      { id: 4, name: 'Готово' }
-  ],
-  listCar: [],
-  machine_names: [],
-  data: [],
-  car: [],
+    ajaxStatus: null,
+    ajaxLoaded: false,
+    ajaxError: false,
+    currentStep: 0,
+    currentAvto: 0,
+    steps: [
+        { id: 1, name: 'Цистерна и оборудование' },
+        { id: 2, name: 'Комплектация установки' },
+        { id: 3, name: 'Комплектация шасси' },
+        { id: 4, name: 'Готово' }
+    ],
+    listCar: [],
+    // data: [],
+
+    valueItem_0: null,
+    valueItem_1: null,
+    valueItem_2: null,
+    valueItem_3: null,
+    valueItem_4: null,
+
+    car: {},
+
+    // result: [
+    //     { valBlock__0: null },
+    //     { valBlock__1: null },
+    //     { valBlock__2: null },
+    //     { valBlock__3: null },
+    //     { valBlock__4: null }
+    // ],
+
+
 
 
 
@@ -262,11 +282,7 @@ let initialState = {
 
   fields__1__3: [],
 
-  valBlock__1: null,
-  valBlock__2: null,
-  valBlock__3: null,
-  valBlock__4: null,
-  valBlock__5: null,
+
   valBlock__6: null,
   valBlock__7: null,
   valBlock__8: null,
@@ -306,11 +322,25 @@ let initialState = {
 
 }
 
+
+// function keyExists(key, search) {
+//     if (!search || (search.constructor !== Array && search.constructor !== Object)) {
+//         return false;
+//     }
+//     for (var i = 0; i < search.length; i++) {
+//         if (search[i] === key) {
+//             return true;
+//         }
+//     }
+//     return key in search;
+// }
+
 export default class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = initialState;
+    isLoaded: false,
     // this.state = {}
     this.setStep = this.setStep.bind(this);
     this.setAppState = this.setAppState.bind(this);
@@ -340,39 +370,60 @@ export default class App extends Component {
     //   step = <Context.Consumer>{context => ( <Step3 context={context}/> )}</Context.Consumer>;
     // }
 
-    const listResultStep1 = this.state.fields__1__1.map((field, key) => {
-      return (
-        <div key={key} className=''>
-            {field.name}: &nbsp;
-            { this.state['valBlock__'+field.id] !==null ? this.state['fields__1__1__'+field.id][this.state['valBlock__'+field.id]].name : '—' }
-        </div>
-        )
-      }
-    );
+    // const listResultStep1 = this.state.result.map((field, key) => {
+    // const listResultStep1 = this.state.car.step_1.map((field, key) => {
+    //     return (
+    //         <div key={key} className=''>
+    //             {field.name}: &nbsp;
+    //         </div>
+    //     )
+    // });
 
-    const listResultStep2 = this.state.fields__1__2.map((field, key) => {
-      return (
-        <div key={key} className=''>
-            {field.name}: &nbsp;
-            {
-                field.type==='radio'
-                ?
-                    this.state['valBlock__'+field.id] !==null
-                    ?
-                    this.state['fields__1__2__'+field.id][this.state['valBlock__'+field.id]].name
-                    :
-                    '—'
-                :
-                    this.state['fields__1__2__'+field.id][0].val
-                    ?
-                    'да'
-                    :
-                    'нет'
-            }
-        </div>
-        )
-      }
-    );
+    // keyExists( 'step_1', this.state.car )
+    // ?
+    // console.log('да')
+    // :
+    // console.log('нет')
+    // if ( this.state.car.step_1 ) {
+    //     console.log('да')
+    //     const listResultStep1 = this.state.car.step_1.map((field, key) => {
+    //         return (
+    //             <div key={key} className=''>
+    //             {field.name}: &nbsp;
+    //             </div>
+    //         )
+    //     });
+    // } else {
+    //     console.log('нет')
+    // }
+
+
+// { this.state['valBlock__'+field.id] !==null ? this.state['fields__1__1__'+field.id][this.state['valBlock__'+field.id]].name : '—' }
+
+    // const listResultStep2 = this.state.fields__1__2.map((field, key) => {
+    //   return (
+    //     <div key={key} className=''>
+    //         {field.name}: &nbsp;
+    //         {
+    //             field.type==='radio'
+    //             ?
+    //                 this.state['valBlock__'+field.id] !==null
+    //                 ?
+    //                 this.state['fields__1__2__'+field.id][this.state['valBlock__'+field.id]].name
+    //                 :
+    //                 '—'
+    //             :
+    //                 this.state['fields__1__2__'+field.id][0].val
+    //                 ?
+    //                 'да'
+    //                 :
+    //                 'нет'
+    //         }
+    //     </div>
+    //     )
+    //   }
+    // );
+
     return (
        <Context.Provider value={{
          state: this.state,
@@ -384,6 +435,8 @@ export default class App extends Component {
         <div className="App">
 
           <div className="steps">
+              <Context.Consumer>{context => ( <Loading context={context} /> )}</Context.Consumer>
+
             {this.state.currentStep === 0 &&
                 <Context.Consumer>{context => ( <Step0 context={context}/> )}</Context.Consumer>
             }
@@ -403,11 +456,20 @@ export default class App extends Component {
               <h2>Итоговые данные:</h2>
               <h5>Шаг 1:</h5>
               <pre>
-                  { listResultStep1 }
-              </pre>
-              <h5>Шаг 2:</h5>
-              <pre>
-                  { listResultStep2 }
+
+              {
+                  this.state.car.step_1
+                  ?
+                      this.state.car.step_1.map((field, key) =>
+                          <div key={key} className=''>
+                              {field.name}: {this.state['valueItem_' + key]}
+                          </div>
+                      )
+                  :
+                      'данных нет'
+              }
+
+
               </pre>
           </div>
 

@@ -9,7 +9,7 @@ export default class Contents extends Component {
     render() {
         const {context} = this.props;
         return (
-            <div className='content'>
+            <div className='steps__inner'>
                 { context.state.currentStep === 1 && <Step1 context={context}/> }
                 { context.state.currentStep === 2 && <Step2 context={context}/> }
                 { context.state.currentStep === 3 && <Step3 context={context}/> }
