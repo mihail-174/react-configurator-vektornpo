@@ -22,13 +22,13 @@ import '../scss/item.scss';
 
 export default class Step1 extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            error: null,
-            isLoaded: false
-        };
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         error: null,
+    //         isLoaded: false
+    //     };
+    // }
 
     componentWillMount() {
         const {context} = this.props;
@@ -39,24 +39,19 @@ export default class Step1 extends Component {
         .then(res => res.json())
         .then(
             (result) => {
+                console.log( result );
                 setTimeout(() => {
                     context.methods.setAppState({
                         car: result,
-                        ajaxLoaded: true
+                        ajaxStatus: 'ok'
                     })
-                    // console.log( result );
-                    // this.setState({
-                    //     isLoaded: true
-                    // });
                 }, 500);
-
             },
             (error) => {
                 console.log( error );
-                this.setState({
-                    isLoaded: true,
-                    error
-                });
+                context.methods.setAppState({
+                    ajaxStatus: 'error'
+                })
             }
         )
     }
@@ -64,7 +59,7 @@ export default class Step1 extends Component {
   render() {
     const { context } = this.props;
     const state = context.state;
-    const { isLoaded } = this.state;
+    // const { isLoaded } = this.state;
 
     // let currentAvto = state.currentAvto;
     // let currentStep = state.currentStep;
@@ -97,26 +92,20 @@ export default class Step1 extends Component {
                 <Header context={context} />
                 <div className='content'>
 
-                {
-                    // !isLoaded
-                    // ?
-                    // <Loading />
-                    // :
-                        <div className='content__inner'>
-                        {
-                            state.car.step_1.map( (field, key) =>
-                                <div key={key} className={'item ' + field.systemName}>
-                                    <div className='item__hd'>
-                                        <div className='item__title'>#{field.id}, {field.name}</div>
-                                    </div>
-                                    <div className='item__cont'>
-                                        <ItemRadio context={context} itemGroupName={field.systemName} itemGroupId={field.id} />
-                                    </div>
+                    <div className='content__inner'>
+                    {
+                        state.car.step_1.map( (field, key) =>
+                            <div key={key} className={'item ' + field.systemName}>
+                                <div className='item__hd'>
+                                    <div className='item__title'>#{field.id}, {field.name}</div>
                                 </div>
-                            )
-                        }
-                        </div>
-                }
+                                <div className='item__cont'>
+                                    <ItemRadio context={context} itemGroupName={field.systemName} itemGroupId={field.id} />
+                                </div>
+                            </div>
+                        )
+                    }
+                    </div>
 
                 </div>
                 <Footer context={context} />
@@ -126,32 +115,29 @@ export default class Step1 extends Component {
 
   }
 
-  // componentDidMount() {
-  //     const {context} = this.props;
-  //     const state = context.state;
-  //     const nameCar = state.listCar[state.currentAvto].systemName;
-  //     // console.log( nameCar );
-  //     fetch(`${process.env.PUBLIC_URL}/${nameCar}.json`)
-  //     .then(res => res.json())
-  //     .then(
-  //         (result) => {
-  //             setTimeout(() => {
-  //                 context.methods.setAppState({
-  //                     car: result
-  //                 })
-  //                 this.setState({
-  //                     isLoaded: true
-  //                 });
-  //             }, 500);
-  //
-  //         },
-  //         (error) => {
-  //             this.setState({
-  //                 isLoaded: true,
-  //                 error
-  //             });
-  //         }
-  //     )
-  // }
+  componentDidMount() {
+      // const {context} = this.props;
+      // const state = context.state;
+      // const nameCar = state.listCar[state.currentAvto].systemName;
+      // // console.log( nameCar );
+      // fetch(`${process.env.PUBLIC_URL}/${nameCar}.json`)
+      // .then(res => res.json())
+      // .then(
+      //     (result) => {
+      //         setTimeout(() => {
+      //             context.methods.setAppState({
+      //                 car: result,
+      //                 ajaxStatus: 'ok'
+      //             })
+      //         }, 500);
+      //     },
+      //     (error) => {
+      //         console.log( error );
+      //         context.methods.setAppState({
+      //             ajaxStatus: 'error'
+      //         })
+      //     }
+      // )
+  }
 
 }
