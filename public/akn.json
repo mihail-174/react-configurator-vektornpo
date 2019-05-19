@@ -104,6 +104,117 @@
             "ico": true,
             "url": "06.png"
         }
+    ],
+
+    "step_2": [
+        {
+            "id": 5,
+            "name": "Площадка обслуживания",
+            "systemName": "service-area",
+            "type": "radio"
+        },
+        {
+            "id": 6,
+            "name": "Освещение",
+            "systemName": "lighting",
+            "type": "radio"
+        },
+        {
+            "id": 7,
+            "name": "Подогрев от ВС",
+            "systemName": "heating-from-sun",
+            "type": "radio"
+        },
+        {
+            "id": 8,
+            "name": "Исполнение",
+            "systemName": "execution",
+            "type": "checkbox"
+        },
+        {
+            "id": 9,
+            "name": "Крепление огнетушителя",
+            "systemName": "fire-extinguisher-mounting",
+            "type": "radio"
+        },
+        {
+            "id": 10,
+            "name": "Калибровка",
+            "systemName": "calibration",
+            "type": "checkbox"
+        }
+    ],
+
+    "step_2_field_5": [
+      {
+        "name": "Полноценная",
+        "ico": true,
+        "url": "13.png"
+      },
+      {
+        "name": "Лестницы к горловинам",
+        "ico": true,
+        "url": "12.png"
+      }
+    ],
+
+    "step_2_field_6": [
+      {
+        "name": "2 зоны",
+        "ico": true,
+        "url": "14.png"
+      },
+      {
+        "name": "4 зоны",
+        "ico": true,
+        "url": "15.png"
+      }
+    ],
+
+    "step_2_field_6_options": {
+      "switch_check": false
+    },
+
+    "step_2_field_7": [
+      {
+        "name": "Внутри цистерны"
+      },
+      {
+        "name": "Сбоку цистерны"
+      }
+    ],
+
+    "step_2_field_7__options": {
+      "switch_check": true
+    },
+
+    "step_2_field_8": [
+      {
+        "name": "Огнеопасное",
+        "subName": "доработки установки и шасси под перевозку ЛВЖ",
+        "ico": true,
+        "url": "20.png",
+        "checked": true
+      }
+    ],
+
+    "step_2_field_9": [
+      {
+        "name": "Пластиковые короба"
+      },
+      {
+        "name": "Кольца на цистерне"
+      }
+    ],
+
+    "step_2_field_10": [
+      {
+        "name": "Калибровка",
+        "subName": "цистерны с выдачей соответствующих документов",
+        "ico": true,
+        "url": "19.png",
+        "checked": false
+      }
     ]
 
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ShooseAvto from '../components3/ShooseAvto';
-// import Loading from '../components3/Loading.js';
+import Loading from '../components3/Loading.js';
 
 export default class Step0 extends Component {
 
@@ -12,8 +12,31 @@ export default class Step0 extends Component {
         };
     }
 
-    componentWillMount() {
+    componentWillMount() {}
+
+    render() {
+        const { context } = this.props;
+        const { error, isLoaded } = this.state;
+        if (error) {
+            return <div className='error-message'>Error: {error.message}</div>;
+        } else if (!isLoaded) {
+            return <Loading />;
+        } else {
+            return (
+                <div className='steps__inner'>
+                    <div className='step step_main'>
+                        <ShooseAvto context={context} />
+                    </div>
+                </div>
+            );
+        }
+    }
+
+    componentDidMount() {
         const {context} = this.props;
+        // context.methods.setAppState({
+        //     ajaxStatus: null
+        // })
         fetch(`${process.env.PUBLIC_URL}/listCar.json`)
         .then(res =>res.json())
         .then(
@@ -21,38 +44,24 @@ export default class Step0 extends Component {
                 setTimeout(() => {
                     context.methods.setAppState({
                         listCar: result,
-                        ajaxStatus: 'ok'
+                        // ajaxStatus: 'ok'
                     })
-                    // this.setState({});
+                    this.setState({
+                        isLoaded: true,
+                    });
                 }, 500);
             },
             (error) => {
                 console.log( error );
-                context.methods.setAppState({
-                    ajaxStatus: 'error'
-                })
-                // this.setState({
-                //     isLoaded: false,
-                //     error
-                // });
+                // context.methods.setAppState({
+                    // ajaxStatus: 'error'
+                // })
+                this.setState({
+                    isLoaded: false,
+                    error
+                });
             }
         )
     }
-
-    render() {
-        const { context } = this.props;
-        const { error, isLoaded } = this.state;
-
-        return (
-            <div className='steps__inner'>
-                <div className='step step_main'>
-                    <ShooseAvto context={context} />
-                </div>
-            </div>
-        )
-
-    }
-
-    componentDidMount() {}
 
 }

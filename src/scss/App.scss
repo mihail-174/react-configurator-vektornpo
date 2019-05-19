@@ -3,6 +3,13 @@
   align-items: flex-start;
   flex-wrap: wrap;
 }
+.error-message {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	width: 100%;
+}
 .steps {
     width: 840px;
     height: 590px;

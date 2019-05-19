@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+
 import Header from '../components3/Header';
 import Footer from '../components2/Footer';
-// import Loading from '../components3/Loading.js';
 
 import ItemRadio from '../components3/ItemRadio';
 // import Toggle from '../components3/Toggle';
@@ -30,36 +30,60 @@ export default class Step1 extends Component {
     //     };
     // }
 
-    componentWillMount() {
-        const {context} = this.props;
-        const state = context.state;
-        const nameCar = state.listCar[state.currentAvto].systemName;
-        // console.log( nameCar );
-        fetch(`${process.env.PUBLIC_URL}/${nameCar}.json`)
-        .then(res => res.json())
-        .then(
-            (result) => {
-                console.log( result );
-                setTimeout(() => {
-                    context.methods.setAppState({
-                        car: result,
-                        ajaxStatus: 'ok'
-                    })
-                }, 500);
-            },
-            (error) => {
-                console.log( error );
-                context.methods.setAppState({
-                    ajaxStatus: 'error'
-                })
-            }
-        )
-    }
+    // componentWillMount() {
+    //     const {context} = this.props;
+    //     const state = context.state;
+    //     const nameCar = state.listCar[state.currentAvto].systemName;
+    //     // console.log( nameCar );
+    //     fetch(`${process.env.PUBLIC_URL}/${nameCar}.json`)
+    //     .then(res => res.json())
+    //     .then(
+    //         (result) => {
+    //             console.log( result );
+    //             setTimeout(() => {
+    //                 context.methods.setAppState({
+    //                     car: result,
+    //                     ajaxStatus: 'ok'
+    //                 })
+    //             }, 500);
+    //         },
+    //         (error) => {
+    //             console.log( error );
+    //             context.methods.setAppState({
+    //                 ajaxStatus: 'error'
+    //             })
+    //         }
+    //     )
+    // }
 
   render() {
     const { context } = this.props;
     const state = context.state;
-    // const { isLoaded } = this.state;
+    
+    return (
+        <div className='step step_one'>
+            <Header context={context} />
+            <div className='content'>
+
+                <div className='content__inner'>
+                {
+                    state.car.step_1.map( (field, key) =>
+                        <div key={key} className={'item ' + field.systemName}>
+                            <div className='item__hd'>
+                                <div className='item__title'>#{field.id}, {field.name}</div>
+                            </div>
+                            <div className='item__cont'>
+                                <ItemRadio context={context} itemGroupName={field.systemName} itemGroupId={field.id} />
+                            </div>
+                        </div>
+                    )
+                }
+                </div>
+
+            </div>
+            <Footer context={context} />
+        </div>
+    );
 
     // let currentAvto = state.currentAvto;
     // let currentStep = state.currentStep;
@@ -87,30 +111,6 @@ export default class Step1 extends Component {
     // );
 
 
-        return (
-            <div className='step step_one'>
-                <Header context={context} />
-                <div className='content'>
-
-                    <div className='content__inner'>
-                    {
-                        state.car.step_1.map( (field, key) =>
-                            <div key={key} className={'item ' + field.systemName}>
-                                <div className='item__hd'>
-                                    <div className='item__title'>#{field.id}, {field.name}</div>
-                                </div>
-                                <div className='item__cont'>
-                                    <ItemRadio context={context} itemGroupName={field.systemName} itemGroupId={field.id} />
-                                </div>
-                            </div>
-                        )
-                    }
-                    </div>
-
-                </div>
-                <Footer context={context} />
-            </div>
-        );
     // }
 
   }
@@ -124,6 +124,7 @@ export default class Step1 extends Component {
       // .then(res => res.json())
       // .then(
       //     (result) => {
+      //         console.log( result );
       //         setTimeout(() => {
       //             context.methods.setAppState({
       //                 car: result,

@@ -19,14 +19,15 @@ export default class ItemRadio extends Component {
         this.change = this.change.bind(this);
     }
 
-    change(val) {
+    change(val, name) {
         const { context } = this.props;
         const state = context.state;
         const itemGroupId = this.props.itemGroupId;
         const itemGroupName = this.props.itemGroupName;
 
         context.methods.setAppState({
-            ['valueItem_' + itemGroupId]: val
+            ['itemValue_' + itemGroupId]: val,
+            ['itemName_' + itemGroupId]: name
         });
 
         document.querySelectorAll('.' + itemGroupName + ' .item__item').forEach(function(item, i) {
@@ -106,7 +107,7 @@ export default class ItemRadio extends Component {
             {
                 field.map( (field, key) =>
                     <div className='item__item' key={key}>
-                        <input className="item__input" id={itemGroupName + "-" + key} type='radio' name={itemGroupName} value={key} onChange={()=>this.change(key)} />
+                        <input defaultValue={ state['itemValue_'+ itemGroupId] } value={ state['itemValue_'+ itemGroupId] } className="item__input" id={itemGroupName + "-" + key} type='radio' name={itemGroupName} onChange={()=>this.change(key, field.name)} />
                         <label className="item__label" htmlFor={itemGroupName + "-" + key}>
                             {field.ico && <div className='item__image'><img src={require('../img/step-ico/' + field.url)} alt='' /></div>}
                             <div className='item__text'>
