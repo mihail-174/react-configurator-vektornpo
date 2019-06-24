@@ -1,0 +1,29 @@
+.wf {
+    width: 500px;
+    margin: 0 auto;
+    font-size: 13px;
+    line-height: 19px;
+}
+.wf__markup {
+    margin-bottom: 10px;
+}
+.wf__field {
+    margin-bottom: 8px;
+}
+.wf__data {
+    display: none;
+}
+.wf__notice {
+    textarea {
+        height: 60px;
+        resize: none;
+    }
+}
+.wf__politics {
+    font-size: 11px;
+    line-height: 1.2;
+    color: gray;
+    a {
+        color: gray;
+    }
+}

@@ -11,8 +11,8 @@
 	width: 100%;
 }
 .steps {
-    width: 840px;
-    height: 590px;
+    width: 833px;
+    height: 476px;
     display: flex;
     margin: 10px;
     background-color: antiquewhite;
@@ -30,17 +30,20 @@
 .step_main {
     justify-content: center;
 }
+.step_last {
+    .content {
+        overflow: auto;
+    }
+}
 .content {
     flex-grow: 1;
-    padding: 30px 18px;
+    padding: 15px;
     background-color: antiquewhite;
-    overflow: auto;
-    /* display: flex; */
-    /* flex-wrap: wrap; */
 }
 .content__inner {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: -25px;
 }
 .result {
 	padding: 0 5px;

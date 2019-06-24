@@ -2,18 +2,19 @@ import React, { Component } from 'react';
 import './scss/App.scss';
 
 import Step0 from './step/Step0';
-import Contents from './components3/Contents';
-import Loading from './components3/Loading.js';
+import Contents from './components/Contents';
+import Loading from './components/Loading.js';
 
 const Context = React.createContext()
 
 // АВТО__ШАГ__ОПЦИЯ
 
 let initialState = {
-    ajaxStatus: null,
+    // ajaxStatus: null,
     // ajaxLoaded: false,
     // ajaxError: false,
     currentStep: 0,
+    currentStepPrev: 0,
     currentAvto: 0,
     steps: [
         { id: 1, name: 'Цистерна и оборудование' },
@@ -22,40 +23,64 @@ let initialState = {
         { id: 4, name: 'Готово' }
     ],
     listCar: [],
-    // data: [],
+    selectedValue: [
+    ],
 
-    itemValue_0: null,
-    itemName_0: null,
-
-    itemValue_1: null,
-    itemName_1: null,
-
-    itemValue_2: null,
-    itemName_2: null,
-
-    itemValue_3: null,
-    itemName_3: null,
-
-    itemValue_4: null,
-    itemName_4: null,
-
-    itemValue_5: null,
-    itemName_5: null,
-
-    itemValue_6: null,
-    itemName_6: null,
-
-    itemValue_7: null,
-    itemName_7: null,
-
-    itemValue_8: null,
-    itemName_8: null,
-
-    itemValue_9: null,
-    itemName_9: null,
-
-    itemValue_10: null,
-    itemName_10: null,
+    // itemValue_0: null,
+    // itemName_0: null,
+    //
+    // itemValue_1: null,
+    // itemName_1: null,
+    //
+    // itemValue_2: null,
+    // itemName_2: null,
+    //
+    // itemValue_3: null,
+    // itemName_3: null,
+    //
+    // itemValue_4: null,
+    // itemName_4: null,
+    //
+    // itemValue_5: null,
+    // itemName_5: null,
+    //
+    // itemValue_6: null,
+    // itemName_6: null,
+    //
+    // itemValue_7: null,
+    // itemName_7: null,
+    //
+    // itemValue_8: null,
+    // // itemName_8: null,
+    //
+    // itemValue_9: null,
+    // itemName_9: null,
+    //
+    // itemValue_10: null,
+    // // itemName_10: null,
+    //
+    // itemValue_11: null,
+    // itemName_11: null,
+    //
+    // itemValue_12: null,
+    // itemName_12: null,
+    //
+    // itemValue_13: null,
+    // itemName_13: null,
+    //
+    // itemValue_14: null,
+    // itemName_14: null,
+    //
+    // itemValue_15: null,
+    // itemName_15: null,
+    //
+    // itemName_16: null,
+    //
+    // itemValue_16_0: null,
+    // itemValue_16_1: null,
+    // itemValue_16_2: null,
+    // itemValue_16_3: null,
+    // itemValue_16_4: null,
 
     car: {},
 
@@ -483,17 +508,24 @@ export default class App extends Component {
               <h2>Итоговые данные:</h2>
               <h5>Шаг 1:</h5>
               <pre>
-                  {
-                      this.state.car.step_1
-                      ?
-                          this.state.car.step_1.map((field, key) =>
+                    {
+                        this.state.car.step_1
+                        ?
+                            this.state.car.step_1.map((field, key) =>
                               <div key={key} className=''>
-                                  {field.name}: {this.state['itemName_' + field.id] ? this.state['itemName_' + field.id] : '-'}
+                                  #{field.id} : {field.name} :
+                                  {
+                                      this.state.selectedValue['itemName_' + field.id]
+                                          ?
+                                              ' ' + this.state.selectedValue['itemName_' + field.id]
+                                          :
+                                              ' -'
+                                          }
                               </div>
-                          )
-                      :
+                            )
+                        :
                           'данных нет'
-                  }
+                    }
               </pre>
               <h5>Шаг 2:</h5>
               <pre>
@@ -501,9 +533,41 @@ export default class App extends Component {
                       this.state.car.step_2
                       ?
                           this.state.car.step_2.map((field, key) =>
-                              <div key={key} className=''>
-                                  {field.name}: {this.state['itemName_' + field.id] ? this.state['itemName_' + field.id] : '-'}
-                              </div>
+                                <div key={key} className=''>
+                                    #{field.id} : {field.name} :
+                                    {
+                                        this.state.selectedValue['itemName_' + field.id]
+                                            ?
+                                                ' ' +this.state.selectedValue['itemName_' + field.id]
+                                            :
+                                                ' -'
+                                    }
+                                    { this.state.selectedValue['itemValue_' + field.id] === true && ' да' }
+                                    { this.state.selectedValue['itemValue_' + field.id] === false && ' нет' }
+                                </div>
+                          )
+                      :
+                          'данных нет'
+                  }
+              </pre>
+              <h5>Шаг 3:</h5>
+              <pre>
+                  {
+                      this.state.car.step_3
+                      ?
+                          this.state.car.step_3.map((field, key) =>
+                                <div key={key} className=''>
+                                    #{field.id} : {field.name} :
+                                    {
+                                        this.state.selectedValue['itemName_' + field.id]
+                                            ?
+                                                ' ' +this.state.selectedValue['itemName_' + field.id]
+                                            :
+                                                ' -'
+                                    }
+                                    { this.state.selectedValue['itemValue_' + field.id] === true && ' да' }
+                                    { this.state.selectedValue['itemValue_' + field.id] === false && ' нет' }
+                                </div>
                           )
                       :
                           'данных нет'

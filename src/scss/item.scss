@@ -37,7 +37,21 @@
   background-color: #ffffff;
   display: flex;
   flex-grow: 1;
-  transition: all 0.3s;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+      border-color: #378fe2;
+      cursor: pointer;
+      .item__image {
+          filter: grayscale(0);
+      }
+      .item__name,
+      .item__subname {
+          color: #378fe2;
+      }
+      .item__image {
+        border-color: #378fe2;
+      }
+  }
 }
 .item__label {
   // display: block;
@@ -46,17 +60,6 @@
   width: 100%;
   height: 100%;
   cursor: pointer;
-  &:hover {
-    border-color: #378fe2;
-    cursor: pointer;
-    .item__image {
-      filter: grayscale(0);
-    }
-    .item__name,
-    .item__subname {
-      color: #378fe2;
-    }
-  }
 }
 .item__image {
   filter: grayscale(100%);
@@ -65,11 +68,11 @@
   justify-content: center;
   align-items: center;
 }
-// .item__text {
-// 	flex-grow: 1;
+.item__text {
+	flex-grow: 1;
 // 	display: flex;
 // 	align-items: center;
-// }
+}
 .item__name {
 	font-weight: 700;
 	font-size: 13px;
@@ -142,7 +145,7 @@
 }
 
 .pump-drive {
-  width: 168px;
+  width: 188px;
   .item__list {
     flex-direction: column;
   }
@@ -179,7 +182,7 @@
 
 
 .extras-neck {
-  width: 202px;
+  width: 212px;
   margin-right: 15px;
   .item__list {
     flex-direction: column;
@@ -203,7 +206,7 @@
 
 
 .securing-tank {
-  width: 202px;
+    width: 212px;
   .item__list {
     flex-direction: column;
   }
@@ -250,7 +253,7 @@
 
 
 .lighting {
-  width: 172px;
+  width: 206px;
   margin-right: 15px;
   .item__list {
     flex-direction: column;
@@ -273,7 +276,7 @@
 }
 
 .heating-from-sun {
-  width: 172px;
+    width: 206px;
   .item__list {
     flex-direction: column;
   }
@@ -307,7 +310,7 @@
 }
 
 .execution {
-  width: 243px;
+  width: 277px;
   margin-right: 15px;
   .item__label {
     display: flex;
@@ -317,6 +320,7 @@
   	border-right: 1px solid #f5f5f5;
     width: 92px;
     height: 100%;
+    padding: 0 5px;
   }
   .item__text {
     padding: 0 10px;
@@ -324,8 +328,7 @@
 }
 
 .calibration {
-  width: 243px;
-  margin-right: 15px;
+  width: 277px;
   .item__label {
     display: flex;
     align-items: center;
@@ -334,8 +337,130 @@
   	border-right: 1px solid #f5f5f5;
     width: 92px;
     height: 100%;
+    padding: 0 5px;
   }
   .item__text {
     padding: 0 10px;
   }
 }
+
+.engine {
+    width: 189px;
+    margin-right: 15px;
+    .item__list {
+        flex-direction: column;
+    }
+    .item__item {
+        margin-bottom: 5px;
+        height: 45px;
+        &:last-child {margin-bottom: 0;}
+    }
+    .item__label {
+        display: flex;
+        align-items: center;
+    }
+    .item__text {
+        padding: 0 10px;
+    }
+}
+
+.spare_wheel {
+    width: 189px;
+    margin-right: 15px;
+    .item__list {
+        flex-direction: column;
+    }
+    .item__item {
+        margin-bottom: 5px;
+        height: 45px;
+        &:last-child {margin-bottom: 0;}
+    }
+    .item__label {
+        display: flex;
+        align-items: center;
+    }
+    .item__text {
+        padding: 0 10px;
+    }
+}
+
+.tool_box {
+    width: 189px;
+    margin-right: 15px;
+    .item__list {
+        flex-direction: column;
+    }
+    .item__item {
+        margin-bottom: 5px;
+        height: 45px;
+        &:last-child {margin-bottom: 0;}
+    }
+    .item__label {
+        display: flex;
+        align-items: center;
+    }
+    .item__text {
+        padding: 0 10px;
+    }
+}
+
+.anti_roll_bar {
+    width: 189px;
+    .item__list {
+        flex-direction: column;
+    }
+    .item__item {
+        margin-bottom: 5px;
+        height: 45px;
+        &:last-child {margin-bottom: 0;}
+    }
+    .item__label {
+        display: flex;
+        align-items: center;
+    }
+    .item__text {
+        padding: 0 10px;
+    }
+}
+
+.berth {
+    margin-right: 15px;
+    width: 227px;
+    .item__label {
+        display: flex;
+        align-items: center;
+    }
+    .item__image {
+        border-right: 1px solid #f5f5f5;
+        width: 92px;
+        height: 100%;
+        padding: 10px;
+    }
+    .item__text {
+        padding: 0 10px;
+    }
+}
+
+.winter_package {
+    width: 559px;
+    .item__list {
+        flex-wrap: wrap;
+        margin-right: -5px;
+        margin-bottom: -5px;
+    }
+    .item__item {
+        margin-right: 5px;
+        width: 25%;
+        margin-bottom: 5px;
+    }
+    .item__label {
+        padding: 0 10px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+
+
+/**/

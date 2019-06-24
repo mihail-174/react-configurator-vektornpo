@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ShooseAvto from '../components3/ShooseAvto';
-import Loading from '../components3/Loading.js';
+import ShooseAvto from '../components/ShooseAvto';
+import Loading from '../components/Loading.js';
 
 export default class Step0 extends Component {
 

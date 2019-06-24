@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
-// function keyExists(key, search) {
-//     if (!search || (search.constructor !== Array && search.constructor !== Object)) {
-//         return false;
-//     }
-//     for (var i = 0; i < search.length; i++) {
-//         if (search[i] === key) {
-//             return true;
-//         }
-//     }
-//     return key in search;
-// }
+function keyExists(key, search) {
+    if (!search || (search.constructor !== Array && search.constructor !== Object)) {
+        return false;
+    }
+    for (var i = 0; i < search.length; i++) {
+        if (search[i] === key) {
+            return true;
+        }
+    }
+    return key in search;
+}
 
 export default class ItemCheckBox extends Component {
 
@@ -29,15 +29,39 @@ export default class ItemCheckBox extends Component {
         // console.log( e.currentTarget.parentNode );
         // console.log( e.currentTarget.parentNode.children[0] );
         // console.log( e.currentTarget.parentNode.children[0].checked );
-        console.clear();
-        console.log( e.target.parentNode.children[0].checked );
-        console.log( state['itemValue_' + itemGroupId] );
+        // console.clear();
+        // console.log( e.target.parentNode.children[0].checked );
+        // console.log( state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].checked );
+
+        // console.log( state['item_' + itemGroupId + '_value'] );
 
         context.methods.setAppState({
-            ['itemValue_' + itemGroupId]: e.target.parentNode.children[0].checked
-            // ['itemValue_' + itemGroupId]: !e.currentTarget.parentNode.children[0].checked
-            // ['itemName_' + itemGroupId]: name
+            // "car": {
+            //     "step_2_field_8": {
+                    // "AAAAAAAAAAA":"0000000000000000000"
+                    // "values": [
+                    //     {
+                    //         ...state.car.step_2_field_8.values,
+                    //         "checked": state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].checked
+                    //     }
+                    // ]
+            //     }
+            // }
         });
+
+        // context.methods.setAppState({
+        //     selectedValue: {
+        //         ...state.selectedValue,
+        //         // ['item_' + itemGroupId + '_value']: e.target.parentNode.children[0].checked
+        //         // ['item_' + itemGroupId + '_value']: e.target.parentNode.children[0].checked
+        //     }
+        // });
+
+        if ( e.target.parentNode.children[0].checked ) {
+            document.querySelector('.' + itemGroupName + ' .item__item').classList.add('active');
+        } else {
+            document.querySelector('.' + itemGroupName + ' .item__item').classList.remove('active');
+        }
 
         // document.querySelectorAll('.' + itemGroupName + ' .item__item')[val].classList.add('active');
 
@@ -97,8 +121,9 @@ export default class ItemCheckBox extends Component {
       const { context } = this.props;
       const state = context.state;
       const itemGroupId = this.props.itemGroupId;
-      const field = state.car['step_' + state.currentStep + '_field_' + itemGroupId];
       const itemGroupName = this.props.itemGroupName;
+      // console.log( itemGroupId );
+      const field = state.car['step_' + state.currentStep + '_field_' + itemGroupId].values;
       // const step_x_field_x = state['step_' + state.currentAvto + '_field_' + itemGroupId][0].checked;
       // const step_x_field_x = state.step_2_field_8[0].checked;
       // console.log( step_x_field_x );
@@ -109,8 +134,49 @@ export default class ItemCheckBox extends Component {
           <div className='item__list'>
               {
                   field.map( (field, key) =>
-                      <div className='item__item' key={key}>
-                          <input onChange={this.handleInputChange.bind(this)} defaultChecked={ state['itemValue_'+ itemGroupId] } checked={ state['itemValue_'+ itemGroupId] } className="item__input" id={itemGroupName + "-" + key} type='checkbox' name={itemGroupName} />
+                      <div key={key} className={
+                          // state.selectedValue['item_' + itemGroupId + '_value']
+                          state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].checked
+                          ?
+                          'item__item active'
+                          :
+                          'item__item'
+                      }>
+
+                      {
+                          // keyExists('item_' + itemGroupId + '_value', state.selectedValue)
+                          // ?
+                          //     state.selectedValue['item_' + itemGroupId + '_value'].checked === true
+                          //         ?
+                          //             'key true'
+                          //         :
+                          //             'key false'
+                          // :
+                          // state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].checked
+                          //     ?
+                          //         'true'
+                          //     :
+                          //         'false'
+                      }
+
+
+
+                          <input checked={
+                                keyExists('item_' + itemGroupId + '_value', state.selectedValue)
+                                ?
+                                    state.selectedValue['item_' + itemGroupId + '_value'].checked
+                                        ?
+                                            true
+                                        :
+                                            false
+                                :
+                                state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].checked
+                                    ?
+                                        true
+                                    :
+                                        false
+                            }
+                           className="item__input" id={itemGroupName + "-" + key} type='checkbox' name={itemGroupName} onChange={this.handleInputChange.bind(this)} />
                           <label className="item__label" htmlFor={itemGroupName + "-" + key}>
                               {field.ico && <div className='item__image'><img src={require('../img/step-ico/' + field.url)} alt='' /></div>}
                               <div className='item__text'>
@@ -123,6 +189,9 @@ export default class ItemCheckBox extends Component {
               }
           </div>
       )
+
+      //  defaultChecked={ state['itemValue_'+ itemGroupId] }
+
 
     // const {context} = this.props,
     //       state = context.state,
@@ -176,13 +245,35 @@ export default class ItemCheckBox extends Component {
       const { context } = this.props;
       const state = context.state;
       const itemGroupId = this.props.itemGroupId;
-      const field = state.car['step_' + state.currentStep + '_field_' + itemGroupId];
       const itemGroupName = this.props.itemGroupName;
+      const field = state.car['step_' + state.currentStep + '_field_' + itemGroupId].values;
 
-      if ( state['itemValue_' + itemGroupId] === null ) {
-          context.methods.setAppState({
-              ['itemValue_' + itemGroupId]: state.car['step_' + state.currentStep + '_field_' + itemGroupId][0].checked
-          });
+      // console.log( field );
+      // console.log( field[0].checked );
+      // field.map( (field, key) => {
+      //     console.log(  );
+      // }
+
+      // for (var item in field) {
+      //     // if (object.hasOwnProperty(item)) {
+      //         console.log( item[0].checked );
+      //     // }
+      // }
+
+      // console.log( state.selectedValue['item_' + itemGroupId + '_value'] );
+
+
+      // if ( state.selectedValue['item_' + itemGroupId + '_value'] === null ) {
+      if ( state.selectedValue['item_' + itemGroupId + '_value'] === undefined ) {
+          // console.log( field[0].checked );
+          //
+          // context.methods.setAppState({
+          //     selectedValue: {
+          //         ...state.selectedValue,
+          //         ['item_' + itemGroupId + '_value']: field[0].checked
+          //         // ['item_' + itemGroupId + '_value']: state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].checked
+          //     }
+          // });
       }
 
   }

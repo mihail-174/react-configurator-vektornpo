@@ -26,15 +26,17 @@ export default class ItemRadio extends Component {
         const itemGroupName = this.props.itemGroupName;
 
         context.methods.setAppState({
-            ['itemValue_' + itemGroupId]: val,
-            ['itemName_' + itemGroupId]: name
+            selectedValue: {
+                ...state.selectedValue,
+                ['itemValue_' + itemGroupId]: val,
+                ['itemName_' + itemGroupId]: name
+            }
         });
 
         document.querySelectorAll('.' + itemGroupName + ' .item__item').forEach(function(item, i) {
             item.classList.remove('active')
         });
         document.querySelectorAll('.' + itemGroupName + ' .item__item')[val].classList.add('active');
-
 
         // currentAvto = state.currentAvto,
         // currentStep = state.currentStep,
@@ -59,7 +61,7 @@ export default class ItemRadio extends Component {
     const { context } = this.props;
     const state = context.state;
     const itemGroupId = this.props.itemGroupId;
-    const field = state.car['step_' + state.currentStep + '_field_' + itemGroupId];
+    const field = state.car['step_' + state.currentStep + '_field_' + itemGroupId].values;
     const itemGroupName = this.props.itemGroupName;
 
     // const {context} = this.props,
@@ -106,8 +108,14 @@ export default class ItemRadio extends Component {
         <div className='item__list'>
             {
                 field.map( (field, key) =>
-                    <div className='item__item' key={key}>
-                        <input defaultValue={ state['itemValue_'+ itemGroupId] } value={ state['itemValue_'+ itemGroupId] } className="item__input" id={itemGroupName + "-" + key} type='radio' name={itemGroupName} onChange={()=>this.change(key, field.name)} />
+                    <div key={key} className={
+                        state.selectedValue['itemValue_'+ itemGroupId] === key
+                        ?
+                        'item__item active'
+                        :
+                        'item__item'
+                    }>
+                        <input checked={state.selectedValue['itemValue_'+ itemGroupId] === key ? true : false} className="item__input" id={itemGroupName + "-" + key} type='radio' name={itemGroupName} onChange={()=>this.change(key, field.name)} />
                         <label className="item__label" htmlFor={itemGroupName + "-" + key}>
                             {field.ico && <div className='item__image'><img src={require('../img/step-ico/' + field.url)} alt='' /></div>}
                             <div className='item__text'>
@@ -124,5 +132,7 @@ export default class ItemRadio extends Component {
   }
 }
 
+// value={ state['itemValue_'+ itemGroupId] }
+// defaultValue={ state['itemValue_'+ itemGroupId] }
 
 // defaultChecked={selectedVal===null && selectedVal===key?true:false}

@@ -6,19 +6,27 @@ export default class Header extends Component {
   //   super(props);
   //   // this.setStep = this.setStep.bind(this);
   // }
-  setStep(step) {
-    const { context } = this.props;
-    context.methods.setAppState( { currentStep: step } );
-  }
+  // setStep(step, value2) {
+  //   const { context } = this.props;
+  //   const state = context.state;
+  //   const currentStep = context.state.currentStep;
+  //   context.methods.setAppState(
+  //       {
+  //           currentStep: step,
+  //           currentStepPrev: step-1
+  //       }
+  //   );
+  // }
   render() {
     const { context } = this.props;
     const state = context.state;
     const currentStep = context.state.currentStep;
+    const currentStepPrev = context.state.currentStepPrev;
 
     const list = state.steps.map((field, key) =>
-      <div key={key} className={ 'hd__item hd__item_step-' + field.id + ' '+ (currentStep === field.id ? 'active' : '') } onClick={()=>this.setStep(field.id)}>
-        {field.name}
-      </div>
+        <div key={key} className={ 'hd__item hd__item_step-' + field.id + ' ' + (currentStep === field.id ? 'active ' : '') + (currentStepPrev < field.id ? '' : 'active-prev ') }>
+            {field.name}
+        </div>
     );
     return (
       <div className="hd">
@@ -35,3 +43,5 @@ export default class Header extends Component {
   }
 
 }
+
+ // onClick={()=>this.setStep(field.id, field.id-1)}

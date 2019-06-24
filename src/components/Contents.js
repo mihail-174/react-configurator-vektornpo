@@ -5,7 +5,7 @@ import Step2 from '../step/Step2';
 import Step3 from '../step/Step3';
 import Step4 from '../step/Step4';
 
-import Loading from '../components3/Loading.js';
+import Loading from '../components/Loading.js';
 
 export default class Contents extends Component {
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Header from '../components3/Header';
-import Footer from '../components2/Footer';
-import WF from '../components2/WF';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import WF from '../components/WF';
 
 export default class Step4 extends Component {
   render() {
