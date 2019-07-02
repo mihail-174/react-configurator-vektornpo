@@ -14,12 +14,7 @@ export default class ItemCheckboxMulti extends Component {
         const { context } = this.props;
         const state = context.state;
         const itemGroupId = this.props.itemGroupId;
-        const itemGroupName = this.props.itemGroupName;
-
-        // console.log( e.target );
-        // console.log( e.target.parentNode.querySelector('.item__name').innerText );
-        // console.log( e.target.parentNode.getAttribute('data-index') );
-        // console.log( e.target.parentNode.children[0].checked );
+        // const itemGroupName = this.props.itemGroupName;
 
         if ( e.target.checked ) {
             document.querySelector(e.target.parentNode.classList.add('active'));
@@ -27,7 +22,7 @@ export default class ItemCheckboxMulti extends Component {
         } else {
             document.querySelector(e.target.parentNode.classList.remove('active'));
             const listItems = arr.map((number, index) => {
-                if ( number == e.target.parentNode.querySelector('.item__name').innerText ) {
+                if ( number === e.target.parentNode.querySelector('.item__name').innerText ) {
                     arr.splice(index, 1);
                 }
             });
@@ -81,13 +76,8 @@ export default class ItemCheckboxMulti extends Component {
       const { context } = this.props;
       const state = context.state;
       const itemGroupId = this.props.itemGroupId;
-      const field = state.car['step_' + state.currentStep + '_field_' + itemGroupId];
-      const itemGroupName = this.props.itemGroupName;
-
-
-      // const listItems = arr.map((number, index) => {
-      // });
-
+      // const field = state.car['step_' + state.currentStep + '_field_' + itemGroupId];
+      // const itemGroupName = this.props.itemGroupName;
       if ( state['itemValue_' + itemGroupId] === null ) {
           context.methods.setAppState({
               // ['itemValue_' + itemGroupId + '_' + e.target.parentNode.getAttribute('data-index')]: e.target.checked,

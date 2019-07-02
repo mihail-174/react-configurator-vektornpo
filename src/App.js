@@ -3,7 +3,7 @@ import './scss/App.scss';
 
 import Step0 from './step/Step0';
 import Contents from './components/Contents';
-import Loading from './components/Loading.js';
+// import Loading from './components/Loading.js';
 
 const Context = React.createContext()
 
@@ -392,7 +392,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = initialState;
-    isLoaded: false,
+    // isLoaded: false,
     // this.state = {}
     this.setStep = this.setStep.bind(this);
     this.setAppState = this.setAppState.bind(this);

@@ -16,7 +16,11 @@ export default class ItemCheckBox extends Component {
 
     constructor() {
         super();
-        this.change = this.change.bind(this);
+        this.state = {
+            'aaa': 'гыы',
+            value: []
+        };
+        // this.change = this.change.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
@@ -26,16 +30,21 @@ export default class ItemCheckBox extends Component {
         const itemGroupId = this.props.itemGroupId;
         const itemGroupName = this.props.itemGroupName;
         // console.log( e.currentTarget );
+        console.log( e.currentTarget.checked );
         // console.log( e.currentTarget.parentNode );
         // console.log( e.currentTarget.parentNode.children[0] );
         // console.log( e.currentTarget.parentNode.children[0].checked );
         // console.clear();
         // console.log( e.target.parentNode.children[0].checked );
         // console.log( state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].checked );
-
         // console.log( state['item_' + itemGroupId + '_value'] );
-
-        context.methods.setAppState({
+        // this.setState(
+        //     {
+        //         aaa: 'епта',
+        //         bbb: '-'
+        //     }
+        // );
+        // context.methods.setAppState({
             // "car": {
             //     "step_2_field_8": {
                     // "AAAAAAAAAAA":"0000000000000000000"
@@ -47,15 +56,15 @@ export default class ItemCheckBox extends Component {
                     // ]
             //     }
             // }
-        });
-
-        // context.methods.setAppState({
-        //     selectedValue: {
-        //         ...state.selectedValue,
-        //         // ['item_' + itemGroupId + '_value']: e.target.parentNode.children[0].checked
-        //         // ['item_' + itemGroupId + '_value']: e.target.parentNode.children[0].checked
-        //     }
         // });
+        //
+        context.methods.setAppState({
+            selectedValue: {
+                ...state.selectedValue,
+                ['item_' + itemGroupId + '_value']: e.currentTarget.checked
+                // ['item_' + itemGroupId + '_value']: e.target.parentNode.children[0].checked
+            }
+        });
 
         if ( e.target.parentNode.children[0].checked ) {
             document.querySelector('.' + itemGroupName + ' .item__item').classList.add('active');
@@ -86,7 +95,7 @@ export default class ItemCheckBox extends Component {
         // });
     }
 
-    change(val) {
+    // change(val) {
         // const { context } = this.props,
         //       state = context.state,
         //       currentAvto = state.currentAvto,
@@ -115,7 +124,7 @@ export default class ItemCheckBox extends Component {
         //   });
         //   document.querySelector('.' + systemName + ' .b__item_' + val).classList.add('active');
         // }
-    }
+    // }
 
   render() {
       const { context } = this.props;
@@ -127,8 +136,6 @@ export default class ItemCheckBox extends Component {
       // const step_x_field_x = state['step_' + state.currentAvto + '_field_' + itemGroupId][0].checked;
       // const step_x_field_x = state.step_2_field_8[0].checked;
       // console.log( step_x_field_x );
-
-
 
       return (
           <div className='item__list'>
@@ -144,6 +151,20 @@ export default class ItemCheckBox extends Component {
                       }>
 
                       {
+                          state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].checked && !keyExists('item_' + itemGroupId + '_value', state.selectedValue)
+                          ?
+                              'd-true'
+                          :
+                              keyExists('item_' + itemGroupId + '_value', state.selectedValue)
+                              ?
+                                  'k-true'
+                              :
+                                  'k-false'
+                                  // state.selectedValue['item_' + itemGroupId + '_value'].checked
+                                  //     ?
+                                  //         's-true'
+                                  //     :
+                                  //         's-false'
                           // keyExists('item_' + itemGroupId + '_value', state.selectedValue)
                           // ?
                           //     state.selectedValue['item_' + itemGroupId + '_value'].checked === true
@@ -159,24 +180,7 @@ export default class ItemCheckBox extends Component {
                           //         'false'
                       }
 
-
-
-                          <input checked={
-                                keyExists('item_' + itemGroupId + '_value', state.selectedValue)
-                                ?
-                                    state.selectedValue['item_' + itemGroupId + '_value'].checked
-                                        ?
-                                            true
-                                        :
-                                            false
-                                :
-                                state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].checked
-                                    ?
-                                        true
-                                    :
-                                        false
-                            }
-                           className="item__input" id={itemGroupName + "-" + key} type='checkbox' name={itemGroupName} onChange={this.handleInputChange.bind(this)} />
+                          <input defaultChecked={ state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].checked } className="item__input" id={itemGroupName + "-" + key} type='checkbox' name={itemGroupName} onChange={this.handleInputChange.bind(this)} />
                           <label className="item__label" htmlFor={itemGroupName + "-" + key}>
                               {field.ico && <div className='item__image'><img src={require('../img/step-ico/' + field.url)} alt='' /></div>}
                               <div className='item__text'>
@@ -191,6 +195,24 @@ export default class ItemCheckBox extends Component {
       )
 
       //  defaultChecked={ state['itemValue_'+ itemGroupId] }
+
+      // checked={
+      //       keyExists('item_' + itemGroupId + '_value', state.selectedValue)
+      //       ?
+      //           state.selectedValue['item_' + itemGroupId + '_value'].checked
+      //               ?
+      //                   true
+      //               :
+      //                   false
+      //       :
+      //       state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].checked
+      //           ?
+      //               true
+      //           :
+      //               false
+      //   }
+
+
 
 
     // const {context} = this.props,
@@ -241,14 +263,29 @@ export default class ItemCheckBox extends Component {
 
   }
 
+  // componentWillUpdate() {
+  //     const { context } = this.props;
+  //     const state = context.state;
+  //     const itemGroupId = this.props.itemGroupId;
+  //     console.log( itemGroupId );
+  // }
+
+  shouldComponentUpdate(nextProps, nextState) {
+      // const { context } = this.props;
+      // const state = context.state;
+      // const itemGroupId = this.props.itemGroupId;
+      console.log( nextState );
+  }
+
   componentDidMount() {
-      const { context } = this.props;
-      const state = context.state;
-      const itemGroupId = this.props.itemGroupId;
-      const itemGroupName = this.props.itemGroupName;
-      const field = state.car['step_' + state.currentStep + '_field_' + itemGroupId].values;
+      // const { context } = this.props;
+      // const state = context.state;
+      // const itemGroupId = this.props.itemGroupId;
+      // const itemGroupName = this.props.itemGroupName;
+      // const field = state.car['step_' + state.currentStep + '_field_' + itemGroupId].values;
 
       // console.log( field );
+      // console.log( field[0].name );
       // console.log( field[0].checked );
       // field.map( (field, key) => {
       //     console.log(  );
@@ -262,9 +299,58 @@ export default class ItemCheckBox extends Component {
 
       // console.log( state.selectedValue['item_' + itemGroupId + '_value'] );
 
+      // var arr = [];
+      // arr.push( field[0].name );
+      // console.log( field[0] );
+
+      // this.state.value.push( field[0].name )
+      // console.log( this.state.value );
+
+      // state.car.map((field, key) => {
+      //     console.log( field['step_' + state.currentStep + '_field_' + itemGroupId] );
+          // setTimeout(function () {
+              // console.log( itemGroupId );
+              // this.state.value.push( itemGroupId )
+              // console.log( this.state.value );
+              // context.methods.setAppState({
+              //     selectedValue: {
+              //         ...state.selectedValue,
+              //         [itemGroupId]: this.state.value
+              //     }
+              // });
+          // }, 2000);
+      // });
+
+
+
+          // console.log( field );
+          // console.log( state.selectedValue );
+          // this.setState({colors: tmp});
+          // context.methods.setAppState({
+              //     selectedValue: {
+                  //         ...state.selectedValue,
+                  //         ['item_' + itemGroupId + '_value']: this.state.value
+                  //     }
+                  // });
+
+
+      // this.setState({
+      //     value: this.state.value
+      // })
 
       // if ( state.selectedValue['item_' + itemGroupId + '_value'] === null ) {
-      if ( state.selectedValue['item_' + itemGroupId + '_value'] === undefined ) {
+      // if ( state.selectedValue['item_' + itemGroupId + '_value'] === undefined ) {
+          //   this.setState(
+          //       {
+          //           aaa: 'Did Mount епта',
+          //           bbb: field[0].checked
+          //           // bbb: [
+          //           //     {
+          //           //         'q1': field[0].checked
+          //           //     }
+          //           // ]
+          //       }
+          //   );
           // console.log( field[0].checked );
           //
           // context.methods.setAppState({
@@ -274,7 +360,7 @@ export default class ItemCheckBox extends Component {
           //         // ['item_' + itemGroupId + '_value']: state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].checked
           //     }
           // });
-      }
+      // }
 
   }
 

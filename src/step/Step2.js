@@ -23,6 +23,13 @@ function keyExists(key, search) {
 
 export default class Step2 extends Component {
 
+    constructor() {
+        super();
+        this.state = {
+            aaa: []
+        };
+    }
+
     render() {
         const { context } = this.props;
         const state = context.state;
@@ -138,5 +145,64 @@ export default class Step2 extends Component {
     //   );
 
     }
+
+    componentDidMount() {
+          const { context } = this.props;
+          const state = context.state;
+          // const itemGroupId = this.props.itemGroupId;
+          // const itemGroupName = this.props.itemGroupName;
+          // const field = state.car['step_' + state.currentStep + '_field_' + state.currentStep].values;
+
+          var arr = [];
+          var arr2 = '';
+          var arr3 = [ 1, 2 , 3 ];
+          var arr4 = '';
+
+
+          state.car.step_2.map( (field, key) => {
+              if ( field.type === 'checkbox' ) {
+                  var id = field.id;
+                  // console.log( field.type );
+                  // console.log( 'item_' + id + '_value' );
+                  // console.log( state.car['step_' + state.currentStep + '_field_' + id].values[0].checked );
+
+                  arr.push( 'item_' + id + '_value: ' + state.car['step_' + state.currentStep + '_field_' + id].values[0].checked );
+                  // arr2 = arr2.join(',');
+                  // this.state.aaa.push( 'item_' + id + '_value: ' + state.car['step_' + state.currentStep + '_field_' + id].values[0].checked );
+
+                  arr4 = arr.join();
+
+                  // setTimeout(function () {
+                  //     context.methods.setAppState({
+                  //         selectedValue: {
+                  //             ...state.selectedValue,
+                  //             ['item_' + id + '_value']: state.car['step_' + state.currentStep + '_field_' + id].values[0].checked
+                  //         }
+                  //     });
+                  // }, 2000);
+
+
+              }
+          })
+
+          console.log( arr.join() );
+
+          // const mystate = this.state.aaa[1];
+          const mystate = arr.join();
+          //
+          // context.methods.setAppState({
+          //     selectedValue: {
+          //         ...state.selectedValue,
+          //         [arr.join()]
+          //         // ['item_' + id + '_value']: state.car['step_' + state.currentStep + '_field_' + id].values[0].checked
+          //     }
+          // });
+
+          // console.log( field[0].name );
+          // console.log( field[0].checked );
+
+    }
+
+
 
 }

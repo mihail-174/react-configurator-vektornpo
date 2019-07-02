@@ -2,18 +2,6 @@ import React, { Component } from 'react';
 
 import '../scss/toggle.scss';
 
-function keyExists(key, search) {
-    if (!search || (search.constructor !== Array && search.constructor !== Object)) {
-        return false;
-    }
-    for (var i = 0; i < search.length; i++) {
-        if (search[i] === key) {
-            return true;
-        }
-    }
-    return key in search;
-}
-
 export default class SwitchWithName extends Component {
   constructor() {
     super();
@@ -24,7 +12,7 @@ export default class SwitchWithName extends Component {
       const { context } = this.props;
       const state = context.state;
       const itemGroupId = this.props.itemGroupId;
-      const itemGroupName = this.props.itemGroupName;
+      // const itemGroupName = this.props.itemGroupName;
 
       context.methods.setAppState({
           selectedValue: {
@@ -71,7 +59,7 @@ export default class SwitchWithName extends Component {
     return (
         <div>
             <div className='toggle'>
-                <input className="toggle__input" id={itemGroupName + "-checkbox"} type='checkbox' type='checkbox' defaultChecked={
+                <input className="toggle__input" id={itemGroupName + "-checkbox"} type='checkbox' defaultChecked={
                     state.car['step_' + state.currentStep + '_field_' + itemGroupId].switch.checked
                 } onChange={this.change.bind(this)} />
                 <label className='toggle__label' htmlFor={itemGroupName + "-checkbox"}>
@@ -121,8 +109,8 @@ export default class SwitchWithName extends Component {
         const { context } = this.props;
         const state = context.state;
         const itemGroupId = this.props.itemGroupId;
-        const field = state.car['step_' + state.currentStep + '_field_' + itemGroupId];
-        const itemGroupName = this.props.itemGroupName;
+        // const field = state.car['step_' + state.currentStep + '_field_' + itemGroupId];
+        // const itemGroupName = this.props.itemGroupName;
 
         context.methods.setAppState({
             selectedValue: {
