@@ -146,6 +146,35 @@ export default class Step2 extends Component {
 
     }
 
+    // shouldComponentUpdate(nextProps, nextState) {
+        // const { context } = this.props;
+        // const state = context.state;
+        // const itemGroupId = this.props.itemGroupId;
+        // console.log( nextProps, nextState );
+        // // return this.state.isOpen !== nextState.isOpen
+        //
+        //
+        // if ( nextState.aaa != this.state.aaa) {
+        //     this.setState(
+        //         {
+        //             aaa: 'AAAAAAAAAAA'
+        //         }
+        //     );
+        //     return true;
+        // }
+        //
+        // return false;
+
+
+
+        // this.setState(
+        //     {
+        //         aaa: 'AAAAAAAAAAA'
+        //     }
+        // );
+        // return nextState
+    // }
+
     componentDidMount() {
           const { context } = this.props;
           const state = context.state;
@@ -185,7 +214,7 @@ export default class Step2 extends Component {
               }
           })
 
-          console.log( arr.join() );
+          // console.log( arr.join() );
 
           // const mystate = this.state.aaa[1];
           const mystate = arr.join();
