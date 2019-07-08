@@ -25,12 +25,23 @@ export default class SwitchWithName extends Component {
       const state = context.state;
       const itemGroupId = this.props.itemGroupId;
       // const itemGroupName = this.props.itemGroupName;
-      context.methods.setAppState({
-          selectedValue: {
-              ...state.selectedValue,
-              ['item_' + itemGroupId + '_value_toggle']: e.target.parentNode.children[0].checked
-          }
-      });
+      if ( e.target.parentNode.children[0].checked === false ) {
+          context.methods.setAppState({
+              selectedValue: {
+                  ...state.selectedValue,
+                  ['itemValue_' + itemGroupId]: null,
+                  ['itemName_' + itemGroupId]: null,
+                  ['item_' + itemGroupId + '_value_toggle']: e.target.parentNode.children[0].checked
+              }
+          });
+      } else {
+          context.methods.setAppState({
+              selectedValue: {
+                  ...state.selectedValue,
+                  ['item_' + itemGroupId + '_value_toggle']: e.target.parentNode.children[0].checked
+              }
+          });
+      }
   }
 
   // componentWillMount() {

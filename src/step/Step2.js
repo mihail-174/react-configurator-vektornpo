@@ -39,7 +39,27 @@ export default class Step2 extends Component {
                 <div className='item__hd'>
                     <div className='item__title'>#{field.id}, {field.name}</div>
                 </div>
-                <div className='item__cont'>
+                <div
+                    className={
+                        keyExists('switch', state.car['step_2_field_' + field.id])
+                        ?
+                            keyExists('item_' + field.id + '_value_toggle', state.selectedValue)
+                            ?
+                                state.selectedValue['item_' + field.id + '_value_toggle']
+                                ?
+                                    'item__cont'
+                                :
+                                    'item__cont disabled'
+                            :
+                                state.car['step_' + state.currentStep + '_field_' + field.id].switch.checked
+                                ?
+                                    'item__cont'
+                                :
+                                    'item__cont disabled'
+                        :
+                            'item__cont'
+                    }
+                >
                     <ItemRadio context={context} itemGroupName={field.systemName} itemGroupId={field.id} />
                 </div>
             </div>

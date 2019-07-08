@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import ComponentItemRadio from '../components/ItemRadio';
 import ComponentItemCheckBox from '../components/ItemCheckBox';
 import ComponentItemCheckBoxMulti from '../components/ItemCheckboxMulti';
+import Toggle from '../components/Toggle';
 
 import '../scss/item.scss';
 
@@ -19,6 +20,18 @@ import '../scss/item.scss';
 // const Context = React.createContext()
 
 
+function keyExists(key, search) {
+    if (!search || (search.constructor !== Array && search.constructor !== Object)) {
+        return false;
+    }
+    for (var i = 0; i < search.length; i++) {
+        if (search[i] === key) {
+            return true;
+        }
+    }
+    return key in search;
+}
+
 export default class Step3 extends Component {
 
     render() {
@@ -29,10 +42,35 @@ export default class Step3 extends Component {
             field.type === 'radio'
             &&
             <div key={key} className={'item ' + field.systemName}>
+                {
+                    keyExists('switch', state.car['step_3_field_' + field.id])
+                    &&
+                    <Toggle context={context} itemGroupName={field.systemName} itemGroupId={field.id} />
+                }
                 <div className='item__hd'>
                     <div className='item__title'>#{field.id}, {field.name}</div>
                 </div>
-                <div className='item__cont'>
+                <div
+                    className={
+                        keyExists('switch', state.car['step_3_field_' + field.id])
+                        ?
+                            keyExists('item_' + field.id + '_value_toggle', state.selectedValue)
+                            ?
+                                state.selectedValue['item_' + field.id + '_value_toggle']
+                                ?
+                                    'item__cont'
+                                :
+                                    'item__cont disabled'
+                            :
+                                state.car['step_' + state.currentStep + '_field_' + field.id].switch.checked
+                                ?
+                                    'item__cont'
+                                :
+                                    'item__cont disabled'
+                        :
+                            'item__cont'
+                    }
+                >
                     <ComponentItemRadio context={context} itemGroupName={field.systemName} itemGroupId={field.id} />
                 </div>
             </div>

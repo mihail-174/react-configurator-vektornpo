@@ -189,7 +189,7 @@
             }
         ],
         "switch": {
-            "checked": true
+            "checked": false
         }
     },
 
@@ -324,7 +324,10 @@
             {
                 "name": "2 ящика"
             }
-        ]
+        ],
+        "switch": {
+            "checked": false
+        }
     },
 
     "step_3_field_15": {
