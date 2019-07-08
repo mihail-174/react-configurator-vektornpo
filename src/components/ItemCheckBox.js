@@ -25,8 +25,8 @@ export default class ItemCheckBox extends Component {
         const state = context.state;
         const itemGroupId = this.props.itemGroupId;
         const itemGroupName = this.props.itemGroupName;
-        const field = state.car['step_' + state.currentStep + '_field_' + itemGroupId].values;
-        const field2 = state.car['step_' + state.currentStep + '_field_' + itemGroupId];
+        // const field = state.car['step_' + state.currentStep + '_field_' + itemGroupId].values;
+        // const field2 = state.car['step_' + state.currentStep + '_field_' + itemGroupId];
 
         // if ( keyExists('item_' + itemGroupId + '_value', state.selectedValue) ) {
         //     console.group( 'state' );
