@@ -515,9 +515,9 @@ export default class App extends Component {
                               <div key={key} className=''>
                                   #{field.id} : {field.name} :
                                   {
-                                      this.state.selectedValue['itemName_' + field.id]
+                                      this.state.selectedValue['item_' + field.id + '_name']
                                           ?
-                                              ' ' + this.state.selectedValue['itemName_' + field.id]
+                                              ' ' + this.state.selectedValue['item_' + field.id + '_name']
                                           :
                                               ' -'
                                           }
@@ -536,14 +536,14 @@ export default class App extends Component {
                                 <div key={key} className=''>
                                     #{field.id} : {field.name} :
                                     {
-                                        this.state.selectedValue['itemName_' + field.id]
+                                        this.state.selectedValue['item_' + field.id + '_name']
                                             ?
-                                                ' ' +this.state.selectedValue['itemName_' + field.id]
+                                                ' ' +this.state.selectedValue['item_' + field.id + '_name']
                                             :
                                                 ' -'
                                     }
-                                    { this.state.selectedValue['itemValue_' + field.id] === true && ' да' }
-                                    { this.state.selectedValue['itemValue_' + field.id] === false && ' нет' }
+                                    { this.state.selectedValue['item_' + field.id + '_value'] === true && ' да' }
+                                    { this.state.selectedValue['item_' + field.id + '_value'] === false && ' нет' }
                                 </div>
                           )
                       :
@@ -559,14 +559,14 @@ export default class App extends Component {
                                 <div key={key} className=''>
                                     #{field.id} : {field.name} :
                                     {
-                                        this.state.selectedValue['itemName_' + field.id]
+                                        this.state.selectedValue['item_' + field.id + '_name']
                                             ?
-                                                ' ' +this.state.selectedValue['itemName_' + field.id]
+                                                ' ' +this.state.selectedValue['item_' + field.id + '_name']
                                             :
                                                 ' -'
                                     }
-                                    { this.state.selectedValue['itemValue_' + field.id] === true && ' да' }
-                                    { this.state.selectedValue['itemValue_' + field.id] === false && ' нет' }
+                                    { this.state.selectedValue['item_' + field.id + '_value'] === true && ' да' }
+                                    { this.state.selectedValue['item_' + field.id + '_value'] === false && ' нет' }
                                 </div>
                           )
                       :

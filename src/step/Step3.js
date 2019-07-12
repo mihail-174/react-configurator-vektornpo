@@ -10,16 +10,6 @@ import Toggle from '../components/Toggle';
 
 import '../scss/item.scss';
 
-// import Dvigatel from '../components/Dvigatel.js';
-// import SpalnoeMesto from '../components/SpalnoeMesto.js';
-// import ZapasnoeKoleso from '../components/ZapasnoeKoleso.js';
-// import InstrumentIashchiki from '../components/InstrumentIashchiki.js';
-// import ProtivopodkatnyBrus from '../components/ProtivopodkatnyBrus.js';
-// import ZimniiPaket from '../components/ZimniiPaket.js';
-
-// const Context = React.createContext()
-
-
 function keyExists(key, search) {
     if (!search || (search.constructor !== Array && search.constructor !== Object)) {
         return false;
@@ -42,13 +32,13 @@ export default class Step3 extends Component {
             field.type === 'radio'
             &&
             <div key={key} className={'item ' + field.systemName}>
-                {
-                    keyExists('switch', state.car['step_3_field_' + field.id])
-                    &&
-                    <Toggle context={context} itemGroupName={field.systemName} itemGroupId={field.id} />
-                }
                 <div className='item__hd'>
                     <div className='item__title'>#{field.id}, {field.name}</div>
+                    {
+                        keyExists('switch', state.car['step_3_field_' + field.id])
+                        &&
+                        <Toggle context={context} itemGroupName={field.systemName} itemGroupId={field.id} />
+                    }
                 </div>
                 <div
                     className={
@@ -121,30 +111,3 @@ export default class Step3 extends Component {
     }
 
 }
-
-
-// export default class Step3 extends Component {
-//   render() {
-//     const { context } = this.props;
-//     const list = context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep].map((field, key) =>
-//       <div key={key} className={'b ' + field.system}>
-//         <div className='b__title'>{field.name}</div>
-//         {field.type === 'radio' && <ItemRadio id={field.id} systemName={field.system} options={context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id]} context={context} />}
-//         {field.type === 'checkbox' && <ItemCheckbox id={field.id} systemName={field.system} options={context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id]} context={context} />}
-//         {field.type === 'checkboxmulti' && <ItemCheckboxMulti id={field.id} systemName={field.system} options={context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id]} context={context} />}
-//       </div>
-//     );
-//
-//     return (
-//       <div className='step step_one'>
-//         <Header context={context} />
-//         <div className='content'>
-//           {list}
-//         </div>
-//         <Footer context={context} />
-//       </div>
-//     );
-//
-//   }
-//
-// }

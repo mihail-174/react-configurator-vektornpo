@@ -31,13 +31,13 @@ export default class Step2 extends Component {
             field.type === 'radio'
             &&
             <div key={key} className={'item ' + field.systemName}>
-                {
-                    keyExists('switch', state.car['step_2_field_' + field.id])
-                    &&
-                    <Toggle context={context} itemGroupName={field.systemName} itemGroupId={field.id} />
-                }
                 <div className='item__hd'>
                     <div className='item__title'>#{field.id}, {field.name}</div>
+                    {
+                        keyExists('switch', state.car['step_2_field_' + field.id])
+                        &&
+                        <Toggle context={context} itemGroupName={field.systemName} itemGroupId={field.id} />
+                    }
                 </div>
                 <div
                     className={

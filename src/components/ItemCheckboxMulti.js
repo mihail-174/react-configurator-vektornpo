@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 var arr = [];
 
 export default class ItemCheckboxMulti extends Component {
@@ -14,7 +13,6 @@ export default class ItemCheckboxMulti extends Component {
         const { context } = this.props;
         const state = context.state;
         const itemGroupId = this.props.itemGroupId;
-        // const itemGroupName = this.props.itemGroupName;
 
         if ( e.target.checked ) {
             document.querySelector(e.target.parentNode.classList.add('active'));
@@ -31,8 +29,8 @@ export default class ItemCheckboxMulti extends Component {
         context.methods.setAppState({
             selectedValue: {
                 ...state.selectedValue,
-                ['itemName_' + itemGroupId]: arr,
-                ['itemValue_' + itemGroupId + '_' + e.target.parentNode.getAttribute('data-index')]: e.target.checked
+                ['item_' + itemGroupId + '_name']: arr,
+                ['item_' + itemGroupId + '_' + e.target.parentNode.getAttribute('data-index') + '_value']: e.target.checked
             }
         });
 
@@ -50,13 +48,13 @@ export default class ItemCheckboxMulti extends Component {
               {
                   field.map( (field, key) =>
                       <div key={key} className={
-                          state.selectedValue['itemValue_'+ itemGroupId + '_' + key]
+                          state.selectedValue['item_'+ itemGroupId + '_' + key + '_value']
                           ?
                           'item__item active'
                           :
                           'item__item'
                       } data-index={key}>
-                        <input checked={state.selectedValue['itemValue_'+ itemGroupId + '_' + key] ? true : false } className="item__input" id={itemGroupName + "-" + key} type='checkbox' name={itemGroupName} onChange={this.handleInputChange.bind(this)} />
+                        <input checked={state.selectedValue['item_'+ itemGroupId + '_' + key + '_value'] ? true : false } className="item__input" id={itemGroupName + "-" + key} type='checkbox' name={itemGroupName} onChange={this.handleInputChange.bind(this)} />
                         <label className="item__label" htmlFor={itemGroupName + "-" + key}>
                             {field.ico && <div className='item__image'><img src={require('../img/step-ico/' + field.url)} alt='' /></div>}
                             <div className='item__text'>
@@ -72,36 +70,15 @@ export default class ItemCheckboxMulti extends Component {
 
   }
 
-  componentDidMount() {
-      const { context } = this.props;
-      const state = context.state;
-      const itemGroupId = this.props.itemGroupId;
-      // const field = state.car['step_' + state.currentStep + '_field_' + itemGroupId];
-      // const itemGroupName = this.props.itemGroupName;
-      if ( state['itemValue_' + itemGroupId] === null ) {
-          context.methods.setAppState({
-              // ['itemValue_' + itemGroupId + '_' + e.target.parentNode.getAttribute('data-index')]: e.target.checked,
-              ['itemValue_' + itemGroupId]: state.car['step_' + state.currentStep + '_field_' + itemGroupId][0].checked
-          });
-      }
-  }
-
-
-
-
   // componentDidMount() {
   //     const { context } = this.props;
   //     const state = context.state;
   //     const itemGroupId = this.props.itemGroupId;
-  //     const field = state.car['step_' + state.currentStep + '_field_' + itemGroupId];
-  //     const itemGroupName = this.props.itemGroupName;
-  //
-  //     if ( state['itemValue_' + itemGroupId] === null ) {
+  //     if ( state['item_' + itemGroupId + '_value'] === null ) {
   //         context.methods.setAppState({
-  //             ['itemValue_' + itemGroupId]: state.car['step_' + state.currentStep + '_field_' + itemGroupId][0].checked
+  //             ['item_' + itemGroupId + '_value']: state.car['step_' + state.currentStep + '_field_' + itemGroupId][0].checked
   //         });
   //     }
-  //
   // }
 
 }

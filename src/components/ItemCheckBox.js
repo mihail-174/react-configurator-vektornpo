@@ -20,32 +20,10 @@ export default class ItemCheckBox extends Component {
     }
 
     handleInputChange(e) {
-        // console.log( 'handleInputChange' );
         const { context } = this.props;
         const state = context.state;
         const itemGroupId = this.props.itemGroupId;
         const itemGroupName = this.props.itemGroupName;
-        // const field = state.car['step_' + state.currentStep + '_field_' + itemGroupId].values;
-        // const field2 = state.car['step_' + state.currentStep + '_field_' + itemGroupId];
-
-        // if ( keyExists('item_' + itemGroupId + '_value', state.selectedValue) ) {
-        //     console.group( 'state' );
-        //     // console.log( 'state: true' );
-        //     field.map( (item, key) => {
-        //         console.log( 'в state: ' + item.name +  ' = есть' );
-        //         console.log( 'в state: ' + item.name + ' = ' + e.currentTarget.checked );
-        //         // console.log( 'в state: ' + item.name + ' = ' + state.selectedValue['item_' + itemGroupId + '_value'].checked );
-        //     });
-        //     console.groupEnd();
-        // } else {
-        //     console.group( 'state' );
-        //     // console.log( 'state: false' );
-        //     field.map( (item, key) => {
-        //         console.log( 'в state: ' + item.name +  ' = нету' );
-        //         console.log( 'defaul: ' + item.name + ' = ' + state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].checked );
-        //     });
-        //     console.groupEnd();
-        // }
 
         context.methods.setAppState({
             selectedValue: {
@@ -53,8 +31,6 @@ export default class ItemCheckBox extends Component {
                 ['item_' + itemGroupId + '_value']: e.currentTarget.checked
             }
         });
-
-        // console.log( state.selectedValue['item_' + itemGroupId + '_value'] );
 
         if ( e.target.parentNode.children[0].checked ) {
             document.querySelector('.' + itemGroupName + ' .item__item').classList.add('active');
@@ -64,42 +40,9 @@ export default class ItemCheckBox extends Component {
 
     }
 
-    // componentWillMount() {
-    //     const itemGroupId = this.props.itemGroupId;
-    //     const itemGroupName = this.props.itemGroupName;
-    //     // console.log( 'componentWillMount: ' + itemGroupId + ' | ' + itemGroupName );
-    //     const { context } = this.props;
-    //     const state = context.state;
-    //     const field = state.car['step_' + state.currentStep + '_field_' + itemGroupId].values;
-    //     if ( keyExists('item_' + itemGroupId + '_value', state.selectedValue) ) {
-    //         // console.group( 'state' );
-    //         // console.log( 'state: true' );
-    //         field.map( (item, key) => {
-    //             console.log( 'в state: ' + item.name +  ' = есть' );
-    //             console.log( 'в state: ' + item.name + ' = ' + state.selectedValue['item_' + itemGroupId + '_value'].checked );
-    //         });
-    //         // console.groupEnd();
-    //     } else {
-    //         // console.group( 'state' );
-    //         // console.log( 'state: false' );
-    //         field.map( (item, key) => {
-    //             console.log( 'в state: ' + item.name +  ' = нету' );
-    //             console.log( 'defaul: ' + item.name + ' = ' + state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].checked );
-    //         });
-    //         // console.groupEnd();
-    //         // context.methods.setAppState({
-    //         //     selectedValue: {
-    //         //         ...state.selectedValue,
-    //         //         ['item_' + itemGroupId + '_value']: state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].checked
-    //         //     }
-    //         // });
-    //     }
-    // }
-
   render() {
       const itemGroupId = this.props.itemGroupId;
       const itemGroupName = this.props.itemGroupName;
-      // console.log( 'render: ' + itemGroupId + ' | ' + itemGroupName );
       const { context } = this.props;
       const state = context.state;
       const field = state.car['step_' + state.currentStep + '_field_' + itemGroupId].values;
@@ -145,33 +88,5 @@ export default class ItemCheckBox extends Component {
       )
 
   }
-
-  // componentWillUpdate(nextProps, nextState) {
-  //     if (this.state.selectedValue !== nextState.selectedValue) {
-  //         nextProps.onChange(nextState.selectedValue);
-  //         console.log( 'componentWillUpdate' );
-  //     }
-  // }
-
-  // shouldComponentUpdate(nextProps, nextState) {
-  //     console.log( 'shouldComponentUpdate' );
-  //     // const { context } = this.props;
-  //     // const state = context.state;
-  //     // const itemGroupId = this.props.itemGroupId;
-  //     // console.log( nextState );
-  //     // return this.state.isOpen !== nextState.isOpen
-  // }
-
-  // componentDidUpdate(prevProps, prevState, prevContext) {
-  //     console.log( 'componentDidUpdate' );
-  // }
-
-  // componentDidMount() {
-  //     const itemGroupId = this.props.itemGroupId;
-  //     const itemGroupName = this.props.itemGroupName;
-  //     // console.log( 'componentDidMount: ' + itemGroupId + ' | ' + itemGroupName );
-  //     const { context } = this.props;
-  //     const state = context.state;
-  // }
 
 }

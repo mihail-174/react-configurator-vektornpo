@@ -34,9 +34,6 @@ export default class Step0 extends Component {
 
     componentDidMount() {
         const {context} = this.props;
-        // context.methods.setAppState({
-        //     ajaxStatus: null
-        // })
         fetch(`${process.env.PUBLIC_URL}/listCar.json`)
         .then(res =>res.json())
         .then(
@@ -44,7 +41,6 @@ export default class Step0 extends Component {
                 setTimeout(() => {
                     context.methods.setAppState({
                         listCar: result,
-                        // ajaxStatus: 'ok'
                     })
                     this.setState({
                         isLoaded: true,
@@ -53,9 +49,6 @@ export default class Step0 extends Component {
             },
             (error) => {
                 console.log( error );
-                // context.methods.setAppState({
-                    // ajaxStatus: 'error'
-                // })
                 this.setState({
                     isLoaded: false,
                     error

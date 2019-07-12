@@ -22,40 +22,6 @@ function keyExists(key, search) {
 
 export default class Step1 extends Component {
 
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         error: null,
-    //         isLoaded: false
-    //     };
-    // }
-
-    // componentWillMount() {
-    //     const {context} = this.props;
-    //     const state = context.state;
-    //     const nameCar = state.listCar[state.currentAvto].systemName;
-    //     // console.log( nameCar );
-    //     fetch(`${process.env.PUBLIC_URL}/${nameCar}.json`)
-    //     .then(res => res.json())
-    //     .then(
-    //         (result) => {
-    //             console.log( result );
-    //             setTimeout(() => {
-    //                 context.methods.setAppState({
-    //                     car: result,
-    //                     ajaxStatus: 'ok'
-    //                 })
-    //             }, 500);
-    //         },
-    //         (error) => {
-    //             console.log( error );
-    //             context.methods.setAppState({
-    //                 ajaxStatus: 'error'
-    //             })
-    //         }
-    //     )
-    // }
-
   render() {
     const { context } = this.props;
     const state = context.state;
@@ -69,13 +35,13 @@ export default class Step1 extends Component {
                 {
                     state.car.step_1.map( (field, key) =>
                         <div key={key} className={'item ' + field.systemName}>
-                            {
-                                keyExists('switch', state.car['step_1_field_' + field.id])
-                                &&
-                                <Toggle context={context} itemGroupName={field.systemName} itemGroupId={field.id} />
-                            }
                             <div className='item__hd'>
                                 <div className='item__title'>#{field.id}, {field.name}</div>
+                                {
+                                    keyExists('switch', state.car['step_1_field_' + field.id])
+                                    &&
+                                    <Toggle context={context} itemGroupName={field.systemName} itemGroupId={field.id} />
+                                }
                             </div>
                             <div
                                 className={
@@ -110,60 +76,6 @@ export default class Step1 extends Component {
         </div>
     );
 
-    // let currentAvto = state.currentAvto;
-    // let currentStep = state.currentStep;
-    // let fields__x__x = state['fields__' + currentAvto + '__' + currentStep];
-    // const listOLD = state.fields__1__1.map((field, key) =>
-    //   <div key={key} className={'b ' + field.systemName}>
-    //     <div className='b__hd'>
-    //       <div className='b__title'>{field.id} — {field.name}</div>
-    //       {keyExists('switch_check', context.state["fields__" + currentAvto + "__" + currentStep + "__" + parseInt(key+1,0) + "__options"]) && <Toggle context={context} systemName={field.systemName} idBlock={field.id} />}
-    //     </div>
-    //     <div className={
-    //       keyExists('switch_check', context.state["fields__" + currentAvto + "__" + currentStep + "__" + field.id + "__options"])
-    //       ?
-    //         context.state["fields__" + currentAvto + "__" + currentStep + "__" + field.id + "__options"].switch_check
-    //         ?
-    //         'b__cont'
-    //         :
-    //         'b__cont disabled'
-    //       :
-    //       'b__cont'
-    //     }>
-    //       <ItemRadio context={context} systemName={field.systemName} idBlock={field.id} />
-    //     </div>
-    //   </div>
-    // );
-
-
-    // }
-
-  }
-
-  componentDidMount() {
-      // const {context} = this.props;
-      // const state = context.state;
-      // const nameCar = state.listCar[state.currentAvto].systemName;
-      // // console.log( nameCar );
-      // fetch(`${process.env.PUBLIC_URL}/${nameCar}.json`)
-      // .then(res => res.json())
-      // .then(
-      //     (result) => {
-      //         console.log( result );
-      //         setTimeout(() => {
-      //             context.methods.setAppState({
-      //                 car: result,
-      //                 ajaxStatus: 'ok'
-      //             })
-      //         }, 500);
-      //     },
-      //     (error) => {
-      //         console.log( error );
-      //         context.methods.setAppState({
-      //             ajaxStatus: 'error'
-      //         })
-      //     }
-      // )
   }
 
 }
