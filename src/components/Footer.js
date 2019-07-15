@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../scss/footer.scss';
+import $ from 'jquery';
 
 export default class Footer extends Component {
   constructor() {

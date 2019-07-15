@@ -1,8 +1,13 @@
 .wf {
-    width: 500px;
-    margin: 0 auto;
+    height: 100%;
     font-size: 13px;
-    line-height: 19px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.wf__form {
+	width: 500px;
+	margin: 0 auto;
 }
 .wf__markup {
     margin-bottom: 10px;
@@ -29,4 +34,15 @@
 }
 .wf__action {
     display: none;
+}
+.wf__message {
+	text-align: center;
+}
+.wf__message_errors {
+	background-color: #ffc0c0;
+	padding: 5px 0;
+	position: absolute;
+	top: -15px;
+	left: -15px;
+	right: -15px;
 }

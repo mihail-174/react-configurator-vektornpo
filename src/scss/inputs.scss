@@ -8,10 +8,13 @@ textarea {
   color: #6d6c6c;
   font-size: 12px;
   transition: all 0.3s;
-}
-input[type='text']:focus,
-textarea:focus {
-    box-shadow: 0 0 0 1px #81b8ed;
-    border-color: #81b8ed;
-    outline: none;
+  &:focus {
+      box-shadow: 0 0 0 1px #81b8ed;
+      border-color: #81b8ed;
+      outline: none;
+  }
+  &.error {
+      box-shadow: 0 0 0 1px red;
+      border-color: red;
+  }
 }
