@@ -27,6 +27,13 @@ export default class Step2 extends Component {
         const { context } = this.props;
         const state = context.state;
 
+        let nameCar = '';
+        context.state.listCar.forEach((elem, key) => {
+            if ( elem.id === state.currentAvto ) {
+                nameCar = 'content_' + elem.systemName;
+            }
+        });
+
         const itemRadio = state.car.step_2.map( (field, key) =>
             field.type === 'radio'
             &&
@@ -81,7 +88,7 @@ export default class Step2 extends Component {
         return (
             <div className='step step_one'>
                 <Header context={context} />
-                <div className='content'>
+                <div className={'content ' + nameCar}>
 
                     <div className='content__inner'>
                         { itemRadio }

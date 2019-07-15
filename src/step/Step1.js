@@ -26,10 +26,17 @@ export default class Step1 extends Component {
     const { context } = this.props;
     const state = context.state;
 
+    let nameCar = '';
+    context.state.listCar.forEach((elem, key) => {
+        if ( elem.id === state.currentAvto ) {
+            nameCar = 'content_' + elem.systemName;
+        }
+    });
+
     return (
         <div className='step step_one'>
             <Header context={context} />
-            <div className='content'>
+            <div className={'content ' + nameCar}>
 
                 <div className='content__inner'>
                 {

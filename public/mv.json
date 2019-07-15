@@ -48,10 +48,6 @@
                 "subName": "взрывозащищенный компрессор 480 куб./час"
             },
             {
-                "name": "BK-6М2",
-                "subName": "взрывозащищенный компрессор 240 куб./час"
-            },
-            {
                 "name": "PNR.122",
                 "subName": "взрывозащищенный компрессор 730 куб./час"
             }
@@ -142,18 +138,6 @@
         },
         {
             "id": 8,
-            "name": "Исполнение",
-            "systemName": "execution",
-            "type": "checkbox"
-        },
-        {
-            "id": 9,
-            "name": "Крепление огнетушителя",
-            "systemName": "fire-extinguisher-mounting",
-            "type": "radio"
-        },
-        {
-            "id": 10,
             "name": "Калибровка",
             "systemName": "calibration",
             "type": "checkbox"
@@ -208,29 +192,6 @@
     },
 
     "step_2_field_8": {
-        "values": [
-            {
-                "name": "Огнеопасное",
-                "subName": "доработки установки и шасси под перевозку ЛВЖ",
-                "ico": true,
-                "url": "20.png",
-                "checked": true
-            }
-        ]
-    },
-
-    "step_2_field_9": {
-        "values": [
-            {
-                "name": "Пластиковые короба"
-            },
-            {
-                "name": "Кольца на цистерне"
-            }
-        ]
-    },
-
-    "step_2_field_10": {
         "values": [
             {
                 "name": "Калибровка",
@@ -308,10 +269,14 @@
     "step_3_field_13": {
         "values": [
             {
-                "name": "За кабиной"
+                "name": "За кабиной",
+                "ico": true,
+                "url": "24.png"
             },
             {
-                "name": "На заднем свесе"
+                "name": "На заднем свесе",
+                "ico": true,
+                "url": "27.png"
             }
         ]
     },
