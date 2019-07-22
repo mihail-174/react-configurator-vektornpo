@@ -40,6 +40,28 @@ export default class ItemCheckBox extends Component {
 
     }
 
+      change(e) {
+          const { context } = this.props;
+          const state = context.state;
+          const itemGroupId = this.props.itemGroupId;
+          if ( e.target.parentNode.children[0].checked === false ) {
+              context.methods.setAppState({
+                  selectedValue: {
+                      ...state.selectedValue,
+                      ['item_' + itemGroupId + '_value']: null,
+                      ['item_' + itemGroupId + '_name']: null,
+                      ['item_' + itemGroupId + '_value_toggle']: e.target.parentNode.children[0].checked
+                  }
+              });
+          } else {
+              context.methods.setAppState({
+                  selectedValue: {
+                      ...state.selectedValue,
+                      ['item_' + itemGroupId + '_value_toggle']: e.target.parentNode.children[0].checked
+                  }
+              });
+          }
+      }
   render() {
       const itemGroupId = this.props.itemGroupId;
       const itemGroupName = this.props.itemGroupName;
@@ -66,14 +88,21 @@ export default class ItemCheckBox extends Component {
                               :
                                   'item__item'
                       }>
-                          <input defaultChecked={
-                              keyExists('item_' + itemGroupId + '_value', state.selectedValue)
-                              ?
-                              state.selectedValue['item_' + itemGroupId + '_value']
-                              :
-                              state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].checked
-                          } className="item__input" id={itemGroupName + "-" + key} type='checkbox' name={itemGroupName} onChange={this.handleInputChange.bind(this)} />
-
+                          <input
+                              type='checkbox'
+                              className="item__input toggle__input"
+                              id={itemGroupName + "-" + key}
+                              name={itemGroupName}
+                              defaultChecked={
+                                  keyExists('item_' + itemGroupId + '_value', state.selectedValue)
+                                  ?
+                                  state.selectedValue['item_' + itemGroupId + '_value']
+                                  :
+                                  state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].checked
+                              }
+                              onChange={this.handleInputChange.bind(this)}
+                          />
+                          <label className="toggle__label" htmlFor={itemGroupName + "-" + key}></label>
                           <label className="item__label" htmlFor={itemGroupName + "-" + key}>
                               {field.ico && <div className='item__image'><img src={require('../img/step-ico/' + field.url)} alt='' /></div>}
                               <div className='item__text'>

@@ -56,7 +56,8 @@ export default class SwitchWithName extends Component {
                 <input
                     className="toggle__input"
                     id={itemGroupName + "-checkbox"}
-                    type='checkbox'onChange={this.change.bind(this)}
+                    type='checkbox'
+                    onChange={this.change.bind(this)}
                     defaultChecked={
                         keyExists('item_' + itemGroupId + '_value_toggle', state.selectedValue)
                         ?

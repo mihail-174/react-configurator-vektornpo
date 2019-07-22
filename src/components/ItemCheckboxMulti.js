@@ -54,7 +54,15 @@ export default class ItemCheckboxMulti extends Component {
                           :
                           'item__item'
                       } data-index={key}>
-                        <input checked={state.selectedValue['item_'+ itemGroupId + '_' + key + '_value'] ? true : false } className="item__input" id={itemGroupName + "-" + key} type='checkbox' name={itemGroupName} onChange={this.handleInputChange.bind(this)} />
+                        <input
+                            type='checkbox'
+                            className="item__input toggle__input"
+                            id={itemGroupName + "-" + key}
+                            name={itemGroupName}
+                            checked={state.selectedValue['item_'+ itemGroupId + '_' + key + '_value'] ? true : false }
+                            onChange={this.handleInputChange.bind(this)}
+                        />
+                        <label className="toggle__label" htmlFor={itemGroupName + "-" + key}></label>
                         <label className="item__label" htmlFor={itemGroupName + "-" + key}>
                             {field.ico && <div className='item__image'><img src={require('../img/step-ico/' + field.url)} alt='' /></div>}
                             <div className='item__text'>
@@ -69,16 +77,5 @@ export default class ItemCheckboxMulti extends Component {
       )
 
   }
-
-  // componentDidMount() {
-  //     const { context } = this.props;
-  //     const state = context.state;
-  //     const itemGroupId = this.props.itemGroupId;
-  //     if ( state['item_' + itemGroupId + '_value'] === null ) {
-  //         context.methods.setAppState({
-  //             ['item_' + itemGroupId + '_value']: state.car['step_' + state.currentStep + '_field_' + itemGroupId][0].checked
-  //         });
-  //     }
-  // }
 
 }

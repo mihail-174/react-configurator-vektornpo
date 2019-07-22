@@ -30,7 +30,7 @@ export default class ShooseAvto extends Component {
     );
     return (
       <div className='st1'>
-        <div className='st1__list'>{list}</div>
+          <div className='st1__list'>{list}</div>
       </div>
     );
   }

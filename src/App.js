@@ -3,7 +3,6 @@ import './scss/App.scss';
 
 import Step0 from './step/Step0';
 import Contents from './components/Contents';
-// import Loading from './components/Loading.js';
 
 const Context = React.createContext()
 
@@ -25,76 +24,7 @@ let initialState = {
     listCar: [],
     selectedValue: [
     ],
-
-    // itemValue_0: null,
-    // itemName_0: null,
-    //
-    // itemValue_1: null,
-    // itemName_1: null,
-    //
-    // itemValue_2: null,
-    // itemName_2: null,
-    //
-    // itemValue_3: null,
-    // itemName_3: null,
-    //
-    // itemValue_4: null,
-    // itemName_4: null,
-    //
-    // itemValue_5: null,
-    // itemName_5: null,
-    //
-    // itemValue_6: null,
-    // itemName_6: null,
-    //
-    // itemValue_7: null,
-    // itemName_7: null,
-    //
-    // itemValue_8: null,
-    // // itemName_8: null,
-    //
-    // itemValue_9: null,
-    // itemName_9: null,
-    //
-    // itemValue_10: null,
-    // // itemName_10: null,
-    //
-    // itemValue_11: null,
-    // itemName_11: null,
-    //
-    // itemValue_12: null,
-    // itemName_12: null,
-    //
-    // itemValue_13: null,
-    // itemName_13: null,
-    //
-    // itemValue_14: null,
-    // itemName_14: null,
-    //
-    // itemValue_15: null,
-    // itemName_15: null,
-    //
-    // itemName_16: null,
-    //
-    // itemValue_16_0: null,
-    // itemValue_16_1: null,
-    // itemValue_16_2: null,
-    // itemValue_16_3: null,
-    // itemValue_16_4: null,
-
     car: {},
-
-    // result: [
-    //     { valBlock__0: null },
-    //     { valBlock__1: null },
-    //     { valBlock__2: null },
-    //     { valBlock__3: null },
-    //     { valBlock__4: null }
-    // ],
-
-
-
-
 
   // fields__1__1: [
   //   { id: 1, name: 'Вакуумный насос', systemName: 'vacuum-pump', type: 'radio' },
@@ -374,19 +304,6 @@ let initialState = {
 
 }
 
-
-// function keyExists(key, search) {
-//     if (!search || (search.constructor !== Array && search.constructor !== Object)) {
-//         return false;
-//     }
-//     for (var i = 0; i < search.length; i++) {
-//         if (search[i] === key) {
-//             return true;
-//         }
-//     }
-//     return key in search;
-// }
-
 export default class App extends Component {
 
   constructor(props) {
@@ -406,77 +323,6 @@ export default class App extends Component {
     this.setState({ currentStep: step});
   }
   render() {
-    // const { context } = this.props;
-
-    // let step;
-    // if(this.state.currentStep === 0) {
-    //   step = <Context.Consumer>{context => ( <Step0 context={context}/> )}</Context.Consumer>;
-    // }
-    // if(this.state.currentStep === 1) {
-    //   step = <Context.Consumer>{context => ( <Step1 context={context}/> )}</Context.Consumer>;
-    // }
-    // if(this.state.currentStep === 2) {
-    //   step = <Context.Consumer>{context => ( <Step2 context={context}/> )}</Context.Consumer>;
-    // }
-    // if(this.state.currentStep === 3) {
-    //   step = <Context.Consumer>{context => ( <Step3 context={context}/> )}</Context.Consumer>;
-    // }
-
-    // const listResultStep1 = this.state.result.map((field, key) => {
-    // const listResultStep1 = this.state.car.step_1.map((field, key) => {
-    //     return (
-    //         <div key={key} className=''>
-    //             {field.name}: &nbsp;
-    //         </div>
-    //     )
-    // });
-
-    // keyExists( 'step_1', this.state.car )
-    // ?
-    // console.log('да')
-    // :
-    // console.log('нет')
-    // if ( this.state.car.step_1 ) {
-    //     console.log('да')
-    //     const listResultStep1 = this.state.car.step_1.map((field, key) => {
-    //         return (
-    //             <div key={key} className=''>
-    //             {field.name}: &nbsp;
-    //             </div>
-    //         )
-    //     });
-    // } else {
-    //     console.log('нет')
-    // }
-
-
-// { this.state['valBlock__'+field.id] !==null ? this.state['fields__1__1__'+field.id][this.state['valBlock__'+field.id]].name : '—' }
-
-    // const listResultStep2 = this.state.fields__1__2.map((field, key) => {
-    //   return (
-    //     <div key={key} className=''>
-    //         {field.name}: &nbsp;
-    //         {
-    //             field.type==='radio'
-    //             ?
-    //                 this.state['valBlock__'+field.id] !==null
-    //                 ?
-    //                 this.state['fields__1__2__'+field.id][this.state['valBlock__'+field.id]].name
-    //                 :
-    //                 '—'
-    //             :
-    //                 this.state['fields__1__2__'+field.id][0].val
-    //                 ?
-    //                 'да'
-    //                 :
-    //                 'нет'
-    //         }
-    //     </div>
-    //     )
-    //   }
-    // );
-    // <Context.Consumer>{context => ( <Loading context={context} /> )}</Context.Consumer>
-
     return (
        <Context.Provider value={{
          state: this.state,
@@ -574,7 +420,6 @@ export default class App extends Component {
                   }
               </pre>
           </div>
-
 
         </div>
       {this.props.children}

@@ -308,10 +308,14 @@
     "step_3_field_13": {
         "values": [
             {
-                "name": "За кабиной"
+                "name": "За кабиной",
+                "ico": true,
+                "url": "24.png"
             },
             {
-                "name": "На заднем свесе"
+                "name": "На заднем свесе",
+                "ico": true,
+                "url": "27.png"
             }
         ]
     },
@@ -319,10 +323,14 @@
     "step_3_field_14": {
         "values": [
             {
-                "name": "1 ящик"
+                "name": "1 ящик",
+                "ico": true,
+                "url": "21.png"
             },
             {
-                "name": "2 ящика"
+                "name": "2 ящика",
+                "ico": true,
+                "url": "22.png"
             }
         ],
         "switch": {
