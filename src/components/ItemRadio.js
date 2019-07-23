@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+// import Tooltip from 'rc-tooltip';
+import Tooltip from '../components/Tooltip';
 
 export default class ItemRadio extends Component {
 
@@ -56,6 +58,7 @@ export default class ItemRadio extends Component {
                                 {field.subName && <div className='item__subname'>{field.subName}</div> }
                             </div>
                         </label>
+                        <Tooltip context={context} itemGroupName={itemGroupName} itemGroupId={itemGroupId} itemId={key} />
                     </div>
                 )
             }

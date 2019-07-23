@@ -81,7 +81,7 @@
             }
         ],
         "switch": {
-            "checked": false,
+            "checked": true,
             "on": "открытие дна",
             "off": "глухая цистерна"
         }
@@ -284,10 +284,14 @@
     "step_3_field_14": {
         "values": [
             {
-                "name": "1 ящик"
+                "name": "1 ящик",
+                "ico": true,
+                "url": "21.png"
             },
             {
-                "name": "2 ящика"
+                "name": "2 ящика",
+                "ico": true,
+                "url": "22.png"
             }
         ],
         "switch": {
