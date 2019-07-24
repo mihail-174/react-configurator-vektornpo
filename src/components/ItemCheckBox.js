@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Tooltip from 'rc-tooltip';
+import Tooltip from '../components/Tooltip';
 
 function keyExists(key, search) {
     if (!search || (search.constructor !== Array && search.constructor !== Object)) {
@@ -74,46 +74,45 @@ export default class ItemCheckBox extends Component {
           <div className='item__list'>
               {
                   field.map( (field, key) =>
-                      <Tooltip key={key} mouseLeaveDelay="0" placement={field.tooltip_position} overlay={field.tooltip}>
-                          <div className={
-                              keyExists('item_' + itemGroupId + '_value', state.selectedValue)
+                      <div key={key} className={
+                          keyExists('item_' + itemGroupId + '_value', state.selectedValue)
+                          ?
+                              state.selectedValue['item_' + itemGroupId + '_value']
                               ?
-                                  state.selectedValue['item_' + itemGroupId + '_value']
-                                  ?
-                                      'item__item active'
-                                  :
-                                      'item__item'
+                                  'item__item active'
                               :
-                                  state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].checked
+                                  'item__item'
+                          :
+                              state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].checked
+                              ?
+                                  'item__item active'
+                              :
+                                  'item__item'
+                      }>
+                          <input
+                              type='checkbox'
+                              className="item__input toggle__input"
+                              id={itemGroupName + "-" + key}
+                              name={itemGroupName}
+                              defaultChecked={
+                                  keyExists('item_' + itemGroupId + '_value', state.selectedValue)
                                   ?
-                                      'item__item active'
+                                  state.selectedValue['item_' + itemGroupId + '_value']
                                   :
-                                      'item__item'
-                          }>
-                              <input
-                                  type='checkbox'
-                                  className="item__input toggle__input"
-                                  id={itemGroupName + "-" + key}
-                                  name={itemGroupName}
-                                  defaultChecked={
-                                      keyExists('item_' + itemGroupId + '_value', state.selectedValue)
-                                      ?
-                                      state.selectedValue['item_' + itemGroupId + '_value']
-                                      :
-                                      state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].checked
-                                  }
-                                  onChange={this.handleInputChange.bind(this)}
-                              />
-                              <label className="toggle__label" htmlFor={itemGroupName + "-" + key}></label>
-                              <label className="item__label" htmlFor={itemGroupName + "-" + key}>
-                                  {field.ico && <div className='item__image'><img src={require('../img/step-ico/' + field.url)} alt='' /></div>}
-                                  <div className='item__text'>
-                                      <div className='item__name'>{field.name}</div>
-                                      {field.subName && <div className='item__subname'>{field.subName}</div> }
-                                  </div>
-                              </label>
-                          </div>
-                      </Tooltip>
+                                  state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].checked
+                              }
+                              onChange={this.handleInputChange.bind(this)}
+                          />
+                          <label className="toggle__label" htmlFor={itemGroupName + "-" + key}></label>
+                          <label className="item__label" htmlFor={itemGroupName + "-" + key}>
+                              {field.ico && <div className='item__image'><img src={require('../img/step-ico/' + field.url)} alt='' /></div>}
+                              <div className='item__text'>
+                                  <div className='item__name'>{field.name}</div>
+                                  {field.subName && <div className='item__subname'>{field.subName}</div> }
+                              </div>
+                          </label>
+                          { field.tooltip && <Tooltip context={context} itemGroupName={itemGroupName} itemGroupId={itemGroupId} itemId={key} /> }
+                      </div>
                   )
               }
           </div>

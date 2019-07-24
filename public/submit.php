@@ -2,7 +2,7 @@
 
 error_reporting(E_ERROR);
 
-$mailTo = 'test@test.ru';
+$mailTo = '24mishka91@gmail.com';
 
 $arResult = array(
     "STATUS" => 0,
@@ -33,6 +33,7 @@ if (empty($arResult["ERROR_FIELDS"])) {
 	$letter .= 'ФИО, Компания: <strong>'. $_POST['fio']."</strong><br/>";
     $letter .= 'Контактный телефон: <strong>'. $_POST['phone']."</strong><br/><br/>";
     $letter .= 'Примечание: <strong>'. $_POST['notice']."</strong><br/><br/>";
+    $letter .= 'Данные: '. $_POST['mydata'];
 	if(mail($mailTo, $theme, $letter, $headers)) {
 		$arResult["STATUS"] = 1;
 		$arResult["FORM_TITLE"] = 'Сообщение отправлено';

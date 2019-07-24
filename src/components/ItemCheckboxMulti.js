@@ -16,13 +16,13 @@ export default class ItemCheckboxMulti extends Component {
 
         if ( e.target.checked ) {
             document.querySelector(e.target.parentNode.classList.add('active'));
-            var total = arr.push( e.target.parentNode.querySelector('.item__name').innerText );
+            arr.push( e.target.parentNode.querySelector('.item__name').innerText );
         } else {
             document.querySelector(e.target.parentNode.classList.remove('active'));
-            const listItems = arr.map((number, index) => {
-                if ( number === e.target.parentNode.querySelector('.item__name').innerText ) {
-                    arr.splice(index, 1);
-                }
+            arr.map((number, index) => {
+                // if ( number === e.target.parentNode.querySelector('.item__name').innerText ) {
+                // }
+                return arr.splice(index, 1);
             });
         }
 

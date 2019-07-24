@@ -16,7 +16,9 @@
     margin-bottom: 8px;
 }
 .wf__data {
-    display: none;
+    height: 100px;
+    overflow-x: hidden;
+    // display: none;
 }
 .wf__notice {
     textarea {
