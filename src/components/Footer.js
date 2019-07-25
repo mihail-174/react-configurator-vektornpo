@@ -14,7 +14,8 @@ export default class Footer extends Component {
     context.methods.setAppState({
       currentStep: parseInt(step, 0),
       currentStepPrev: parseInt(step, 0) - 1
-    })
+    });
+    
   }
   startAgain(e) {
     e.preventDefault();
@@ -33,7 +34,7 @@ export default class Footer extends Component {
     const nextStep = step + 1;
     let first = <button type='button' className='footer__first' onClick={this.startAgain} data-step={0}>Начать с начала</button>;
     let prev = <button type='button' className='footer__prev' onClick={this.setStep} data-step={prevStep}>Назад</button>;
-    let next = <button type='button'className='footer__next'  onClick={this.setStep} data-step={nextStep}>Далее</button>;
+    let next = <button type='button'className='footer__next' onClick={this.setStep} data-step={nextStep}>Далее</button>;
     let finish = <button type='submit'className='footer__finish'>Получить коммерческое предложение</button>;
     if ( step === 1 ) {
       prev = null;

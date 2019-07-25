@@ -33,7 +33,13 @@ if (empty($arResult["ERROR_FIELDS"])) {
 	$letter .= 'ФИО, Компания: <strong>'. $_POST['fio']."</strong><br/>";
     $letter .= 'Контактный телефон: <strong>'. $_POST['phone']."</strong><br/><br/>";
     $letter .= 'Примечание: <strong>'. $_POST['notice']."</strong><br/><br/>";
-    $letter .= 'Данные: '. $_POST['mydata'];
+    // $letter .= 'Данные: <br/>';
+    // while (count($_POST['data'])) {
+    // for ($x=0; $x<=count($_POST['data']); $x++) {
+    //     // $a = 'data-'.$x;
+    //     $letter .= $_POST['data'].'<br>';
+    // }
+    $letter .= 'Данные: '. $_POST['data'];
 	if(mail($mailTo, $theme, $letter, $headers)) {
 		$arResult["STATUS"] = 1;
 		$arResult["FORM_TITLE"] = 'Сообщение отправлено';

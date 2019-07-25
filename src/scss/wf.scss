@@ -1,13 +1,11 @@
 .wf {
     height: 100%;
     font-size: 13px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
 }
 .wf__form {
 	width: 500px;
 	margin: 0 auto;
+    padding-top: 17px;
 }
 .wf__markup {
     margin-bottom: 10px;
@@ -16,9 +14,7 @@
     margin-bottom: 8px;
 }
 .wf__data {
-    height: 100px;
-    overflow-x: hidden;
-    // display: none;
+    display: none;
 }
 .wf__notice {
     textarea {
@@ -39,6 +35,8 @@
 }
 .wf__message {
 	text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .wf__message_errors {
 	background-color: #ffc0c0;

@@ -25,54 +25,21 @@ export default class WF extends Component {
               <textarea name='notice' placeholder='Примечание'></textarea>
             </div>
             <div className="wf__field wf__data">
-                <div>{'Техника: ' + state.listCar[state.currentAvto].name}</div>
-                {
+                <textarea hidden rows='17' name='data' value={
+                    'Техника: ' + state.listCar[state.currentAvto].name
+                    +
                     state.car.step_1.map((field, key) =>
-                      <div key={key}>
-                              {field.name} :
-                              {
-                                  state.selectedValue['item_' + field.id + '_name']
-                                      ?
-                                          ' ' +state.selectedValue['item_' + field.id + '_name']
-                                      :
-                                          ' -'
-                              }
-                              { state.selectedValue['item_' + field.id + '_value'] === true && ' да' }
-                              { state.selectedValue['item_' + field.id + '_value'] === false && ' нет' }
-                          </div>
+                      '\n' + field.name + ': ' + (state.selectedValue['item_' + field.id + '_name']?' ' +state.selectedValue['item_' + field.id + '_name']:' -') + (state.selectedValue['item_' + field.id + '_value'] === true ? ' да':'') + (state.selectedValue['item_' + field.id + '_value'] === false ? ' нет':'')
                     )
-                }
-                {
+                    +
                     state.car.step_2.map((field, key) =>
-                      <div key={key}>
-                              {field.name} :
-                              {
-                                  state.selectedValue['item_' + field.id + '_name']
-                                      ?
-                                          ' ' +state.selectedValue['item_' + field.id + '_name']
-                                      :
-                                          ' -'
-                              }
-                              { state.selectedValue['item_' + field.id + '_value'] === true && ' да' }
-                              { state.selectedValue['item_' + field.id + '_value'] === false && ' нет' }
-                          </div>
+                      '\n' + field.name + ': ' + (state.selectedValue['item_' + field.id + '_name']?' ' +state.selectedValue['item_' + field.id + '_name']:' -') + (state.selectedValue['item_' + field.id + '_value'] === true ? ' да':'') + (state.selectedValue['item_' + field.id + '_value'] === false ? ' нет':'')
                     )
-                }
-                {
+                    +
                     state.car.step_3.map((field, key) =>
-                      <div key={key}>
-                              {field.name} :
-                              {
-                                  state.selectedValue['item_' + field.id + '_name']
-                                      ?
-                                          ' ' +state.selectedValue['item_' + field.id + '_name']
-                                      :
-                                          ' -'
-                              }
-                              { state.selectedValue['item_' + field.id + '_value'] === true && ' да' }
-                              { state.selectedValue['item_' + field.id + '_value'] === false && ' нет' }
-                          </div>
+                      '\n' + field.name + ': ' + (state.selectedValue['item_' + field.id + '_name']?' ' +state.selectedValue['item_' + field.id + '_name']:' -') + (state.selectedValue['item_' + field.id + '_value'] === true ? ' да':'') + (state.selectedValue['item_' + field.id + '_value'] === false ? ' нет':'')
                     )
+                } />
                 }
             </div>
             <div className="wf__field wf__politics">Отправляя данную форму, я подтверждаю, что ознакомлен с <a href='#politics'>политикой конфиденциальности</a>, и согласен на хранение и обработку предоставленных персональных данных.</div>

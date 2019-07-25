@@ -40,7 +40,7 @@ export default class Step3 extends Component {
             &&
             <div key={key} className={'item ' + field.systemName}>
                 <div className='item__hd'>
-                    <div className='item__title'>#{field.id}, {field.name}</div>
+                    <div className='item__title'>{field.name}</div>
                     {
                         keyExists('switch', state.car['step_3_field_' + field.id])
                         &&

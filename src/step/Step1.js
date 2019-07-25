@@ -43,7 +43,7 @@ export default class Step1 extends Component {
                     state.car.step_1.map( (field, key) =>
                         <div key={key} className={'item ' + field.systemName}>
                             <div className='item__hd'>
-                                <div className='item__title'>#{field.id}, {field.name}</div>
+                                <div className='item__title'>{field.name}</div>
                                 {
                                     keyExists('switch', state.car['step_1_field_' + field.id])
                                     &&
