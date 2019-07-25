@@ -1,0 +1,5 @@
+.instrumentIashchiki .block__title {
+	display: flex;
+	justify-content: space-between;
+}
+.instrumentIashchiki .block__item {width: 139px;}

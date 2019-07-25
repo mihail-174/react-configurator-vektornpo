@@ -1,0 +1,47 @@
+.loading {
+    background-color: rgba(0,0,0, 0.3);
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    transition: all 0.5s ease-in-out;
+    &:before {
+        content: '';
+        display: block;
+        width: 90px;
+        height: 90px;
+        animation: spin 1.5s infinite linear;
+        border-radius: 50%;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #f8e042 transparent;
+        overflow: hidden;
+        text-indent: -99999em;
+        margin: auto;
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    &.ok {
+        opacity: 0;
+        visibility: hidden;
+    }
+    &.error {
+        &:before {
+            display: none;
+        }
+    }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

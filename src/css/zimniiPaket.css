@@ -1,0 +1,39 @@
+.zimniiPaket {
+	width: 443px;
+}
+.zimniiPaket .block__list {
+	flex-wrap: wrap;
+}
+.zimniiPaket .block__title {
+	display: flex;
+	justify-content: space-between;
+}
+.zimniiPaket .toggle {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+}
+.zimniiPaket .avtonomnOtopitel {
+	width: 137px;
+}
+.zimniiPaket .filtrSEPAR2000 {
+	width: 137px;
+}
+.zimniiPaket .sumkaADR {
+	width: 137px;
+}
+.zimniiPaket .uteplenieKabinyMotornogoOtseka {
+	width: 209px;
+}
+.zimniiPaket .uteplenieAkkumuliatornogoOtseka {
+	width: 209px;
+}
+.zimniiPaket .block__input:checked + .toggle label::before {
+  left: calc(100% - 16px);
+}
+.zimniiPaket .block__item:not(.block_disabled) .block__input:checked + .toggle label {
+  background: rgb(0, 132, 209) none repeat scroll 0% 0%;
+  border-color: rgb(75, 145, 186);
+  color: #edecec;
+}
