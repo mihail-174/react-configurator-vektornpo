@@ -1,0 +1,48 @@
+.wf {
+    height: 100%;
+    font-size: 13px;
+}
+.wf__form {
+	width: 500px;
+	margin: 0 auto;
+    padding-top: 17px;
+}
+.wf__markup {
+    margin-bottom: 10px;
+}
+.wf__field {
+    margin-bottom: 8px;
+}
+.wf__data {
+    display: none;
+}
+.wf__notice {
+    textarea {
+        height: 60px;
+        resize: none;
+    }
+}
+.wf__politics {
+    font-size: 11px;
+    line-height: 1.2;
+    color: gray;
+    a {
+        color: gray;
+    }
+}
+.wf__action {
+    display: none;
+}
+.wf__message {
+	text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.wf__message_errors {
+	background-color: #ffc0c0;
+	padding: 5px 0;
+	position: absolute;
+	top: -15px;
+	left: -15px;
+	right: -15px;
+}

@@ -4,6 +4,8 @@
 	text-align: right;
 	display: flex;
 	justify-content: space-between;
+	flex: 0 0 auto;
+	height: 66px;
 }
 .footer__first {
 	cursor: pointer;

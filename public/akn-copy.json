@@ -1,0 +1,355 @@
+{
+    "step_1": [
+        {
+            "id": 0,
+            "name": "Вакуумный насос",
+            "systemName": "vacuum-pump",
+            "type": "radio",
+            "checked": null
+        },
+        {
+            "id": 1,
+            "name": "Привод насоса",
+            "systemName": "pump-drive",
+            "type": "radio",
+            "checked": null
+        },
+        {
+            "id": 2,
+            "name": "Открытие дна",
+            "systemName": "opening-bottom",
+            "type": "radio",
+            "checked": null
+        },
+        {
+            "id": 3,
+            "name": "Доп. горловина",
+            "systemName": "extras-neck",
+            "type": "radio",
+            "checked": null
+        },
+        {
+            "id": 4,
+            "name": "Крепление цистерны",
+            "systemName": "securing-tank",
+            "type": "radio",
+            "checked": null
+        }
+    ],
+
+    "step_1_field_0": [
+        {
+            "name": "KO-505A",
+            "subName": "коммунальный тип 310 куб./час"
+        },
+        {
+            "name": "BP-8/3",
+            "subName": "взрывозащищенный компрессор 480 куб./час"
+        },
+        {
+            "name": "BK-6М2",
+            "subName": "взрывозащищенный компрессор 240 куб./час"
+        },
+        {
+            "name": "PNR.122",
+            "subName": "взрывозащищенный компрессор 730 куб./час"
+        }
+    ],
+
+    "step_1_field_1": [
+        {
+            "name": "Шкиво-ременной"
+        },
+        {
+            "name": "Карданный"
+        }
+    ],
+
+    "step_1_field_2_new": {
+        "values": [
+            {
+                "name": "Механическое",
+                "subName": "отделяемое дно, крепится на болты к бочке.",
+                "ico": true,
+                "url": "05.png"
+            },
+            {
+                "name": "Сливной люк",
+                "subName": "на дне бочки диаметром до 500 мм.",
+                "ico": true,
+                "url": "04.png"
+            }
+        ],
+        "switch": {
+            "checked": true,
+            "on": "открытие дна",
+            "off": "глухая цистерна"
+        }
+    },
+
+    "step_1_field_2": [
+        {
+            "name": "Механическое",
+            "subName": "отделяемое дно, крепится на болты к бочке.",
+            "ico": true,
+            "url": "05.png"
+        },
+        {
+            "name": "Сливной люк",
+            "subName": "на дне бочки диаметром до 500 мм.",
+            "ico": true,
+            "url": "04.png"
+        }
+    ],
+    "step_1_field_2_options": {
+        "switch_check": true,
+        "switch_name_on": "открытие дна",
+        "switch_name_off": "глухая цистерна"
+    },
+
+    "step_1_field_3": [
+        {
+            "name": "Нужна",
+            "ico": true,
+            "url": "01.png"
+        },
+        {
+            "name": "Не нужна",
+            "ico": true,
+            "url": "02.png"
+        }
+    ],
+
+    "step_1_field_4": [
+        {
+            "name": "Поясное",
+            "ico": true,
+            "url": "03.png"
+        },
+        {
+            "name": "Статические опоры",
+            "ico": true,
+            "url": "06.png"
+        }
+    ],
+
+    "step_2": [
+        {
+            "id": 5,
+            "name": "Площадка обслуживания",
+            "systemName": "service-area",
+            "type": "radio"
+        },
+        {
+            "id": 6,
+            "name": "Освещение",
+            "systemName": "lighting",
+            "type": "radio"
+        },
+        {
+            "id": 7,
+            "name": "Подогрев от ВС",
+            "systemName": "heating-from-sun",
+            "type": "radio"
+        },
+        {
+            "id": 8,
+            "name": "Исполнение",
+            "systemName": "execution",
+            "type": "checkbox"
+        },
+        {
+            "id": 9,
+            "name": "Крепление огнетушителя",
+            "systemName": "fire-extinguisher-mounting",
+            "type": "radio"
+        },
+        {
+            "id": 10,
+            "name": "Калибровка",
+            "systemName": "calibration",
+            "type": "checkbox"
+        }
+    ],
+
+    "step_2_field_5": [
+        {
+            "name": "Полноценная",
+            "ico": true,
+            "url": "13.png"
+        },
+        {
+            "name": "Лестницы к горловинам",
+            "ico": true,
+            "url": "12.png"
+        }
+    ],
+
+    "step_2_field_6": [
+        {
+            "name": "2 зоны",
+            "ico": true,
+            "url": "14.png"
+        },
+        {
+            "name": "4 зоны",
+            "ico": true,
+            "url": "15.png"
+        }
+    ],
+
+    "step_2_field_6_options": {
+        "switch_check": false
+    },
+
+    "step_2_field_7": [
+        {
+            "name": "Внутри цистерны"
+        },
+        {
+            "name": "Сбоку цистерны"
+        }
+    ],
+
+    "step_2_field_7__options": {
+        "switch_check": true
+    },
+
+    "step_2_field_8": [
+        {
+            "name": "Огнеопасное",
+            "subName": "доработки установки и шасси под перевозку ЛВЖ",
+            "ico": true,
+            "url": "20.png",
+            "checked": true
+        }
+    ],
+
+    "step_2_field_9": [
+        {
+            "name": "Пластиковые короба"
+        },
+        {
+            "name": "Кольца на цистерне"
+        }
+    ],
+    "step_2_field_10": [
+        {
+            "name": "Калибровка",
+            "subName": "цистерны с выдачей соответствующих документов",
+            "ico": true,
+            "url": "19.png",
+            "checked": false
+        }
+    ],
+
+    "step_3": [
+        {
+            "id": 11,
+            "name": "Двигатель",
+            "systemName": "engine",
+            "type": "radio"
+        },
+        {
+            "id": 12,
+            "name": "Спальное место",
+            "systemName": "berth",
+            "type": "checkbox"
+        },
+        {
+            "id": 13,
+            "name": "Запасное колесо",
+            "systemName": "spare_wheel",
+            "type": "radio"
+        },
+        {
+            "id": 14,
+            "name": "Инстр. ящики",
+            "systemName": "tool_box",
+            "type": "radio"
+        },
+        {
+            "id": 15,
+            "name": "Противоподк. брус",
+            "systemName": "anti_roll_bar",
+            "type": "radio"
+        },
+        {
+            "id": 16,
+            "name": "Зимний пакет",
+            "systemName": "winter_package",
+            "type": "checkbox-multi"
+        }
+    ],
+    "step_3_field_11": [
+        {
+            "name": "300 л. с.",
+            "subName": "КАМАЗ-740.662-300"
+        },
+        {
+            "name": "280 л. с.",
+            "subName": "КАМАЗ-740.622-280"
+        }
+    ],
+    "step_3_field_12": [
+        {
+            "name": "Спальное место",
+            "subName": "в кабине водителя",
+            "ico": true,
+            "url": "19.png",
+            "checked": false
+        }
+    ],
+    "step_3_field_13": [
+        {
+            "name": "За кабиной"
+        },
+        {
+            "name": "На заднем свесе"
+        }
+    ],
+    "step_3_field_14": [
+        {
+            "name": "1 ящик"
+        },
+        {
+            "name": "2 ящика"
+        }
+    ],
+    "step_3_field_15": [
+        {
+            "name": "Классический (1 положение)"
+        },
+        {
+            "name": "Регулируемый (2 положения)"
+        }
+    ],
+    "step_3_field_16": [
+        {
+            "id": 0,
+            "name": "Автономн. отопитель",
+            "checked": false
+        },
+        {
+            "id": 1,
+            "name": "Фильтр SEPAR2000",
+            "checked": true
+        },
+        {
+            "id": 2,
+            "name": "Сумка - ADR",
+            "checked": false
+        },
+        {
+            "id": 3,
+            "name": "Утепление кабины и моторного отсека",
+            "checked": false
+        },
+        {
+            "id": 4,
+            "name": "Утепление аккумуляторного отсека",
+            "checked": false
+         }
+    ]
+
+}

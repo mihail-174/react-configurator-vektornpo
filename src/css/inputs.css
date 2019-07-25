@@ -15,6 +15,3 @@ textarea:focus {
     border-color: #81b8ed;
     outline: none;
 }
-textarea {
-  height: 90px;
-}

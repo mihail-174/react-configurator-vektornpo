@@ -1,48 +1,105 @@
 import React, { Component } from 'react';
-import Header from '../components2/Header';
-import Footer from '../components2/Footer';
 
-import ItemRadio from '../components2/ItemRadio';
-import ItemCheckbox from '../components2/ItemCheckbox';
-import SwitchWithoutName from '../components2/SwitchWithoutName';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
-// function isEmpty(obj) {
-//   for (var key in obj) {
-//     return false;
-//   }
-//   return true;
-// }
+import ItemRadio from '../components/ItemRadio';
+import ItemCheckBox from '../components/ItemCheckBox';
+import Toggle from '../components/Toggle';
+
+import '../scss/item.scss';
+
+function keyExists(key, search) {
+    if (!search || (search.constructor !== Array && search.constructor !== Object)) {
+        return false;
+    }
+    for (var i = 0; i < search.length; i++) {
+        if (search[i] === key) {
+            return true;
+        }
+    }
+    return key in search;
+}
 
 export default class Step2 extends Component {
 
-  render() {
+    render() {
+        const { context } = this.props;
+        const state = context.state;
 
-    const { context } = this.props;
+        let nameCar = '';
+        context.state.listCar.forEach((elem, key) => {
+            if ( elem.id === state.currentAvto ) {
+                nameCar = 'content_' + elem.systemName;
+            }
+        });
 
-    const list = context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep].map((field, key) =>
-      <div key={key} className={'b ' + field.system} data-id={field.id}>
-        <div className='b__title'>{field.name}</div>
-        {field.switchCheck === true && <SwitchWithoutName switchCheck={field.switchCheck} systemName={field.system} id={field.id} context={context} />}
-        {field.switchCheck === false && <SwitchWithoutName switchCheck={field.switchCheck} systemName={field.system} id={field.id} context={context} />}
+        const itemRadio = state.car.step_2.map( (field, key) =>
+            field.type === 'radio'
+            &&
+            <div key={key} className={'item ' + field.systemName}>
+                <div className='item__hd'>
+                    <div className='item__title'>{field.name}</div>
+                    {
+                        keyExists('switch', state.car['step_2_field_' + field.id])
+                        &&
+                        <Toggle context={context} itemGroupName={field.systemName} itemGroupId={field.id} />
+                    }
+                </div>
+                <div
+                    className={
+                        keyExists('switch', state.car['step_2_field_' + field.id])
+                        ?
+                            keyExists('item_' + field.id + '_value_toggle', state.selectedValue)
+                            ?
+                                state.selectedValue['item_' + field.id + '_value_toggle']
+                                ?
+                                    'item__cont'
+                                :
+                                    'item__cont disabled'
+                            :
+                                state.car['step_' + state.currentStep + '_field_' + field.id].switch.checked
+                                ?
+                                    'item__cont'
+                                :
+                                    'item__cont disabled'
+                        :
+                            'item__cont'
+                    }
+                >
+                    <ItemRadio context={context} itemGroupName={field.systemName} itemGroupId={field.id} />
+                </div>
+            </div>
+        )
 
-        {field.type === 'radio' && <ItemRadio id2={key} id={field.id} context={context} />}
+        const itemCheckbox = state.car.step_2.map( (field, key) =>
+            field.type === 'checkbox'
+            &&
+            <div key={key} className={'item ' + field.systemName}>
+                <div className='item__hd'>
+                    <div className='item__title'>#{field.id}, {field.name}</div>
+                </div>
+                <div className='item__cont'>
+                    <ItemCheckBox context={context} itemGroupName={field.systemName} itemGroupId={field.id} />
+                </div>
+            </div>
+        )
 
-        {/*{field.type === 'radio' && <ItemRadio switchCheck={field.switchCheck} id={field.id} systemName={field.system} options={context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id]} context={context} />}*/}
+        return (
+            <div className='step step_one'>
+                <Header context={context} />
+                <div className={'content ' + nameCar}>
 
-        {field.type === 'checkbox' && <ItemCheckbox checked={field.checked} id={field.id} systemName={field.system} options={context.state['fields__' + context.state.currentAvto + '__' + context.state.currentStep  + '__' + field.id]} context={context} />}
-      </div>
-    );
+                    <div className='content__inner'>
+                        { itemRadio }
+                        { itemCheckbox }
+                    </div>
 
-    return (
-      <div className='step step_one'>
-        <Header context={context} />
-        <div className='content'>
-          {list}
-        </div>
-        <Footer context={context} />
-      </div>
-    );
+            </div>
+            <Footer context={context} />
+            </div>
+        );
 
-  }
+    }
 
 }
