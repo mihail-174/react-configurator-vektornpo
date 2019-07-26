@@ -506,3 +506,150 @@
 //         width: 415px;
 //     }
 // }
+
+.material-tcisterny {
+    width: 351px;
+    margin-right: 13px;
+    .item__list {
+        width: 209px;
+        flex: 0 0 auto;
+    }
+}
+
+.sektcii-i-gorloviny {
+    width: 198px;
+    margin-right: 13px;
+    .item__list {
+        flex-direction: column;
+    }
+    .item__item {
+        flex: 1;
+        margin-bottom: 5px;
+        &:last-child {
+        	margin-bottom: 0;
+        }
+    }
+    .item__text {
+        padding: 10px;
+    }
+}
+
+.sistema-sliva {
+    width: 152px;
+    .item__list {
+        flex-direction: column;
+    }
+    .item__item {
+        flex: 1;
+        margin-bottom: 5px;
+        &:last-child {
+        	margin-bottom: 0;
+        }
+    }
+    .item__image {
+        border-bottom: 1px solid #e3e3e3;
+        height: 68px;
+    }
+    .item__text {
+        padding: 10px;
+    }
+}
+
+.sechenie-cisterny {
+    width: 357px;
+    margin-right: 13px;
+    .item__item {
+        flex: 1;
+        margin-right: 5px;
+        &:last-child {
+        	margin-right: 0;
+        }
+    }
+    .item__image {
+        border-bottom: 1px solid #e3e3e3;
+        height: 68px;
+    }
+    .item__text {
+        padding: 10px;
+    }
+}
+
+.ekologicheskii-korob {
+    width: 198px;
+    margin-right: 13px;
+}
+
+.osnovnoi-rukav {
+    width: 171px;
+    margin-right: 13px;
+    .item__list {
+        flex-direction: column;
+    }
+    .item__item {
+        margin-bottom: 5px;
+        flex: 1;
+        &:last-child {
+        	margin-bottom: 0;
+        }
+    }
+    .item__text {
+        padding: 10px;
+    }
+}
+
+.dopolnitelnyi-rukav {
+    width: 171px;
+    margin-right: 13px;
+    .item__list {
+        flex-direction: column;
+    }
+    .item__item {
+        margin-bottom: 5px;
+        flex: 1;
+        &:last-child {
+        	margin-bottom: 0;
+        }
+    }
+    .item__text {
+        padding: 10px;
+    }
+}
+
+.slivnaya-zadvizhka {
+    width: 161px;
+    margin-right: 13px;
+    .item__list {
+        flex-direction: column;
+    }
+    .item__item {
+        margin-bottom: 5px;
+        flex: 1;
+        &:last-child {
+        	margin-bottom: 0;
+        }
+    }
+    .item__text {
+        padding: 10px;
+    }
+}
+
+.nasosy {
+    width: 186px;
+    .item__list {
+        display: flex;
+        flex-grow: 1;
+        flex-wrap: wrap;
+        margin-bottom: -5px;
+    }
+    .item__item {
+        flex: 0 0 auto;
+        margin: 0 5px 5px 0;
+        width: 90px;
+        &:nth-child(2n) {
+            margin-right: 0;
+        }
+    }
+    .item__text {
+        padding: 10px;
+    }
+}
