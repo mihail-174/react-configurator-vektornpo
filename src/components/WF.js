@@ -25,7 +25,7 @@ export default class WF extends Component {
               <textarea name='notice' placeholder='Примечание'></textarea>
             </div>
             <div className="wf__field wf__data">
-                <textarea hidden rows='17' name='data' value={
+                <textarea hidden rows='17' name='data' defaultValue={
                     'Техника: ' + state.listCar[state.currentAvto].name
                     +
                     state.car.step_1.map((field, key) =>
@@ -40,7 +40,6 @@ export default class WF extends Component {
                       '\n' + field.name + ': ' + (state.selectedValue['item_' + field.id + '_name']?' ' +state.selectedValue['item_' + field.id + '_name']:' -') + (state.selectedValue['item_' + field.id + '_value'] === true ? ' да':'') + (state.selectedValue['item_' + field.id + '_value'] === false ? ' нет':'')
                     )
                 } />
-                }
             </div>
             <div className="wf__field wf__politics">Отправляя данную форму, я подтверждаю, что ознакомлен с <a href='#politics'>политикой конфиденциальности</a>, и согласен на хранение и обработку предоставленных персональных данных.</div>
             <div className='wf__action'>

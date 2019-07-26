@@ -5,5 +5,19 @@
         "systemName": "akn",
         "image": "akn.jpg",
         "ico": "akn.png"
+    },
+    {
+        "id": 1,
+        "name": "Вакуумные агрегаты МВ/МВС",
+        "systemName": "mv",
+        "image": "mb.jpg",
+        "ico": "mb.png"
+    },
+    {
+        "id": 2,
+        "name": "Автоцистерны АЦН",
+        "systemName": "acn",
+        "image": "acn.jpg",
+        "ico": "acn.png"
     }
 ]
