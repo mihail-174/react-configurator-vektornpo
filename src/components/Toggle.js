@@ -37,7 +37,9 @@ export default class SwitchWithName extends Component {
           context.methods.setAppState({
               selectedValue: {
                   ...state.selectedValue,
-                  ['item_' + itemGroupId + '_value_toggle']: e.target.parentNode.children[0].checked
+                  ['item_' + itemGroupId + '_value_toggle']: e.target.parentNode.children[0].checked,
+                  ['item_' + itemGroupId + '_value']: 0,
+                  ['item_' + itemGroupId + '_name']: state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].name
               }
           });
       }

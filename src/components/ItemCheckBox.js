@@ -18,6 +18,9 @@ export default class ItemCheckBox extends Component {
     constructor() {
         super();
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.state = {
+            a: []
+        }
     }
 
     handleInputChange(e) {
@@ -117,7 +120,6 @@ export default class ItemCheckBox extends Component {
               }
           </div>
       )
-
   }
 
 }
