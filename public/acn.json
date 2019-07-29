@@ -22,7 +22,7 @@
             "id": 3,
             "name": "Материал цистерны",
             "systemName": "material-tcisterny",
-            "type": "radio"
+            "type": "select"
         },
         {
             "id": 4,
@@ -34,13 +34,13 @@
             "id": 5,
             "name": "Основной рукав",
             "systemName": "osnovnoi-rukav",
-            "type": "radio"
+            "type": "select"
         },
         {
             "id": 6,
             "name": "Дополнит. рукав",
             "systemName": "dopolnitelnyi-rukav",
-            "type": "radio"
+            "type": "select"
         },
         {
             "id": 7,
@@ -112,9 +112,10 @@
 
     "step_1_field_3": {
         "values": [
-            {
-                "name": ""
-            }
+            "Нержавейка (3 мм)",
+            "Сталь 09г2с (4 мм)",
+            "Сталь 09г2с (5 мм)",
+            "Стеклопластик"
         ]
     },
 
@@ -129,23 +130,19 @@
 
     "step_1_field_5": {
         "values": [
-            {
-                "name": ""
-            },
-            {
-                "name": ""
-            }
+            "Нержавейка (3 мм)",
+            "Сталь 09г2с (4 мм)",
+            "Сталь 09г2с (5 мм)",
+            "Стеклопластик"
         ]
     },
 
     "step_1_field_6": {
         "values": [
-            {
-                "name": ""
-            },
-            {
-                "name": ""
-            }
+            "Нержавейка (3 мм)",
+            "Сталь 09г2с (4 мм)",
+            "Сталь 09г2с (5 мм)",
+            "Стеклопластик"
         ],
         "switch": {
             "checked": false
