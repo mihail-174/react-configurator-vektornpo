@@ -36,7 +36,7 @@ export default class Step1 extends Component {
     });
 
     const itemRadio = state.car.step_1.map( (field, key) =>
-        field.type === 'radio'
+        keyExists('radio', state.car['step_1_field_' + field.id].values)
         &&
         <div key={key} className={'item ' + field.systemName}>
             <div className='item__hd'>
@@ -74,7 +74,7 @@ export default class Step1 extends Component {
     )
 
     const itemCheckbox = state.car.step_1.map( (field, key) =>
-        field.type === 'checkbox'
+        keyExists('checkbox', state.car['step_1_field_' + field.id].values)
         &&
         <div key={key} className={'item ' + field.systemName}>
             <div className='item__hd'>
@@ -85,12 +85,39 @@ export default class Step1 extends Component {
             </div>
         </div>
     )
-
     const itemSelect = state.car.step_1.map( (field, key) =>
-        field.type === 'select'
+        keyExists('select', state.car['step_1_field_' + field.id].values)
         &&
         <div key={key} className={'item ' + field.systemName}>
-            <div className='item__cont'>
+            <div className='item__hd'>
+                <div className='item__title'>{field.name}</div>
+                {
+                    keyExists('switch', state.car['step_1_field_' + field.id])
+                    &&
+                    <Toggle context={context} itemGroupName={field.systemName} itemGroupId={field.id} />
+                }
+            </div>
+            <div
+                className={
+                    keyExists('switch', state.car['step_1_field_' + field.id])
+                    ?
+                        keyExists('item_' + field.id + '_value_toggle', state.selectedValue)
+                        ?
+                            state.selectedValue['item_' + field.id + '_value_toggle']
+                            ?
+                                'item__cont'
+                            :
+                                'item__cont disabled'
+                        :
+                            state.car['step_' + state.currentStep + '_field_' + field.id].switch.checked
+                            ?
+                                'item__cont'
+                            :
+                                'item__cont disabled'
+                    :
+                        'item__cont'
+                }
+            >
                 <ItemSelect context={context} itemGroupName={field.systemName} itemGroupId={field.id} />
             </div>
         </div>
@@ -102,10 +129,9 @@ export default class Step1 extends Component {
             <div className={'content ' + nameCar}>
 
                 <div className='content__inner'>
-                    { itemSelect }
-                    
                     { itemRadio }
                     { itemCheckbox }
+                    { itemSelect }
                 </div>
 
             </div>

@@ -25,6 +25,16 @@ export default class SwitchWithName extends Component {
       const state = context.state;
       const itemGroupId = this.props.itemGroupId;
       if ( e.target.parentNode.children[0].checked === false ) {
+          keyExists('select', state.car['step_1_field_' + itemGroupId].values)
+          &&
+          context.methods.setAppState({
+              selectedValue: {
+                  ...state.selectedValue,
+                  ['item_' + itemGroupId + '_value_toggle']: e.target.parentNode.children[0].checked,
+              }
+          })
+          keyExists('radio', state.car['step_1_field_' + itemGroupId].values)
+          &&
           context.methods.setAppState({
               selectedValue: {
                   ...state.selectedValue,
@@ -34,14 +44,24 @@ export default class SwitchWithName extends Component {
               }
           });
       } else {
+          keyExists('select', state.car['step_1_field_' + itemGroupId].values)
+          &&
+          context.methods.setAppState({
+              selectedValue: {
+                  ...state.selectedValue,
+                  ['item_' + itemGroupId + '_value_toggle']: e.target.parentNode.children[0].checked
+              }
+          })
+          keyExists('radio', state.car['step_1_field_' + itemGroupId].values)
+          &&
           context.methods.setAppState({
               selectedValue: {
                   ...state.selectedValue,
                   ['item_' + itemGroupId + '_value_toggle']: e.target.parentNode.children[0].checked,
                   ['item_' + itemGroupId + '_value']: 0,
-                  ['item_' + itemGroupId + '_name']: state.car['step_' + state.currentStep + '_field_' + itemGroupId].values[0].name
+                  ['item_' + itemGroupId + '_name']: state.car['step_' + state.currentStep + '_field_' + itemGroupId].values.radio[0].name
               }
-          });
+          })
       }
   }
 

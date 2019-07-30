@@ -3,7 +3,8 @@
         {
             "id": 0,
             "name": "Сечение цистерны",
-            "systemName": "sechenie-cisterny"
+            "systemName": "sechenie-cisterny",
+            "type": "radio"
         },
         {
             "id": 1,
@@ -13,216 +14,221 @@
         {
             "id": 2,
             "name": "Система слива",
-            "systemName": "sistema-sliva"
+            "systemName": "sistema-sliva",
+            "type": "radio"
         },
         {
             "id": 3,
             "name": "Материал цистерны",
-            "systemName": "material-tcisterny"
+            "systemName": "material-tcisterny",
+            "type": "select"
         },
         {
             "id": 4,
             "name": "Экологический короб",
-            "systemName": "ekologicheskii-korob"
+            "systemName": "ekologicheskii-korob",
+            "type": "checkbox"
         },
         {
             "id": 5,
             "name": "Основной рукав",
-            "systemName": "osnovnoi-rukav"
+            "systemName": "osnovnoi-rukav",
+            "type": "select"
         },
         {
             "id": 6,
             "name": "Дополнит. рукав",
-            "systemName": "dopolnitelnyi-rukav"
+            "systemName": "dopolnitelnyi-rukav",
+            "type": "select"
         },
         {
             "id": 7,
             "name": "Задний слив",
-            "systemName": "slivnaya-zadvizhka"
+            "systemName": "slivnaya-zadvizhka",
+            "type": "radio"
         },
         {
             "id": 8,
-            "name": "Насосы",
-            "systemName": "nasosy"
+            "name": "Задний слив",
+            "systemName": "nasosy",
+            "type": "radio"
         }
     ],
 
     "step_1_field_0": {
-        "values": {
-            "radio": [
-                {
-                    "name": "эллипс",
-                    "subName": "",
-                    "ico": true,
-                    "url": "07.png",
-                    "tooltip": "",
-                    "tooltip_position": ""
-                },
-                {
-                    "name": "Чемодан",
-                    "subName": "",
-                    "ico": true,
-                    "url": "09.png",
-                    "tooltip": "",
-                    "tooltip_position": ""
-                },
-                {
-                    "name": "Трапеция",
-                    "subName": "",
-                    "ico": true,
-                    "url": "08.png",
-                    "tooltip": "",
-                    "tooltip_position": ""
-                }
-            ]
-        }
+        "values": [
+            {
+                "name": "эллипс",
+                "subName": "",
+                "ico": true,
+                "url": "07.png",
+                "tooltip": "",
+                "tooltip_position": ""
+            },
+            {
+                "name": "Чемодан",
+                "subName": "",
+                "ico": true,
+                "url": "09.png",
+                "tooltip": "",
+                "tooltip_position": ""
+            },
+            {
+                "name": "Трапеция",
+                "subName": "",
+                "ico": true,
+                "url": "08.png",
+                "tooltip": "",
+                "tooltip_position": ""
+            }
+        ]
     },
 
     "step_1_field_1": {
-        "values": {
-            "select": [
-                {
-                    "label": "Материал лючков",
-                    "options": [
-                        { "value": "0", "label": "Алюминиевые" },
-                        { "value": "1", "label": "Конструкционная сталь" },
-                        { "value": "3", "label": "Стеклопластиковые" }
+        "values": [
+            {
+                "select": [
+                    [
+                        "Материал лючков",
+                        "Алюминиевые",
+                        "Конструкционная сталь",
+                        "Стеклопластиковые"
+                    ],
+                    [
+                        "Материал лючков",
+                        "Алюминиевые",
+                        "Конструкционная сталь",
+                        "Стеклопластиковые"
                     ]
-                }
-            ]
-        }
+                ]
+            },
+            {
+                "select": [
+                    "Материал лючков",
+                    "Алюминиевые",
+                    "Конструкционная сталь",
+                    "Стеклопластиковые"
+                ]
+            }
+        ]
     },
 
     "step_1_field_2": {
-        "values": {
-            "radio": [
-                {
-                    "name": "Насос"
-                },
-                {
-                    "name": "Самотеком"
-                },
-                {
-                    "name": "Насос + самотек"
-                }
-            ]
-        }
+        "values": [
+            {
+                "name": "Насос"
+            },
+            {
+                "name": "Самотеком"
+            },
+            {
+                "name": "Насос + самотек"
+            }
+        ]
     },
 
     "step_1_field_3": {
-        "values": {
-            "select": [
-                {
-                    "label": "Материал цистерны",
-                    "options": [
-                        { "value": "0", "label": "Нержавейка (3 мм)" },
-                        { "value": "1", "label": "Сталь 09г2с (4 мм)" },
-                        { "value": "3", "label": "Сталь 09г2с (5 мм)" },
-                        { "value": "4", "label": "Стеклопластик" }
-                    ]
-                }
-            ]
-        }
+        "values": [
+            {
+                "select": [
+                    "Материал цистерны",
+                    "Нержавейка (3 мм)",
+                    "Сталь 09г2с (4 мм)",
+                    "Сталь 09г2с (5 мм)",
+                    "Стеклопластик"
+                ]
+            }
+        ]
     },
 
     "step_1_field_4": {
-        "values": {
-            "checkbox": [
-                {
-                    "name": "Экологический короб",
-                    "checked": false
-                }
-            ]
-        }
+        "values": [
+            {
+                "name": "Экологический короб",
+                "checked": false
+            }
+        ]
     },
 
     "step_1_field_5": {
-        "values": {
-            "select": [
-                {
-                    "label": "Диаметр рукава",
-                    "options": [
-                        { "value": "0", "label": "100 мм" },
-                        { "value": "1", "label": "50 мм" },
-                        { "value": "2", "label": "75 мм" }
-                    ]
-                },
-                {
-                    "label": "Длина рукава",
-                    "options": [
-                        { "value": "0", "label": "10" },
-                        { "value": "1", "label": "4" },
-                        { "value": "2", "label": "6" }
-                    ]
-                },
-                {
-                    "label": "Укладка рукава",
-                    "options": [
-                        { "value": "0", "label": "Короб типа АКН" },
-                        { "value": "1", "label": "Оцинкованный пенал" },
-                        { "value": "2", "label": "Пластиковый пенал" }
-                    ]
-                }
-            ]
-        }
+        "values": [
+            {
+                "select": [
+                    "Диаметр рукава",
+                    "100 мм",
+                    "50 мм",
+                    "75 мм"
+                ]
+            },
+            {
+                "select": [
+                    "Длина рукава",
+                    "10",
+                    "4",
+                    "6"
+                ]
+            },
+            {
+                "select": [
+                    "Укладка рукава",
+                    "Короб типа АКН",
+                    "Оцинкованный пенал",
+                    "Пластиковый пенал"
+                ]
+            }
+        ]
     },
 
     "step_1_field_6": {
-        "values": {
-            "select": [
-                {
-                    "label": "Диаметр рукава",
-                    "options": [
-                        { "value": "0", "label": "100 мм" },
-                        { "value": "1", "label": "50 мм" },
-                        { "value": "2", "label": "75 мм" }
-                    ]
-                },
-                {
-                    "label": "Длина рукава",
-                    "options": [
-                        { "value": "0", "label": "10" },
-                        { "value": "1", "label": "4" },
-                        { "value": "2", "label": "6" }
-                    ]
-                }
-            ]
-        },
+        "values": [
+            {
+                "select": [
+                    "Диаметр рукава",
+                    "100 мм",
+                    "50 мм",
+                    "75 мм"
+                ]
+            },
+            {
+                "select": [
+                    "Длина рукава",
+                    "10",
+                    "4",
+                    "6"
+                ]
+            }
+        ],
         "switch": {
             "checked": false
         }
     },
 
     "step_1_field_7": {
-        "values": {
-            "radio": [
-                {
-                    "name": "Задвижка АНМ 53"
-                },
-                {
-                    "name": "Шаровый кран БРС"
-                }
-            ]
-        }
+        "values": [
+            {
+                "name": "Задвижка АНМ 53"
+            },
+            {
+                "name": "Шаровый кран БРС"
+            }
+        ]
     },
 
     "step_1_field_8": {
-        "values": {
-            "radio": [
-                {
-                    "name": "СВН 80А",
-                    "subName": "45 куб.час"
-                },
-                {
-                    "name": "СЦЛ 00А",
-                    "subName": "24 куб.час"
-                },
-                {
-                    "name": "ОДН 120",
-                    "subName": "45 куб.час"
-                }
-            ]
-        }
+        "values": [
+            {
+                "name": "СВН 80А",
+                "subName": "45 куб.час"
+            },
+            {
+                "name": "СЦЛ 00А",
+                "subName": "24 куб.час"
+            },
+            {
+                "name": "ОДН 120",
+                "subName": "45 куб.час"
+            }
+        ]
     },
 
     "step_2": [
