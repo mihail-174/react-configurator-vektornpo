@@ -3,11 +3,14 @@ import Select from 'react-select';
 
 // https://codesandbox.io/s/hhgf4?module=/example.js
 
-export default class itemSelect extends Component {
+export default class ItemSelect extends Component {
 
     constructor() {
         super();
         this.handleChange = this.handleChange.bind(this);
+        this.state = {
+            elements: []
+        }
     }
 
     handleChange(selectedOption, idSelect) {
@@ -15,8 +18,8 @@ export default class itemSelect extends Component {
         const state = context.state;
         const itemGroupId = this.props.itemGroupId;
 
-        console.log(selectedOption);
-        console.log(idSelect);
+        // console.log(selectedOption);
+        // console.log(idSelect);
 
         if ( selectedOption !== null )
         {
@@ -44,7 +47,7 @@ export default class itemSelect extends Component {
         const { context } = this.props;
         const state = context.state;
         const itemGroupId = this.props.itemGroupId;
-        const itemGroupName = this.props.itemGroupName;
+        // const itemGroupName = this.props.itemGroupName;
         const field = state.car['step_' + state.currentStep + '_field_' + itemGroupId].values.select;
 
         const list = field.map((sel, key) =>

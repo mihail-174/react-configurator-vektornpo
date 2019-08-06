@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-import Item from '../components/Item';
 import ItemRadio from '../components/ItemRadio';
 import ItemCheckBox from '../components/ItemCheckBox';
 import ItemSelect from '../components/ItemSelect';
@@ -116,15 +115,6 @@ export default class Step1 extends Component {
             </div>
         </div>
     )
-    const item = state.car.step_1.map( (field, key) =>
-        <Item
-            key={key}
-            context={context}
-            itemGroupId={field.id}
-            itemGroupName={field.name}
-            itemGroupSystemName={field.systemName}
-        />
-    )
 
     return (
         <div className='step step_one'>
@@ -132,7 +122,10 @@ export default class Step1 extends Component {
             <div className={'content ' + nameCar}>
 
                 <div className='content__inner'>
-                    { item }
+                    { itemRadio }
+                    { itemCheckbox }
+                    { itemSelect }
+                    { itemCounter }
                 </div>
 
             </div>

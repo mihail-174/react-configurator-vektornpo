@@ -358,16 +358,21 @@ export default class App extends Component {
                         this.state.car.step_1
                         ?
                             this.state.car.step_1.map((field, key) =>
-                              <div key={key} className=''>
-                                  #{field.id} : {field.name} :
-                                  {
-                                      this.state.selectedValue['item_' + field.id + '_name']
-                                          ?
-                                              ' ' + this.state.selectedValue['item_' + field.id + '_name']
-                                          :
-                                              ' -'
-                                          }
-                              </div>
+                                <div key={key} className=''>
+                                    #{field.id} : {field.name} :
+                                    {
+                                        // let id = field.id;
+                                        // console.log(id);
+                                        // this.state.car.step_1.map((a, key) =>
+                                        //     console.log(a)
+                                        // );
+                                    // this.state.selectedValue['item_' + field.id + '_name']
+                                    //     ?
+                                    //         ' ' + this.state.selectedValue['item_' + field.id + '_name']
+                                    //     :
+                                    //         ' -'
+                                    }
+                                </div>
                             )
                         :
                           'данных нет'
