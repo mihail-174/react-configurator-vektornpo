@@ -22,8 +22,55 @@ let initialState = {
         { id: 4, name: 'Готово' }
     ],
     listCar: [],
-    selectedValue: [
-    ],
+    selectedValue: {
+        step_1: [
+            {
+                group_0: {
+                    radios: {
+                        name: 'эллипс',
+                        value: 0
+                    }
+                }
+            },
+            {
+                group_1: {
+                    counter: 0,
+                    selects: [
+                        {
+                            name: 'стеклопластиковые',
+                            value: 2
+                        }
+                    ]
+                }
+            },
+            {
+                group_2: {
+                    radios: {
+                        name: 'Насос',
+                        value: 0
+                    }
+                }
+            },
+            {
+                group_3: {
+                    selects: [
+                        {
+                                name: '100 мм',
+                                value: 0
+                        },
+                        {
+                                name: '10',
+                                value: 0
+                        },
+                        {
+                                name: 'короб типа акн',
+                                value: 0
+                        }
+                    ]
+                },
+            }
+        ]
+    },
     car: {},
 
   // fields__1__1: [
@@ -323,6 +370,34 @@ export default class App extends Component {
     this.setState({ currentStep: step});
   }
   render() {
+
+      // const listResultStep1 = Object.values(this.state.selectedValue).map((item, i) =>
+      // const listResultStep1 = this.state.selectedValue.map((item, key) => {
+      //     console.log(item);
+      // });
+
+      // console.log(this.state.selectedValue)
+      // const listResultStep1 = this.state.car.step_1.map((field, key) =>
+      //     // <div key={key} className=''>
+      //     //     #{field.id} : {field.name} :
+      //     //     {
+      //     //         // this.state.car.step_1.map((a, key) =>
+      //     //             // console.log(a)
+      //     //         // )
+      //     //     // this.state.selectedValue['item_' + field.id + '_name']
+      //     //     //     ?
+      //     //     //         ' ' + this.state.selectedValue['item_' + field.id + '_name']
+      //     //     //     :
+      //     //     //         ' -'
+      //     //     }
+      //     // </div>
+          // this.state.car.step_1
+          // ?
+      // :
+      //   'данных нет'
+
+
+
     return (
        <Context.Provider value={{
          state: this.state,
@@ -355,27 +430,27 @@ export default class App extends Component {
               <h5>Шаг 1:</h5>
               <pre>
                     {
-                        this.state.car.step_1
-                        ?
-                            this.state.car.step_1.map((field, key) =>
-                                <div key={key} className=''>
-                                    #{field.id} : {field.name} :
-                                    {
-                                        // let id = field.id;
-                                        // console.log(id);
-                                        // this.state.car.step_1.map((a, key) =>
-                                        //     console.log(a)
-                                        // );
-                                    // this.state.selectedValue['item_' + field.id + '_name']
-                                    //     ?
-                                    //         ' ' + this.state.selectedValue['item_' + field.id + '_name']
-                                    //     :
-                                    //         ' -'
-                                    }
-                                </div>
-                            )
-                        :
-                          'данных нет'
+                        // listResultStep1
+                        // this.state.car.step_1
+                        // ?
+                        //     this.state.car.step_1.map((field, key) =>
+                        //         <div key={key} className=''>
+                        //             #{field.id} : {field.name} :
+                        //             {
+                        //                 // console.log(field.id)
+                        //                 this.state.car.step_1.map((a, key) =>
+                        //                     console.log(a)
+                        //                 )
+                        //             // this.state.selectedValue['item_' + field.id + '_name']
+                        //             //     ?
+                        //             //         ' ' + this.state.selectedValue['item_' + field.id + '_name']
+                        //             //     :
+                        //             //         ' -'
+                        //             }
+                        //         </div>
+                        //     )
+                        // :
+                        //   'данных нет'
                     }
               </pre>
               <h5>Шаг 2:</h5>
@@ -432,6 +507,6 @@ export default class App extends Component {
     );
   }
   componentDidMount() {
-    this.setState({ ...initialState })
+    this.setState({ ...initialState });
   }
 }

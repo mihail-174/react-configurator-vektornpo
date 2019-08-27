@@ -142,4 +142,27 @@ export default class Step1 extends Component {
 
   }
 
+  componentDidMount () {
+      const { context } = this.props;
+      const state = context.state;
+      console.group( 'step_1' );
+      const aaa = state.selectedValue.step_1.map( (field, key) => {
+          console.group( 'group_' + key );
+          if ( field['group_' + key].radios ) {
+              console.log( field['group_' + key].radios.name );
+          }
+          if ( field['group_' + key].counter !== undefined ) {
+              console.log( field['group_' + key].counter );
+          }
+          if ( field['group_' + key].selects ) {
+              field['group_' + key].selects.map( (fieldSelect, key) => {
+                  console.log( fieldSelect.name );
+              });
+          }
+          console.groupEnd();
+      });
+      console.groupEnd();
+  }
+
+
 }
