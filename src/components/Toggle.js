@@ -23,21 +23,24 @@ export default class SwitchWithName extends Component {
   change(e) {
       const { context } = this.props;
       const state = context.state;
+      const step_x = 'step_' + state.currentStep;
+      const group_x = 'group_' + this.props.this.props.itemGroupId;
       const itemGroupId = this.props.itemGroupId;
       if ( e.target.parentNode.children[0].checked === false ) {
           keyExists('select', state.car['step_1_field_' + itemGroupId].values)
           &&
           context.methods.setAppState({
-              selectedValue: {
-                  ...state.selectedValue,
-                  ['item_' + itemGroupId + '_value_toggle']: e.target.parentNode.children[0].checked,
+              selectedValue3: {
+                  ...state.selectedValue3,
+                  [step_x + '__' + group_x + '__toggle']: e.target.parentNode.children[0].checked
+                  // ['item_' + itemGroupId + '_value_toggle']: e.target.parentNode.children[0].checked,
               }
           })
           keyExists('radio', state.car['step_1_field_' + itemGroupId].values)
           &&
           context.methods.setAppState({
-              selectedValue: {
-                  ...state.selectedValue,
+              selectedValue3: {
+                  ...state.selectedValue3,
                   ['item_' + itemGroupId + '_value']: null,
                   ['item_' + itemGroupId + '_name']: null,
                   ['item_' + itemGroupId + '_value_toggle']: e.target.parentNode.children[0].checked
@@ -47,16 +50,16 @@ export default class SwitchWithName extends Component {
           keyExists('select', state.car['step_1_field_' + itemGroupId].values)
           &&
           context.methods.setAppState({
-              selectedValue: {
-                  ...state.selectedValue,
+              selectedValue3: {
+                  ...state.selectedValue3,
                   ['item_' + itemGroupId + '_value_toggle']: e.target.parentNode.children[0].checked
               }
           })
           keyExists('radio', state.car['step_1_field_' + itemGroupId].values)
           &&
           context.methods.setAppState({
-              selectedValue: {
-                  ...state.selectedValue,
+              selectedValue3: {
+                  ...state.selectedValue3,
                   ['item_' + itemGroupId + '_value_toggle']: e.target.parentNode.children[0].checked,
                   ['item_' + itemGroupId + '_value']: 0,
                   ['item_' + itemGroupId + '_name']: state.car['step_' + state.currentStep + '_field_' + itemGroupId].values.radio[0].name
@@ -69,7 +72,7 @@ export default class SwitchWithName extends Component {
       const { context } = this.props;
       const state = context.state;
       const itemGroupId = this.props.itemGroupId;
-      const itemGroupName = this.props.itemGroupName;
+      const itemGroupSystemName = this.props.itemGroupSystemName;
 
     return (
         <div>
@@ -77,22 +80,22 @@ export default class SwitchWithName extends Component {
 
                 <input
                     className="toggle__input"
-                    id={itemGroupName + "-checkbox"}
+                    id={itemGroupSystemName + "-checkbox"}
                     type='checkbox'
                     onChange={this.change.bind(this)}
                     defaultChecked={
-                        keyExists('item_' + itemGroupId + '_value_toggle', state.selectedValue)
+                        keyExists('item_' + itemGroupId + '_value_toggle', state.selectedValue3)
                         ?
-                        state.selectedValue['item_' + itemGroupId + '_value_toggle']
+                        state.selectedValue3['item_' + itemGroupId + '_value_toggle']
                         :
                         state.car['step_' + state.currentStep + '_field_' + itemGroupId].switch.checked
                     }
 
                 />
 
-                <label className='toggle__label' htmlFor={itemGroupName + "-checkbox"}>
+                <label className='toggle__label' htmlFor={itemGroupSystemName + "-checkbox"}>
                     {
-                        state.selectedValue['item_' + itemGroupId + '_value_toggle']
+                        state.selectedValue3['item_' + itemGroupId + '_value_toggle']
                         ?
                             state.car['step_' + state.currentStep + '_field_' + itemGroupId].switch.on
                         :

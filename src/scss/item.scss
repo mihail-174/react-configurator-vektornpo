@@ -121,7 +121,9 @@
         .item__subname {
             color: #378fe2;
         }
-        .item__image {}
+        .item__image {
+            border-color: hsl(0,0%,70%);
+        }
     }
 }
 .item__image {
@@ -267,9 +269,9 @@
     }
 }
 
-
+// Сечение цистерны (ацн)
 .sechenie-cisterny {
-    width: 337px;
+    width: 356px;
     margin-right: 13px;
     order: 1;
     .item {
@@ -288,8 +290,9 @@
     }
 }
 
+// Секции и горловины (ацн)
 .sektcii-i-gorloviny {
-    width: 229px;
+    width: 210px;
     margin-right: 13px;
     order: 2;
     .group-item__list {
@@ -304,9 +307,6 @@
     .item__text {
         padding: 10px;
     }
-    .item_select {
-
-    }
     .item_counter {
         .item__label {
             display: flex;
@@ -320,11 +320,13 @@
             border-right: 1px solid #e3e3e3;
         }
         .item__num {
-            width: 95px;
+            width: 75px;
+            flex: 0 0 auto;
         }
     }
 }
 
+// Система слива (ацн)
 .sistema-sliva {
     width: 148px;
     order: 3;
@@ -346,6 +348,7 @@
     }
 }
 
+// Материал цистерны (ацн)
 .material-tcisterny {
     width: 351px;
     margin-right: 13px;
@@ -356,6 +359,7 @@
     }
 }
 
+// Экологический короб (ацн)
 .ekologicheskii-korob {
     width: 198px;
     margin-right: 13px;
@@ -372,6 +376,7 @@
     }
 }
 
+// Основной рукав (ацн)
 .osnovnoi-rukav {
     width: 171px;
     margin-right: 13px;
@@ -390,6 +395,7 @@
     }
 }
 
+// Дополнит. рукав (ацн)
 .dopolnitelnyi-rukav {
     width: 171px;
     margin-right: 13px;
@@ -408,6 +414,7 @@
     }
 }
 
+// Задний слив (ацн)
 .slivnaya-zadvizhka {
     width: 161px;
     margin-right: 13px;
@@ -426,6 +433,7 @@
     }
 }
 
+// Насосы (ацн)
 .nasosy {
     width: 186px;
     order: 9;
@@ -596,6 +604,7 @@
 .item_col .item__item:last-of-type {margin-bottom: 0;}
 */
 
+// Вакуумный насос (акн)
 .vacuum-pump {
   width: 541px;
   margin-right: 20px;
@@ -614,6 +623,7 @@
   }
 }
 
+// Привод насоса (акн)
 .pump-drive {
   width: 179px;
   .item__list {
@@ -632,6 +642,7 @@
   }
 }
 
+// Открытие дна (акн)
 .opening-bottom {
   width: 312px;
   margin-right: 20px;
@@ -650,7 +661,7 @@
   }
 }
 
-
+// Доп. горловина (акн)
 .extras-neck {
   width: 194px;
   margin-right: 20px;
@@ -674,7 +685,7 @@
   }
 }
 
-
+// Крепление цистерны (акн)
 .securing-tank {
     width: 194px;
   .item__list {
@@ -697,41 +708,71 @@
   }
 }
 
+// Площадка обслуживания (акн)
 .service-area {
-  width: 356px;
-  margin-right: 20px;
-  .item__label {
-    display: flex;
-    flex-direction: column;
-  }
-  .item__item {
-    flex: 1;
-    margin-right: 5px;
-    &:last-child {margin-right: 0;}
-  }
-  .item__image {
-    border-bottom: 1px solid #e3e3e3;
-    height: 90px;
-  }
-  .item__text {
-  	flex-grow: 1;
-  	display: flex;
-  	align-items: center;
-  	padding: 10px;
-  }
+    width: 356px;
+    margin-right: 20px;
+    .item {
+        flex: 1;
+        margin-right: 5px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    .item__label {
+        display: flex;
+        flex-direction: column;
+    }
+    .item__image {
+        border-bottom: 1px solid #e3e3e3;
+        height: 90px;
+    }
+    .item__text {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+    }
 }
 
+// Лестница к площадке (ацн)
+.stairs-to-landing {
+    width: 528px;
+    margin-right: 20px;
+    .item {
+        flex: 1;
+        margin-right: 5px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    .item__label {
+        display: flex;
+        flex-direction: column;
+    }
+    .item__image {
+        border-bottom: 1px solid #e3e3e3;
+        height: 90px;
+    }
+    .item__text {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+    }
+}
 
+// Освещение (акн, ацн)
 .lighting {
   width: 172px;
   margin-right: 20px;
-  .item__list {
+  .group-item__list {
     flex-direction: column;
   }
-  .item__item {
+  .item {
     margin-bottom: 5px;
     flex: 1;
-    &:last-child {margin-bottom: 0;}
+    &:last-child {
+        margin-bottom: 0;
+    }
   }
   .item__label {
     display: flex;
@@ -745,23 +786,7 @@
   }
 }
 
-.heating-from-sun {
-    width: 172px;
-  .item__list {
-    flex-direction: column;
-  }
-  .item__label {
-    display: flex;
-    align-items: center;
-    padding: 0 10px;
-  }
-  .item__item {
-    margin-bottom: 5px;
-    flex: 1;
-    &:last-child {margin-bottom: 0;}
-  }
-}
-
+// Крепление огнетушителя (акн)
 .fire-extinguisher-mounting {
 	width: 214px;
 	margin-right: 20px;
@@ -780,6 +805,60 @@
   }
 }
 
+// Крепление огнетушителя (ацн)
+.fire-extinguisher-mounting-2 {
+    width: 220px;
+    margin-right: 20px;
+}
+
+// Уровнемер (ацн)
+.urovnemetr {
+    width: 220px;
+    margin-right: 20px;
+}
+
+// Подогрев цистерны (ацн)
+.heated-tanks {
+    width: 205px;
+    margin-right: 20px;
+    .group-item__list {
+        flex-direction: column;
+    }
+    .item {
+      margin-bottom: 5px;
+      flex: 1;
+      &:last-child {
+          margin-bottom: 0;
+      }
+    }
+    .item__label {
+      display: flex;
+      align-items: center;
+    }
+    .item__text {
+        padding: 10px;
+    }
+}
+
+// Подогрев от ВС (акн)
+.heating-from-sun {
+    width: 172px;
+  .item__list {
+    flex-direction: column;
+  }
+  .item__label {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+  }
+  .item__item {
+    margin-bottom: 5px;
+    flex: 1;
+    &:last-child {margin-bottom: 0;}
+  }
+}
+
+// Исполнение (акн, ацн)
 .execution {
   width: 243px;
   margin-right: 20px;
@@ -790,15 +869,22 @@
   }
   .item__image {
   	border-right: 1px solid #f5f5f5;
-    width: 92px;
+    width: 90px;
     height: 100%;
-    padding: 0 5px;
+    flex: 0 0 auto;
   }
   .item__text {
     padding: 10px;
   }
 }
+.content_acn {
+    .execution {
+        margin-top: -50px;
+        width: 220px;
+    }
+}
 
+// Калибровка (акн, ацн)
 .calibration {
   width: 243px;
   order: 6;
@@ -808,13 +894,19 @@
   }
   .item__image {
   	border-right: 1px solid #f5f5f5;
-    width: 92px;
+    width: 90px;
     height: 100%;
-    padding: 0 5px;
+    flex: 0 0 auto;
   }
   .item__text {
     padding: 10px;
   }
+}
+.content_acn {
+    .calibration {
+        margin-top: -50px;
+        width: 220px;
+    }
 }
 
 .engine {
@@ -959,25 +1051,5 @@
 // .content_mv {
 //     .winter_package {
 //         width: 415px;
-//     }
-// }
-
-// .sechenie-cisterny {
-//     width: 357px;
-//     margin-right: 13px;
-//     order: 1;
-//     .item__item {
-//         flex: 1;
-//         margin-right: 5px;
-//         &:last-child {
-//         	margin-right: 0;
-//         }
-//     }
-//     .item__image {
-//         border-bottom: 1px solid #e3e3e3;
-//         height: 68px;
-//     }
-//     .item__text {
-//         padding: 10px;
 //     }
 // }

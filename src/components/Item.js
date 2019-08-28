@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Tooltip from '../components/Tooltip';
+// import Tooltip from '../components/Tooltip';
 import Select from 'react-select';
+import Toggle from '../components/Toggle';
 
 const customStyles = {
     container: (provided, state) => ({
@@ -87,43 +88,53 @@ export default class Item extends Component {
         this.incrementCounterPlus = this.incrementCounterPlus.bind(this);
     }
 
-    changeRadio(val, name) {
+    changeRadio(value, name) {
         const { context } = this.props;
         const state = context.state;
-        const itemGroupId = this.props.itemGroupId;
         const itemGroupSystemName = this.props.itemGroupSystemName;
+        const step_x = 'step_' + state.currentStep;
+        const group_x = 'group_' + this.props.itemGroupId;
+
         context.methods.setAppState({
-            selectedValue: {
-                ...state.selectedValue,
-                ['item_' + itemGroupId + '_value']: val,
-                ['item_' + itemGroupId + '_name']: name
+            // selectedValue: {
+            //     ...state.selectedValue,
+            //     ['item_' + itemGroupId + '_value']: value,
+            //     ['item_' + itemGroupId + '_name']: name
+            // },
+            selectedValue3: {
+                ...state.selectedValue3,
+                [step_x + '__' + group_x + '__radios__name']: name,
+                [step_x + '__' + group_x + '__radios__value']: value
             }
         });
         document.querySelectorAll('.' + itemGroupSystemName + ' .item').forEach(function(item, i) {
             item.classList.remove('active')
         });
-        document.querySelectorAll('.' + itemGroupSystemName + ' .item')[val].classList.add('active');
+        document.querySelectorAll('.' + itemGroupSystemName + ' .item')[value].classList.add('active');
     }
 
     changeCheckBox(e) {
         const { context } = this.props;
         const state = context.state;
-        const itemGroupId = this.props.itemGroupId;
+        const step_x = 'step_' + state.currentStep;
+        const group_x = 'group_' + this.props.itemGroupId;
         const itemGroupSystemName = this.props.itemGroupSystemName;
         if ( e.target.parentNode.children[0].checked ) {
             context.methods.setAppState({
-                selectedValue: {
-                    ...state.selectedValue,
-                    ['item_' + itemGroupId + '_value']: e.currentTarget.checked,
-                    ['item_' + itemGroupId + '_name']: 'да'
+                selectedValue3: {
+                    ...state.selectedValue3,
+                    [step_x + '__' + group_x + '__checkbox__value']: e.currentTarget.checked
+                    // ['item_' + itemGroupId + '_name']: 'yes'
+                    // ['item_' + itemGroupId + '_value']: e.currentTarget.checked,
                 }
             });
         } else {
             context.methods.setAppState({
-                selectedValue: {
-                    ...state.selectedValue,
-                    ['item_' + itemGroupId + '_value']: e.currentTarget.checked,
-                    ['item_' + itemGroupId + '_name']: null
+                selectedValue3: {
+                    ...state.selectedValue3,
+                    [step_x + '__' + group_x + '__checkbox__value']: e.currentTarget.checked
+                    // ['item_' + itemGroupId + '_value']: e.currentTarget.checked,
+                    // ['item_' + itemGroupId + '_name']: null
                 }
             });
         }
@@ -137,24 +148,30 @@ export default class Item extends Component {
     changeSelect(selectedOption, idSelect) {
         const { context } = this.props;
         const state = context.state;
-        const itemGroupId = this.props.itemGroupId;
+        const step_x = 'step_' + state.currentStep;
+        const group_x = 'group_' + this.props.itemGroupId;
+        const select_x = 'select_' + idSelect;
         if ( selectedOption !== null )
         {
             context.methods.setAppState({
-                selectedValue: {
-                    ...state.selectedValue,
-                    ['item_' + itemGroupId + '_' + idSelect + '_value']: selectedOption.value,
-                    ['item_' + itemGroupId + '_' + idSelect + '_name']: selectedOption.label
+                selectedValue3: {
+                    ...state.selectedValue3,
+                    // [step_x + '__' + group_x + '__' + select_x + '__name']: selectedOption.label,
+                    [step_x + '__' + group_x + '__' + select_x + '__value']: selectedOption
+                    // ['item_' + itemGroupId + '_' + idSelect + '_value']: selectedOption.value,
+                    // ['item_' + itemGroupId + '_' + idSelect + '_name']: selectedOption.label
                 }
             });
         }
         else
         {
             context.methods.setAppState({
-                selectedValue: {
-                    ...state.selectedValue,
-                    ['item_' + itemGroupId + '_' + idSelect + '_value']: null,
-                    ['item_' + itemGroupId + '_' + idSelect + '_name']: null
+                selectedValue3: {
+                    ...state.selectedValue3,
+                    // [step_x + '__' + group_x + '__' + select_x + '__name']: null,
+                    [step_x + '__' + group_x + '__' + select_x + '__value']: null
+                    // ['item_' + itemGroupId + '_' + idSelect + '_value']: null,
+                    // ['item_' + itemGroupId + '_' + idSelect + '_name']: null
                 }
             });
         }
@@ -163,80 +180,118 @@ export default class Item extends Component {
     incrementCounterPlus(e, idCounter) {
         const { context } = this.props;
         const state = context.state;
-        const itemGroupId = this.props.itemGroupId;
+        const step_x = 'step_' + state.currentStep;
+        const group_x = 'group_' + this.props.itemGroupId;
         let value = 0;
-        if ( keyExists(['item_' + itemGroupId + '_counter_value'], state.selectedValue) ) {
-            if ( state.selectedValue['item_' + itemGroupId + '_counter_value'] < 5 ) {
-                value = state.selectedValue['item_' + itemGroupId + '_counter_value'] += 1;
-                context.methods.setAppState({
-                    selectedValue: {
-                        ...state.selectedValue,
-                        ['item_' + itemGroupId + '_counter_value']: value
-                    }
-                });
+        if ( keyExists([step_x + '__' + group_x + '__counter'] , state.selectedValue3) ) {
+            if ( state.selectedValue3[step_x + '__' + group_x + '__counter'] < 5 ) {
+                 context.methods.setAppState({
+                     selectedValue3: {
+                         ...state.selectedValue3,
+                         [step_x + '__' + group_x + '__counter']: state.selectedValue3[step_x + '__' + group_x + '__counter'] += 1
+                     }
+                 });
             }
         } else {
-            value += 1;
-            context.methods.setAppState({
-                selectedValue: {
-                    ...state.selectedValue,
-                    ['item_' + itemGroupId + '_counter_value']: value
-                }
-            });
+             context.methods.setAppState({
+                 selectedValue3: {
+                     ...state.selectedValue3,
+                     [step_x + '__' + group_x + '__counter']: value += 1
+                 }
+             });
         }
+        // if ( keyExists(['item_' + itemGroupId + '_counter_value'], state.selectedValue) ) {
+        //     if ( state.selectedValue['item_' + itemGroupId + '_counter_value'] < 5 ) {
+        //         value = state.selectedValue['item_' + itemGroupId + '_counter_value'] += 1;
+        //         context.methods.setAppState({
+        //             selectedValue: {
+        //                 ...state.selectedValue,
+        //                 ['item_' + itemGroupId + '_counter_value']: value
+        //             }
+        //         });
+        //     }
+        // } else {
+        //     value += 1;
+        //     context.methods.setAppState({
+        //         selectedValue: {
+        //             ...state.selectedValue,
+        //             ['item_' + itemGroupId + '_counter_value']: value
+        //         }
+        //     });
+        // }
     }
 
     incrementCounterMinus(e, idCounter) {
         const { context } = this.props;
         const state = context.state;
-        const itemGroupId = this.props.itemGroupId;
+        const step_x = 'step_' + state.currentStep;
+        const group_x = 'group_' + this.props.itemGroupId;
         let value = 0;
-        if ( keyExists(['item_' + itemGroupId + '_counter_value'], state.selectedValue)  ) {
-            if ( state.selectedValue['item_' + itemGroupId + '_counter_value'] > 0 ) {
-                value = state.selectedValue['item_' + itemGroupId + '_counter_value'] -= 1;
-                context.methods.setAppState({
-                    selectedValue: {
-                        ...state.selectedValue,
-                        ['item_' + itemGroupId + '_counter_value']: value
-                    }
-                });
+        if ( keyExists([step_x + '__' + group_x + '__counter'] , state.selectedValue3) ) {
+            if ( state.selectedValue3[step_x + '__' + group_x + '__counter'] > 0 ) {
+                 context.methods.setAppState({
+                     selectedValue3: {
+                         ...state.selectedValue3,
+                         [step_x + '__' + group_x + '__counter']: state.selectedValue3[step_x + '__' + group_x + '__counter'] -= 1
+                     }
+                 });
             }
         } else {
-            if ( state.selectedValue['item_' + itemGroupId + '_counter_value'] > 0 ) {
-                value -= 1;
-                context.methods.setAppState({
-                    selectedValue: {
-                        ...state.selectedValue,
-                        ['item_' + itemGroupId + '_counter_value']: value
-                    }
-                });
-            }
+            context.methods.setAppState({
+                selectedValue3: {
+                    ...state.selectedValue3,
+                    [step_x + '__' + group_x + '__counter']: 0
+                }
+            });
         }
+        // if ( keyExists(['item_' + itemGroupId + '_counter_value'], state.selectedValue)  ) {
+        //     if ( state.selectedValue['item_' + itemGroupId + '_counter_value'] > 0 ) {
+        //         value = state.selectedValue['item_' + itemGroupId + '_counter_value'] -= 1;
+        //         context.methods.setAppState({
+        //             selectedValue: {
+        //                 ...state.selectedValue,
+        //                 ['item_' + itemGroupId + '_counter_value']: value
+        //             }
+        //         });
+        //     }
+        // } else {
+        //     if ( state.selectedValue['item_' + itemGroupId + '_counter_value'] > 0 ) {
+        //         value -= 1;
+        //         context.methods.setAppState({
+        //             selectedValue: {
+        //                 ...state.selectedValue,
+        //                 ['item_' + itemGroupId + '_counter_value']: value
+        //             }
+        //         });
+        //     }
+        // }
     }
 
     render() {
         const { context } = this.props;
         const state = context.state;
+        const step_x = 'step_' + state.currentStep;
+        const group_x = 'group_' + this.props.itemGroupId;
         const itemGroupId = this.props.itemGroupId;
         const itemGroupName = this.props.itemGroupName;
         const itemGroupSystemName = this.props.itemGroupSystemName;
-        const arrRadio = state.car['step_' + state.currentStep + '_field_' + itemGroupId].values.radio;
-        const arrSelect = state.car['step_' + state.currentStep + '_field_' + itemGroupId].values.select;
-        const arrCheckbox = state.car['step_' + state.currentStep + '_field_' + itemGroupId].values.checkbox;
-        const arrCounter = state.car['step_' + state.currentStep + '_field_' + itemGroupId].values.counter;
+        const arrRadio = state.car[step_x + '_field_' + itemGroupId].values.radio;
+        const arrSelect = state.car[step_x + '_field_' + itemGroupId].values.select;
+        const arrCheckbox = state.car[step_x + '_field_' + itemGroupId].values.checkbox;
+        const arrCounter = state.car[step_x + '_field_' + itemGroupId].values.counter;
 
         let listRadio = '';
-        if ( keyExists('radio', state.car['step_1_field_' + itemGroupId].values) ) {
+        if ( keyExists('radio', state.car[step_x + '_field_' + itemGroupId].values) ) {
             listRadio = arrRadio.map( (field, key) =>
                 <div key={key} className={
-                    state.selectedValue['item_'+ itemGroupId + '_value'] === key
+                    state.selectedValue3[step_x + '__' + group_x + '__radios__value'] === key
                     ?
                     'item item_radio active'
                     :
                     'item item_radio'
                 }>
                     <input
-                        checked={state.selectedValue['item_'+ itemGroupId + '_value'] === key ? true : false}
+                        checked={state.selectedValue3[step_x + '__' + group_x + '__radios__value'] === key ? true : false}
                         className="item__input" id={itemGroupName + "-" + key}
                         type='radio'
                         name={itemGroupName}
@@ -249,19 +304,19 @@ export default class Item extends Component {
                             {field.subName && <div className='item__subname'>{field.subName}</div> }
                         </div>
                     </label>
-                    { field.tooltip && <Tooltip context={context} itemGroupName={itemGroupName} itemGroupId={itemGroupId} itemId={key} /> }
+                    {/* field.tooltip && <Tooltip context={context} itemGroupName={itemGroupName} itemGroupId={itemGroupId} itemId={key} /> */}
                 </div>
             )
         }
 
         let listSelect = '';
-        if ( keyExists('select', state.car['step_1_field_' + itemGroupId].values) ) {
+        if ( keyExists('select', state.car[step_x + '_field_' + itemGroupId].values) ) {
             listSelect = arrSelect.map( (field, key) =>
                 <div key={key} className='item item_select'>
                     <Select
                         styles={customStyles}
                         key={key}
-                        // defaultValue={colourOptions[1]}
+                        defaultValue={state.selectedValue3[step_x + '__' + group_x + '__select_' + key + '__value']}
                         isClearable={true}
                         // hideSelectedOptions={false}
                         placeholder={state.car['step_' + state.currentStep + '_field_' + itemGroupId].values.select[key].label}
@@ -273,12 +328,12 @@ export default class Item extends Component {
         }
 
         let listCheckbox = '';
-        if ( keyExists('checkbox', state.car['step_1_field_' + itemGroupId].values) ) {
+        if ( keyExists('checkbox', state.car[step_x + '_field_' + itemGroupId].values) ) {
             listCheckbox = arrCheckbox.map( (field, key) =>
                 <div key={key} className={
-                    keyExists('item_' + itemGroupId + '_value', state.selectedValue)
+                    keyExists(step_x + '__' + group_x + '__checkbox__value', state.selectedValue3)
                     ?
-                        state.selectedValue['item_' + itemGroupId + '_value']
+                        state.selectedValue3[step_x + '__' + group_x + '__checkbox__value']
                         ?
                             'item item_checkbox active'
                         :
@@ -296,9 +351,9 @@ export default class Item extends Component {
                         id={itemGroupName + "-" + key}
                         name={itemGroupName}
                         defaultChecked={
-                            keyExists('item_' + itemGroupId + '_value', state.selectedValue)
+                            keyExists(step_x + '__' + group_x + '__checkbox__value', state.selectedValue3)
                             ?
-                            state.selectedValue['item_' + itemGroupId + '_value']
+                            state.selectedValue3[step_x + '__' + group_x + '__checkbox__value']
                             :
                             field.checked
                         }
@@ -312,13 +367,13 @@ export default class Item extends Component {
                             {field.subName && <div className='item__subname'>{field.subName}</div> }
                         </div>
                     </label>
-                    { field.tooltip && <Tooltip context={context} itemGroupName={itemGroupName} itemGroupId={itemGroupId} itemId={key} /> }
+                    {/* field.tooltip && <Tooltip context={context} itemGroupName={itemGroupName} itemGroupId={itemGroupId} itemId={key} /> */}
                 </div>
             )
         }
 
         let listCounter = '';
-        if ( keyExists('counter', state.car['step_1_field_' + itemGroupId].values) ) {
+        if ( keyExists('counter', state.car[step_x + '_field_' + itemGroupId].values) ) {
             listCounter = arrCounter.map( (field, key) =>
                 <div key={key} className='item item_counter'>
                     <div className='item__label'>
@@ -336,9 +391,9 @@ export default class Item extends Component {
                             />
                             <div className='item__num-value'>
                                 {
-                                    keyExists(['item_' + itemGroupId + '_counter_value'], state.selectedValue)
+                                    keyExists([step_x + '__' + group_x + '__counter'], state.selectedValue3)
                                     ?
-                                        state.selectedValue['item_' + itemGroupId + '_counter_value']
+                                        state.selectedValue3[step_x + '__' + group_x + '__counter']
                                     :
                                         field.value
                                 }
@@ -355,12 +410,15 @@ export default class Item extends Component {
             )
         }
 
-
-
         return (
             <div className={'group-item ' + itemGroupSystemName}>
                 <div className='group-item__hd'>
-                    <div className='group-item__title'>{ itemGroupName }</div>
+                    <div className='group-item__title'>#{ itemGroupId } { itemGroupName }</div>
+                    {
+                        keyExists('switch', state.car[step_x + '_field_' + itemGroupId])
+                        &&
+                        <Toggle context={context} itemGroupSystemName={itemGroupSystemName} itemGroupId={itemGroupId} />
+                    }
                 </div>
                 <div className='group-item__cont'>
                     <div className='group-item__list'>

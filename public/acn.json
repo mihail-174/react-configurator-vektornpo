@@ -55,8 +55,8 @@
                     "subName": "",
                     "ico": true,
                     "url": "07.png",
-                    "tooltip": "",
-                    "tooltip_position": ""
+                    "tooltip": "Система подогрева от выхлопной системы проходит внутри цистерны и выходит на шиберную задвижку. ВНИМАНИЕ! Взрывоопасно. Целесообразно только при экстремально низких температурах и высоком уровне содержания воды в топливе.",
+                    "tooltip_position": "left"
                 },
                 {
                     "name": "Чемодан",
@@ -233,96 +233,161 @@
 
     "step_2": [
         {
+            "id": 0,
+            "name": "Лестница к площадке",
+            "systemName": "stairs-to-landing"
+        },
+        {
+            "id": 1,
+            "name": "Освещение",
+            "systemName": "lighting"
+        },
+        {
+            "id": 2,
+            "name": "Крепление огнетушителя",
+            "systemName": "fire-extinguisher-mounting-2"
+        },
+        {
+            "id": 3,
+            "name": "Уровнемер",
+            "systemName": "urovnemetr"
+        },
+        {
+            "id": 4,
+            "name": "Подогрев цистерны",
+            "systemName": "heated-tanks"
+        },
+        {
             "id": 5,
-            "name": "Площадка обслуживания",
-            "systemName": "service-area",
-            "type": "radio"
+            "name": "Исполнение",
+            "systemName": "execution"
         },
         {
             "id": 6,
-            "name": "Освещение",
-            "systemName": "lighting",
-            "type": "radio"
-        },
-        {
-            "id": 7,
-            "name": "Подогрев от ВС",
-            "systemName": "heating-from-sun",
-            "type": "radio"
-        },
-        {
-            "id": 8,
             "name": "Калибровка",
-            "systemName": "calibration",
-            "type": "checkbox"
+            "systemName": "calibration"
         }
     ],
 
+    "step_2_field_0": {
+        "values": {
+            "radio": [
+                {
+                    "name": "Боковая",
+                    "ico": true,
+                    "url": "13.png",
+                    "tooltip": "",
+                    "tooltip_position": ""
+                },
+                {
+                    "name": "Задняя складная",
+                    "ico": true,
+                    "url": "11.png",
+                    "tooltip": "",
+                    "tooltip_position": ""
+                },
+                {
+                    "name": "Задняя складная с поручнем",
+                    "ico": true,
+                    "url": "10.png",
+                    "tooltip": "",
+                    "tooltip_position": ""
+                }
+            ]
+        }
+    },
+
+    "step_2_field_1": {
+        "values": {
+            "radio": [
+                {
+                    "name": "2 зоны",
+                    "ico": true,
+                    "url": "14.png"
+                },
+                {
+                    "name": "4 зоны",
+                    "ico": true,
+                    "url": "15.png"
+                }
+            ]
+        },
+        "switch": {
+            "checked": false
+        }
+    },
+
+    "step_2_field_2": {
+        "values": {
+            "select": [
+                {
+                    "label": "Крепление огнетушителя",
+                    "options": [
+                        { "value": "0", "label": "Кольца на цистерне" },
+                        { "value": "1", "label": "Пластиковые короба" }
+                    ]
+                }
+            ]
+        }
+    },
+
+    "step_2_field_3": {
+        "values": {
+            "select": [
+                {
+                    "label": "Уровнемер",
+                    "options": [
+                        { "value": "0", "label": "Аналоговый" },
+                        { "value": "1", "label": "Электронный" }
+                    ]
+                }
+            ]
+        },
+        "switch": {
+            "checked": false
+        }
+    },
+
+    "step_2_field_4": {
+        "values": {
+            "radio": [
+                {
+                    "name": "От системы выхлопа ДВС",
+                    "tooltip": "Система подогрева от выхлопной системы проходит внутри цистерны и выходит на шиберную задвижку. ВНИМАНИЕ! Взрывоопасно. Целесообразно только при экстремально низких температурах и высоком уровне содержания воды в топливе.",
+                    "tooltip_position": "left"
+                },
+                {
+                    "name": "От паровых труб ППУ"
+                }
+            ]
+        }
+    },
+
     "step_2_field_5": {
-        "values": [
-            {
-                "name": "Полноценная",
-                "ico": true,
-                "url": "13.png",
-                "tooltip": "Полноценная металлическая площадка с перилами - более удобное и безопасное обслуживание заливных горловин.",
-                "tooltip_position": "bottom"
-            },
-            {
-                "name": "Лестницы к горловинам",
-                "ico": true,
-                "url": "12.png",
-                "tooltip": "Эконом-вариант, дает минимальные возможности обслуживания заливных горловин.",
-                "tooltip_position": "bottom"
-            }
-        ]
+        "values": {
+            "checkbox": [
+                {
+                    "name": "Огнеопасное исполнение",
+                    "ico": true,
+                    "url": "20.png",
+                    "checked": false
+                }
+            ]
+        }
     },
 
     "step_2_field_6": {
-        "values": [
-            {
-                "name": "2 зоны",
-                "ico": true,
-                "url": "14.png"
-            },
-            {
-                "name": "4 зоны",
-                "ico": true,
-                "url": "15.png"
-            }
-        ],
-        "switch": {
-            "checked": false
+        "values": {
+            "checkbox": [
+                {
+                    "name": "Калибровка",
+                    "subName": "цистерны с выдачей соответствующих документов",
+                    "ico": true,
+                    "url": "19.png",
+                    "checked": false
+                }
+            ]
         }
-    },
-
-    "step_2_field_7": {
-        "values": [
-            {
-                "name": "Внутри цистерны",
-                "tooltip": "Система подогрева от выхлопной системы проходит внутри цистерны и выходит на шиберную задвижку.",
-                "tooltip_position": "left"
-            },
-            {
-                "name": "Сбоку цистерны",
-                "tooltip": "Система подогрева от выхлопной системы проходит сбоку цистерны и выходит на шиберную задвижку.",
-                "tooltip_position": "left"
-            }
-        ],
-        "switch": {
-            "checked": false
-        }
-    },
-
-    "step_2_field_8": {
-        "values": [
-            {
-                "name": "Калибровка",
-                "subName": "цистерны с выдачей соответствующих документов",
-                "ico": true,
-                "url": "19.png",
-                "checked": false
-            }
-        ]
     },
 
     "step_3": [
