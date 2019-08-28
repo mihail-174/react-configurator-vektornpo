@@ -289,7 +289,32 @@ export default class Item extends Component {
                     'item item_radio active'
                     :
                     'item item_radio'
+                        // keyExists('switch', state.car[step_x + '_field_' + itemGroupId])
+                        // ?
+                        //     // console.log( 'есть в стейте' )
+                        //     keyExists(step_x + '__' + group_x + '__toggle', state.selectedValue3)
+                        //     ?
+                        //         // console.log( 'есть в списке' )
+                        //         // console.log( state.selectedValue3['item_' + itemGroupId + '_value_toggle'] )
+                        //         state.selectedValue3['item_' + itemGroupId + '_value_toggle']
+                        //         ?
+                        //             'item item_radio'
+                        //         :
+                        //             'item item_radio disabled'
+                        //     :
+                        //         // console.log( 'нету в списке' )
+                        //         state.car[step_x + '_field_' + itemGroupId].switch.checked
+                        //         ?
+                        //             'item item_radio'
+                        //         :
+                        //             'item item_radio disabled'
+                        // :
+                        //     console.log( 'нету в стейте' )
+                            // 'item item_radio'
                 }>
+
+
+
                     <input
                         checked={state.selectedValue3[step_x + '__' + group_x + '__radios__value'] === key ? true : false}
                         className="item__input" id={itemGroupName + "-" + key}
@@ -409,6 +434,16 @@ export default class Item extends Component {
                 </div>
             )
         }
+        // console.log( state.car[step_x + '_field_' + itemGroupId].switch.checked )
+
+        if ( state.selectedValue3[step_x + '__' + group_x + '__toggle'] === undefined ) {
+            if ( keyExists('switch', state.car[step_x + '_field_' + itemGroupId]) ) {
+                // console.log( state.car[step_x + '_field_' + itemGroupId] );
+                console.log( state.car[step_x + '_field_' + itemGroupId].switch.checked );
+            }
+        } else {
+            console.log( state.selectedValue3[step_x + '__' + group_x + '__toggle'] )
+        }
 
         return (
             <div className={'group-item ' + itemGroupSystemName}>
@@ -420,7 +455,28 @@ export default class Item extends Component {
                         <Toggle context={context} itemGroupSystemName={itemGroupSystemName} itemGroupId={itemGroupId} />
                     }
                 </div>
-                <div className='group-item__cont'>
+
+                <div
+                    className={
+                        state.selectedValue3[step_x + '__' + group_x + '__toggle'] === undefined
+                        ?
+                            keyExists('switch', state.car[step_x + '_field_' + itemGroupId])
+                            ?
+                                state.car[step_x + '_field_' + itemGroupId].switch.checked
+                                ?
+                                    'group-item__cont'
+                                :
+                                    'group-item__cont disabled'
+                            :
+                                'group-item__cont'
+                        :
+                            state.selectedValue3[step_x + '__' + group_x + '__toggle']
+                            ?
+                            'group-item__cont'
+                            :
+                            'group-item__cont disabled'
+                    }
+                    >
                     <div className='group-item__list'>
                         { listRadio }
                         { listCounter }
@@ -433,3 +489,26 @@ export default class Item extends Component {
     }
 
 }
+
+
+                // <div
+                //     className={
+                //         keyExists('switch', state.car[step_x + '_field_' + itemGroupId])
+                //         ?
+                //             keyExists(step_x + '__' + group_x + '__toggle', state.selectedValue3)
+                //             ?
+                //                 state.selectedValue3['item_' + itemGroupId + '_value_toggle']
+                //                 ?
+                //                     'group-item__cont'
+                //                 :
+                //                     'group-item__cont disabled'
+                //             :
+                //                 state.car[step_x + '_field_' + itemGroupId].switch.checked
+                //                 ?
+                //                     'group-item__cont'
+                //                 :
+                //                     'group-item__cont disabled'
+                //         :
+                //             'group-item__cont'
+                //     }
+                // >
