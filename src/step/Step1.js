@@ -4,10 +4,10 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 import Item from '../components/Item';
-import ItemRadio from '../components/ItemRadio';
-import ItemCheckBox from '../components/ItemCheckBox';
-import ItemSelect from '../components/ItemSelect';
-import ItemCounter from '../components/ItemCounter';
+// import ItemRadio from '../components/ItemRadio';
+// import ItemCheckBox from '../components/ItemCheckBox';
+// import ItemSelect from '../components/ItemSelect';
+// import ItemCounter from '../components/ItemCounter';
 
 import '../scss/item.scss';
 

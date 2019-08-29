@@ -23,7 +23,7 @@ export default class Footer extends Component {
         currentStep: 0,
         currentStepPrev: 0,
         car: [],
-        selectedValue: [],
+        selectedValue3: {},
     })
   }
   render() {

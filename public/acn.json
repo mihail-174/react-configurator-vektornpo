@@ -109,7 +109,9 @@
                     "name": "Самотеком"
                 },
                 {
-                    "name": "Насос + самотек"
+                    "name": "Насос + самотек",
+                    "tooltip": "Исключается возможность использования совместно с донным клапаном для защиты от несанкционированного слива.",
+                    "tooltip_position": "left"
                 }
             ]
         }
@@ -136,7 +138,9 @@
             "checkbox": [
                 {
                     "name": "Экологический короб",
-                    "checked": false
+                    "checked": false,
+                    "tooltip": "Дренажная ловушка вокруг горловины, собирающая пролитую жидкость, с удобным сливным краном.",
+                    "tooltip_position": "left"
                 }
             ]
         }
@@ -217,15 +221,21 @@
             "radio": [
                 {
                     "name": "СВН 80А",
-                    "subName": "45 куб.час"
+                    "subName": "45 куб.час",
+                    "tooltip": "Алюминиевый корпус, используется в основном для легких нефтепродуктов - диз. топливо, бензин.",
+                    "tooltip_position": "left"
                 },
                 {
                     "name": "СЦЛ 00А",
-                    "subName": "24 куб.час"
+                    "subName": "24 куб.час",
+                    "tooltip": "Чугунный корпус, используется для вязких нефтепродуктов - нефть, нефтесодержащие жидкости, тех. вода, диз. топливо.",
+                    "tooltip_position": "left"
                 },
                 {
                     "name": "ОДН 120",
-                    "subName": "45 куб.час"
+                    "subName": "45 куб.час",
+                    "tooltip": "Корпус из конструкционной стали. Для тяжелых условий эксплуатации. Изначально был разработан для перекачки ракетного топлива.",
+                    "tooltip_position": "left"
                 }
             ]
         }
@@ -313,7 +323,7 @@
             ]
         },
         "switch": {
-            "checked": true
+            "checked": false
         }
     },
 
@@ -360,6 +370,9 @@
                     "name": "От паровых труб ППУ"
                 }
             ]
+        },
+        "switch": {
+            "checked": false
         }
     },
 
@@ -370,7 +383,9 @@
                     "name": "Огнеопасное исполнение",
                     "ico": true,
                     "url": "20.png",
-                    "checked": false
+                    "checked": false,
+                    "tooltip": "Установка проблесковых маячков на кабине. Оклейка цистерны и дверей светоотражающей лентой . Надпись ОГНЕОПАСНО, наклейки ЛВЖ,. Защита топливных баков. Искрогасительная система выхлопа ДВС. Ящики для песка и кошма. Огнетушители на цистерне. Катушка заземления цистерны. Экранированная проводка цистерны. Перенос глушителя за кабину водителя.",
+                    "tooltip_position": "top"
                 }
             ]
         }
@@ -392,139 +407,140 @@
 
     "step_3": [
         {
-            "id": 11,
+            "id": 0,
             "name": "Двигатель",
-            "systemName": "engine",
-            "type": "radio"
+            "systemName": "engine"
         },
         {
-            "id": 12,
+            "id": 1,
             "name": "Спальное место",
-            "systemName": "berth",
-            "type": "checkbox"
+            "systemName": "berth"
         },
         {
-            "id": 13,
+            "id": 2,
             "name": "Запасное колесо",
-            "systemName": "spare_wheel",
-            "type": "radio"
+            "systemName": "spare_wheel"
         },
         {
-            "id": 14,
+            "id": 3,
             "name": "Инстр. ящики",
-            "systemName": "tool_box",
-            "type": "radio"
+            "systemName": "tool_box"
         },
         {
-            "id": 15,
+            "id": 4,
             "name": "Противоподк. брус",
-            "systemName": "anti_roll_bar",
-            "type": "radio"
+            "systemName": "anti_roll_bar"
         },
         {
-            "id": 16,
+            "id": 5,
             "name": "Зимний пакет",
-            "systemName": "winter_package",
-            "type": "checkbox-multi"
+            "systemName": "winter_package"
         }
     ],
-    "step_3_field_11": {
-        "values": [
-            {
-                "name": "300 л. с.",
-                "subName": "КАМАЗ-740.662-300"
-            },
-            {
-                "name": "280 л. с.",
-                "subName": "КАМАЗ-740.622-280"
-            }
-        ]
+    "step_3_field_0": {
+        "values": {
+            "radio": [
+                {
+                    "name": "260 л.с. Евро-2"
+                },
+                {
+                    "name": "280 л.с. Евро-3"
+                },
+                {
+                    "name": "300 л.с. Евро-4"
+                }
+            ]
+        }
     },
 
-    "step_3_field_12": {
-        "values": [
-            {
-                "name": "Спальное место",
-                "subName": "в кабине водителя",
-                "ico": true,
-                "url": "26.png",
-                "checked": false
-            }
-        ]
+    "step_3_field_1": {
+        "values": {
+            "checkbox": [
+                {
+                    "name": "Спальное место",
+                    "subName": "в кабине водителя",
+                    "ico": true,
+                    "url": "26.png",
+                    "checked": false
+                }
+            ]
+        }
     },
 
-    "step_3_field_13": {
-        "values": [
-            {
-                "name": "За кабиной",
-                "ico": true,
-                "url": "24.png"
-            },
-            {
-                "name": "На заднем свесе",
-                "ico": true,
-                "url": "27.png"
-            }
-        ]
+    "step_3_field_2": {
+        "values": {
+            "radio": [
+                {
+                    "name": "За кабиной",
+                    "ico": true,
+                    "url": "24.png"
+                },
+                {
+                    "name": "На заднем свесе",
+                    "ico": true,
+                    "url": "27.png"
+                }
+            ]
+        }
     },
 
-    "step_3_field_14": {
-        "values": [
-            {
-                "name": "1 ящик",
-                "ico": true,
-                "url": "21.png"
-            },
-            {
-                "name": "2 ящика",
-                "ico": true,
-                "url": "22.png"
-            }
-        ],
+    "step_3_field_3": {
+        "values": {
+            "radio": [
+                {
+                    "name": "1 ящик",
+                    "ico": true,
+                    "url": "21.png"
+                },
+                {
+                    "name": "2 ящика",
+                    "ico": true,
+                    "url": "22.png"
+                }
+            ]
+        },
         "switch": {
             "checked": false
         }
     },
 
-    "step_3_field_15": {
-        "values": [
-            {
-                "name": "Классический (1 положение)"
-            },
-            {
-                "name": "Регулируемый (2 положения)"
-            }
-        ]
+    "step_3_field_4": {
+        "values": {
+            "radio": [
+                {
+                    "name": "Классический (1 положение)"
+                },
+                {
+                    "name": "Регулируемый (2 положения)"
+                }
+            ]
+        }
     },
-
-    "step_3_field_16": {
-        "values": [
-            {
-                "id": 0,
-                "name": "Автономн. отопитель",
-                "checked": false
-            },
-            {
-                "id": 1,
-                "name": "Фильтр SEPAR2000",
-                "checked": true
-            },
-            {
-                "id": 2,
-                "name": "Сумка - ADR",
-                "checked": false
-            },
-            {
-                "id": 3,
-                "name": "Утепление кабины и моторного отсека",
-                "checked": false
-            },
-            {
-                "id": 4,
-                "name": "Утепление аккумуляторного отсека",
-                "checked": false
-            }
-        ]
+    "step_3_field_5": {
+        "values": {
+            "checkbox_multi": [
+                {
+                    "name": "Автономн. отопитель",
+                    "checked": false
+                },
+                {
+                    "name": "Фильтр SEPAR2000",
+                    "checked": true
+                },
+                {
+                    "name": "Сумка - ADR",
+                    "checked": false
+                },
+                {
+                    "name": "Утепление кабины и моторного отсека",
+                    "checked": false
+                },
+                {
+                    "name": "Утепление аккумуляторного отсека",
+                    "checked": false
+                }
+            ]
+        }
     }
 
 }

@@ -27,26 +27,32 @@ export default class SwitchWithName extends Component {
       const group_x = 'group_' + this.props.itemGroupId;
       const itemGroupId = this.props.itemGroupId;
       if ( e.target.parentNode.children[0].checked === false ) {
-          keyExists('select', state.car['step_1_field_' + itemGroupId].values)
+          keyExists('select', state.car[step_x + '_field_' + itemGroupId].values)
           &&
-          context.methods.setAppState({
-              selectedValue3: {
-                  ...state.selectedValue3,
-                  [step_x + '__' + group_x + '__toggle']: e.target.parentNode.children[0].checked
-                  // ['item_' + itemGroupId + '_value_toggle']: e.target.parentNode.children[0].checked,
-              }
-          })
-          keyExists('radio', state.car['step_1_field_' + itemGroupId].values)
+              state.car[step_x + '_field_' + itemGroupId].values.select.forEach((item, index)=>{
+                  delete state.selectedValue3[step_x + '__' + group_x + '__select_' + index + '__value'];
+              });
+              context.methods.setAppState({
+                  selectedValue3: {
+                      ...state.selectedValue3,
+                      [step_x + '__' + group_x + '__toggle']: e.target.parentNode.children[0].checked
+                  }
+              })
+          keyExists('radio', state.car[step_x + '_field_' + itemGroupId].values)
           &&
-          context.methods.setAppState({
-              selectedValue3: {
-                  ...state.selectedValue3,
-                  [step_x + '__' + group_x + '__toggle']: e.target.parentNode.children[0].checked
-                  // ['item_' + itemGroupId + '_value']: null,
-                  // ['item_' + itemGroupId + '_name']: null,
-                  // ['item_' + itemGroupId + '_value_toggle']: e.target.parentNode.children[0].checked
-              }
-          });
+              delete state.selectedValue3[step_x + '__' + group_x + '__radios__name'];
+              delete state.selectedValue3[step_x + '__' + group_x + '__radios__value'];
+              context.methods.setAppState({
+                  selectedValue3: {
+                      ...state.selectedValue3,
+                      [step_x + '__' + group_x + '__toggle']: e.target.parentNode.children[0].checked,
+                      // [step_x + '__' + group_x + '__radios__name']: null,
+                      // [step_x + '__' + group_x + '__radios__value']: null
+                      // ['item_' + itemGroupId + '_value']: null,
+                      // ['item_' + itemGroupId + '_name']: null,
+                      // ['item_' + itemGroupId + '_value_toggle']: e.target.parentNode.children[0].checked
+                  }
+              });
       } else {
           keyExists('select', state.car[step_x + '_field_' + itemGroupId].values)
           &&

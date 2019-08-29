@@ -11,6 +11,15 @@ const Context = React.createContext()
 let initialState = {
 
     selectedValue3: {
+        // step_3__group_5__checkbox_0__value: false,
+        // step_3__group_5__checkbox_1__value: true,
+        // step_3__group_5__checkbox_2__value: false,
+        // step_3__group_5__checkbox_3__value: true,
+        // step_3__group_5__checkbox_4__value: false,
+        // step_3__group_5__checkbox_multi: [
+        //     "Фильтр SEPAR2000",
+        //     "Утепление кабины и моторного отсека"
+        // ]
         // step_1__group_0__radios__name: null,
         // step_1__group_0__radios__value: null,
         // step_1__group_1__counter: null,

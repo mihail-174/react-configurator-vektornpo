@@ -77,12 +77,16 @@ function keyExists(key, search) {
     return key in search;
 }
 
+var arrListChekboxMulti = [];
+
+
 export default class Item extends Component {
 
     constructor() {
         super();
         this.changeRadio = this.changeRadio.bind(this);
         this.changeCheckBox = this.changeCheckBox.bind(this);
+        this.changeCheckBoxMulti = this.changeCheckBoxMulti.bind(this);
         this.changeSelect = this.changeSelect.bind(this);
         this.incrementCounterMinus = this.incrementCounterMinus.bind(this);
         this.incrementCounterPlus = this.incrementCounterPlus.bind(this);
@@ -145,6 +149,59 @@ export default class Item extends Component {
         }
     }
 
+    changeCheckBoxMulti(e) {
+        const { context } = this.props;
+        const state = context.state;
+        const step_x = 'step_' + state.currentStep;
+        const group_x = 'group_' + this.props.itemGroupId;
+        const itemGroupSystemName = this.props.itemGroupSystemName;
+
+        if ( e.target.checked ) {
+            document.querySelector(e.target.parentNode.classList.add('active'));
+            arrListChekboxMulti.push( e.target.parentNode.querySelector('.item__name').innerText );
+        } else {
+            document.querySelector(e.target.parentNode.classList.remove('active'));
+            arrListChekboxMulti.map((number, index) => {
+                if ( number === e.target.parentNode.querySelector('.item__name').innerText ) {
+                    arrListChekboxMulti.splice(index, 1);
+                }
+            });
+        }
+        context.methods.setAppState({
+            selectedValue3: {
+                ...state.selectedValue3,
+                [step_x + '__' + group_x + '__checkbox_multi']: arrListChekboxMulti,
+                [step_x + '__' + group_x + '__checkbox_' + e.target.parentNode.getAttribute('data-index') + '__value']: e.target.checked
+            }
+        });
+
+
+        // if ( e.target.parentNode.children[0].checked ) {
+        //     context.methods.setAppState({
+        //         selectedValue3: {
+        //             ...state.selectedValue3,
+        //             [step_x + '__' + group_x + '__checkbox__value']: e.currentTarget.checked
+        //             // ['item_' + itemGroupId + '_name']: 'yes'
+        //             // ['item_' + itemGroupId + '_value']: e.currentTarget.checked,
+        //         }
+        //     });
+        // } else {
+        //     context.methods.setAppState({
+        //         selectedValue3: {
+        //             ...state.selectedValue3,
+        //             [step_x + '__' + group_x + '__checkbox__value']: e.currentTarget.checked
+        //             // ['item_' + itemGroupId + '_value']: e.currentTarget.checked,
+        //             // ['item_' + itemGroupId + '_name']: null
+        //         }
+        //     });
+        // }
+        // if ( e.target.parentNode.children[0].checked ) {
+        //     document.querySelector('.' + itemGroupSystemName + ' .item').classList.add('active');
+        // } else {
+        //     document.querySelector('.' + itemGroupSystemName + ' .item').classList.remove('active');
+        // }
+    }
+
     changeSelect(selectedOption, idSelect) {
         const { context } = this.props;
         const state = context.state;
@@ -165,14 +222,15 @@ export default class Item extends Component {
         }
         else
         {
+            delete state.selectedValue3[step_x + '__' + group_x + '__' + select_x + '__value'];
             context.methods.setAppState({
-                selectedValue3: {
-                    ...state.selectedValue3,
-                    // [step_x + '__' + group_x + '__' + select_x + '__name']: null,
-                    [step_x + '__' + group_x + '__' + select_x + '__value']: null
-                    // ['item_' + itemGroupId + '_' + idSelect + '_value']: null,
-                    // ['item_' + itemGroupId + '_' + idSelect + '_name']: null
-                }
+            //     selectedValue3: {
+            //         ...state.selectedValue3,
+            //         // [step_x + '__' + group_x + '__' + select_x + '__name']: null,
+            //         [step_x + '__' + group_x + '__' + select_x + '__value']: null
+            //         // ['item_' + itemGroupId + '_' + idSelect + '_value']: null,
+            //         // ['item_' + itemGroupId + '_' + idSelect + '_name']: null
+            //     }
             });
         }
     }
@@ -278,6 +336,7 @@ export default class Item extends Component {
         const arrRadio = state.car[step_x + '_field_' + itemGroupId].values.radio;
         const arrSelect = state.car[step_x + '_field_' + itemGroupId].values.select;
         const arrCheckbox = state.car[step_x + '_field_' + itemGroupId].values.checkbox;
+        const arrCheckboxMulti = state.car[step_x + '_field_' + itemGroupId].values.checkbox_multi;
         const arrCounter = state.car[step_x + '_field_' + itemGroupId].values.counter;
 
         let listRadio = '';
@@ -289,32 +348,7 @@ export default class Item extends Component {
                     'item item_radio active'
                     :
                     'item item_radio'
-                        // keyExists('switch', state.car[step_x + '_field_' + itemGroupId])
-                        // ?
-                        //     // console.log( 'есть в стейте' )
-                        //     keyExists(step_x + '__' + group_x + '__toggle', state.selectedValue3)
-                        //     ?
-                        //         // console.log( 'есть в списке' )
-                        //         // console.log( state.selectedValue3['item_' + itemGroupId + '_value_toggle'] )
-                        //         state.selectedValue3['item_' + itemGroupId + '_value_toggle']
-                        //         ?
-                        //             'item item_radio'
-                        //         :
-                        //             'item item_radio disabled'
-                        //     :
-                        //         // console.log( 'нету в списке' )
-                        //         state.car[step_x + '_field_' + itemGroupId].switch.checked
-                        //         ?
-                        //             'item item_radio'
-                        //         :
-                        //             'item item_radio disabled'
-                        // :
-                        //     console.log( 'нету в стейте' )
-                            // 'item item_radio'
                 }>
-
-
-
                     <input
                         checked={state.selectedValue3[step_x + '__' + group_x + '__radios__value'] === key ? true : false}
                         className="item__input" id={itemGroupName + "-" + key}
@@ -336,20 +370,29 @@ export default class Item extends Component {
 
         let listSelect = '';
         if ( keyExists('select', state.car[step_x + '_field_' + itemGroupId].values) ) {
-            listSelect = arrSelect.map( (field, key) =>
-                <div key={key} className='item item_select'>
-                    <Select
-                        styles={customStyles}
-                        key={key}
-                        defaultValue={state.selectedValue3[step_x + '__' + group_x + '__select_' + key + '__value']}
-                        isClearable={true}
-                        // hideSelectedOptions={false}
-                        placeholder={state.car['step_' + state.currentStep + '_field_' + itemGroupId].values.select[key].label}
-                        onChange={(e)=>this.changeSelect(e, key)}
-                        options={[field]}
-                    />
-                </div>
-            )
+            listSelect = arrSelect.map( (field, key) => {
+                return (
+                    <div key={key} className='item item_select'>
+                        <Select
+                            styles={customStyles}
+                            key={key}
+                            value={
+                                state.selectedValue3[step_x + '__' + group_x + '__select_' + key + '__value']
+                                ?
+                                    state.selectedValue3[step_x + '__' + group_x + '__select_' + key + '__value']
+                                :
+                                    null
+                            }
+                            // defaultValue={state.selectedValue3[step_x + '__' + group_x + '__select_' + key + '__value']}
+                            isClearable={true}
+                            // hideSelectedOptions={false}
+                            placeholder={state.car['step_' + state.currentStep + '_field_' + itemGroupId].values.select[key].label}
+                            onChange={(e)=>this.changeSelect(e, key)}
+                            options={[field]}
+                        />
+                    </div>
+                )
+            })
         }
 
         let listCheckbox = '';
@@ -397,6 +440,66 @@ export default class Item extends Component {
             )
         }
 
+        let listCheckboxMulti = '';
+        if ( keyExists('checkbox_multi', state.car[step_x + '_field_' + itemGroupId].values) ) {
+            listCheckboxMulti = arrCheckboxMulti.map( (field, key) => {
+                return (
+                    <div key={key} className={
+                        state.selectedValue3[step_x + '__' + group_x + '__checkbox_' + key + '__value']
+                        ?
+                        'item item_checkbox active'
+                        :
+                        'item item_checkbox'
+                    } data-index={key}>
+                        <input
+                            type='checkbox'
+                            className="item__input"
+                            id={itemGroupName + "-" + key}
+                            name={itemGroupName}
+                            checked={state.selectedValue3[step_x + '__' + group_x + '__checkbox_' + key + '__value'] ? true : false }
+                            onChange={this.changeCheckBoxMulti.bind(this)}
+                        />
+                        <label className="item__toggle" htmlFor={itemGroupName + "-" + key}></label>
+                        <label className="item__label" htmlFor={itemGroupName + "-" + key}>
+                            {field.ico && <div className='item__image'><img src={require('../img/step-ico/' + field.url)} alt='' /></div>}
+                            <div className='item__text'>
+                                <div className='item__name'>{field.name}</div>
+                                {field.subName && <div className='item__subname'>{field.subName}</div> }
+                            </div>
+                        </label>
+                    </div>
+                )
+            });
+        }
+
+
+        // <div key={key} className={
+        //     state.selectedValue3[step_x + '__' + group_x + '__checkbox_' + key + '__value']
+        //     ?
+        //     'item__item active'
+        //     :
+        //     'item__item'
+        // } data-index={key}>
+        //   <input
+        //       type='checkbox'
+        //       className="item__input toggle__input"
+        //       id={itemGroupName + "-" + key}
+        //       name={itemGroupName}
+        //       checked={state.selectedValue3[step_x + '__' + group_x + '__checkbox_' + key + '__value'] ? true : false }
+        //       // onChange={this.handleInputChange.bind(this)}
+        //   />
+        //   <label className="toggle__label" htmlFor={itemGroupName + "-" + key}></label>
+        //   <label className="item__label" htmlFor={itemGroupName + "-" + key}>
+        //       {field.ico && <div className='item__image'><img src={require('../img/step-ico/' + field.url)} alt='' /></div>}
+        //       <div className='item__text'>
+        //           <div className='item__name'>{field.name}</div>
+        //           {field.subName && <div className='item__subname'>{field.subName}</div> }
+        //       </div>
+        //   </label>
+        // </div>
+
+
+
         let listCounter = '';
         if ( keyExists('counter', state.car[step_x + '_field_' + itemGroupId].values) ) {
             listCounter = arrCounter.map( (field, key) =>
@@ -434,16 +537,6 @@ export default class Item extends Component {
                 </div>
             )
         }
-        // console.log( state.car[step_x + '_field_' + itemGroupId].switch.checked )
-
-        if ( state.selectedValue3[step_x + '__' + group_x + '__toggle'] === undefined ) {
-            if ( keyExists('switch', state.car[step_x + '_field_' + itemGroupId]) ) {
-                // console.log( state.car[step_x + '_field_' + itemGroupId] );
-                console.log( state.car[step_x + '_field_' + itemGroupId].switch.checked );
-            }
-        } else {
-            console.log( state.selectedValue3[step_x + '__' + group_x + '__toggle'] )
-        }
 
         return (
             <div className={'group-item ' + itemGroupSystemName}>
@@ -476,12 +569,13 @@ export default class Item extends Component {
                             :
                             'group-item__cont disabled'
                     }
-                    >
+                >
                     <div className='group-item__list'>
                         { listRadio }
                         { listCounter }
                         { listSelect }
                         { listCheckbox }
+                        { listCheckboxMulti }
                     </div>
                 </div>
             </div>
@@ -489,26 +583,3 @@ export default class Item extends Component {
     }
 
 }
-
-
-                // <div
-                //     className={
-                //         keyExists('switch', state.car[step_x + '_field_' + itemGroupId])
-                //         ?
-                //             keyExists(step_x + '__' + group_x + '__toggle', state.selectedValue3)
-                //             ?
-                //                 state.selectedValue3['item_' + itemGroupId + '_value_toggle']
-                //                 ?
-                //                     'group-item__cont'
-                //                 :
-                //                     'group-item__cont disabled'
-                //             :
-                //                 state.car[step_x + '_field_' + itemGroupId].switch.checked
-                //                 ?
-                //                     'group-item__cont'
-                //                 :
-                //                     'group-item__cont disabled'
-                //         :
-                //             'group-item__cont'
-                //     }
-                // >
