@@ -298,7 +298,7 @@
     }
     .item__image {
         border-bottom: 1px solid #e3e3e3;
-        height: 68px;
+        height: 60px;
     }
     .item__text {
         padding: 10px;
@@ -354,12 +354,8 @@
         	margin-bottom: 0;
         }
     }
-    .item__image {
-        border-bottom: 1px solid #e3e3e3;
-        height: 68px;
-    }
     .item__text {
-        padding: 10px;
+        padding: 5px 10px;
     }
 }
 
@@ -455,6 +451,7 @@
     .group-item__list {
         flex-wrap: wrap;
         margin-bottom: -5px;
+        align-items: flex-start;
     }
     .item {
         flex: 0 0 auto;
@@ -619,7 +616,7 @@
 .item_col .item__item:last-of-type {margin-bottom: 0;}
 */
 
-// Вакуумный насос (акн)
+// Вакуумный насос (акн, мв)
 .vacuum-pump {
   width: 541px;
   margin-right: 20px;
@@ -640,7 +637,7 @@
   }
 }
 
-// Привод насоса (акн)
+// Привод насоса (акн, мв)
 .pump-drive {
   width: 179px;
   .group-item__list {
@@ -662,7 +659,7 @@
   }
 }
 
-// Открытие дна (акн)
+// Открытие дна (акн, мв)
 .opening-bottom {
   width: 312px;
   margin-right: 20px;
@@ -682,7 +679,7 @@
   }
 }
 
-// Доп. горловина (акн)
+// Доп. горловина (акн, мв)
 .extras-neck {
   width: 194px;
   margin-right: 20px;
@@ -709,7 +706,7 @@
   }
 }
 
-// Крепление цистерны (акн)
+// Крепление цистерны (акн, мв)
 .securing-tank {
     width: 194px;
   .group-item__list {
@@ -735,7 +732,7 @@
   }
 }
 
-// Площадка обслуживания (акн)
+// Площадка обслуживания (акн, мв)
 .service-area {
     width: 356px;
     margin-right: 20px;
@@ -778,7 +775,7 @@
     }
     .item__image {
         border-bottom: 1px solid #e3e3e3;
-        height: 90px;
+        height: 75px;
     }
     .item__text {
         display: flex;
@@ -787,7 +784,7 @@
     }
 }
 
-// Освещение (акн, ацн)
+// Освещение (акн, ацн, мв)
 .lighting {
   width: 172px;
   margin-right: 20px;
@@ -869,7 +866,7 @@
     }
 }
 
-// Подогрев от ВС (акн)
+// Подогрев от ВС (акн, мв)
 .heating-from-sun {
     width: 172px;
   .group-item__list {
@@ -940,7 +937,7 @@
     }
 }
 
-// Двигатель (ацн)
+// Двигатель (ацн, мв)
 .engine {
     width: 180px;
     margin-right: 20px;
@@ -964,7 +961,7 @@
     }
 }
 
-// Запасное колесо (ацн)
+// Запасное колесо (акн, ацн, мв)
 .spare_wheel {
   order: 3;
   .item {
@@ -987,13 +984,18 @@
         width: 295px;
     }
 }
+.content_mv {
+    .spare_wheel {
+        width: 295px;
+    }
+}
 .content_acn {
     .spare_wheel {
         width: 357px;
     }
 }
 
-// Инстр. ящики (ацн)
+// Инстр. ящики (акн, ацн, мв)
 .tool_box {
     width: 160px;
     margin-right: 20px;
@@ -1023,7 +1025,7 @@
     }
 }
 
-// Противоподк. брус (ацн)
+// Противоподк. брус (акн, ацн, мв)
 .anti_roll_bar {
     width: 189px;
     width: 156px;
@@ -1053,7 +1055,7 @@
 //     }
 // }
 
-// Спальное место (ацн)
+// Спальное место (акн, ацн)
 .berth {
     margin-right: 20px;
     width: 225px;
@@ -1086,7 +1088,7 @@
 //     }
 // }
 
-// Зимний пакет (ацн)
+// Зимний пакет (акн, ацн, мв)
 .winter_package {
     width: 384px;
     order: 6;

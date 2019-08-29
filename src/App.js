@@ -221,16 +221,6 @@ export default class App extends Component {
             </pre>
           </div>
 
-          <div className="resultSelected">
-              <h2>Итоговые данные:</h2>
-              <h5>Шаг 1:</h5>
-              <pre></pre>
-              <h5>Шаг 2:</h5>
-              <pre></pre>
-              <h5>Шаг 3:</h5>
-              <pre></pre>
-          </div>
-
         </div>
       {this.props.children}
       </Context.Provider>
