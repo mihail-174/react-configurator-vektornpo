@@ -1,0 +1,465 @@
+{
+    "step_1": [
+        {
+            "id": 0,
+            "name": "Сечение цистерны",
+            "systemName": "sechenie-cisterny",
+            "type": "radio"
+        },
+        {
+            "id": 1,
+            "name": "Секции и горловины",
+            "systemName": "sektcii-i-gorloviny"
+        },
+        {
+            "id": 2,
+            "name": "Система слива",
+            "systemName": "sistema-sliva",
+            "type": "radio"
+        },
+        {
+            "id": 3,
+            "name": "Материал цистерны",
+            "systemName": "material-tcisterny",
+            "type": "select"
+        },
+        {
+            "id": 4,
+            "name": "Экологический короб",
+            "systemName": "ekologicheskii-korob",
+            "type": "checkbox"
+        },
+        {
+            "id": 5,
+            "name": "Основной рукав",
+            "systemName": "osnovnoi-rukav",
+            "type": "select"
+        },
+        {
+            "id": 6,
+            "name": "Дополнит. рукав",
+            "systemName": "dopolnitelnyi-rukav",
+            "type": "select"
+        },
+        {
+            "id": 7,
+            "name": "Задний слив",
+            "systemName": "slivnaya-zadvizhka",
+            "type": "radio"
+        },
+        {
+            "id": 8,
+            "name": "Задний слив",
+            "systemName": "nasosy",
+            "type": "radio"
+        }
+    ],
+
+    "step_1_field_0": {
+        "values": [
+            {
+                "name": "эллипс",
+                "subName": "",
+                "ico": true,
+                "url": "07.png",
+                "tooltip": "",
+                "tooltip_position": ""
+            },
+            {
+                "name": "Чемодан",
+                "subName": "",
+                "ico": true,
+                "url": "09.png",
+                "tooltip": "",
+                "tooltip_position": ""
+            },
+            {
+                "name": "Трапеция",
+                "subName": "",
+                "ico": true,
+                "url": "08.png",
+                "tooltip": "",
+                "tooltip_position": ""
+            }
+        ]
+    },
+
+    "step_1_field_1": {
+        "values": [
+            {
+                "select": [
+                    [
+                        "Материал лючков",
+                        "Алюминиевые",
+                        "Конструкционная сталь",
+                        "Стеклопластиковые"
+                    ],
+                    [
+                        "Материал лючков",
+                        "Алюминиевые",
+                        "Конструкционная сталь",
+                        "Стеклопластиковые"
+                    ]
+                ]
+            },
+            {
+                "select": [
+                    "Материал лючков",
+                    "Алюминиевые",
+                    "Конструкционная сталь",
+                    "Стеклопластиковые"
+                ]
+            }
+        ]
+    },
+
+    "step_1_field_2": {
+        "values": [
+            {
+                "name": "Насос"
+            },
+            {
+                "name": "Самотеком"
+            },
+            {
+                "name": "Насос + самотек"
+            }
+        ]
+    },
+
+    "step_1_field_3": {
+        "values": [
+            {
+                "select": [
+                    "Материал цистерны",
+                    "Нержавейка (3 мм)",
+                    "Сталь 09г2с (4 мм)",
+                    "Сталь 09г2с (5 мм)",
+                    "Стеклопластик"
+                ]
+            }
+        ]
+    },
+
+    "step_1_field_4": {
+        "values": [
+            {
+                "name": "Экологический короб",
+                "checked": false
+            }
+        ]
+    },
+
+    "step_1_field_5": {
+        "values": [
+            {
+                "select": [
+                    "Диаметр рукава",
+                    "100 мм",
+                    "50 мм",
+                    "75 мм"
+                ]
+            },
+            {
+                "select": [
+                    "Длина рукава",
+                    "10",
+                    "4",
+                    "6"
+                ]
+            },
+            {
+                "select": [
+                    "Укладка рукава",
+                    "Короб типа АКН",
+                    "Оцинкованный пенал",
+                    "Пластиковый пенал"
+                ]
+            }
+        ]
+    },
+
+    "step_1_field_6": {
+        "values": [
+            {
+                "select": [
+                    "Диаметр рукава",
+                    "100 мм",
+                    "50 мм",
+                    "75 мм"
+                ]
+            },
+            {
+                "select": [
+                    "Длина рукава",
+                    "10",
+                    "4",
+                    "6"
+                ]
+            }
+        ],
+        "switch": {
+            "checked": false
+        }
+    },
+
+    "step_1_field_7": {
+        "values": [
+            {
+                "name": "Задвижка АНМ 53"
+            },
+            {
+                "name": "Шаровый кран БРС"
+            }
+        ]
+    },
+
+    "step_1_field_8": {
+        "values": [
+            {
+                "name": "СВН 80А",
+                "subName": "45 куб.час"
+            },
+            {
+                "name": "СЦЛ 00А",
+                "subName": "24 куб.час"
+            },
+            {
+                "name": "ОДН 120",
+                "subName": "45 куб.час"
+            }
+        ]
+    },
+
+    "step_2": [
+        {
+            "id": 5,
+            "name": "Площадка обслуживания",
+            "systemName": "service-area",
+            "type": "radio"
+        },
+        {
+            "id": 6,
+            "name": "Освещение",
+            "systemName": "lighting",
+            "type": "radio"
+        },
+        {
+            "id": 7,
+            "name": "Подогрев от ВС",
+            "systemName": "heating-from-sun",
+            "type": "radio"
+        },
+        {
+            "id": 8,
+            "name": "Калибровка",
+            "systemName": "calibration",
+            "type": "checkbox"
+        }
+    ],
+
+    "step_2_field_5": {
+        "values": [
+            {
+                "name": "Полноценная",
+                "ico": true,
+                "url": "13.png",
+                "tooltip": "Полноценная металлическая площадка с перилами - более удобное и безопасное обслуживание заливных горловин.",
+                "tooltip_position": "bottom"
+            },
+            {
+                "name": "Лестницы к горловинам",
+                "ico": true,
+                "url": "12.png",
+                "tooltip": "Эконом-вариант, дает минимальные возможности обслуживания заливных горловин.",
+                "tooltip_position": "bottom"
+            }
+        ]
+    },
+
+    "step_2_field_6": {
+        "values": [
+            {
+                "name": "2 зоны",
+                "ico": true,
+                "url": "14.png"
+            },
+            {
+                "name": "4 зоны",
+                "ico": true,
+                "url": "15.png"
+            }
+        ],
+        "switch": {
+            "checked": false
+        }
+    },
+
+    "step_2_field_7": {
+        "values": [
+            {
+                "name": "Внутри цистерны",
+                "tooltip": "Система подогрева от выхлопной системы проходит внутри цистерны и выходит на шиберную задвижку.",
+                "tooltip_position": "left"
+            },
+            {
+                "name": "Сбоку цистерны",
+                "tooltip": "Система подогрева от выхлопной системы проходит сбоку цистерны и выходит на шиберную задвижку.",
+                "tooltip_position": "left"
+            }
+        ],
+        "switch": {
+            "checked": false
+        }
+    },
+
+    "step_2_field_8": {
+        "values": [
+            {
+                "name": "Калибровка",
+                "subName": "цистерны с выдачей соответствующих документов",
+                "ico": true,
+                "url": "19.png",
+                "checked": false
+            }
+        ]
+    },
+
+    "step_3": [
+        {
+            "id": 11,
+            "name": "Двигатель",
+            "systemName": "engine",
+            "type": "radio"
+        },
+        {
+            "id": 12,
+            "name": "Спальное место",
+            "systemName": "berth",
+            "type": "checkbox"
+        },
+        {
+            "id": 13,
+            "name": "Запасное колесо",
+            "systemName": "spare_wheel",
+            "type": "radio"
+        },
+        {
+            "id": 14,
+            "name": "Инстр. ящики",
+            "systemName": "tool_box",
+            "type": "radio"
+        },
+        {
+            "id": 15,
+            "name": "Противоподк. брус",
+            "systemName": "anti_roll_bar",
+            "type": "radio"
+        },
+        {
+            "id": 16,
+            "name": "Зимний пакет",
+            "systemName": "winter_package",
+            "type": "checkbox-multi"
+        }
+    ],
+    "step_3_field_11": {
+        "values": [
+            {
+                "name": "300 л. с.",
+                "subName": "КАМАЗ-740.662-300"
+            },
+            {
+                "name": "280 л. с.",
+                "subName": "КАМАЗ-740.622-280"
+            }
+        ]
+    },
+
+    "step_3_field_12": {
+        "values": [
+            {
+                "name": "Спальное место",
+                "subName": "в кабине водителя",
+                "ico": true,
+                "url": "26.png",
+                "checked": false
+            }
+        ]
+    },
+
+    "step_3_field_13": {
+        "values": [
+            {
+                "name": "За кабиной",
+                "ico": true,
+                "url": "24.png"
+            },
+            {
+                "name": "На заднем свесе",
+                "ico": true,
+                "url": "27.png"
+            }
+        ]
+    },
+
+    "step_3_field_14": {
+        "values": [
+            {
+                "name": "1 ящик",
+                "ico": true,
+                "url": "21.png"
+            },
+            {
+                "name": "2 ящика",
+                "ico": true,
+                "url": "22.png"
+            }
+        ],
+        "switch": {
+            "checked": false
+        }
+    },
+
+    "step_3_field_15": {
+        "values": [
+            {
+                "name": "Классический (1 положение)"
+            },
+            {
+                "name": "Регулируемый (2 положения)"
+            }
+        ]
+    },
+
+    "step_3_field_16": {
+        "values": [
+            {
+                "id": 0,
+                "name": "Автономн. отопитель",
+                "checked": false
+            },
+            {
+                "id": 1,
+                "name": "Фильтр SEPAR2000",
+                "checked": true
+            },
+            {
+                "id": 2,
+                "name": "Сумка - ADR",
+                "checked": false
+            },
+            {
+                "id": 3,
+                "name": "Утепление кабины и моторного отсека",
+                "checked": false
+            },
+            {
+                "id": 4,
+                "name": "Утепление аккумуляторного отсека",
+                "checked": false
+            }
+        ]
+    }
+
+}

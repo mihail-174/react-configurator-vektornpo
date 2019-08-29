@@ -33,8 +33,8 @@ export default class ItemRadio extends Component {
     const { context } = this.props;
     const state = context.state;
     const itemGroupId = this.props.itemGroupId;
-    const field = state.car['step_' + state.currentStep + '_field_' + itemGroupId].values;
     const itemGroupName = this.props.itemGroupName;
+    const field = state.car['step_' + state.currentStep + '_field_' + itemGroupId].values.radio;
 
     return (
         <div className='item__list'>

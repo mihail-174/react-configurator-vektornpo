@@ -1,51 +1,119 @@
+.item_select {
+    width: 100%;
+}
+// .css-2b097c-container {
+//     width: 100%;
+// }
+// .css-w8afj7-Input {
+//     opacity: 0;
+// }
+// .css-1pahdxg-control {
+//     // border-width: 1px !important;
+//     // box-shadow: none !important;
+//     // border: 1px solid #e3e3e3 !important;
+// }
+// .css-1uccc91-singleValue,
+// .css-1wa3eu0-placeholder {
+//     font-weight: 700;
+//     font-size: 13px;
+//     color: #616161 !important;
+// }
+// .css-1g48xl4-IndicatorsContainer {}
+// .css-26l3qy-menu {
+//     top: 0 !important;
+//     margin-top: 0 !important;
+//     border: 1px solid #378fe2 !important;
+//     box-shadow: none !important;
+//     overflow: hidden !important;
+// }
+// .css-1ml51p6-MenuList {
+// 	padding: 0 !important;
+// }
+// .css-1veuksg-Group {
+// 	padding: 0 !important;
+// }
+.css-18ng2q5-group {
+	// padding-top: 11px !important;
+    // padding-bottom: 11px !important;
+	// border-bottom: 1px solid #b8d7f5;
+	// margin: 0 !important;
+    // text-transform: none !important;
+    // font-weight: 700 !important;
+    // color: #616161 !important;
+    + div {
+        div {
+            &:last-child {
+                border-bottom: none !important;
+                box-shadow: none !important;
+            }
+        }
+    }
+}
+// .css-1n7v3ny-option,
+// .css-yt9ioa-option {
+//     font-size: 13px !important;
+//     border-bottom: 1px solid #b8d7f5;
+// }
+// .css-yt9ioa-option:hover {
+// 	border-bottom: 1px solid red !important;
+//     background-color: red !important;
+// }
+
+
+
+
+.group-item {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+.group-item__hd {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.group-item__title {
+    font-weight: 700;
+    font-size: 13px;
+}
+.group-item__cont {
+    flex-grow: 1;
+    display: flex;
+}
+.group-item__list {
+    display: flex;
+    flex-grow: 1;
+}
+
+
 .item {
-  margin-bottom: 25px;
-  display: flex;
-  flex-direction: column;
+    // display: flex;
+    // flex-grow: 1;
+    // .toggle__label {
+    //     position: absolute;
+    //     top: 2px;
+    //     right: 2px;
+    // }
 }
 .item__input {
-	position: absolute;
-  right: 0;
-  bottom: 0;
-	margin: 0;
-	padding: 0;
-}
-.item__input {
-  display: none;
-}
-.item__hd {
-	display: flex;
-	align-items: center;
-  justify-content: space-between;
-  margin-bottom: 5px;
-}
-.item__title {
-	font-weight: 700;
-	font-size: 13px;
-}
-.item__cont {
-	flex-grow: 1;
-  display: flex;
-}
-.item__list {
-	display: flex;
-  flex-grow: 1;
-}
-.item__item {
-  display: flex;
-  flex-grow: 1;
-  .toggle__label {
-      position: absolute;
-      top: 2px;
-      right: 2px;
-  }
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    display: none;
 }
 .item__label {
+    display: block;
     border: 1px solid #e3e3e3;
     border-radius: 5px;
+    width: 100%;
+    height: 100%;
     background-color: #ffffff;
     transition: all 0.2s ease-in-out;
     &:hover {
+        border-color: hsl(0,0%,70%);
         cursor: pointer;
         .item__image {
             filter: grayscale(0);
@@ -54,50 +122,133 @@
         .item__subname {
             color: #378fe2;
         }
-        .item__image {}
+        .item__image {
+            border-color: hsl(0,0%,70%);
+        }
     }
-  // display: block;
-  // padding: 10px;
-  // width: 100%;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
 }
 .item__image {
-  filter: grayscale(100%);
-  transition: all 0.2s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    filter: grayscale(100%);
+    transition: all 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .item__text {
-	flex-grow: 1;
-// 	display: flex;
-// 	align-items: center;
+    flex-grow: 1;
 }
 .item__name {
-	font-weight: 700;
-	font-size: 13px;
-  color: #616161;
-  transition: all 0.2s;
+    font-weight: 700;
+    font-size: 13px;
+    color: #616161;
+    transition: all 0.2s;
 }
 .item__subname {
-	font-weight: 400;
-	font-size: 13px;
-	color: #616161;
-  transition: all 0.2s;
+    font-weight: 400;
+    font-size: 13px;
+    color: #616161;
+    transition: all 0.2s;
+}
+.item_counter {
+    .item__label {
+        &:hover {
+            border-color: #e3e3e3;
+        }
+    }
+}
+.item__num {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    font-size: 26px;
+    color: #378fe2;
+    font-weight: 700;
+}
+.item__num-value {
+    margin: 0 5px;
+}
+.item__num-minus {
+    cursor: pointer;
+    border: 1px solid #e3e3e3;
+    background-color: #fff;
+    border-radius: 4px;
+    line-height: 1;
+    padding: 0;
+    width: 16px;
+    height: 16px;
+    &:hover {
+        border-color: hsl(0,0%,70%);
+    }
+}
+.item__num-plus {
+    cursor: pointer;
+    border: 1px solid #e3e3e3;
+    background-color: #fff;
+    border-radius: 4px;
+    line-height: 1;
+    padding: 0;
+    width: 16px;
+    height: 16px;
+    &:hover {
+        border-color: hsl(0,0%,70%);
+    }
+}
+
+.item__toggle {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    cursor: pointer;
+    border: 1px solid #b9bec1;
+    border-radius: 4px;
+    background: rgb(206, 216, 221) none repeat scroll 0% 0%;
+    display: inline-block;
+    height: 18px;
+    font-size: 12px;
+    color: #716e6e;
+    transition: all 0.3s 0.1s;
+    padding: 0 10px 0 20px;
+    &::before {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        background-color: #fff;
+        height: 16px;
+        width: 16px;
+        border: 1px solid #acacae;
+        border-radius: 4px;
+        transition: all 0.3s;
+    }
+    span {
+        position: relative;
+        top: 1px;
+    }
+}
+.item__input:checked + .item__toggle::before {
+    left: calc(100% - 16px);
+}
+.item__input:checked + .item__toggle {
+    background: rgb(0, 132, 209) none repeat scroll 0% 0%;
+    border-color: rgb(75, 145, 186);
+    color: #edecec;
+    padding: 0 20px 0 10px;
+}
+.item__input:checked + .item__toggle span {
+    left: 12px;
 }
 
 .active {
-  .item__label {
-      border-color: #378fe2;
-  }
-  .item__image {
-    filter: grayscale(0);
-    border-color: #378fe2 !important;
-  }
-  .item__name,
-  .item__subname {color: #378fe2;}
+    .item__label {
+        border-color: #378fe2;
+    }
+    .item__image {
+        filter: grayscale(0);
+        border-color: #378fe2 !important;
+    }
+    .item__name,
+    .item__subname {color: #378fe2;}
 }
 
 .disabled {
@@ -111,20 +262,347 @@
         z-index: 2;
         cursor: no-drop;
     }
-  .item__image {
-    filter: grayscale(100%) opacity(30%);
-  }
-  .item__name,
-  .item__subname {color: #c9c9c9;}
-  .item__label {cursor: default;}
-  .item__item:hover {
+    .item_select {
+        div[class$="-placeholder"] {
+            color: #c9c9c9 !important;
+        }
+    }
+    .css-1bxupw-placeholder {
+    }
     .item__image {
-      filter: grayscale(100%) opacity(30%);
+        filter: grayscale(100%) opacity(30%);
     }
     .item__name,
     .item__subname {color: #c9c9c9;}
-  }
+    .item__label {cursor: default;}
+    .item__item:hover {
+        .item__image {
+            filter: grayscale(100%) opacity(30%);
+        }
+        .item__name,
+        .item__subname {color: #c9c9c9;}
+    }
 }
+
+// Сечение цистерны (ацн)
+.sechenie-cisterny {
+    width: 356px;
+    margin-right: 13px;
+    order: 1;
+    .item {
+        flex: 1;
+        margin-right: 5px;
+        &:last-child {
+        	margin-right: 0;
+        }
+    }
+    .item__image {
+        border-bottom: 1px solid #e3e3e3;
+        height: 68px;
+    }
+    .item__text {
+        padding: 10px;
+    }
+}
+
+// Секции и горловины (ацн)
+.sektcii-i-gorloviny {
+    width: 210px;
+    margin-right: 13px;
+    order: 2;
+    .group-item__list {
+        flex-direction: column;
+    }
+    .item {
+        margin-bottom: 5px;
+        &:last-child {
+        	margin-bottom: 0;
+        }
+    }
+    .item__text {
+        padding: 10px;
+    }
+    .item_counter {
+        .item__label {
+            display: flex;
+            align-items: center;
+            cursor: default;
+        }
+        .item__text {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            border-right: 1px solid #e3e3e3;
+        }
+        .item__num {
+            width: 75px;
+            flex: 0 0 auto;
+        }
+    }
+}
+
+// Система слива (ацн)
+.sistema-sliva {
+    width: 148px;
+    order: 3;
+    .group-item__list {
+        flex-direction: column;
+    }
+    .item {
+        margin-bottom: 5px;
+        &:last-child {
+        	margin-bottom: 0;
+        }
+    }
+    .item__image {
+        border-bottom: 1px solid #e3e3e3;
+        height: 68px;
+    }
+    .item__text {
+        padding: 10px;
+    }
+}
+
+// Материал цистерны (ацн)
+.material-tcisterny {
+    width: 351px;
+    margin-right: 13px;
+    order: 4;
+    .group-item__list {
+        width: 209px;
+        flex: 0 0 auto;
+    }
+}
+
+// Экологический короб (ацн)
+.ekologicheskii-korob {
+    width: 198px;
+    margin-right: 13px;
+    order: 5;
+    .group-item__list {
+        flex-direction: column;
+    }
+    .item__text {
+        padding: 10px;
+    }
+    .item_checkbox {
+        .toggle__label {
+        }
+    }
+}
+
+// Основной рукав (ацн)
+.osnovnoi-rukav {
+    width: 171px;
+    margin-right: 13px;
+    order: 6;
+    .group-item__list {
+        flex-direction: column;
+    }
+    .item {
+        margin-bottom: 5px;
+        &:last-child {
+        	margin-bottom: 0;
+        }
+    }
+    .item__text {
+        padding: 10px;
+    }
+}
+
+// Дополнит. рукав (ацн)
+.dopolnitelnyi-rukav {
+    width: 171px;
+    margin-right: 13px;
+    order: 7;
+    .group-item__list {
+        flex-direction: column;
+    }
+    .item {
+        margin-bottom: 5px;
+        &:last-child {
+        	margin-bottom: 0;
+        }
+    }
+    .item__text {
+        padding: 10px;
+    }
+}
+
+// Задний слив (ацн)
+.slivnaya-zadvizhka {
+    width: 161px;
+    margin-right: 13px;
+    order: 8;
+    .group-item__list {
+        flex-direction: column;
+    }
+    .item {
+        margin-bottom: 5px;
+        &:last-child {
+        	margin-bottom: 0;
+        }
+    }
+    .item__text {
+        padding: 10px;
+    }
+}
+
+// Насосы (ацн)
+.nasosy {
+    width: 186px;
+    order: 9;
+    .group-item__list {
+        flex-wrap: wrap;
+        margin-bottom: -5px;
+    }
+    .item {
+        flex: 0 0 auto;
+        margin: 0 5px 5px 0;
+        width: 90px;
+        &:nth-child(2n) {
+            margin-right: 0;
+        }
+    }
+    .item__text {
+        padding: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+// .item {
+//   margin-bottom: 25px;
+//   display: flex;
+//   flex-direction: column;
+// }
+// .item__input {
+// 	position: absolute;
+//   right: 0;
+//   bottom: 0;
+// 	margin: 0;
+// 	padding: 0;
+// }
+.item__input {
+  // display: none;
+}
+// .item__hd {
+// 	display: flex;
+// 	align-items: center;
+//   justify-content: space-between;
+//   margin-bottom: 5px;
+// }
+// .item__title {
+// 	font-weight: 700;
+// 	font-size: 13px;
+// }
+// .item__cont {
+// 	flex-grow: 1;
+//   display: flex;
+// }
+// .item__list {
+// 	display: flex;
+//   flex-grow: 1;
+// // }
+// .item__item {
+//   display: flex;
+//   flex-grow: 1;
+//   .toggle__label {
+//       position: absolute;
+//       top: 2px;
+//       right: 2px;
+//   }
+// }
+// .item__label {
+//     border: 1px solid #e3e3e3;
+//     border-radius: 5px;
+//     background-color: #ffffff;
+//     transition: all 0.2s ease-in-out;
+//     &:hover {
+//         cursor: pointer;
+//         .item__image {
+//             filter: grayscale(0);
+//         }
+//         .item__name,
+//         .item__subname {
+//             color: #378fe2;
+//         }
+//         .item__image {}
+//     }
+//   // display: block;
+//   // padding: 10px;
+//   // width: 100%;
+//   width: 100%;
+//   height: 100%;
+//   cursor: pointer;
+// }
+// .item__image {
+//   filter: grayscale(100%);
+//   transition: all 0.2s;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+// .item__text {
+// 	flex-grow: 1;
+// // 	display: flex;
+// // 	align-items: center;
+// }
+// .item__name {
+// 	font-weight: 700;
+// 	font-size: 13px;
+//   color: #616161;
+//   transition: all 0.2s;
+// }
+// .item__subname {
+// 	font-weight: 400;
+// 	font-size: 13px;
+// 	color: #616161;
+//   transition: all 0.2s;
+// }
+//
+// .active {
+//   .item__label {
+//       border-color: #378fe2;
+//   }
+//   .item__image {
+//     filter: grayscale(0);
+//     border-color: #378fe2 !important;
+//   }
+//   .item__name,
+//   .item__subname {color: #378fe2;}
+// }
+//
+// .disabled {
+//     &::before {
+//         content: '';
+//         position: absolute;
+//         top: 0;
+//         right: 0;
+//         bottom: 0;
+//         left: 0;
+//         z-index: 2;
+//         cursor: no-drop;
+//     }
+//   .item__image {
+//     filter: grayscale(100%) opacity(30%);
+//   }
+//   .item__name,
+//   .item__subname {color: #c9c9c9;}
+//   .item__label {cursor: default;}
+//   .item__item:hover {
+//     .item__image {
+//       filter: grayscale(100%) opacity(30%);
+//     }
+//     .item__name,
+//     .item__subname {color: #c9c9c9;}
+//   }
+// }
 
 /*
 .item_row {}
@@ -141,6 +619,7 @@
 .item_col .item__item:last-of-type {margin-bottom: 0;}
 */
 
+// Вакуумный насос (акн)
 .vacuum-pump {
   width: 541px;
   margin-right: 20px;
@@ -159,6 +638,7 @@
   }
 }
 
+// Привод насоса (акн)
 .pump-drive {
   width: 179px;
   .item__list {
@@ -177,6 +657,7 @@
   }
 }
 
+// Открытие дна (акн)
 .opening-bottom {
   width: 312px;
   margin-right: 20px;
@@ -195,7 +676,7 @@
   }
 }
 
-
+// Доп. горловина (акн)
 .extras-neck {
   width: 194px;
   margin-right: 20px;
@@ -219,7 +700,7 @@
   }
 }
 
-
+// Крепление цистерны (акн)
 .securing-tank {
     width: 194px;
   .item__list {
@@ -242,41 +723,71 @@
   }
 }
 
+// Площадка обслуживания (акн)
 .service-area {
-  width: 356px;
-  margin-right: 20px;
-  .item__label {
-    display: flex;
-    flex-direction: column;
-  }
-  .item__item {
-    flex: 1;
-    margin-right: 5px;
-    &:last-child {margin-right: 0;}
-  }
-  .item__image {
-    border-bottom: 1px solid #e3e3e3;
-    height: 90px;
-  }
-  .item__text {
-  	flex-grow: 1;
-  	display: flex;
-  	align-items: center;
-  	padding: 10px;
-  }
+    width: 356px;
+    margin-right: 20px;
+    .item {
+        flex: 1;
+        margin-right: 5px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    .item__label {
+        display: flex;
+        flex-direction: column;
+    }
+    .item__image {
+        border-bottom: 1px solid #e3e3e3;
+        height: 90px;
+    }
+    .item__text {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+    }
 }
 
+// Лестница к площадке (ацн)
+.stairs-to-landing {
+    width: 528px;
+    margin-right: 20px;
+    .item {
+        flex: 1;
+        margin-right: 5px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    .item__label {
+        display: flex;
+        flex-direction: column;
+    }
+    .item__image {
+        border-bottom: 1px solid #e3e3e3;
+        height: 90px;
+    }
+    .item__text {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+    }
+}
 
+// Освещение (акн, ацн)
 .lighting {
   width: 172px;
   margin-right: 20px;
-  .item__list {
+  .group-item__list {
     flex-direction: column;
   }
-  .item__item {
+  .item {
     margin-bottom: 5px;
     flex: 1;
-    &:last-child {margin-bottom: 0;}
+    &:last-child {
+        margin-bottom: 0;
+    }
   }
   .item__label {
     display: flex;
@@ -290,23 +801,7 @@
   }
 }
 
-.heating-from-sun {
-    width: 172px;
-  .item__list {
-    flex-direction: column;
-  }
-  .item__label {
-    display: flex;
-    align-items: center;
-    padding: 0 10px;
-  }
-  .item__item {
-    margin-bottom: 5px;
-    flex: 1;
-    &:last-child {margin-bottom: 0;}
-  }
-}
-
+// Крепление огнетушителя (акн)
 .fire-extinguisher-mounting {
 	width: 214px;
 	margin-right: 20px;
@@ -325,6 +820,60 @@
   }
 }
 
+// Крепление огнетушителя (ацн)
+.fire-extinguisher-mounting-2 {
+    width: 220px;
+    margin-right: 20px;
+}
+
+// Уровнемер (ацн)
+.urovnemetr {
+    width: 220px;
+    margin-right: 20px;
+}
+
+// Подогрев цистерны (ацн)
+.heated-tanks {
+    width: 205px;
+    margin-right: 20px;
+    .group-item__list {
+        flex-direction: column;
+    }
+    .item {
+      margin-bottom: 5px;
+      flex: 1;
+      &:last-child {
+          margin-bottom: 0;
+      }
+    }
+    .item__label {
+      display: flex;
+      align-items: center;
+    }
+    .item__text {
+        padding: 10px;
+    }
+}
+
+// Подогрев от ВС (акн)
+.heating-from-sun {
+    width: 172px;
+  .item__list {
+    flex-direction: column;
+  }
+  .item__label {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+  }
+  .item__item {
+    margin-bottom: 5px;
+    flex: 1;
+    &:last-child {margin-bottom: 0;}
+  }
+}
+
+// Исполнение (акн, ацн)
 .execution {
   width: 243px;
   margin-right: 20px;
@@ -335,15 +884,22 @@
   }
   .item__image {
   	border-right: 1px solid #f5f5f5;
-    width: 92px;
+    width: 90px;
     height: 100%;
-    padding: 0 5px;
+    flex: 0 0 auto;
   }
   .item__text {
     padding: 10px;
   }
 }
+.content_acn {
+    .execution {
+        margin-top: -50px;
+        width: 220px;
+    }
+}
 
+// Калибровка (акн, ацн)
 .calibration {
   width: 243px;
   order: 6;
@@ -353,45 +909,56 @@
   }
   .item__image {
   	border-right: 1px solid #f5f5f5;
-    width: 92px;
+    width: 90px;
     height: 100%;
-    padding: 0 5px;
+    flex: 0 0 auto;
   }
   .item__text {
     padding: 10px;
   }
 }
+.content_acn {
+    .calibration {
+        margin-top: -50px;
+        width: 220px;
+    }
+}
 
+// Двигатель (ацн)
 .engine {
     width: 180px;
     margin-right: 20px;
     order: 1;
-    .item__list {
+    .group-item__list {
         flex-direction: column;
     }
-    .item__item {
+    .item {
         margin-bottom: 5px;
-        min-height: 45px;
-        &:last-child {margin-bottom: 0;}
+        flex: 1;
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
     .item__label {
         display: flex;
         align-items: center;
     }
     .item__text {
-        padding: 0 10px;
+        padding: 10px;
     }
 }
 
+// Запасное колесо (ацн)
 .spare_wheel {
-  width: 295px;
+  // width: 295px;
   order: 3;
-  .item__item {
+  .item {
     flex: 1;
     margin-right: 5px;
-    &:last-child {margin-right: 0;}
+    &:last-child {
+        margin-right: 0;
+    }
   }
-  .item__label {}
   .item__image {
     border-bottom: 1px solid #e3e3e3;
     height: 75px;
@@ -400,18 +967,25 @@
     padding: 10px;
   }
 }
+.content_acn {
+    .spare_wheel {
+        width: 357px;
+    }
+}
 
+// Инстр. ящики (ацн)
 .tool_box {
     width: 160px;
     margin-right: 20px;
     order: 4;
-    .item__list {
+    .group-item__list {
         flex-direction: column;
     }
-    .item__item {
+    .item {
         margin-bottom: 5px;
-        // height: 45px;
-        &:last-child {margin-bottom: 0;}
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
     .item__label {
         display: flex;
@@ -420,34 +994,36 @@
     .item__image {
       border-right: 1px solid #e3e3e3;
       width: 70px;
-      height: 100%;
+      height: 50px;
       margin-right: 10px;
       flex: 0 0 auto;
     }
     .item__text {
-        padding: 0 10px;
+        padding: 10px;
     }
 }
 
+// Противоподк. брус (ацн)
 .anti_roll_bar {
     width: 189px;
     width: 156px;
     margin-right: 20px;
     order: 5;
-    .item__list {
+    .group-item__list {
         flex-direction: column;
     }
-    .item__item {
+    .item {
         margin-bottom: 5px;
-        height: 45px;
-        &:last-child {margin-bottom: 0;}
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
     .item__label {
         display: flex;
         align-items: center;
     }
     .item__text {
-        padding: 0 40px 0 10px;
+        padding: 10px 40px 10px 10px;
     }
 }
 // .content_mv {
@@ -457,10 +1033,14 @@
 //     }
 // }
 
+// Спальное место (ацн)
 .berth {
     margin-right: 20px;
     width: 225px;
     order: 2;
+    .item {
+        flex: 1;
+    }
     .item__label {
         display: flex;
         align-items: center;
@@ -475,24 +1055,31 @@
         padding: 10px 0;
     }
 }
+.content_acn {
+    .berth {
+        width: 163px;
+    }
+}
 // .content_mv {
 //     .berth {
 //         width: 200px;
 //     }
 // }
 
+// Зимний пакет (ацн)
 .winter_package {
     width: 384px;
     order: 6;
-    .item__list {
+    .group-item__list {
         flex-wrap: wrap;
         margin-right: -5px;
         margin-bottom: -5px;
     }
-    .item__item {
+    .item {
         margin-right: 5px;
-        width: 25%;
         margin-bottom: 5px;
+        flex: 1 0 auto;
+        width: 25%;
     }
     .item__label {
         padding: 0 10px;

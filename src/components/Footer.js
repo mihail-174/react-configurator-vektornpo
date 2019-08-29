@@ -15,7 +15,6 @@ export default class Footer extends Component {
       currentStep: parseInt(step, 0),
       currentStepPrev: parseInt(step, 0) - 1
     });
-    
   }
   startAgain(e) {
     e.preventDefault();
@@ -24,7 +23,7 @@ export default class Footer extends Component {
         currentStep: 0,
         currentStepPrev: 0,
         car: [],
-        selectedValue: [],
+        selectedValue3: {},
     })
   }
   render() {
