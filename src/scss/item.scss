@@ -623,11 +623,13 @@
 .vacuum-pump {
   width: 541px;
   margin-right: 20px;
-  .item__item {
+  .item {
     text-align: center;
     flex: 1;
     margin-right: 5px;
-    &:last-child {margin-right: 0;}
+    &:last-child {
+        margin-right: 0;
+    }
   }
   .item__label {
     display: flex;
@@ -641,19 +643,22 @@
 // Привод насоса (акн)
 .pump-drive {
   width: 179px;
-  .item__list {
+  .group-item__list {
     flex-direction: column;
   }
-  .item__item {
+  .item {
     margin-bottom: 5px;
-    &:last-child {margin-bottom: 0;}
+    flex: 1;
+    &:last-child {
+        margin-bottom: 0;
+    }
   }
   .item__label {
     display: flex;
     align-items: center;
   }
   .item__text {
-    padding: 0 10px;
+    padding: 10px;
   }
 }
 
@@ -661,12 +666,13 @@
 .opening-bottom {
   width: 312px;
   margin-right: 20px;
-  .item__item {
+  .item {
     flex: 1;
     margin-right: 5px;
-    &:last-child {margin-right: 0;}
+    &:last-child {
+        margin-right: 0;
+    }
   }
-  .item__label {}
   .item__image {
     border-bottom: 1px solid #e3e3e3;
     height: 75px;
@@ -680,12 +686,15 @@
 .extras-neck {
   width: 194px;
   margin-right: 20px;
-  .item__list {
+  .group-item__list {
     flex-direction: column;
   }
-  .item__item {
+  .item {
     margin-bottom: 5px;
-    &:last-child {margin-bottom: 0;}
+    flex: 1;
+    &:last-child {
+        margin-bottom: 0;
+    }
   }
   .item__label {
     display: flex;
@@ -694,7 +703,7 @@
   .item__image {
     border-right: 1px solid #e3e3e3;
     width: 107px;
-    height: 100%;
+    height: 60px;
     margin-right: 10px;
     flex: 0 0 auto;
   }
@@ -703,12 +712,15 @@
 // Крепление цистерны (акн)
 .securing-tank {
     width: 194px;
-  .item__list {
+  .group-item__list {
     flex-direction: column;
   }
-  .item__item {
+  .item {
     margin-bottom: 5px;
-    &:last-child {margin-bottom: 0;}
+    flex: 1;
+    &:last-child {
+        margin-bottom: 0;
+    }
   }
   .item__label {
     display: flex;
@@ -718,7 +730,7 @@
     border-right: 1px solid #e3e3e3;
     margin-right: 10px;
     width: 89px;
-    height: 100%;
+    height: 60px;
     flex: 0 0 auto;
   }
 }
@@ -806,14 +818,16 @@
 	width: 214px;
 	margin-right: 20px;
     order: 5;
-  .item__list {
+  .group-item__list {
   	display: flex;
   	flex-direction: column;
   }
-  .item__item {
+  .item {
     margin-bottom: 5px;
     flex: 1;
-    &:last-child {margin-bottom: 0;}
+    &:last-child {
+        margin-bottom: 0;
+    }
   }
   .item__text {
     padding: 10px;
@@ -858,7 +872,7 @@
 // Подогрев от ВС (акн)
 .heating-from-sun {
     width: 172px;
-  .item__list {
+  .group-item__list {
     flex-direction: column;
   }
   .item__label {
@@ -866,10 +880,12 @@
     align-items: center;
     padding: 0 10px;
   }
-  .item__item {
+  .item {
     margin-bottom: 5px;
     flex: 1;
-    &:last-child {margin-bottom: 0;}
+    &:last-child {
+        margin-bottom: 0;
+    }
   }
 }
 
@@ -950,7 +966,6 @@
 
 // Запасное колесо (ацн)
 .spare_wheel {
-  // width: 295px;
   order: 3;
   .item {
     flex: 1;
@@ -966,6 +981,11 @@
   .item__text {
     padding: 10px;
   }
+}
+.content_akn {
+    .spare_wheel {
+        width: 295px;
+    }
 }
 .content_acn {
     .spare_wheel {
