@@ -5,8 +5,6 @@ import Footer from '../components/Footer';
 
 import Item from '../components/Item';
 
-import '../scss/item.scss';
-
 export default class Step1 extends Component {
 
   render() {

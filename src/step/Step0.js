@@ -34,7 +34,7 @@ export default class Step0 extends Component {
 
     componentDidMount() {
         const {context} = this.props;
-        fetch(`${process.env.PUBLIC_URL}/listCar.json`)
+        fetch(`${process.env.PUBLIC_URL}/configurator_data_car/listCar.json`)
         .then(res =>res.json())
         .then(
             (result) => {

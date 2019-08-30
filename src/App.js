@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './scss/App.scss';
+import './scss/item.scss';
 
 import Step0 from './step/Step0';
 import Contents from './components/Contents';
@@ -97,12 +98,14 @@ export default class App extends Component {
             }
           </div>
 
+          {/*
           <div className="result">
-            <h2>Результат:</h2>
-            <pre>
-              {JSON.stringify(this.state, "", 4)}
-            </pre>
+              <h2>Результат:</h2>
+              <pre>
+                  {JSON.stringify(this.state, "", 4)}
+              </pre>
           </div>
+          */}
 
         </div>
       {this.props.children}

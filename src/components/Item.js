@@ -425,7 +425,7 @@ export default class Item extends Component {
         return (
             <div className={'group-item ' + itemGroupSystemName}>
                 <div className='group-item__hd'>
-                    <div className='group-item__title'>#{ itemGroupId } { itemGroupName }</div>
+                    <div className='group-item__title'>{ itemGroupName }</div>
                     {
                         keyExists('switch', state.car[step_x + '_field_' + itemGroupId])
                         &&

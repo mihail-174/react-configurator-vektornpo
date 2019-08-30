@@ -41,7 +41,7 @@ export default class Contents extends Component {
         const {context} = this.props;
         const state = context.state;
         const nameCar = state.listCar[state.currentAvto].systemName;
-        fetch(`${process.env.PUBLIC_URL}/${nameCar}.json`)
+        fetch(`${process.env.PUBLIC_URL}/configurator_data_car/${nameCar}.json`)
         .then(res => res.json())
         .then(
             (result) => {
