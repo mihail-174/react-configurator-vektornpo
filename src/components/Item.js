@@ -100,11 +100,6 @@ export default class Item extends Component {
         const group_x = 'group_' + this.props.itemGroupId;
 
         context.methods.setAppState({
-            // selectedValue: {
-            //     ...state.selectedValue,
-            //     ['item_' + itemGroupId + '_value']: value,
-            //     ['item_' + itemGroupId + '_name']: name
-            // },
             selectedValue3: {
                 ...state.selectedValue3,
                 [step_x + '__' + group_x + '__radios__name']: name,
@@ -128,8 +123,6 @@ export default class Item extends Component {
                 selectedValue3: {
                     ...state.selectedValue3,
                     [step_x + '__' + group_x + '__checkbox__value']: e.currentTarget.checked
-                    // ['item_' + itemGroupId + '_name']: 'yes'
-                    // ['item_' + itemGroupId + '_value']: e.currentTarget.checked,
                 }
             });
         } else {
@@ -137,8 +130,6 @@ export default class Item extends Component {
                 selectedValue3: {
                     ...state.selectedValue3,
                     [step_x + '__' + group_x + '__checkbox__value']: e.currentTarget.checked
-                    // ['item_' + itemGroupId + '_value']: e.currentTarget.checked,
-                    // ['item_' + itemGroupId + '_name']: null
                 }
             });
         }
@@ -154,18 +145,17 @@ export default class Item extends Component {
         const state = context.state;
         const step_x = 'step_' + state.currentStep;
         const group_x = 'group_' + this.props.itemGroupId;
-        const itemGroupSystemName = this.props.itemGroupSystemName;
 
         if ( e.target.checked ) {
             document.querySelector(e.target.parentNode.classList.add('active'));
             arrListChekboxMulti.push( e.target.parentNode.querySelector('.item__name').innerText );
         } else {
             document.querySelector(e.target.parentNode.classList.remove('active'));
-            arrListChekboxMulti.map((number, index) => {
-                if ( number === e.target.parentNode.querySelector('.item__name').innerText ) {
-                    arrListChekboxMulti.splice(index, 1);
+            for (var i = 0; i < arrListChekboxMulti.length; i++) {
+                if ( arrListChekboxMulti[i] === e.target.parentNode.querySelector('.item__name').innerText ) {
+                    arrListChekboxMulti.splice(i, 1);
                 }
-            });
+            }
         }
         context.methods.setAppState({
             selectedValue3: {
@@ -174,32 +164,6 @@ export default class Item extends Component {
                 [step_x + '__' + group_x + '__checkbox_' + e.target.parentNode.getAttribute('data-index') + '__value']: e.target.checked
             }
         });
-
-
-        // if ( e.target.parentNode.children[0].checked ) {
-        //     context.methods.setAppState({
-        //         selectedValue3: {
-        //             ...state.selectedValue3,
-        //             [step_x + '__' + group_x + '__checkbox__value']: e.currentTarget.checked
-        //             // ['item_' + itemGroupId + '_name']: 'yes'
-        //             // ['item_' + itemGroupId + '_value']: e.currentTarget.checked,
-        //         }
-        //     });
-        // } else {
-        //     context.methods.setAppState({
-        //         selectedValue3: {
-        //             ...state.selectedValue3,
-        //             [step_x + '__' + group_x + '__checkbox__value']: e.currentTarget.checked
-        //             // ['item_' + itemGroupId + '_value']: e.currentTarget.checked,
-        //             // ['item_' + itemGroupId + '_name']: null
-        //         }
-        //     });
-        // }
-        // if ( e.target.parentNode.children[0].checked ) {
-        //     document.querySelector('.' + itemGroupSystemName + ' .item').classList.add('active');
-        // } else {
-        //     document.querySelector('.' + itemGroupSystemName + ' .item').classList.remove('active');
-        // }
     }
 
     changeSelect(selectedOption, idSelect) {
@@ -213,25 +177,14 @@ export default class Item extends Component {
             context.methods.setAppState({
                 selectedValue3: {
                     ...state.selectedValue3,
-                    // [step_x + '__' + group_x + '__' + select_x + '__name']: selectedOption.label,
                     [step_x + '__' + group_x + '__' + select_x + '__value']: selectedOption
-                    // ['item_' + itemGroupId + '_' + idSelect + '_value']: selectedOption.value,
-                    // ['item_' + itemGroupId + '_' + idSelect + '_name']: selectedOption.label
                 }
             });
         }
         else
         {
             delete state.selectedValue3[step_x + '__' + group_x + '__' + select_x + '__value'];
-            context.methods.setAppState({
-            //     selectedValue3: {
-            //         ...state.selectedValue3,
-            //         // [step_x + '__' + group_x + '__' + select_x + '__name']: null,
-            //         [step_x + '__' + group_x + '__' + select_x + '__value']: null
-            //         // ['item_' + itemGroupId + '_' + idSelect + '_value']: null,
-            //         // ['item_' + itemGroupId + '_' + idSelect + '_name']: null
-            //     }
-            });
+            context.methods.setAppState({});
         }
     }
 
@@ -258,25 +211,6 @@ export default class Item extends Component {
                  }
              });
         }
-        // if ( keyExists(['item_' + itemGroupId + '_counter_value'], state.selectedValue) ) {
-        //     if ( state.selectedValue['item_' + itemGroupId + '_counter_value'] < 5 ) {
-        //         value = state.selectedValue['item_' + itemGroupId + '_counter_value'] += 1;
-        //         context.methods.setAppState({
-        //             selectedValue: {
-        //                 ...state.selectedValue,
-        //                 ['item_' + itemGroupId + '_counter_value']: value
-        //             }
-        //         });
-        //     }
-        // } else {
-        //     value += 1;
-        //     context.methods.setAppState({
-        //         selectedValue: {
-        //             ...state.selectedValue,
-        //             ['item_' + itemGroupId + '_counter_value']: value
-        //         }
-        //     });
-        // }
     }
 
     incrementCounterMinus(e, idCounter) {
@@ -284,7 +218,6 @@ export default class Item extends Component {
         const state = context.state;
         const step_x = 'step_' + state.currentStep;
         const group_x = 'group_' + this.props.itemGroupId;
-        let value = 0;
         if ( keyExists([step_x + '__' + group_x + '__counter'] , state.selectedValue3) ) {
             if ( state.selectedValue3[step_x + '__' + group_x + '__counter'] > 0 ) {
                  context.methods.setAppState({
@@ -302,27 +235,6 @@ export default class Item extends Component {
                 }
             });
         }
-        // if ( keyExists(['item_' + itemGroupId + '_counter_value'], state.selectedValue)  ) {
-        //     if ( state.selectedValue['item_' + itemGroupId + '_counter_value'] > 0 ) {
-        //         value = state.selectedValue['item_' + itemGroupId + '_counter_value'] -= 1;
-        //         context.methods.setAppState({
-        //             selectedValue: {
-        //                 ...state.selectedValue,
-        //                 ['item_' + itemGroupId + '_counter_value']: value
-        //             }
-        //         });
-        //     }
-        // } else {
-        //     if ( state.selectedValue['item_' + itemGroupId + '_counter_value'] > 0 ) {
-        //         value -= 1;
-        //         context.methods.setAppState({
-        //             selectedValue: {
-        //                 ...state.selectedValue,
-        //                 ['item_' + itemGroupId + '_counter_value']: value
-        //             }
-        //         });
-        //     }
-        // }
     }
 
     render() {
@@ -471,34 +383,6 @@ export default class Item extends Component {
                 )
             });
         }
-
-
-        // <div key={key} className={
-        //     state.selectedValue3[step_x + '__' + group_x + '__checkbox_' + key + '__value']
-        //     ?
-        //     'item__item active'
-        //     :
-        //     'item__item'
-        // } data-index={key}>
-        //   <input
-        //       type='checkbox'
-        //       className="item__input toggle__input"
-        //       id={itemGroupName + "-" + key}
-        //       name={itemGroupName}
-        //       checked={state.selectedValue3[step_x + '__' + group_x + '__checkbox_' + key + '__value'] ? true : false }
-        //       // onChange={this.handleInputChange.bind(this)}
-        //   />
-        //   <label className="toggle__label" htmlFor={itemGroupName + "-" + key}></label>
-        //   <label className="item__label" htmlFor={itemGroupName + "-" + key}>
-        //       {field.ico && <div className='item__image'><img src={require('../img/step-ico/' + field.url)} alt='' /></div>}
-        //       <div className='item__text'>
-        //           <div className='item__name'>{field.name}</div>
-        //           {field.subName && <div className='item__subname'>{field.subName}</div> }
-        //       </div>
-        //   </label>
-        // </div>
-
-
 
         let listCounter = '';
         if ( keyExists('counter', state.car[step_x + '_field_' + itemGroupId].values) ) {

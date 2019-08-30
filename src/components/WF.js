@@ -20,7 +20,6 @@ export default class WF extends Component {
   render() {
       const { context } = this.props;
       const state = context.state;
-      const currentStep = state.currentStep;
       const selectedValue3 = state.selectedValue3;
       const step1 = 'step_1';
       const step2 = 'step_2';
@@ -35,19 +34,20 @@ export default class WF extends Component {
               return '<br>' + state.car[step1 + '_field_1'].values.counter[0].label + ': ' + selectedValue3[step1 + '__' + group + '__counter'];
           }
           if ( keyExists( 'select' , state.car[step1+'_field_'+field.id].values ) ) {
-              return state.car[step1+'_field_'+field.id].values.select.map( (fieldSelect, keySelect) => {
-                  if (selectedValue3[step1 + '__' + group + '__select_' + keySelect + '__value'] ) {
-                      return '<br>' + fieldSelect.label + ': ' + selectedValue3[step1 + '__' + group + '__select_' + keySelect + '__value'].label;
+              for (var i in state.car[step1+'_field_'+field.id].values.select) {
+                  if (selectedValue3[step1 + '__' + group + '__select_' + i + '__value'] ) {
+                      return '<br>' + state.car[step1][field.id].name + ': ' + selectedValue3[step1 + '__' + group + '__select_' + i + '__value'].label;
                   }
-              }).join('');
+              }
           }
           if ( selectedValue3[step1 + '__' + group + '__checkbox__value'] !== undefined ) {
               if ( selectedValue3[step1 + '__' + group + '__checkbox__value'] ) {
-                  return '<br>' + state.car[step1 + '_field_' + field.id].values.checkbox[0].name + ': ' + 'нужен';
+                  return '<br>' + (state.car[step1 + '_field_' + field.id].values.checkbox[0].name) + ': нужен';
               } else {
-                  return '<br>' + state.car[step1 + '_field_' + field.id].values.checkbox[0].name + ': ' + 'не нужен';
+                  return '<br>' + (state.car[step1 + '_field_' + field.id].values.checkbox[0].name) + ': не нужен';
               }
           }
+          return;
       }).join('');
 
       let contentStep2 = state.car[step2].map( (field, keyGroup) => {
@@ -59,19 +59,20 @@ export default class WF extends Component {
               return '<br>' + state.car[step2 + '_field_1'].values.counter[0].label + ': ' + selectedValue3[step2 + '__' + group + '__counter'];
           }
           if ( keyExists( 'select' , state.car[step2+'_field_'+field.id].values ) ) {
-              return state.car[step2+'_field_'+field.id].values.select.map( (fieldSelect, keySelect) => {
-                  if (selectedValue3[step2 + '__' + group + '__select_' + keySelect + '__value'] ) {
-                      return '<br>' + fieldSelect.label + ': ' + selectedValue3[step2 + '__' + group + '__select_' + keySelect + '__value'].label;
+              for (var i in state.car[step2+'_field_'+field.id].values.select) {
+                  if (selectedValue3[step2 + '__' + group + '__select_' + i + '__value'] ) {
+                      return '<br>' + state.car[step2][field.id].name + ': ' + selectedValue3[step2 + '__' + group + '__select_' + i + '__value'].label;
                   }
-              }).join('');
+              }
           }
           if ( selectedValue3[step2 + '__' + group + '__checkbox__value'] !== undefined ) {
               if ( selectedValue3[step2 + '__' + group + '__checkbox__value'] ) {
-                  return '<br>' + state.car[step2 + '_field_' + field.id].values.checkbox[0].name + ': ' + 'нужен';
+                  return '<br>' + (state.car[step2 + '_field_' + field.id].values.checkbox[0].name) + ': нужен';
               } else {
-                  return '<br>' + state.car[step2 + '_field_' + field.id].values.checkbox[0].name + ': ' + 'не нужен';
+                  return '<br>' + (state.car[step2 + '_field_' + field.id].values.checkbox[0].name) + ': не нужен';
               }
           }
+          return;
       }).join('');
 
       let contentStep3 = state.car[step3].map( (field, keyGroup) => {
@@ -83,26 +84,25 @@ export default class WF extends Component {
               return '<br>' + state.car[step3 + '_field_1'].values.counter[0].label + ': ' + selectedValue3[step3 + '__' + group + '__counter'];
           }
           if ( keyExists( 'select' , state.car[step3+'_field_'+field.id].values ) ) {
-              return state.car[step3+'_field_'+field.id].values.select.map( (fieldSelect, keySelect) => {
-                  if (selectedValue3[step3 + '__' + group + '__select_' + keySelect + '__value'] ) {
-                      return '<br>' + fieldSelect.label + ': ' + selectedValue3[step3 + '__' + group + '__select_' + keySelect + '__value'].label;
+              for (var i in state.car[step3+'_field_'+field.id].values.select) {
+                  if (selectedValue3[step3 + '__' + group + '__select_' + i + '__value'] ) {
+                      return '<br>' + state.car[step3][field.id].name + ': ' + selectedValue3[step3 + '__' + group + '__select_' + i + '__value'].label;
                   }
-              }).join('');
+              }
           }
           if ( selectedValue3[step3 + '__' + group + '__checkbox__value'] !== undefined ) {
               if ( selectedValue3[step3 + '__' + group + '__checkbox__value'] ) {
-                  return '<br>' + state.car[step3 + '_field_' + field.id].values.checkbox[0].name + ': ' + 'нужен';
+                  return '<br>' + (state.car[step3 + '_field_' + field.id].values.checkbox[0].name) + ': нужен';
               } else {
-                  return '<br>' + state.car[step3 + '_field_' + field.id].values.checkbox[0].name + ': ' + 'не нужен';
+                  return '<br>' + (state.car[step3 + '_field_' + field.id].values.checkbox[0].name) + ': не нужен';
               }
           }
           if ( keyExists( 'checkbox_multi' , state.car[step3+'_field_'+field.id].values ) ) {
-              return '<br>' + field.name + ': ' + state.car[step3+'_field_'+field.id].values.checkbox_multi.map( (fieldCheckbox, keyCheckbox) => {
-                  if ( selectedValue3[step3 + '__' + group + '__checkbox_' + keyCheckbox + '__value'] ) {
-                      return fieldCheckbox.name;
-                  }
-              });
+              if ( selectedValue3[step3 + '__' + group + '__checkbox_multi'] ) {
+                  return selectedValue3[step3 + '__' + group + '__checkbox_multi'].toString();
+              }
           }
+          return;
       }).join('');
 
     return (
@@ -122,7 +122,7 @@ export default class WF extends Component {
               <textarea name='notice' placeholder='Примечание'></textarea>
             </div>
             <div className="wf__field wf__data">
-                <textarea rows='17' name='data' defaultValue={
+                <textarea hidden rows='17' name='data' defaultValue={
                     'Техника: ' + state.listCar[state.currentAvto].name + '<br>' + contentStep1 + '<br>' + contentStep2 + '<br>' + contentStep3
                 } />
             </div>
@@ -136,105 +136,6 @@ export default class WF extends Component {
   }
 
     componentDidMount() {
-        // const { context } = this.props;
-        // const state = context.state;
-        // const currentStep = state.currentStep;
-        // const selectedValue3 = state.selectedValue3;
-        // const step1 = 'step_1';
-        // const step2 = 'step_2';
-        // const step3 = 'step_3';
-        // const step = 'step_' + currentStep;
-
-        // console.group('STEP 1');
-        // state.car[step1].map( (field, keyGroup) => {
-        //     const group = 'group_' + keyGroup;
-        //     if ( selectedValue3[step1 + '__' + group + '__radios__name'] !== undefined ) {
-        //         console.log( field.name + ': ' + selectedValue3[step1 + '__' + group + '__radios__name'] );
-        //     }
-        //     if ( selectedValue3[step1 + '__' + group + '__counter'] !== undefined ) {
-        //         console.group(field.name);
-        //         console.log( state.car[step1 + '_field_1'].values.counter[0].label + ': ' + selectedValue3[step1 + '__' + group + '__counter'] );
-        //         console.groupEnd();
-        //     }
-        //     if ( keyExists( 'select' , state.car[step1+'_field_'+field.id].values ) ) {
-        //         console.group(field.name);
-        //         state.car[step1+'_field_'+field.id].values.select.map( (fieldSelect, keySelect) => {
-        //             if (selectedValue3[step1 + '__' + group + '__select_' + keySelect + '__value'] ) {
-        //                 console.log( fieldSelect.label + ': ' + selectedValue3[step1 + '__' + group + '__select_' + keySelect + '__value'].label );
-        //             }
-        //         });
-        //         console.groupEnd();
-        //     }
-        //     if ( selectedValue3[step1 + '__' + group + '__checkbox__value'] !== undefined ) {
-        //         if ( selectedValue3[step1 + '__' + group + '__checkbox__value'] ) {
-        //             console.log( state.car[step1 + '_field_' + field.id].values.checkbox[0].name + ': ' + 'нужен' );
-        //         } else {
-        //             console.log( state.car[step1 + '_field_' + field.id].values.checkbox[0].name + ': ' + 'не нужен' );
-        //         }
-        //     }
-        // });
-        // console.groupEnd();
-
-        // console.group('STEP 2');
-        // state.car[step2].map( (field, keyGroup) => {
-        //     const group = 'group_' + keyGroup;
-        //     if ( selectedValue3[step2 + '__' + group + '__radios__name'] !== undefined ) {
-        //         console.log( field.name + ': ' + selectedValue3[step2 + '__' + group + '__radios__name'] );
-        //     }
-        //     if ( selectedValue3[step2 + '__' + group + '__counter'] !== undefined ) {
-        //         console.group(field.name);
-        //         console.log( state.car[step2 + '_field_1'].values.counter[0].label + ': ' + selectedValue3[step2 + '__' + group + '__counter'] );
-        //         console.groupEnd();
-        //     }
-        //     if ( keyExists( 'select' , state.car[step2+'_field_'+field.id].values ) ) {
-        //         console.group(field.name);
-        //         state.car[step2+'_field_'+field.id].values.select.map( (fieldSelect, keySelect) => {
-        //             if (selectedValue3[step2 + '__' + group + '__select_' + keySelect + '__value'] ) {
-        //                 console.log( fieldSelect.label + ': ' + selectedValue3[step2 + '__' + group + '__select_' + keySelect + '__value'].label );
-        //             }
-        //         });
-        //         console.groupEnd();
-        //     }
-        //     if ( selectedValue3[step2 + '__' + group + '__checkbox__value'] !== undefined ) {
-        //         if ( selectedValue3[step2 + '__' + group + '__checkbox__value'] ) {
-        //             console.log( state.car[step2 + '_field_' + field.id].values.checkbox[0].name + ': ' + 'нужен' );
-        //         } else {
-        //             console.log( state.car[step2 + '_field_' + field.id].values.checkbox[0].name + ': ' + 'не нужен' );
-        //         }
-        //     }
-        // });
-        // console.groupEnd();
-        //
-        // console.group('STEP 3');
-        // state.car[step3].map( (field, keyGroup) => {
-        //     const group = 'group_' + keyGroup;
-        //     if ( selectedValue3[step3 + '__' + group + '__radios__name'] !== undefined ) {
-        //         console.log( field.name + ': ' + selectedValue3[step3 + '__' + group + '__radios__name'] );
-        //     }
-        //     if ( selectedValue3[step3 + '__' + group + '__counter'] !== undefined ) {
-        //         console.group(field.name);
-        //         console.log( state.car[step3 + '_field_1'].values.counter[0].label + ': ' + selectedValue3[step3 + '__' + group + '__counter'] );
-        //         console.groupEnd();
-        //     }
-        //     if ( keyExists( 'select' , state.car[step3+'_field_'+field.id].values ) ) {
-        //         console.group(field.name);
-        //         state.car[step3+'_field_'+field.id].values.select.map( (fieldSelect, keySelect) => {
-        //             if (selectedValue3[step3 + '__' + group + '__select_' + keySelect + '__value'] ) {
-        //                 console.log( fieldSelect.label + ': ' + selectedValue3[step3 + '__' + group + '__select_' + keySelect + '__value'].label );
-        //             }
-        //         });
-        //         console.groupEnd();
-        //     }
-        //     if ( selectedValue3[step3 + '__' + group + '__checkbox__value'] !== undefined ) {
-        //         if ( selectedValue3[step3 + '__' + group + '__checkbox__value'] ) {
-        //             console.log( state.car[step3 + '_field_' + field.id].values.checkbox[0].name + ': ' + 'нужен' );
-        //         } else {
-        //             console.log( state.car[step3 + '_field_' + field.id].values.checkbox[0].name + ': ' + 'не нужен' );
-        //         }
-        //     }
-        // });
-        // console.groupEnd();
-
         $(document).on("click", ".footer__finish", function() {
             $('.wf__submit').click();
         });
@@ -268,10 +169,10 @@ export default class WF extends Component {
                         if (res.MSG) {
                             $wf.find(".wf__message").html(res.MSG).addClass('wf__message_errors').removeClass('wf__message_success');
                         }
-                        for(var i in res.ERROR_FIELDS) {
-                            var fName = res.ERROR_FIELDS[i];
-                            var $input = $form.find("[name='"+ fName + "']").addClass("error");
-                        }
+                        // for(var i in res.ERROR_FIELDS) {
+                            // var fName = res.ERROR_FIELDS[i];
+                            // var $input = $form.find("[name='"+ fName + "']").addClass("error");
+                        // }
                     }
                 }
             );
