@@ -45,108 +45,7 @@ let initialState = {
         // step_1__group_8__radios__name: null,
         // step_1__group_8__radios__value: null
     },
-    // selectedValue2: {
-    //     step_1: [
-    //         {
-    //             group_0: {
-    //                 radios: {
-    //                     name: 'эллипс',
-    //                     value: 0
-    //                 }
-    //             }
-    //         },
-    //         {
-    //             group_1: {
-    //                 counter: 0,
-    //                 selects: [
-    //                     {
-    //                         name: 'стеклопластиковые',
-    //                         value: 2
-    //                     }
-    //                 ]
-    //             }
-    //         },
-    //         {
-    //             group_2: {
-    //                 radios: {
-    //                     name: 'Насос',
-    //                     value: 0
-    //                 }
-    //             }
-    //         },
-    //         {
-    //             group_3: {
-    //                 selects: [
-    //                     {
-    //                             name: 'Нержавейка (3 мм)',
-    //                             value: 0
-    //                     }
-    //                 ]
-    //             },
-    //         },
-    //         {
-    //             group_4: {
-    //                 checkbox: [
-    //                     {
-    //                         value: true
-    //                     }
-    //                 ]
-    //             }
-    //         },
-    //         {
-    //             group_5: {
-    //                 selects: [
-    //                     {
-    //                             name: '100 мм',
-    //                             value: 0
-    //                     },
-    //                     {
-    //                             name: '10',
-    //                             value: 0
-    //                     },
-    //                     {
-    //                             name: 'короб типа акн',
-    //                             value: 0
-    //                     }
-    //                 ]
-    //             }
-    //         },
-    //         {
-    //             group_6: {
-    //                 selects: [
-    //                     {
-    //                             name: '100 мм',
-    //                             value: 0
-    //                     },
-    //                     {
-    //                             name: '10',
-    //                             value: 0
-    //                     }
-    //                 ]
-    //             }
-    //         },
-    //         {
-    //             group_7: {
-    //                 radios: {
-    //                     name: 'Задвижка АНМ 53',
-    //                     value: 0
-    //                 }
-    //             }
-    //         },
-    //         {
-    //             group_8: {
-    //                 radios: {
-    //                     name: 'СВН 80А',
-    //                     value: 0
-    //                 }
-    //             }
-    //         }
-    //     ]
-    // },
 
-    // ajaxStatus: null,
-    // ajaxLoaded: false,
-    // ajaxError: false,
     currentStep: 0,
     currentStepPrev: 0,
     currentAvto: 0,
@@ -157,21 +56,7 @@ let initialState = {
         { id: 4, name: 'Готово' }
     ],
     listCar: [],
-    // selectedValue: {},
     car: {},
-}
-
-
-function keyExists(key, search) {
-    if (!search || (search.constructor !== Array && search.constructor !== Object)) {
-        return false;
-    }
-    for (var i = 0; i < search.length; i++) {
-        if (search[i] === key) {
-            return true;
-        }
-    }
-    return key in search;
 }
 
 export default class App extends Component {
@@ -179,8 +64,6 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = initialState;
-    // isLoaded: false,
-    // this.state = {}
     this.setStep = this.setStep.bind(this);
     this.setAppState = this.setAppState.bind(this);
   }
